@@ -13,5 +13,11 @@ public class GamesController {
         model.addAttribute("name", name);
         return "game";
     }
+    
+    @RequestMapping("/snakeGame")
+    public String snakeGame(@RequestParam(value="name", required=false, defaultValue="game2") String name, Model model) {
+        model.addAttribute("name", name);
+        return "snakeGame";
+    }
 
 }
