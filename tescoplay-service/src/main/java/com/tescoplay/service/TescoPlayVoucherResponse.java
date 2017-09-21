@@ -6,7 +6,7 @@ public class TescoPlayVoucherResponse {
 	
 	private boolean success;
 	
-	private boolean desc;
+	private String desc;
 
 	public String getVoucherId() {
 		return voucherId;
@@ -24,11 +24,11 @@ public class TescoPlayVoucherResponse {
 		this.success = success;
 	}
 
-	public boolean isDesc() {
+	public String getDesc() {
 		return desc;
 	}
 
-	public void setDesc(boolean desc) {
+	public void setDesc(String desc) {
 		this.desc = desc;
 	}
 

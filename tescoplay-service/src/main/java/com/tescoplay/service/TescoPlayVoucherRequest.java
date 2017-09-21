@@ -8,7 +8,7 @@ public class TescoPlayVoucherRequest {
 	
 	private String promoId;
 	
-	private String released;
+	private boolean released;
 
 	public String getVoucherId() {
 		return voucherId;
@@ -34,12 +34,14 @@ public class TescoPlayVoucherRequest {
 		this.promoId = promoId;
 	}
 
-	public String getReleased() {
+	public boolean isReleased() {
 		return released;
 	}
 
-	public void setReleased(String released) {
+	public void setReleased(boolean released) {
 		this.released = released;
 	}
+
+	
 	
 }

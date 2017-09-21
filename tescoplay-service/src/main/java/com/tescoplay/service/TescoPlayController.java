@@ -181,6 +181,35 @@ public class TescoPlayController {
 		}
 	}
 	
+	@PostMapping("/createVoucher")
+	public ResponseEntity handleCreateVoucher(HttpServletRequest request, HttpServletResponse response,@RequestBody TescoPlayVoucherRequest tescoPlayVoucherReq) {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		TescoPlayVoucherResponse playResponse = null;
+		
+		try {
+			String jsonStr = mapper.writeValueAsString(tescoPlayVoucherReq);
+			
+		  playResponse = TescoPlayService.createVoucher(jsonStr, bucket);
+			
+			
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(playResponse.isSuccess()){
+			
+			return new ResponseEntity(playResponse, HttpStatus.OK);
+			
+		}else{
+			return new ResponseEntity(playResponse, HttpStatus.OK);
+		}
+	}
+	
 	@RequestMapping("/getGame")
 	public ResponseEntity handleGetGame(HttpServletRequest request, HttpServletResponse response) {
 		

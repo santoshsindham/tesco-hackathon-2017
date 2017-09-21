@@ -84,6 +84,74 @@ public class TescoPlayService {
 		
 	}
 	
+	public static Voucher getVoucherDetails(String promoId, Bucket bucket) throws Exception {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(Voucher.class);
+		
+		
+		N1qlQueryResult result = bucket.query(N1qlQuery.simple("select * from tescoplay where type = 'voucher' and released = false and promoId = '"+promoId +"'"));
+		
+		
+		if (result == null || !result.finalSuccess()) {
+			System.out.println("null result");
+			return null;
+		}
+
+		List<N1qlQueryRow> allVouchers =  result.allRows();
+		
+		JsonObject resultJson = null;
+		
+		JsonObject finalJson = null;
+		
+		for(N1qlQueryRow row : allVouchers){
+			
+			resultJson = row.value().getObject("tescoplay");
+			
+			if(!resultJson.getBoolean("released")){
+				
+				finalJson = resultJson;
+				break;
+			}
+			
+		}
+		if(finalJson!=null){
+			
+			RawJsonDocument jsonDocument = bucket.get(finalJson.getString("voucherId"), RawJsonDocument.class);
+			
+			if(jsonDocument == null){
+				return null;
+			}
+			
+			Voucher voucher = objectReader.readValue(jsonDocument.content().toString());
+			
+			markVoucherAsReleased(voucher, bucket);
+			
+			return voucher;
+			
+		}else{
+			return null;
+		}
+		
+	}
+	
+	public static void markVoucherAsReleased(Voucher voucher, Bucket bucket) throws Exception{
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectWriter objectWriter = mapper.writerFor(Voucher.class);
+		
+		voucher.setReleased(true);
+		
+		String createdJsonString = objectWriter.writeValueAsString(voucher); 
+		
+		RawJsonDocument jsonDocument = RawJsonDocument.create(voucher.getVoucherId(), createdJsonString);
+
+		RawJsonDocument jsonDocumentCreated = bucket.upsert(jsonDocument);
+		
+	}
+	
 	public static TescoPlayResponse applyScore(String jsonString, Bucket bucket) throws Exception {
 		
 		TescoPlayResponse playResponse = new TescoPlayResponse();
@@ -133,8 +201,6 @@ public class TescoPlayService {
 				playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
 				playResponse.setSuccess(false);
 				playResponse.setErrorDesc("unable to apply score");
-				
-				
 			}
 			
 			playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
@@ -146,8 +212,24 @@ public class TescoPlayService {
 			
 		}else if(promotionDetails.getPromotionType().equals("voucher")){
 			
+			Voucher voucher = getVoucherDetails(promotionDetails.getPromotionId(), bucket);
+			
+			if(voucher !=null){
+				playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
+				playResponse.setSuccess(true);
+				playResponse.setErrorDesc("successfully applied score to customer");
+				playResponse.setAddedPoints(0);
+				playResponse.setPoints(0);
+				playResponse.setVoucherCode(voucher.getVoucherCode());
+				return playResponse;
+				
+			}else{
+				playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
+				playResponse.setSuccess(false);
+				playResponse.setErrorDesc("unable to apply score");
+			}
+			
 		}
-		
 		
 		return playResponse;
 			
@@ -290,6 +372,52 @@ public static TescoPlayGameResponse createGame(String jsonString, Bucket bucket)
 	playGameResponse.setDesc("game created successfully");
 	
 	return playGameResponse;
+		
+
+}
+
+public static TescoPlayVoucherResponse createVoucher(String jsonString, Bucket bucket) throws Exception {
+	
+	TescoPlayVoucherResponse playGameVoucherResponse = new TescoPlayVoucherResponse();
+
+	ObjectMapper mapper = new ObjectMapper();
+	
+	ObjectReader objectReader = mapper.readerFor(TescoPlayVoucherRequest.class);
+	
+	ObjectWriter objectWriter = mapper.writerFor(Voucher.class);
+
+	TescoPlayVoucherRequest tescoPlayVoucherReq = objectReader.readValue(jsonString);
+	
+	
+	Voucher voucher = new Voucher();
+	
+	voucher.setVoucherId(tescoPlayVoucherReq.getVoucherId());
+	
+	voucher.setVoucherCode(tescoPlayVoucherReq.getVoucherCode());
+	
+	voucher.setPromoId(tescoPlayVoucherReq.getPromoId());
+	
+	voucher.setReleased(tescoPlayVoucherReq.isReleased());
+	
+	
+	String createdJsonString = objectWriter.writeValueAsString(voucher);
+	RawJsonDocument jsonDocument = RawJsonDocument.create(voucher.getVoucherId(), createdJsonString);
+
+	RawJsonDocument jsonDocumentCreated = bucket.upsert(jsonDocument);
+	
+	if(jsonDocumentCreated == null){
+		playGameVoucherResponse.setVoucherId(tescoPlayVoucherReq.getVoucherId());
+		playGameVoucherResponse.setSuccess(false);
+		playGameVoucherResponse.setDesc("unable to create voucher");
+		
+		return playGameVoucherResponse;
+	}
+	
+	playGameVoucherResponse.setVoucherId(tescoPlayVoucherReq.getVoucherId());
+	playGameVoucherResponse.setSuccess(true);
+	playGameVoucherResponse.setDesc("voucher created successfully");
+	
+	return playGameVoucherResponse;
 		
 
 }
