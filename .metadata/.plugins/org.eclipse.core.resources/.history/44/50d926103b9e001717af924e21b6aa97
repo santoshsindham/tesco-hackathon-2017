@@ -1,0 +1,111 @@
+package com.tescoplay.service;
+
+import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.document.RawJsonDocument;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+public class PointsUpdateService {
+	
+
+	
+	public static TescoPlayResponse getPoints(String jsonString, Bucket bucket) throws Exception {
+		
+		TescoPlayResponse playResponse = new TescoPlayResponse();
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(TescoPlayRequest.class);
+		
+		TescoPlayRequest tescoPlayRequest = objectReader.readValue(jsonString);
+		
+		CustomerPoints customerPoints = getCustomerDetails(tescoPlayRequest.getCustomerId(), bucket);
+		
+		if(customerPoints == null){
+			playResponse.setCustomerId(customerPoints.getCustomerId());
+			playResponse.setSuccess(false);
+			playResponse.setErrorDesc("Customer Not found");
+			return playResponse;
+		}
+	
+		
+		playResponse.setCustomerId(customerPoints.getCustomerId());
+		playResponse.setPoints(customerPoints.getPoints());
+		playResponse.setSuccess(true);
+		return playResponse;
+
+	}
+	
+	
+	public static CustomerPoints getCustomerDetails(String customerId, Bucket bucket) throws Exception {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(CustomerPoints.class);
+		
+		RawJsonDocument jsonDocument = bucket.get(customerId, RawJsonDocument.class);
+		
+		
+		if(jsonDocument == null){
+			return null;
+		}
+		
+		CustomerPoints customerPoints = objectReader.readValue(jsonDocument.content().toString());
+	
+		return customerPoints;
+		
+		
+	}
+	
+	public static TescoPlayResponse applyScore(String jsonString, Bucket bucket) throws Exception {
+		
+		TescoPlayResponse playResponse = new TescoPlayResponse();
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(TescoPlayRequest.class);
+		
+		ObjectWriter objectWriter = mapper.writerFor(CustomerPoints.class);
+
+		TescoPlayRequest tescoPlayRequest = objectReader.readValue(jsonString);
+		
+		CustomerPoints customerPoints = getCustomerDetails(tescoPlayRequest.getCustomerId(), bucket);
+		
+		if(customerPoints == null){
+			
+			playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
+			playResponse.setSuccess(false);
+			playResponse.setErrorDesc("customer not found");
+			
+			return playResponse;
+		}
+		
+		long finalPoints = customerPoints.getPoints() +  tescoPlayRequest.getScore();
+
+			customerPoints.setPoints(finalPoints);
+
+			String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
+			RawJsonDocument jsonDocument = RawJsonDocument.create(customerPoints.getCustomerId(), updatedJsonString);
+
+			RawJsonDocument jsonDocumentUpdated = bucket.upsert(jsonDocument);
+			
+			if(jsonDocumentUpdated == null){
+				playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
+				playResponse.setSuccess(false);
+				playResponse.setErrorDesc("unable to apply score");
+				
+				return playResponse;
+			}
+			
+			playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
+			playResponse.setSuccess(true);
+			playResponse.setErrorDesc("successfully applied score to customer");
+			playResponse.setAddedPoints(tescoPlayRequest.getScore());
+			playResponse.setPoints(finalPoints);
+			return playResponse;
+			
+
+	}
+
+}

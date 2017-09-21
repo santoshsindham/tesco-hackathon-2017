@@ -1,0 +1,17 @@
+package com.tescoplay.service;
+
+import java.io.IOException;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TescoPlayController {
+	
+	
+	public static void shutdown() throws IOException {
+
+		
+		System.exit(0);
+
+	}
+}

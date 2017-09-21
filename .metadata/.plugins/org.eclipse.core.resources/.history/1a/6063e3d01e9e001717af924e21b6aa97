@@ -1,0 +1,979 @@
+package com.tesco.dbtest.service.couchbase;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.TimeUnit;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.couchbase.client.core.BackpressureException;
+import com.couchbase.client.core.message.kv.subdoc.multi.Mutation;
+import com.couchbase.client.core.time.Delay;
+import com.couchbase.client.java.AsyncBucket;
+import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.ReplicaMode;
+import com.couchbase.client.java.document.JsonDocument;
+import com.couchbase.client.java.document.RawJsonDocument;
+import com.couchbase.client.java.document.json.JsonArray;
+import com.couchbase.client.java.query.AsyncN1qlQueryResult;
+import com.couchbase.client.java.query.N1qlQuery;
+import com.couchbase.client.java.query.ParameterizedN1qlQuery;
+import com.couchbase.client.java.subdoc.AsyncMutateInBuilder;
+import com.couchbase.client.java.subdoc.DocumentFragment;
+import com.couchbase.client.java.subdoc.MutateInBuilder;
+import com.couchbase.client.java.util.retry.RetryBuilder;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.tesco.dbtest.config.AppConfigParserX;
+import com.tesco.dbtest.config.ApplicationConfig;
+import com.tesco.dbtest.data.simulate.OrderBuilder;
+import com.tesco.dbtest.data.simulate.utils.RandomDataGenerator;
+import com.tesco.dbtest.data.simulate.utils.RandomDataUtils;
+import com.tesco.dbtest.data.simulate.vo.AddressInfo;
+import com.tesco.dbtest.data.simulate.vo.ProfileInfo;
+import com.tesco.dbtest.data.simulate.vo.PromotionInfo;
+import com.tesco.dbtest.data.simulate.vo.SKUInfo;
+import com.tesco.dbtest.db.couchbase.OrderQueryService;
+import com.tesco.dbtest.db.couchbase.OrderUpdateService;
+import com.tesco.dbtest.db.couchbase.utils.ConnectionBuilder;
+import com.tesco.dbtest.model.Item;
+import com.tesco.dbtest.model.Order;
+import com.tesco.dbtest.model.utils.ObjectReadersPool;
+import com.tesco.dbtest.model.utils.ObjectReadersPoolItem;
+import com.tesco.dbtest.model.utils.ObjectWritersPool;
+import com.tesco.dbtest.model.utils.ObjectWritersPoolItem;
+
+import rx.Observable;
+import rx.functions.Action0;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
+
+@RestController
+public class CouchbaseController {
+
+	private static Map<String, Order> ordersMap = new HashMap<>();
+	private static List<String> orderIds = Collections.synchronizedList(new ArrayList<String>());
+	private static List<String> profileIds = Collections.synchronizedList(new ArrayList<String>());
+	private static Bucket bucket;
+	// private static AsyncBucket asyncBucket_;
+	private static int bucketPoolSize = 300;
+
+	private static ArrayBlockingQueue<AsyncBucket> bucketPool;
+
+	private static ArrayBlockingQueue<Bucket> syncBucketPool;
+
+	private static int counter = 0; // duplicates might get generated ,
+									// Alternative is to use AtomicInteger
+	ApplicationConfig appConfig = null;
+	private static List<String> operationTimings = Collections.synchronizedList(new LinkedList<String>());
+	private static Logger logger = LoggerFactory.getLogger(CouchbaseController.class.getName());
+
+	private int numberOfOrdersToCreate;
+	private static ArrayBlockingQueue<Order> testOrders;
+
+	public CouchbaseController() {
+
+		try {
+			appConfig = AppConfigParserX.parseConfig();
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+		}
+
+		if (appConfig == null) {
+
+			logger.info(" configuration file could not be loaded " + System.getProperty("config-file-path"));
+
+			System.exit(0);
+		}
+
+		ConnectionBuilder.setAppConfig(appConfig);
+		bucket = ConnectionBuilder.getBucket();
+		//	asyncBucket_ = ConnectionBuilder.getBucketAsyncInstance();
+
+		logger.info("bucket " + bucket);
+		//	logger.info("asyncBucket " + asyncBucket_);
+
+		bucketPoolSize = appConfig.getCouchbaseConnectionPoolSize();
+		bucketPool = new ArrayBlockingQueue<AsyncBucket>(bucketPoolSize);
+
+		for (int i = 0; i < bucketPoolSize; i++) {
+			bucketPool.add(ConnectionBuilder.getBucketAsync());
+		}
+
+		/*
+		syncBucketPool = new ArrayBlockingQueue<Bucket>(bucketPoolSize);
+		for (int i = 0; i < bucketPoolSize; i++) {
+			syncBucketPool.add(ConnectionBuilder.getBucket());
+		}*/
+		OrderUpdateService.setAppConfig(appConfig);
+		OrderQueryService.setAppConfig(appConfig);
+
+		RandomDataUtils.setAppConfig(appConfig);
+		RandomDataUtils.initialize();
+
+		ProfileInfo profileInfo = RandomDataGenerator.getInstance().getProfileInfo();
+		logger.info("finished loading profiles");
+		PromotionInfo promotion = RandomDataGenerator.getInstance().getPromotion();
+		logger.info("finished loading promos");
+		SKUInfo skuInfo = RandomDataGenerator.getInstance().getSKUInfo();
+		logger.info("finished loading skus");
+		AddressInfo addressInfo = RandomDataGenerator.getInstance().getAddress();
+		logger.info("finished loading addresses");
+
+		if (appConfig.isPreCreateOrders()) {
+
+			numberOfOrdersToCreate = appConfig.getNumberOfOrdersToCreate();
+			testOrders = new ArrayBlockingQueue(numberOfOrdersToCreate);
+
+			logger.info("Started Pre creating order objects " + numberOfOrdersToCreate);
+
+			Order order = null;
+
+			for (int i = 0; i < numberOfOrdersToCreate; i++) {
+				order = OrderBuilder.buildOrder(i);
+				testOrders.add(order);
+			}
+
+			logger.info("Finished Pre creating order objects " + numberOfOrdersToCreate);
+
+		}
+
+		orderIds = OrderQueryService.getOrderIds(bucket);
+
+		profileIds = OrderQueryService.getProfileIds(bucket);
+
+		logger.info(orderIds.size() + " order ids loaded ");
+
+		logger.info(profileIds.size() + " profile ids loaded ");
+
+		ObjectWritersPool.getbjectWritersPool().initializePool();
+		ObjectReadersPool.getbjectReadersPool().initializePool();
+		ObjectWritersPoolItem.initializePool();
+		ObjectReadersPoolItem.initializePool();
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			logger.error("Error:", e);
+		}
+	}
+
+	@RequestMapping("/getOrder")
+	public Order getOrderX(HttpServletRequest request, HttpServletResponse response) {
+		return OrderBuilder.buildOrder(0);
+	}
+
+	@RequestMapping("/persist_random_order_async")
+	public void handlePersistOrderAsync(HttpServletRequest request, HttpServletResponse response) {
+
+		Order order_ = null;
+
+		if (appConfig.isPreCreateOrders()) {
+			order_ = testOrders.remove();
+		} else {
+			order_ = OrderBuilder.buildOrder(counter);
+		}
+
+		if (order_ == null) {
+			sendError(400, response);
+			return;
+		}
+
+		final Order order = order_;
+
+		// logger.info("Created order " + order.getOrderId());
+
+		AsyncBucket asynchBucket = checkout();
+
+		try {
+
+			Observable<JsonDocument> createDocumentObservable = OrderUpdateService.createOrderDocument(order);
+
+			long currentTime = System.currentTimeMillis();
+			//log.log(Level.WARNING, order.getOrderId() + " " + currentTime);
+
+			createDocumentObservable.first().subscribe(
+
+					doc -> {
+
+						Observable<JsonDocument> insertObservable = OrderUpdateService.insertDocumentAsync(doc, asynchBucket);
+						insertObservable.subscribeOn(Schedulers.io())
+								.timeout(appConfig.getCouchbaseSubscriberTimeoutMills(), TimeUnit.MILLISECONDS)
+								.doOnError(new Action1<Throwable>() {
+									@Override
+									public void call(Throwable throwable) {
+										if (!response.isCommitted()) {
+
+											logResponseTimings("operation_write", "timeout", order.getOrderId(),
+													System.currentTimeMillis() - currentTime);
+
+											sendError(400, response);
+										}
+										return;
+									}
+								}).subscribe(
+
+										s -> {
+
+											logResponseTimings("operation_write", "success", order.getOrderId(),
+													System.currentTimeMillis() - currentTime);
+
+											orderIds.add(order.getOrderId());
+
+											if (ordersMap.size() < 10) {
+												ordersMap.put(order.getOrderId(), order);
+											}
+
+											// profileIds.add(order.getProfileId());
+											counter++;
+
+											sendSuccess(response);
+											return;
+
+										},
+
+										e -> {
+											if (!response.isCommitted()) {
+
+												logResponseTimings("operation_write", "failure", order.getOrderId(),
+														System.currentTimeMillis() - currentTime);
+
+												sendError(400, response);
+											}
+											logger.error("Error: ", e);
+										},
+
+										() -> {
+										}
+
+					);
+
+					});
+
+		} finally {
+			checkin(asynchBucket);
+		}
+
+	}
+
+	@RequestMapping("/update_random_order_async")
+	public void handleUpdateOrderAsync(HttpServletRequest request, HttpServletResponse response) {
+
+		String orderId = null;
+
+		if (orderIds != null && !orderIds.isEmpty()) {
+			orderId = orderIds.get(RandomDataUtils.getRandomInt(orderIds.size()));
+		}
+
+		if (orderId == null) {
+			sendError(400, response);
+			return;
+		}
+
+		final String _orderId = orderId;
+
+		AsyncBucket asynchBucket = checkout();
+
+		try {
+
+			Observable<RawJsonDocument> readObservable = OrderQueryService.loadDocumentRawAsync(orderId, asynchBucket);
+
+			long currentTime = System.currentTimeMillis();
+
+			readObservable.subscribeOn(Schedulers.io()).timeout(appConfig.getCouchbaseSubscriberTimeoutMills(), TimeUnit.MILLISECONDS)
+
+					.doOnError(new Action1<Throwable>() {
+						@Override
+						public void call(Throwable throwable) {
+
+							if (!response.isCommitted()) {
+
+								logResponseTimings("operation_read_for_update", "timeout", _orderId,
+										System.currentTimeMillis() - currentTime);
+
+								sendError(400, response);
+							}
+
+							return;
+						}
+					}).first().subscribe(
+
+							originalDoc ->
+
+							{
+
+								logResponseTimings("operation_read_for_update", "success", _orderId,
+										System.currentTimeMillis() - currentTime);
+
+								Observable<RawJsonDocument> updatedDocObservable = OrderUpdateService.updateDocument(originalDoc);
+								long updateStartTime = System.currentTimeMillis();
+
+								updatedDocObservable.subscribeOn(Schedulers.io()).first().subscribe(
+
+										updatedDoc -> {
+
+											Observable<RawJsonDocument> updateOrderObservable = null;
+
+											updateOrderObservable = OrderUpdateService.updateOrderAsync(updatedDoc, asynchBucket);
+											updateOrderObservable
+													.timeout(appConfig.getCouchbaseSubscriberTimeoutMills(), TimeUnit.MILLISECONDS)
+													.subscribe(s -> {
+
+														logResponseTimings("operation_write_for_update", "success", _orderId,
+																System.currentTimeMillis() - updateStartTime);
+
+														sendSuccess(response);
+														return;
+
+													}, e -> {
+
+														logger.error("Error: ", e);
+
+														if (!response.isCommitted()) {
+
+															logResponseTimings("operation_write_for_update", "failure", _orderId,
+																	System.currentTimeMillis() - updateStartTime);
+
+															sendError(400, response);
+														}
+														return;
+
+													},
+
+															() -> {
+															}
+
+										);
+										});
+
+							},
+
+							error -> {
+
+								if (!response.isCommitted()) {
+
+									logger.error("Error: ", error);
+
+									logResponseTimings("operation_read_for_update", "failure", _orderId,
+											System.currentTimeMillis() - currentTime);
+
+									sendError(400, response);
+								}
+								return;
+
+							});
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+		} finally {
+			checkin(asynchBucket);
+		}
+
+	}
+
+	@RequestMapping("/update_random_order_async_incremental")
+	public void handleUpdateDocumentIncremental(HttpServletRequest request, HttpServletResponse response) {
+
+		String orderId = null;
+
+		if (orderIds != null && !orderIds.isEmpty()) {
+			orderId = orderIds.get(RandomDataUtils.getRandomInt(orderIds.size()));
+		}
+
+		if (orderId == null) {
+			sendError(400, response);
+			return;
+		}
+
+		final String _orderId = orderId;
+
+		AsyncBucket asynchBucket = checkout();
+
+		try {
+
+			final Set<Item> items = OrderBuilder.generateItems(4, _orderId);
+
+			final ObjectWriter objectWriter = ObjectWritersPoolItem.checkout();
+
+			com.couchbase.client.java.document.json.JsonArray additionalItems = com.couchbase.client.java.document.json.JsonArray.create();
+
+			for (Item item : items) {
+
+				String itemString = null;
+				try {
+					itemString = objectWriter.writeValueAsString(item);
+				} catch (JsonProcessingException e) {
+					logger.error("Error:", e);
+
+					if (!response.isCommitted()) {
+						sendError(400, response);
+						return;
+					}
+				}
+
+				com.couchbase.client.java.document.json.JsonObject jsonObject = com.couchbase.client.java.document.json.JsonObject
+						.fromJson(itemString);
+
+				additionalItems.add(jsonObject);
+
+			}
+
+			long updateStartTime = System.currentTimeMillis();
+
+			AsyncMutateInBuilder mutateInBuilder = asynchBucket.mutateIn(_orderId);
+
+			Observable<DocumentFragment<Mutation>> mutationObserver = mutateInBuilder.arrayAppendAll("items", additionalItems).execute();
+
+			mutationObserver.subscribe(
+
+					mutatedDocFragment -> {
+
+						logResponseTimings("operation_write_for_update", "success", _orderId, System.currentTimeMillis() - updateStartTime);
+
+						sendSuccess(response);
+						return;
+
+					},
+
+					error -> {
+
+						error.printStackTrace();
+
+						logResponseTimings("operation_write_for_update", "failure", _orderId, System.currentTimeMillis() - updateStartTime);
+
+						if (!response.isCommitted()) {
+							sendError(400, response);
+						}
+
+					}
+
+			);
+
+			ObjectWritersPoolItem.checkin(objectWriter);
+
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+		} finally {
+			checkin(asynchBucket);
+		}
+
+	}
+
+	@RequestMapping("/update_random_order_read_from_replica")
+	public void handleUpdateDocumentAndReadFromReplica(HttpServletRequest request, HttpServletResponse response) {
+
+		String orderId = null;
+
+		if (orderIds != null && !orderIds.isEmpty()) {
+			orderId = orderIds.get(RandomDataUtils.getRandomInt(orderIds.size()));
+		}
+
+		if (orderId == null) {
+			sendError(400, response);
+			return;
+		}
+
+		final String _orderId = orderId;
+
+		AsyncBucket asynchBucket = checkout();
+
+		ObjectReader objectReader = ObjectReadersPool.checkout();
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss z , E");
+
+		final String updated_date = dateFormat.format(new Date());
+
+		final List<String> replicaDateList = new ArrayList<String>();
+
+		try {
+
+			AsyncMutateInBuilder mutateInBuilder = asynchBucket.mutateIn(_orderId);
+
+			Observable<DocumentFragment<Mutation>> mutationObserver = mutateInBuilder.replace("updated_date", updated_date).execute();
+
+			mutationObserver.subscribe(
+
+					mutatedDocFragment -> {
+
+						//sendSuccess(response);
+						//return;
+
+					},
+
+					error -> {
+
+						error.printStackTrace();
+
+						if (!response.isCommitted()) {
+							sendError(400, response);
+						}
+
+					}
+
+			);
+
+			long currentTime = System.currentTimeMillis();
+
+			do {
+
+				logger.info("inside read from replica");
+				replicaDateList.clear();
+
+				Observable<RawJsonDocument> replicaOrderObservable = asynchBucket.getFromReplica(_orderId, ReplicaMode.FIRST,
+						RawJsonDocument.class);
+
+				replicaOrderObservable.subscribe(
+
+						replicaDoc -> {
+
+							try {
+								Order order = objectReader.readValue(replicaDoc.content().toString());
+
+								replicaDateList.add(0, order.getUpdated_date());
+								logger.info("replicaDateList -->" + replicaDateList.size());
+
+							} catch (JsonProcessingException e) {
+								// TODO Auto-generated catch block
+								logger.error("Error:", e);
+							} catch (IOException e) {
+								// TODO Auto-generated catch block
+								logger.error("Error:", e);
+							}
+
+						});
+
+			} while (!updated_date.equalsIgnoreCase(replicaDateList.get(0)));
+
+			logger.info("replica data matched");
+
+			logResponseTimings("operation_read_from_replica", "success", _orderId, System.currentTimeMillis() - currentTime);
+
+			sendSuccess(response);
+			return;
+
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+		} finally {
+			checkin(asynchBucket);
+			ObjectReadersPool.checkin(objectReader);
+		}
+
+	}
+
+	@RequestMapping("/update_random_order_read_from_replica_sync")
+	public void handleUpdateDocumentAndReadFromReplicaSync(HttpServletRequest request, HttpServletResponse response) {
+
+		String orderId = null;
+
+		if (orderIds != null && !orderIds.isEmpty()) {
+			orderId = orderIds.get(RandomDataUtils.getRandomInt(orderIds.size()));
+		}
+
+		if (orderId == null) {
+			sendError(400, response);
+			return;
+		}
+
+		final String _orderId = orderId;
+
+		//AsyncBucket asynchBucket = checkout();
+
+		Bucket synbbucket = checkoutSyncBucket();
+
+		ObjectReader objectReader = ObjectReadersPool.checkout();
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss z , E");
+
+		final String updated_date = dateFormat.format(new Date());
+
+		String replicaUpdatedDate = null;
+
+		//final List<String> replicaDateList = new ArrayList<String>();
+
+		try {
+
+			MutateInBuilder mutateInBuilder = synbbucket.mutateIn(_orderId);
+
+			mutateInBuilder.replace("updated_date", updated_date).execute();
+
+			long currentTime = System.currentTimeMillis();
+
+			do {
+
+				logger.info("inside read from replica");
+
+				List<RawJsonDocument> replicaOrders = synbbucket.getFromReplica(_orderId, ReplicaMode.FIRST, RawJsonDocument.class);
+
+				for (RawJsonDocument replicaOrderDoc : replicaOrders) {
+
+					try {
+
+						Order order = objectReader.readValue(replicaOrderDoc.content().toString());
+
+						replicaUpdatedDate = order.getUpdated_date();
+
+					} catch (JsonProcessingException e) {
+						// TODO Auto-generated catch block
+						logger.error("Error:", e);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						logger.error("Error:", e);
+					}
+				}
+
+			} while (replicaUpdatedDate != null && !updated_date.equalsIgnoreCase(replicaUpdatedDate));
+
+			logger.info("replica data matched");
+
+			logResponseTimings("operation_read_from_replica", "success", _orderId, System.currentTimeMillis() - currentTime);
+
+			sendSuccess(response);
+			return;
+
+		} catch (Exception e) {
+			logger.error("Error:", e);
+		} finally {
+			//checkin(asynchBucket);
+			checkinSyncBucket(synbbucket);
+			ObjectReadersPool.checkin(objectReader);
+		}
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping("/load_order_by_profileId_async")
+	public void handleLoadOrderByProfileId(HttpServletRequest request, HttpServletResponse response) {
+
+		String tmpProfileId = null;
+
+		AsyncBucket asynchBucket = checkout();
+
+		if (profileIds != null && !profileIds.isEmpty()) {
+			tmpProfileId = profileIds.get(RandomDataUtils.getRandomInt(profileIds.size()));
+		}
+
+		if (tmpProfileId == null) {
+			sendError(400, response);
+
+		}
+
+		final String profileId = tmpProfileId;
+
+		try {
+
+			long currentTime = System.currentTimeMillis();
+
+			String getOrderFromProfileQuery = "select * from `" + asynchBucket.name() + "` where profileId =  $1";
+
+			JsonArray placeholderValues = JsonArray.from(profileId);
+
+			//JsonObject placeHolders = JsonObject.create().put("profileId", profileId);
+
+			ParameterizedN1qlQuery query = N1qlQuery.parameterized(getOrderFromProfileQuery, placeholderValues);
+
+			Observable<AsyncN1qlQueryResult> result = asynchBucket.query(query);
+
+			//System.out.println("QueryResult Observable assigned");
+
+			result.retryWhen(
+					RetryBuilder.anyOf(BackpressureException.class).delay(Delay.exponential(TimeUnit.MILLISECONDS, 10)).max(3).build())
+					.subscribe(
+
+							resultSet -> {
+
+								//System.out.println("logging response times query executed successfully");
+
+								logResponseTimings("operation_orders_from_profileId", "success", profileId,
+										System.currentTimeMillis() - currentTime);
+
+								sendSuccess(response);
+								checkin(asynchBucket);
+								return;
+
+							}, error -> {
+
+								logger.error("Error:", error);
+
+								checkin(asynchBucket);
+								
+								logResponseTimings("operation_orders_from_profileId", "success", profileId,
+										System.currentTimeMillis() - currentTime);
+
+								if (!response.isCommitted()) {
+									sendError(400, response);
+								}
+
+								//System.out.println("error while executing query");
+
+								return;
+
+							});
+		} catch (final Exception e) {
+			logger.error("Error:", e);
+		} finally {
+			//checkin(asynchBucket);
+		}
+
+		//getOrdersByProfileIdAsync(profileId);
+
+		//sendSuccess(response);
+		//return;
+
+	}
+
+	@Async
+	private void getOrdersByProfileIdAsync(String profileId) {
+
+		AsyncBucket asynchBucket = checkout();
+
+		try {
+			long currentTime = System.currentTimeMillis();
+
+			String getOrderFromProfileQuery = "select * from `" + asynchBucket.name() + "` where profileId =  $1";
+
+			JsonArray placeholderValues = JsonArray.from(profileId);
+
+			//JsonObject placeHolders = JsonObject.create().put("profileId", profileId);
+
+			ParameterizedN1qlQuery query = N1qlQuery.parameterized(getOrderFromProfileQuery, placeholderValues);
+
+			Observable<AsyncN1qlQueryResult> result = asynchBucket.query(query);
+
+			System.out.println("QueryResult Observable assigned");
+
+			result.retryWhen(
+					RetryBuilder.anyOf(BackpressureException.class).delay(Delay.exponential(TimeUnit.MILLISECONDS, 10)).max(10).build())
+					.doOnCompleted(new Action0() {
+
+						@Override
+						public void call() {
+
+							checkin(asynchBucket);
+
+						}
+
+					}).subscribe(
+
+							resultSet -> {
+
+								System.out.println("logging response times query executed successfully");
+
+								logResponseTimings("operation_orders_from_profileId", "success", profileId,
+										System.currentTimeMillis() - currentTime);
+
+							}, error -> {
+
+								error.printStackTrace();
+
+								checkin(asynchBucket);
+
+								System.out.println("error while executing query");
+
+							});
+		} catch (final Exception e) {
+			logger.error("Error:", e);
+		} finally {
+			//checkin(asynchBucket);
+		}
+	}
+
+	@RequestMapping("/load_random_order_by_key_async")
+	public void handleLoadOrderByKeyAsync(HttpServletRequest request, HttpServletResponse response) {
+
+		String orderId = null;
+
+		if (orderIds == null && orderIds.isEmpty() || orderIds.size() <= 0) {
+			logger.error("no order ids found for lookup");
+			sendError(400, response);
+			return;
+		}
+
+		orderId = orderIds.get(RandomDataUtils.getRandomInt(orderIds.size()));
+
+		if (orderId == null) {
+			logger.error("no order id could be retrieved ");
+			sendError(400, response);
+			return;
+		}
+
+		final String _orderId = orderId;
+
+		AsyncBucket asynchBucket = checkout();
+
+		try {
+
+			long currentTime = System.currentTimeMillis();
+
+			asynchBucket.get(orderId, RawJsonDocument.class).subscribeOn(Schedulers.io())
+					.timeout(appConfig.getCouchbaseSubscriberTimeoutMills(), TimeUnit.MILLISECONDS).doOnError(new Action1<Throwable>() {
+						@Override
+						public void call(Throwable throwable) {
+
+							logger.error(_orderId, throwable);
+
+							if (!response.isCommitted()) {
+
+								logResponseTimings("operation_read", "timeout", _orderId, System.currentTimeMillis() - currentTime);
+
+								sendError(400, response);
+								return;
+							}
+
+						}
+					}).subscribe(doc -> {
+
+						logResponseTimings("operation_read", "success", _orderId, System.currentTimeMillis() - currentTime);
+
+						sendSuccess(response);
+						return;
+
+					}
+
+							, error -> {
+
+								logger.error(_orderId, error);
+								//	error.printStackTrace();
+
+								if (!response.isCommitted()) {
+
+									logResponseTimings("operation_read", "failure", _orderId, System.currentTimeMillis() - currentTime);
+
+									sendError(400, response);
+								}
+
+							});
+		} catch (Exception e) {
+			logger.error("Error: ", e);
+		} finally {
+			checkin(asynchBucket);
+		}
+
+	}
+
+	private void sendError(int statusCode, HttpServletResponse response) {
+
+		if (response.isCommitted()) {
+			return;
+		}
+		try {
+			response.sendError(400);
+		} catch (IOException e) {
+			logger.error("Error:", e);
+		}
+	}
+
+	private void sendSuccess(HttpServletResponse response) {
+
+		if (response.isCommitted()) {
+			return;
+		}
+		response.setStatus(200);
+
+	}
+
+	private static void logResponseTimings(String operation, String Status, String OrderId, long responseTime) {
+
+		operationTimings.add(new StringBuffer().append(operation).append(",").append(Status).append(",").append(OrderId).append(",")
+				.append(responseTime + "ms").append("\n").toString());
+
+	}
+
+	private static void printResponseTimes() throws IOException {
+
+		String file = "response_times_couchbase.csv";
+		logger.info("total rows " + operationTimings.size());
+		logger.info("Started writing to file: " + file);
+
+		try {
+
+			BufferedWriter writer = Files.newBufferedWriter(Paths.get(file));
+
+			writer.write("OPERATION  , STATUS , ORDER_ID, RESPONSE_TIME\n");
+
+			for (String operationTimingsRow : operationTimings) {
+				writer.write(operationTimingsRow);
+			}
+
+			writer.close();
+		} catch (Exception e) {
+			logger.error("Error:", e);
+		}
+
+		logger.info("Finished writing to file: " + file);
+
+	}
+
+	private static void closeConnections() {
+
+		logger.info("CouchbaseServiceVerticle.closeConnections()");
+
+		ConnectionBuilder.closeBucket();
+		ConnectionBuilder.closeAsyncBucket();
+
+		for (AsyncBucket asyncBucket : bucketPool) {
+			ConnectionBuilder.closeAsyncBucket(asyncBucket);
+		}
+
+	}
+
+	public static void shutdown() throws IOException {
+
+		logger.info("Shutting down Couchbase Controller");
+		printResponseTimes();
+		closeConnections();
+		System.exit(0);
+
+	}
+
+	private static AsyncBucket checkout() {
+
+		AsyncBucket bucket = null;
+		try {
+			bucket = bucketPool.take();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			logger.error("Error:", e);
+		}
+		return bucket;
+	}
+
+	private void checkin(AsyncBucket asynchBucket) {
+		bucketPool.add(asynchBucket);
+	}
+
+	private static Bucket checkoutSyncBucket() {
+
+		Bucket bucket = null;
+		try {
+			bucket = syncBucketPool.take();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			logger.error("Error:", e);
+		}
+		return bucket;
+	}
+
+	private void checkinSyncBucket(Bucket bucket) {
+		syncBucketPool.add(bucket);
+	}
+
+}

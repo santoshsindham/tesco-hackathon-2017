@@ -1,0 +1,85 @@
+package com.tescoplay.service;
+
+import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.document.RawJsonDocument;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+public class PointsUpdateService {
+	
+
+	
+	public static TescoPlayResponse getPoints(String jsonString, Bucket bucket) throws Exception {
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(TescoPlayRequest.class);
+		
+		//ObjectWriter objectWriter = mapper.writerFor(CustomerPoints.class);
+
+		TescoPlayRequest tescoPlayRequest = objectReader.readValue(jsonString);
+		
+		CustomerPoints customerPoints = getCustomerDetails(tescoPlayRequest.getCustomerId(), bucket);
+
+			//customerPoints.setPoints(customerPoints.getPoints() +  tescoPlayRequest.getScore());
+
+			/*String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
+			RawJsonDocument jsonDocument = RawJsonDocument.create(customerPoints.getCustomerId(), updatedJsonString);*/
+		
+		if(customerPoints == null){
+			return null;
+		}
+		
+		TescoPlayResponse playResponse = new TescoPlayResponse();
+		
+		playResponse.setCustomerId(customerPoints.getCustomerId());
+		playResponse.setPoints(customerPoints.getPoints());
+		
+		return playResponse;
+
+	}
+	
+	
+	public static CustomerPoints getCustomerDetails(String customerId, Bucket bucket) throws Exception {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(CustomerPoints.class);
+		
+		RawJsonDocument jsonDocument = bucket.get(customerId, RawJsonDocument.class);
+		
+		
+		if(jsonDocument == null){
+			return null;
+		}
+		
+		CustomerPoints customerPoints = objectReader.readValue(jsonDocument.content().toString());
+	
+		return customerPoints;
+		
+		
+	}
+	
+	public static void applyScore(String jsonString, Bucket bucket) throws Exception {
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(TescoPlayRequest.class);
+		
+		ObjectWriter objectWriter = mapper.writerFor(CustomerPoints.class);
+
+		TescoPlayRequest tescoPlayRequest = objectReader.readValue(jsonString);
+		
+		CustomerPoints customerPoints = getCustomerDetails(tescoPlayRequest.getCustomerId(), bucket);
+
+			customerPoints.setPoints(customerPoints.getPoints() +  tescoPlayRequest.getScore());
+
+			String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
+			RawJsonDocument jsonDocument = RawJsonDocument.create(customerPoints.getCustomerId(), updatedJsonString);
+
+			bucket.upsert(jsonDocument);
+
+	}
+
+}

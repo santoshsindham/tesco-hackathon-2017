@@ -1,0 +1,25 @@
+package com.tescoplay.service;
+
+public class CustomerPoints {
+	
+	private String customer_id;
+	
+	private long balance;
+
+	public String getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public long getBalance() {
+		return balance;
+	}
+
+	public void setBalance(long balance) {
+		this.balance = balance;
+	}
+
+}

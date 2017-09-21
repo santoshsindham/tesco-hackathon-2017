@@ -1,0 +1,27 @@
+package com.tescoplay.service;
+
+public class TescoPlayRequest {
+	
+	private String customerId;
+	
+	private long score;
+
+	public String getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(String customerId) {
+		this.customerId = customerId;
+	}
+
+	public long getScore() {
+		return score;
+	}
+
+	public void setScore(long score) {
+		this.score = score;
+	}
+
+	
+
+}

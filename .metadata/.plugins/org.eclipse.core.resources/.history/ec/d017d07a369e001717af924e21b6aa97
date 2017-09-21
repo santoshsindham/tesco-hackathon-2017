@@ -1,0 +1,97 @@
+package com.tescoplay.service;
+
+import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.document.RawJsonDocument;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+public class PointsUpdateService {
+	
+	
+	public static void updatePoints(String jsonString, Bucket bucket) throws Exception {
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(CustomerPoints.class);
+		
+		ObjectWriter objectWriter = mapper.writerFor(CustomerPoints.class);
+
+			CustomerPoints customerPoints = objectReader.readValue(jsonString);
+
+			customerPoints.setPoints(getPoints(customerPoints.getCustomerId(), bucket) +  customerPoints.getPoints());
+
+			String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
+			RawJsonDocument jsonDocument = RawJsonDocument.create(customerPoints.getCustomerId(), updatedJsonString);
+
+			bucket.upsert(jsonDocument);
+
+		
+
+	}
+	
+	public static long getPoints(String customerId, Bucket bucket) throws Exception {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(CustomerPoints.class);
+		
+		RawJsonDocument jsonDocument = bucket.get(customerId, RawJsonDocument.class);
+		
+		
+		if(jsonDocument == null){
+			return 0;
+		}
+		
+		CustomerPoints customerPoints = objectReader.readValue(jsonDocument.content().toString());
+	
+		return customerPoints.getPoints();
+		
+		
+	}
+	
+	
+	public static CustomerPoints getCustomerDetails(String customerId, Bucket bucket) throws Exception {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(CustomerPoints.class);
+		
+		RawJsonDocument jsonDocument = bucket.get(customerId, RawJsonDocument.class);
+		
+		
+		if(jsonDocument == null){
+			return null;
+		}
+		
+		CustomerPoints customerPoints = objectReader.readValue(jsonDocument.content().toString());
+	
+		return customerPoints;
+		
+		
+	}
+	
+	public static void applyScore(String jsonString, Bucket bucket) throws Exception {
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(TescoPlayRequest.class);
+		
+		ObjectWriter objectWriter = mapper.writerFor(CustomerPoints.class);
+
+		TescoPlayRequest tescoPlayRequest = objectReader.readValue(jsonString);
+		
+		CustomerPoints customerPoints = getCustomerDetails(tescoPlayRequest.getCustomerId(), bucket);
+
+			customerPoints.setPoints(customerPoints.getPoints() +  tescoPlayRequest.getScore());
+
+			String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
+			RawJsonDocument jsonDocument = RawJsonDocument.create(customerPoints.getCustomerId(), updatedJsonString);
+
+			bucket.upsert(jsonDocument);
+
+		
+
+	}
+
+}

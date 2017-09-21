@@ -1,0 +1,33 @@
+package com.tescoplay.service;
+
+import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.document.RawJsonDocument;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectReader;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
+public class PointsUpdateService {
+	
+	
+	public static void updatePoints(RawJsonDocument rawJSONDoc, Bucket bucket,long balance) throws Exception {
+
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(CustomerPoints.class);
+		
+		ObjectWriter objectWriter = mapper.writerFor(CustomerPoints.class);
+
+			CustomerPoints customerPoints = objectReader.readValue(rawJSONDoc.content().toString());
+
+			customerPoints.setBalance(balance);
+
+			String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
+			RawJsonDocument jsonDocument = RawJsonDocument.create(customerPoints.getCustomer_id(), updatedJsonString);
+
+			bucket.upsert(jsonDocument);
+
+		
+
+	}
+
+}

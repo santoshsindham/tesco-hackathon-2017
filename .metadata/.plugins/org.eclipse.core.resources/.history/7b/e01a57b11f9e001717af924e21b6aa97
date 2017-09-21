@@ -1,0 +1,210 @@
+/**
+ * @author fb25
+ *
+ */
+package com.tesco.dbtest.db.couchbase.utils;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.couchbase.client.core.event.EventType;
+import com.couchbase.client.core.event.consumers.LoggingConsumer;
+import com.couchbase.client.core.logging.CouchbaseLogLevel;
+import com.couchbase.client.core.metrics.DefaultLatencyMetricsCollectorConfig;
+import com.couchbase.client.java.AsyncBucket;
+import com.couchbase.client.java.Bucket;
+import com.couchbase.client.java.CouchbaseAsyncCluster;
+import com.couchbase.client.java.CouchbaseCluster;
+import com.couchbase.client.java.env.CouchbaseEnvironment;
+import com.couchbase.client.java.env.DefaultCouchbaseEnvironment;
+import com.tesco.dbtest.config.ApplicationConfig;
+
+import rx.Observable;
+import rx.observables.BlockingObservable;
+
+public class ConnectionBuilder {
+
+	private static CouchbaseCluster cluster = null;
+	private static CouchbaseAsyncCluster asyncCluster = null;
+	private static Bucket bucket = null;
+	private static AsyncBucket asyncBucket = null;
+	private static ApplicationConfig appConfig;
+
+	private ConnectionBuilder() {
+
+	}
+
+	public static AsyncBucket getBucketAsyncInstance() {
+
+		CouchbaseEnvironment env = getCouchbaseEnvironment();
+
+		asyncCluster = getAsyncCluster();
+
+		System.out.println("clusterAync " + asyncCluster);
+
+		if (asyncBucket == null) {
+
+			if (getAppConfig().isCouchaseAuthRequired()) {
+
+				Observable<AsyncBucket> observable = asyncCluster.openBucket(getAppConfig().getCouchabseBucketName(),
+						getAppConfig().getCouchbasePassword());
+				BlockingObservable<AsyncBucket> blocked = observable.toBlocking();
+				asyncBucket = blocked.first();
+
+			} else {
+
+				Observable<AsyncBucket> observable = asyncCluster.openBucket(getAppConfig().getCouchabseBucketName());
+				BlockingObservable<AsyncBucket> blocked = observable.toBlocking();
+				asyncBucket = blocked.first();
+
+			}
+		}
+
+		return asyncBucket;
+
+	}
+
+	public static AsyncBucket getBucketAsync() {
+
+		asyncCluster = getAsyncCluster();
+
+		System.out.println("clusterAync " + asyncCluster);
+
+		if (getAppConfig().isCouchaseAuthRequired()) {
+
+			Observable<AsyncBucket> observable = asyncCluster.openBucket(getAppConfig().getCouchabseBucketName(),
+					getAppConfig().getCouchbasePassword());
+			BlockingObservable<AsyncBucket> blocked = observable.toBlocking();
+			asyncBucket = blocked.first();
+
+		} else {
+
+			Observable<AsyncBucket> observable = asyncCluster.openBucket(getAppConfig().getCouchabseBucketName());
+			BlockingObservable<AsyncBucket> blocked = observable.toBlocking();
+			asyncBucket = blocked.first();
+
+		}
+
+		return asyncBucket;
+
+	}
+
+	private static CouchbaseAsyncCluster getAsyncCluster() {
+
+		if (asyncCluster == null) {
+
+			CouchbaseEnvironment env = getCouchbaseEnvironment();
+
+			List<String> couchbaseAddresses = getAppConfig().getCouchbaseHostAddresses();
+
+			asyncCluster = CouchbaseAsyncCluster.create(env, couchbaseAddresses);
+
+		}
+
+		return asyncCluster;
+	}
+
+	private static CouchbaseEnvironment getCouchbaseEnvironment() {
+
+		CouchbaseEnvironment env = DefaultCouchbaseEnvironment.builder().kvTimeout(appConfig.getCouchbaseOperationsTimeoutMills())
+				.connectTimeout(appConfig.getCouchbaseOperationsTimeoutMills())
+				.socketConnectTimeout(appConfig.getCouchbaseOperationsTimeoutMills()).mutationTokensEnabled(true)
+				.defaultMetricsLoggingConsumer(true, CouchbaseLogLevel.INFO, LoggingConsumer.OutputFormat.JSON_PRETTY)
+				.networkLatencyMetricsCollectorConfig(DefaultLatencyMetricsCollectorConfig.builder().targetUnit(TimeUnit.MICROSECONDS)
+						.targetPercentiles(new Double[] { 25.0, 50.0, 99.0 }).emitFrequency(1).emitFrequencyUnit(TimeUnit.MINUTES).build())
+				//.runtimeMetricsCollectorConfig(DefaultLatencyMetricsCollectorConfig.create(30, TimeUnit.SECONDS))
+				.build();
+
+		// CouchbaseLoggerFactory.setDefaultFactory(new Log4JLoggerFactory());
+
+		env.eventBus().get().filter(ev -> ev.type().equals(EventType.METRIC)).subscribe(
+
+				LoggingConsumer.create()
+		// System.out::println
+
+		);
+
+		return env;
+	}
+
+	public static Bucket getBucket() {
+
+		if (cluster == null) {
+
+			CouchbaseEnvironment env = DefaultCouchbaseEnvironment.builder().kvTimeout(60000).connectTimeout(60000).computationPoolSize(16)
+					.build();
+
+			List<String> couchbaseAddresses = getAppConfig().getCouchbaseHostAddresses();
+
+			cluster = CouchbaseCluster.create(env, couchbaseAddresses);
+		}
+
+		if (bucket == null) {
+			if (getAppConfig().isCouchaseAuthRequired()) {
+				bucket = cluster.openBucket(getAppConfig().getCouchabseBucketName(), getAppConfig().getCouchbasePassword(), 1,
+						TimeUnit.MINUTES);
+			} else {
+				bucket = cluster.openBucket(getAppConfig().getCouchabseBucketName(), 1, TimeUnit.MINUTES);
+			}
+		}
+
+		return bucket;
+
+	}
+
+	public static void closeBucket() {
+
+		if (bucket != null) {
+			bucket.close();
+		}
+
+		if (cluster != null) {
+			cluster.disconnect();
+		}
+
+	}
+
+	public static void closeAsyncBucket() {
+
+		if (asyncBucket != null) {
+			Observable<Boolean> closeBucket = asyncBucket.close();
+			closeBucket.subscribe();
+		}
+
+		if (asyncCluster != null) {
+			Observable<Boolean> closeCluster = asyncCluster.disconnect();
+			closeCluster.subscribe();
+		}
+
+	}
+
+	public static void closeAsyncBucket(AsyncBucket asyncBucket) {
+
+		if (asyncBucket != null) {
+			Observable<Boolean> closeBucket = asyncBucket.close();
+			closeBucket.subscribe();
+		}
+
+	}
+
+	public static CouchbaseCluster getCluster() {
+		return cluster;
+	}
+
+	public static void setCluster(CouchbaseCluster cluster) {
+		ConnectionBuilder.cluster = cluster;
+	}
+
+	public static ApplicationConfig getAppConfig() {
+		return appConfig;
+	}
+
+	public static void setAppConfig(ApplicationConfig appConfig) {
+		ConnectionBuilder.appConfig = appConfig;
+	}
+
+	public static void setBucket(Bucket bucket) {
+		ConnectionBuilder.bucket = bucket;
+	}
+
+}

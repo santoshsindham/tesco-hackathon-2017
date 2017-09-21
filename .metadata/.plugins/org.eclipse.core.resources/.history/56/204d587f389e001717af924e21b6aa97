@@ -1,0 +1,76 @@
+package com.tescoplay.service;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.couchbase.client.java.Bucket;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+@RestController
+public class TescoPlayController {
+	
+	private static Bucket bucket;
+	
+	public static void shutdown() throws IOException {
+
+		
+		System.exit(0);
+
+	}
+	
+	public TescoPlayController(){
+		
+		bucket = ConnectionBuilder.getBucket();
+		
+	}
+	
+	
+	@PostMapping("/applyScore")
+	public void handleApplyScore(HttpServletRequest request, HttpServletResponse response,@RequestBody TescoPlayRequest tescoPlayRequest) {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			String jsonStr = mapper.writeValueAsString(tescoPlayRequest);
+			
+			PointsUpdateService.applyScore(jsonStr, bucket);
+			
+			
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	@PostMapping("/getPoints")
+	public void handleGetPoints(HttpServletRequest request, HttpServletResponse response,@RequestBody TescoPlayRequest tescoPlayRequest) {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			String jsonStr = mapper.writeValueAsString(tescoPlayRequest);
+			
+			PointsUpdateService.getPoints(jsonStr, bucket);
+			
+			
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+}
