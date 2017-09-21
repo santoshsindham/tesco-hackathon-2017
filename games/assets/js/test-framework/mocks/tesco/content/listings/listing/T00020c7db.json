@@ -1,0 +1,26 @@
+{
+  "id" : "T00020c7db",
+  "listingId" : "T00020c7db",
+  "links" : [ {
+    "id" : "T00020c7db",
+    "type" : "listing",
+    "rel" : "self",
+    "href" : "/direct/rest/content/listings/listing/T00020c7db"
+  }, {
+    "id" : "154-6351",
+    "type" : "sku",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/sku/154-6351",
+    "options" : {
+      "primary" : "Space grey"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  } ]
+}

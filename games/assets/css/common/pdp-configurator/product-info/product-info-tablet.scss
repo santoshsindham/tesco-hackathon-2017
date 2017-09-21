@@ -1,0 +1,115 @@
+
+@import "../../variables";
+@import "../pdp-configurator-mixins";
+
+$configuratorHeight: 540px;
+$overlayContentHeight: 410px;
+$panelWidth: 450px;
+
+$fbWidth: 320px;
+$fbHeight: 196px;
+
+.pdp-configurator {
+    
+    .info-overlay {
+        height: $configuratorHeight;
+        padding: 0;
+    }
+
+    .product-carousel-s7 {
+        width: $panelWidth;
+        position: static;
+    }
+
+    #pdpScene7Container {
+        width: $panelWidth;
+        height: $overlayContentHeight;
+        border: 0 none;
+    }
+
+    #product-carousel-info {
+        width: $panelWidth;
+
+        &.carousel.horizontal {
+            .carousel-slider {
+                width: $panelWidth;
+                height: $overlayContentHeight;
+            }
+
+            .carousel-items-container li {
+                width: $panelWidth;
+                height: $overlayContentHeight;
+            }
+
+            .carousel-indicators {
+                top: $overlayContentHeight + 10;
+                width: $panelWidth;
+            }
+
+        }
+
+    }
+
+    .prodInfoVisible {
+        #product-carousel-info {
+            height: $overlayContentHeight;
+        }
+    }
+    
+    .product-carousel-s7 {
+        #s7container {
+            width: $panelWidth;
+        }
+
+        &.spinVisible {
+            .s7pagescrubber {
+                width: $panelWidth;
+               
+                .s7track {
+                    width: $panelWidth;
+                }
+            }
+        }
+
+        .videoContainer {
+            height: $overlayContentHeight;
+            .videoPosition {
+                height: $overlayContentHeight;
+            }
+        }
+
+    }
+
+    .product-carousel-s7 .media-controls {
+        .button:hover {
+            background: #fff !important;
+            border-color: #D6D2CA !important;
+            color: #7C765F !important;
+        }
+    }
+
+    .product-front-back {
+        width: $fbWidth;
+        height: $fbHeight;
+        margin-top: 0;
+
+        img {
+            margin-top: 0;
+        }
+
+        .carousel .carousel-slider,
+        .carousel .carousel-slider li {
+            width: $fbWidth;
+            height: $fbHeight;
+
+            img {
+                margin-top: 0;
+            }
+        }
+
+        .carousel .carousel-step {
+            display: none;
+        }
+    }
+
+}

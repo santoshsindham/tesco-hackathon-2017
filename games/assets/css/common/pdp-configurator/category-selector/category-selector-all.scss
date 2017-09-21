@@ -1,0 +1,183 @@
+@import "../pdp-configurator-mixins";
+
+.pdp-configurator {
+
+	.category-selector {
+		@include transition(all 0.5s ease);
+        @include translate3d(-100%, 0, 0);
+        width: 75.423728813559%; /* 890/1180 */
+	    top: 0px;
+	    left: 0;
+	    z-index: 10;
+	    position: absolute;
+	    height: 100%;
+	    background: #fff;
+	    overflow: hidden;
+		
+        &.animating {
+	    	.category-selector-inner {
+                display: none;
+            }
+        }
+
+	    .category-selector-inner {
+			@include transition(all 0.75s ease);
+            @include fadeInAnimation();
+            @include clearfix();
+	    	padding: 0 4%;
+	    }
+
+		&.open {
+        	@include translate3d(0, 0, 0);
+	    }
+
+        &.upsell {
+
+            h2 {
+                margin: 85px 0 25px;
+                float: left;
+                max-width: 205px;
+                white-space: nowrap;
+            }
+
+        }
+
+        &.accessory {
+            .product-selector {
+                &.open {
+                    width: 100%;
+                }
+            }
+
+            button {
+                &.add-to-basket {
+                    font-size: 1.2em;
+                    color: #fff;
+                    background: #fe532d;
+                }
+            }
+        }
+
+	    .case-category-close {
+            @extend .pdp-configurator-close;
+	    }
+
+	    h2 {
+	    	margin: 55px 0;
+	    	font-size: 25px;
+	    	color: #7c765f;
+	    }
+
+        .added-to-basket {
+            font-family: "Hudl";
+            font-size: 18px;
+            color: #fff;
+            background-color: #05ae20;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            padding: 20px 4%;
+            margin: 0px;
+        }
+
+        .red-cta {
+            font-family: "Hudl";
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background: #fe532d;
+            cursor: pointer;
+            padding: 15px;
+            margin: 30px 0 0 16px;
+            min-width: 120px;
+            display: inline-block;
+            text-align: center;
+            border: 1px solid #fe532d;
+            outline: none;
+            border-radius: 10px;
+
+            + ul {
+            	clear: both;
+            }
+
+            &.go-checkout {
+            	margin-top: 75px;
+            	margin-left: 0;
+            	float: right;
+            }
+        }
+
+		.category-selector-inner li {
+			float: left;
+			margin-left: 4.494382022472%; /* 40px / 890px */
+			margin-bottom: 12px;
+			width : 30.337078651685%; /* 270px / 890px */
+            background-color: #eeeeee;
+            padding: 1%;
+            border-radius: 10px;
+			
+			&:first-child,
+			&:first-child + li + li + li,
+			&.first {
+				margin-left: 0;
+				clear: left;
+			}
+			
+            .button,
+			button {
+				border: 0 none;
+				padding: 0;
+				color: #63564e;
+				font-size: 18px;
+                font-weight: bold;
+				cursor: pointer;
+				width: 100%;
+				
+				img {
+					float: left;
+					max-width: 100%;
+				}
+
+				.category-label {
+                    font-family: "Hudl";
+					display: block;
+					padding: 5px 0px;
+					float: left;
+					width: 100%;
+					text-align: left;
+					position: relative;
+                    background-color: #eeeeee;
+                    font-weight: bold;
+
+					&:after {				
+						content: 'r';
+						font-family: 'Tesco Icons';
+                        font-weight: bold;
+						position: absolute;
+						right: 0px;
+						bottom: 30%;
+						font-size: 14px;	
+                        color: #a5a08d;				
+					}	
+				}
+			}
+		}
+	}
+}
+
+.no-csstransforms3d {
+    
+    .pdp-configurator {
+    
+        .category-selector {
+            left: -100%;
+
+            &.open {
+                left: 0;
+            }
+        }    
+
+        
+    }
+}

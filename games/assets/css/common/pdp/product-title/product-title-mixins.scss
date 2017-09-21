@@ -1,0 +1,175 @@
+$catIdColor: #666;
+
+@mixin productTitleProductDetailsAll {
+    .product-title-wrapper {
+        overflow: hidden;
+        margin-bottom: 16px;
+
+        &.with-age-rating {
+            min-height: 50px;
+        }
+
+        .product-title {
+            margin-bottom: 0px;
+            @include wordWrap;
+
+            &.icon-FFlogo {
+                &:before {
+                    @include icon;
+                    content: "\e900";
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    margin-left: 1px;
+                    font-size: 32px;
+                    line-height: 32px;
+                }
+            }
+
+            .online-exclusive {
+                background-color: $asphalt;
+                color: $white;
+                display: inline-block;
+                font-family: $tescoFont;
+                font-size: 14px;
+                font-weight: bold;
+                line-height: normal;
+                margin-bottom: 10px;
+                padding: 8px;
+                text-transform: uppercase;
+                vertical-align: top;
+            }
+        }
+
+        .product-title-text {
+            margin-right: 10px;
+            @include wordWrap;
+
+            // used to push title text onto new line when F&F logo is displayed.
+            &:before {
+              content: ' ';
+              display: block;
+            }
+        }
+
+        .catalogue-id {
+            font-size: 13px;
+            white-space: nowrap;
+            vertical-align: top;
+            color: $catIdColor;
+            text-transform: none;
+        }
+
+        .age-rating-wrapper {
+            text-align: right;
+        }
+    }
+
+    .product-ratings-wrapper {
+        height: 22px;
+    }
+}
+
+@mixin productTitleProductDetailsSmall {
+    .product-title-wrapper {
+        .age-rating-wrapper {
+            width: 60px;
+        }
+    }
+}
+
+@mixin productTitleProductDetailsLargeDesktop {
+    .product-title-wrapper {
+        .product-title {
+            @include colspanGenerator(9);
+
+            .media-viewer--portrait & {
+                @include colspanGenerator(12);
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+@mixin productTitleProductDetailsDesktop {
+    .product-title-wrapper {
+        .product-title {
+            @include colspanGenerator(8);
+
+            .media-viewer--portrait & {
+                @include colspanGenerator(12);
+            }
+        }
+    }
+}
+@mixin productTitleProductDetailsKiosk {
+    .product-page-title {
+        background: $pagePutty;
+        position: relative;
+        h1 {
+            font-size: 2.2em;
+            height: auto;
+            margin: 0 0 8px 0;
+            overflow: hidden;
+            padding: 0 0;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 71%;
+        }
+        .catalogue-id {
+            display: inline-block;
+            font-size: 16px;
+            margin: 0 0 10px 0;
+            letter-spacing: normal;
+        }
+        .age-rating-wrapper {
+          position: absolute;
+          right: 445px;
+          top: 0;
+          width: 40px;
+          .age-rating {
+            height: 40px;
+            width: 40px;
+          }
+        }
+        .rating-container {
+            display: inline-block;
+            margin: 0 0 0 15px;
+
+            .pdp-ratings-summary {
+                .bv-write-container, .bv-cleanslate .bv-summary-bar .bv-rating-ratio-number {
+                    display: none !important; // override for third party plugin
+                }
+                .bv-primarySummary-rating-container {
+                    background-color: transparent !important; // override for third party plugin
+                }
+                .bv-rating-ratio-count {
+                    color: $tescoBrightBlue !important; // override for third party plugin
+                    position: relative;
+                    &:after {
+                        background: $pagePutty;
+                        content: " Reviews)";
+                        color: $tescoBrightBlue !important; // override for third party plugin
+                        padding-left: 3px;
+                        position: absolute;
+                        right: -48px;
+                        top: 3px;
+                    }
+                }
+            }
+            .ratings-wrapper {
+                float: none;
+                height: auto;
+                position: inherit;
+                width: auto;
+            }
+            .rating-mask {
+                cursor: default;
+                height: 30px;
+                left: 84px;
+                position: absolute;
+                top: 42px;
+                width: 200px;
+            }
+        }
+    }
+}

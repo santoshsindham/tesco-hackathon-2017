@@ -1,0 +1,15 @@
+@import "../../common/variables";
+
+#lightbox.personalise-product, .info-panel-group-personalised-overlay .emagination-placeholder {
+    a.close {
+        z-index: 1001;
+    }
+}
+
+#personaliseProductContainer, .emagination-placeholder {
+    display: none;
+}
+
+#lightbox #personaliseProductContainer, .info-panel-group-personalised-overlay .emagination-placeholder {
+    display: block;
+}

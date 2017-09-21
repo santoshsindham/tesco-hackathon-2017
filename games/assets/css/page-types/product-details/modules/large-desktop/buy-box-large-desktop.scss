@@ -1,0 +1,18 @@
+@import '../mixins/buy-box-mixins';
+@include buyboxProductDetailsLarge;
+
+.buybox-wrapper {
+  min-height: 506px;
+}
+
+.minimum-age {
+  position: absolute;
+  top: -40px;
+  width: 100%;
+}
+
+.media-viewer--portrait {
+  .buybox-wrapper {
+    min-height: 670px;
+  }
+}

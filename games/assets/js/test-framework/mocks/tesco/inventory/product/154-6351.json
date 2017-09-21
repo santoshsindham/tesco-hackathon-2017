@@ -1,0 +1,33 @@
+{
+  "id" : "154-6351",
+  "available" : true,
+  "availability" : "InStock",
+  "subscribable" : true,
+  "skus" : [ {
+    "id" : "154-6351",
+    "available" : true,
+    "availability" : "InStock",
+    "subscribable" : true,
+    "listings" : [ {
+      "id" : "O0001ffd7a",
+      "available" : false,
+      "availability" : "OutOfStock",
+      "subscribable" : false
+    }, {
+      "id" : "O0002220b2",
+      "available" : true,
+      "availability" : "InStock",
+      "subscribable" : true
+    }, {
+      "id" : "O000227fbc",
+      "available" : true,
+      "availability" : "InStock",
+      "subscribable" : true
+    }, {
+      "id" : "T00020c7db",
+      "available" : false,
+      "availability" : "OutOfStock",
+      "subscribable" : true
+    } ]
+  } ]
+}

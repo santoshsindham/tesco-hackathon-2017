@@ -1,0 +1,387 @@
+#order-details {
+    margin-right: 8px;
+    margin-left: 8px;
+    #order-summary .dg-order-details{
+		.delivery-links {
+			margin-bottom: 0px;
+		}
+		>h2:first-child {
+			margin-bottom: 6px;
+		}
+		.delivery-item-header {
+			border-bottom: none;
+			h3 {
+				width: 100%;
+			}
+			.track-parcel {
+				width: 60%;
+				position: relative;
+			}
+		}
+		.delivery-item-holder {
+			border-top: none;
+			.delivery-item .description p.supplier {
+				margin-left: 87px;
+			}
+			
+		}
+	}
+}
+#order-header-title .title-links {
+	display: none;
+}
+#order-header {
+    float: left;
+    width: 100%;
+}
+
+#order-header-title,
+#order-header-actions {
+    background: transparent;
+}
+
+#order-header-title {
+    .title-group {
+        clear: left;
+        border-top: 1px solid $primaryBorderColor;
+        width: 100%;
+        &:first-child {
+            border-top: 0;
+        }
+    }
+    .title {
+        &.last {
+            float: right;
+            text-align: right;
+            margin-right: 0;
+        }
+    }
+}
+
+.delivery-item {
+    border-top: 1px solid $primaryBorderColor;
+    
+    &:first-child {
+        margin-top: 8px;
+    }
+    
+    padding-top: 16px;
+}
+
+#order-details {
+	.delivery-details{
+	    .delivery-details-expanded {
+	    	padding: 0;
+	        .ghs-cancel-error {
+				margin-top: 0px;
+				margin-left: -16px
+	        }
+	    }
+    }
+    .description {
+        .section-heading {
+            display: none;
+        }
+    }
+    .status {
+    	float: left;
+    	clear: both;
+    }
+    .price { 
+    	float: right;
+    }
+    .status,
+    .price {
+         padding-bottom: 14px;
+        .section-heading {
+            display: inline-block;
+            float: left;
+            margin-bottom: 12px;
+            font-weight: normal;
+            line-height: 20px;
+        }
+        p {
+            display: inline;
+            line-height: 20px;
+        }
+    }
+}
+
+.my-account #order-details #order-summary .dg-order-details {
+    padding: 12px 8px 0;
+    clear: both;
+	display: inline-block;
+	margin-top: 16px;
+	width: 100%;
+}
+
+.my-account {
+    #order-summary .delivery-group-block .sold-block {
+        margin-bottom: 16px;
+    }
+}
+
+.parcel-details {
+    strong {
+        display: block;
+    }
+     .track-parcel{
+    	padding: 0px 12px 22px 12px;
+    }
+}
+
+.dispatch-heading {
+    padding-top: 20px;
+}
+
+.delivery-details {
+    padding-top: 8px;
+}
+
+.delivery-details .delivery-details-expanded {
+    padding-bottom: 0;
+    > div {
+        margin-bottom: 16px;
+    }
+}
+
+.delivery-details .toggle-delivery-details {
+    font-size: 1.4em;
+}
+
+#order-header-actions {
+    clear: both;
+    float: left;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: -45px;
+    margin-bottom: -38px;
+    
+    .actions-list {
+        padding: 0 8px;
+        display: none;
+        width: 100%;
+        position: relative;
+        &.expand {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 37px;
+            width: 100%;
+            z-index: 300;
+        }
+        &.collapse {
+            display: none;
+        }
+    }
+    
+    ul {
+        background-color: #fff;
+        border: 1px solid $btnTertiaryColor;
+        
+        li {
+            position: relative;
+            padding: 0;
+            border-left: none;
+            border-right: none;
+            margin-top: 0;
+            display: block;
+            float: none;
+            border-width: 0 0 1px 0;
+            border-color: $btnTertiaryColor;
+            border-style: solid;
+            font-size: 1em;
+            .tertiary-button {
+                border: none;
+                padding: 10px 18px;
+                display: block;
+                width: 100%;
+                color: $btnTertiaryColor;
+                background: none;
+                text-align: left;
+                float: none;
+                margin-right: 0;
+                margin-bottom: 0;
+
+				&:hover {
+					background: $btnTertiaryHoverColor;
+					color: $btnTertiaryTextColor;
+				}
+            }
+        }       
+        
+        #order-history-btn {
+            float: none;
+            
+            &:after {
+                font-family: 'Tesco Icons';
+                position: absolute;
+                right: 8px;
+                content: 'r';
+            }
+            
+            .icon {
+                display: none;
+            }
+        }
+    }
+    .custom {
+        display: block;
+        position: relative;
+        float: right;
+        margin-bottom: 0;
+        .icon {
+            font-size: 12px;
+            line-height: 20px;
+            margin-left: 8px;
+        }
+    }
+    .payment-summary-link {
+        display: block;
+    }
+}
+
+#virtual-page {
+    #order-history {
+        display: block;
+        height: auto;
+        visibility: visible;
+        
+        background-color: #FFFFFF;
+        border: 1px solid $primaryBorderColor;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        clear: both;
+        padding: 0;
+        margin: 8px;
+        border-top: 2px solid #3e3e40;
+        .back {
+            display: block;
+            padding: 16px 8px;
+            border-bottom: 1px solid $primaryBorderColor;
+            border-top: 1px solid $primaryBorderColor;
+            &:first-child {
+                border-top: 0;
+            }
+            &:before {
+                font-family: 'Tesco Icons';
+                content: 'g';
+                padding-right: 8px;
+            }
+        }
+        ul {
+            margin: 8px;
+            visibility: visible;
+            top: 0;
+            z-index: 1;
+            border-top: 0;
+        }
+        li {
+            padding-bottom: 16px;
+        }
+        h3 {
+            display: block;
+            margin: 8px;
+            font-weight: normal;
+        }
+    }
+}
+
+.order-details-top {
+    margin-right: 8px;
+}
+
+#order-details {
+	#payment-summary .total-wrapper {
+	   margin-bottom: 0;
+	   border-bottom: 0;
+    }
+}
+
+a.tertiary-button.track-parcel {
+	width: 100%;
+	text-align: left;
+	span {
+		&.icon {
+			position: absolute;
+			right: 19px;
+		}
+	}
+}
+#order-details #order-summary .dg-order-details.delivery-group-block .delivery-item-header .track-parcel{
+    padding-right: 40px;
+}
+.parcel-tracking-container{
+	margin: 25px 0 -40px 24px;
+	ul{
+		li:nth-child(2) {
+			height: 39px;
+		}
+	}
+	li.status{
+		height: 50px;
+		width: 50%;
+		border-top: none;
+		span:not(.icon){
+			position: absolute;
+		    top: -8px;
+		    left: 27px;
+		    font-size: 15px;
+		}
+		&.live{
+			border-top: none;
+		}		
+		&.standard{
+			    height: 41px;
+				span:not(.icon){
+			    	top: -22px;
+				}
+			span{
+				&.icon{
+					position: absolute;
+				    top: -33px;
+		    		left: -20px;
+		    		font-size: 2.7em;
+		    	}
+			}
+			&.inactive{
+				border-left: 2px solid #d8d8d8;
+				border-top: none;
+				margin-left: 0;
+				margin-top: 31px;
+			}
+		}
+		&.active{
+			border-left: 2px solid #00539f;
+			border-top: none;
+			&.standard{
+				margin-left: 0px;
+			    margin-top: 30px;
+			    border-top: none;
+			}
+		}
+		&.inactive{
+			border-left: 2px solid #d8d8d8;
+			&::before{
+				width: 15px;
+				height: 15px;
+				left: -10px;
+			}
+		}
+		&::before{
+		    left: -11px;
+		    width: 19px;
+		    height: 19px;
+		    border-radius: 10px;
+		}
+		&:last-child{
+			border: none !important;
+			&::before{
+				left: -9px;
+			}
+		}
+		&.live{
+			border-left: 2px solid #d8d8d8;
+		}
+	}
+}

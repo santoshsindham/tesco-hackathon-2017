@@ -1,0 +1,34 @@
+.description-container {
+	position: absolute;
+	top: 285px;
+	left: 560px;
+	width: 704px;
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+
+    .section-content {
+        overflow: hidden;
+        height: 130px;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .ellipsis-button {
+        float: right;
+    }
+}
+
+.tab-content .description-section-content {
+    height: auto;
+    margin-bottom: 0px;
+}
+
+#main-content {
+    &.kiosk-pdp-no-features {
+        .description-container {
+            top: 180px;
+        }
+    }
+}

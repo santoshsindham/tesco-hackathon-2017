@@ -1,0 +1,39 @@
+@import '../../../shared/modules/mixins/product-details-mixins';
+
+.functional-banner {
+  padding-bottom: 0;
+  padding-top: 0;
+
+  h4,
+  h5 {
+    padding-right: 30px;
+
+    > .icon-wrapper {
+      @include centerVertically(right, 5px);
+      padding-right: 0;
+      width: auto;
+    }
+  }
+
+  &.functional-banner-single {
+    padding: 15px;
+  }
+
+  &.functional-banner-double {
+    display: block;
+
+    > div {
+      display: block;
+      padding-bottom: 15px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-top: 15px;
+      position: relative;
+
+      &:first-child {
+        border-bottom: 6px solid $background;
+        border-right: 0;
+      }
+    }
+  }
+}

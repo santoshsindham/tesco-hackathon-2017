@@ -1,0 +1,5 @@
+@import "product-features-mixins";
+
+.product-features-non-book-layout {
+    @include product-features-list-layout;
+}

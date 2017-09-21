@@ -1,0 +1,174 @@
+@import "../../../core/components/variables";
+@import "../mixins/pdp-s7viewer-mixins";
+
+.videoView {
+        position: relative;
+        display: none;
+        overflow: hidden;
+
+        .videoPosition {
+            position: relative;
+
+            @include opacity(0);
+            @include transition(all 500ms ease);
+
+            &.fade-in-video {
+                @include opacity(1);
+            }
+
+            video {
+                width: 100%;
+            }
+        }
+    }
+
+.videoVisible {
+    .videoView {
+        display: block;
+        height: 100%;
+    }
+}
+
+.videoContainer {
+    position: relative;
+    display: table;
+    height: 100%;
+    width: 100%;
+    .videoPosition {
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        video {
+            height: 100%;
+            width: 100%;
+        }
+        .play-icon, .pause-icon {
+            display: block;
+            position: absolute;
+            text-indent: -9999px;
+            cursor: pointer;
+            margin: -17px 0 0 -17px;
+            left:50%;
+            top:50%;
+            width: 34px;
+            height: 34px;
+            background: url('../images/video/play_lrge.png') no-repeat center center;
+            background-size: 34px 34px;
+            @include multipleTransitions(transform 200ms, opacity 600ms);
+            &.hide-video-icon {
+                @include transform-scale(2, 2);
+                @include opacity(0);
+            }
+        }
+        .pause-icon {
+            background: url('../images/video/pause_lrge.png') no-repeat center center;
+        }
+    }
+    video {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+/* Video player stlyes */
+.video-controls-wrap {
+    display: block;
+    width: 100%;
+    .video-controls {
+        background-color: rgba(255,255,255, 0.9);
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        padding: 5px 0;
+        width: 100%;
+
+        .btn {
+            border: none;
+            outline: none;
+            position: absolute;
+            text-indent: -9999px;
+            height: 22px;
+            width: 30px;
+            cursor: pointer;
+
+            &:disabled {
+                color: $inactive;
+                &:hover {
+                    border: none;
+                    cursor: auto;
+                }
+            }
+        }
+
+        .seek-bar {
+            display: block;
+            margin: 0 40px;
+        }
+
+        .play {
+            bottom: 4px;
+            left: 0;
+            background: transparent url(../images/video/play.png) bottom center no-repeat;
+            &:hover {
+                background: transparent url(../images/video/play.png) top center no-repeat;
+            }
+            &.paused {
+                background: transparent url(../images/video/pause.png) bottom center no-repeat;
+                &:hover {
+                    background: transparent url(../images/video/pause.png) top center no-repeat;
+                }
+            }
+        }
+
+        .mute {
+            bottom: 4px;
+            right: 0;
+            background: transparent url(../images/video/mute.png) bottom center no-repeat;
+            &:hover {
+                background: transparent url(../images/video/mute.png) top center no-repeat;
+            }
+            &.muted {
+                background: transparent url(../images/video/unmute.png) bottom center no-repeat;
+                &:hover {
+                    background: transparent url(../images/video/unmute.png) top center no-repeat;
+                }
+            }
+        }
+    }
+}
+
+.video-controls {
+    #pdpScene7Container & {
+        @include transition(opacity 1000ms);
+    }
+
+    /*
+    &.video-controls-fade-out {
+        @include opacity(0);
+    }
+    &.video-controls-fade-in {
+        @include opacity(1);
+    }
+    */
+}
+
+.errorVideo {
+    position: absolute;
+    top: 0px;
+    @include hundredPercentWidthAndHeight;
+    background: #D6D2C4;
+    text-align: center;
+    cursor: default;
+    .errorWrap {
+        background: url(../images/video/error_alert.png) no-repeat #A69F88 20px 18px;
+        padding: 15px 20px 15px 50px;
+        width: 61%;
+        margin: auto auto;
+        span {
+            color: #ffffff;
+            font-size: 2em;
+            font-family: Tesco;
+        }
+    }
+}

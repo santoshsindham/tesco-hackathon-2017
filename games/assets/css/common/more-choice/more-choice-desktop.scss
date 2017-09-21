@@ -1,0 +1,30 @@
+//more-choice module - desktop
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "more-choice-mixins";
+
+.more-choice-block {
+
+	.more-choice {
+		width: $onecol * 46;
+	}
+
+	.click-and-collect  {
+		width: $onecol * 70;
+		margin-left: $onecol * 2;
+		padding: 0 16px;
+		line-height: 46px;
+		.line-1 {
+			font-size: 2.4em;
+			float: left;
+			margin: 0;
+			padding: 0;
+		}
+
+		.line-2 {
+			font-size: 1.2em;
+			text-align: right;
+			padding: 0;
+		}
+	}
+}

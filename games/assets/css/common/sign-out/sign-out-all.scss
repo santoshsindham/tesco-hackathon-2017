@@ -1,0 +1,17 @@
+@import "../variables";
+@import "sign-out-mixins";
+
+.sign-out {
+	padding-bottom: 16px;
+	form.half-page-form {
+		overflow: visible;
+		width: auto;
+		margin-bottom: 0;
+		padding-bottom: 0;
+
+		.secondary-button {
+			margin-bottom: 8px;
+			
+		}
+	}
+}

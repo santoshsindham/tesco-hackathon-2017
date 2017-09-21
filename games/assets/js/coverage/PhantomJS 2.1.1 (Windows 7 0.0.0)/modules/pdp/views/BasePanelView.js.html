@@ -1,0 +1,1208 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\views\BasePanelView.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/views/</a> BasePanelView.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.77% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/138</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/74</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">4.76% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/21</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.77% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/138</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/views/BasePanelView', [
+  'domlib',
+  'modules/mvc/fn',
+  'modules/pdp/views/BaseView',
+  'modules/breakpoint'
+], function ($, fn, BaseView, breakpoint) {
+  'use strict';
+&nbsp;
+  /**
+   * The base panel view that all panel views inherit from.
+   * @param {Object} oConfig The configuration settings for a view.
+   * @return {void}
+   */
+<span class="fstat-no" title="function not covered" >  function BasePanelView(oConfig) {</span>
+<span class="cstat-no" title="statement not covered" >    var _oConfig = oConfig;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    _oConfig.modelRequired = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.sNamespace = 'panel';</span>
+<span class="cstat-no" title="statement not covered" >    this.isOpen = false;</span>
+<span class="cstat-no" title="statement not covered" >    this.panelNo = 1;</span>
+<span class="cstat-no" title="statement not covered" >    this.childPanels = [];</span>
+<span class="cstat-no" title="statement not covered" >    this.parentPanel = null;</span>
+<span class="cstat-no" title="statement not covered" >    this.sTemplate = $('#info-panel-template')[0].innerHTML;</span>
+<span class="cstat-no" title="statement not covered" >    this.parent.parent.constructor.call(this, _oConfig);</span>
+&nbsp;
+    // parent constructor property overrides
+<span class="cstat-no" title="statement not covered" >    this.hasData = true;</span>
+<span class="cstat-no" title="statement not covered" >    this.contentHash = this.hashCode(_oConfig.sOverlayContent);</span>
+  }
+&nbsp;
+  fn.inherit(BasePanelView, BaseView);
+&nbsp;
+  /**
+   * Caches the base panel's close elements.
+   * @return {void}
+   */
+  BasePanelView.prototype._cacheDomElms = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var $wrapper = undefined,</span>
+      CLOSE_ICONS = '.info-panel-close-icon, .info-panel-close-link, .info-panel-back-icon';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.parent.parent._cacheDomElms.call(this);</span>
+<span class="cstat-no" title="statement not covered" >    $wrapper = $(this.oElms.elWrapper);</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.elHeader = $wrapper.find('.info-panel-header')[0];</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.elTitle = $wrapper.find('h4.info-panel-title')[0];</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.elContentTitle = $wrapper.find('h3.info-panel-content-title')[0];</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.elContentWrapper = $wrapper.find('.info-panel-content-wrapper')[0];</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.elContent = $wrapper.find('.info-panel-content')[0];</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.$Close = $wrapper.find(CLOSE_ICONS);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if ($wrapper.parent().hasClass('info-panel-group')) {</span>
+<span class="cstat-no" title="statement not covered" >      this.oElms.elPanelGroup = $wrapper.parent();</span>
+    }
+  };
+&nbsp;
+  /**
+   * Binds the base events required by all panels.
+   * @return {void}
+   */
+  BasePanelView.prototype._bindEvents = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var INPUT_WITHIN_WRAPPER = 'input:not([type="checkbox"])';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.oElms.elTrigger) {</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elTrigger).on(</span>
+        'click',
+        this._onTriggerClick.bind(this)
+      );
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elWrapper).on(</span>
+      'focus.movePanelContent-' + this.sKeyId, INPUT_WITHIN_WRAPPER,
+      this._onInputFocus.bind(this)
+    ).on(
+      'blur.movePanelContent-' + this.sKeyId, INPUT_WITHIN_WRAPPER,
+      this._onInputBlur.bind(this)
+    );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elWrapper).on(</span>
+      'click.closeIcons',
+      '.info-panel-close-icon, .info-panel-close-link, .info-panel-back-icon',
+      this.close.bind(this)
+    );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elContentWrapper).on('scroll', window.picturefill);</span>
+  };
+&nbsp;
+  /**
+   * Unbinds the base events required by all panels.
+   * @return {void}
+   */
+  BasePanelView.prototype._unbindEvents = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.oElms.elTrigger) {</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elTrigger).off('click');</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elWrapper)</span>
+      .off('focus.movePanelContent-' + this.sKeyId)
+      .off('blur.movePanelContent-' + this.sKeyId);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elContentWrapper).off('touchmove scroll');</span>
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elWrapper).off('click.closeIcons');</span>
+  };
+&nbsp;
+  /**
+   * Adds odd and even classes to the panels based on their 'parent' panel. Also adds zIndex
+   * one higher than their parent panel.
+   * @param {Object} options The optional parametres that change method behaviour.
+   * @return {void}
+   */
+  BasePanelView.prototype._addAttributes = <span class="fstat-no" title="function not covered" >function (options) {</span>
+<span class="cstat-no" title="statement not covered" >    var _options = options || {},</span>
+      panelObj = undefined,
+      zIndex = undefined,
+      INFO_PANEL = '.info-panel',
+      $panelWrapper = _options.wrapper || $(this.oElms.elWrapper),
+      $parentPanel = _options.parent || $(this.oElms.elTrigger).closest(INFO_PANEL);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if ($parentPanel.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      if ($parentPanel.data('mvc-tag') === this.sTag) {</span>
+<span class="cstat-no" title="statement not covered" >        if ($parentPanel.data('mvc-self')) {</span>
+<span class="cstat-no" title="statement not covered" >          panelObj = $parentPanel.data('mvc-self');</span>
+        } else <span class="cstat-no" title="statement not covered" >if (window.oAppController.oPageController.views[$parentPanel.attr('id')]) {</span>
+<span class="cstat-no" title="statement not covered" >          panelObj = window.oAppController.oPageController.views[$parentPanel.attr('id')];</span>
+<span class="cstat-no" title="statement not covered" >          $parentPanel.data('mvc-self', panelObj);</span>
+<span class="cstat-no" title="statement not covered" >          window.oAppController.oPageController.views[$parentPanel.attr('id')] = null;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.panelNo = panelObj.panelNo + 1;</span>
+<span class="cstat-no" title="statement not covered" >        panelObj.childPanels.push(this);</span>
+<span class="cstat-no" title="statement not covered" >        this.parentPanel = panelObj;</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (_options.zIndex !== false) {</span>
+<span class="cstat-no" title="statement not covered" >        zIndex = parseInt($parentPanel.css('z-index'), 10) + 1;</span>
+<span class="cstat-no" title="statement not covered" >        $panelWrapper.css({ zIndex: zIndex });</span>
+      }
+    }
+  };
+&nbsp;
+  /**
+   * Method fired when a user clicks on a trigger element.
+   * @param {Object} oEvent The event object.
+   * @return {void}
+   */
+  BasePanelView.prototype._onTriggerClick = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    this.toggle(oEvent);</span>
+  };
+&nbsp;
+  /**
+   * Method decides whether to open or close the panel when a user clicks on the trigger.
+   * @param {Object} oEvent The event object.
+   * @return {Object} The panel view whose toggle method is being invoked.
+   */
+  BasePanelView.prototype.toggle = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.isOpen) {</span>
+<span class="cstat-no" title="statement not covered" >      this.close(oEvent);</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.open(oEvent);</span>
+    }
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Method opens the panel, adds an active class to the trigger and fires a panel open event.
+   * @param {Object} oEvent The event object.
+   * @return {Object} The panel view whose open method is being invoked.
+   */
+  BasePanelView.prototype.open = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    var IS_ACTIVE = 'is-active',</span>
+      IS_OPEN = 'is-open';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (oEvent &amp;&amp; oEvent.currentTarget &amp;&amp; $(oEvent.currentTarget).hasClass('disabled')) {</span>
+<span class="cstat-no" title="statement not covered" >      return this;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._openStartHook) {</span>
+<span class="cstat-no" title="statement not covered" >      this._openStartHook(oEvent);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elWrapper).addClass(IS_OPEN);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.oElms.elTrigger) {</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elTrigger).addClass(IS_ACTIVE);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.isOpen = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setEvent({</span>
+      sName: 'panelOpen',
+      sTag: this.sTag,
+      oView: this,
+      oClickEvent: oEvent
+    }, false, true);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._openEndHook) {</span>
+<span class="cstat-no" title="statement not covered" >      this._openEndHook(oEvent);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Method closes the panel, removes an active class to the trigger and fires a panel close event.
+   * @param {Object} oEvent The event object.
+   * @return {Object} The panel view whose close method is being invoked.
+   */
+  BasePanelView.prototype.close = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      openChildPanel = (<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        var openPanels = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _this.forLoop(_this.childPanels, <span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (_this.childPanels[i].isOpen) {</span>
+<span class="cstat-no" title="statement not covered" >            openPanels.push(_this.childPanels[i]);</span>
+          }
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return openPanels;</span>
+      }()),
+      IS_ACTIVE = 'is-active',
+      IS_OPEN = 'is-open';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (oEvent &amp;&amp; oEvent.currentTarget &amp;&amp; $(oEvent.currentTarget).hasClass('disabled')) {</span>
+<span class="cstat-no" title="statement not covered" >      return this;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._closeStartHook) {</span>
+<span class="cstat-no" title="statement not covered" >      this._closeStartHook(oEvent);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (openChildPanel.length) {</span>
+<span class="cstat-no" title="statement not covered" >      this.forLoop(openChildPanel, <span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >        openChildPanel[i].close(event);</span>
+      });
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elWrapper).removeClass(IS_OPEN);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.oElms.elTrigger) {</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elTrigger).removeClass(IS_ACTIVE);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.isOpen = false;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setEvent({</span>
+      sName: 'panelClosed',
+      sTag: this.sTag,
+      oView: this,
+      oClickEvent: oEvent
+    }, false, true);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._closeEndHook) {</span>
+<span class="cstat-no" title="statement not covered" >      this._closeEndHook(oEvent);</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Method removes a view from the DOM and detroys any references to it, i.e. events.
+   * @param {Object} oEvent The event object.
+   * @param {Object} opts Options for the method.
+   * @return {void}
+   */
+  BasePanelView.prototype.destroy = <span class="fstat-no" title="function not covered" >function (oEvent, opts) {</span>
+<span class="cstat-no" title="statement not covered" >    var _opts = opts || {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (_opts.destroyGroup) {</span>
+<span class="cstat-no" title="statement not covered" >      this.setEvent({</span>
+        sName: 'getPanelGroup',
+        tag: this.sTag,
+        callback: <span class="fstat-no" title="function not covered" >function (panelGroup) {</span>
+<span class="cstat-no" title="statement not covered" >          if (panelGroup) {</span>
+<span class="cstat-no" title="statement not covered" >            panelGroup.destroy();</span>
+          }
+        }
+      }, false, true);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return this;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._unbindEvents();</span>
+<span class="cstat-no" title="statement not covered" >    $('#' + this.sViewId).remove();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setEvent({</span>
+      sName: 'destroyPanel',
+      oView: this,
+      oClickEvent: oEvent
+    }, false, true);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Method updates the content of a panel with a string of html/text.
+   * @param {String} sContent html/text to add into panel.
+   * @return {Object} The view object.
+   */
+  BasePanelView.prototype.updateContent = <span class="fstat-no" title="function not covered" >function (sContent) {</span>
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elContent).html(sContent);</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Method removes the content of a panel with a string of html/text.
+   * @return {Object} The view object.
+   */
+  BasePanelView.prototype.removeContent = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.elContent.innerHTML = '';</span>
+<span class="cstat-no" title="statement not covered" >    return this;</span>
+  };
+&nbsp;
+  /**
+   * Method checks if the viewport is mobile and if scroll is disabled on the body and if an input
+   * is not in focus, and if these come back as true then it runs the _moveInputIntoView method.
+   * @param {Object} oEvent The event object.
+   * @return {void}
+   */
+  BasePanelView.prototype._onInputFocus = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.isInputInFocus) {</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if ($('body').hasClass('disableScroll')) {</span>
+<span class="cstat-no" title="statement not covered" >      if (breakpoint.mobile || breakpoint.hTablet || breakpoint.vTablet) {</span>
+<span class="cstat-no" title="statement not covered" >        this._toggleHeaderVisibility();</span>
+<span class="cstat-no" title="statement not covered" >        this._moveInputIntoView(oEvent);</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.isInputInFocus = true;</span>
+  };
+&nbsp;
+  /**
+   * Method moves the header and content wrapper up and scrolls the input into view. This is
+   * required on devices because when the overlay is open in fullScreen mode, the body scroll is
+   * disabled and so the native behaviour does not scroll the input into view.
+   * @param {Object} oEvent The event object.
+   * @return {void}
+   */
+  BasePanelView.prototype._moveInputIntoView = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    var iScroll = $(oEvent.currentTarget).offset().top - $(this.oElms.elContent).offset().top;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(this.oElms.elContentWrapper).animate({</span>
+      scrollTop: iScroll
+    }, 200);
+  };
+&nbsp;
+  /**
+   * Method checks if the viewport is mobile and if scroll is disabled on the body and if an input
+   * is in focus, come back as true then it runs the _slideDownHeader method.
+   * @param {Object} oEvent The event object.
+   * @return {void}
+   */
+  BasePanelView.prototype._onInputBlur = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    if ($('body').hasClass('disableScroll')) {</span>
+<span class="cstat-no" title="statement not covered" >      if (breakpoint.mobile || breakpoint.hTablet || breakpoint.vTablet) {</span>
+<span class="cstat-no" title="statement not covered" >        this._toggleHeaderVisibility();</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.isInputInFocus = false;</span>
+  };
+&nbsp;
+  /**
+   * Method moves the header and content wrapper up for down. This is required on mobile When
+   * in landscape because the screen with keyboard open is not deep enough if the header is not
+   * hidden from view.
+   * @return {void}
+   */
+  BasePanelView.prototype._toggleHeaderVisibility = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    if (!this.isInputInFocus) {</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elHeader).addClass('panel-header-hidden');</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elContentWrapper).addClass('panel-header-hidden');</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elHeader).removeClass('panel-header-hidden');</span>
+<span class="cstat-no" title="statement not covered" >      $(this.oElms.elContentWrapper).removeClass('panel-header-hidden');</span>
+    }
+  };
+&nbsp;
+  return BasePanelView;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+
+/* 5.8.1 Product Summary */
+
+/*
+	Product summary block for product details page
+*/
+
+/*
+div#product-summary {
+    width: 356px;
+    float: left;
+    margin: 12px 0 0 25px;
+}
+*/
+div#product-summary h1{
+    margin-top:-5px;
+    word-wrap:break-word;
+}
+div#product-summary a{
+    font-size: 1.1em;
+}
+p.catalogue-no{
+    font-size: 1.2em;
+}
+.product-details .section .catalogue-no {
+	font-size:1.2em;
+}
+p.catalogue-no span{
+    /*font-weight: bold;*/
+}
+a.avg-rating{
+    margin: 0 5px 0 0;
+}
+#product-summary .user-reviews{
+    margin: 0 5px 0 0;
+	border-right: 1px solid #000;
+	padding: 0 5px 0 0;
+	float: none;
+}
+a.write-review{
+    margin: 0 0 0 5px;
+}
+a.write-first-review{
+	border-right: 1px solid #000000;
+	margin-right: 5px;
+}
+ul.product-features{
+    margin: 15px 0 5px 0;
+	float: left;
+}
+ul.product-features li{
+	margin-bottom:4px;
+	overflow: visible;
+	line-height: 1.2em;
+	width: 340px;
+	padding: 0px;
+	text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+}
+.product-summary-tools li {
+	float:right;
+	margin:10px 8px 0 0;
+	padding-right:7px;
+	border-right: 1px solid #000;
+}
+.product-summary-tools .last {
+	border-right:none;
+}
+
+#BVCustomerRatings {
+	width: 260px;
+	float: left;
+}
+
+#printSec {
+	float: right;
+	clear: none;
+}

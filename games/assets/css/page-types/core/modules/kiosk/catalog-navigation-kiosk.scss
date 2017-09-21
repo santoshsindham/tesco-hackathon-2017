@@ -1,0 +1,74 @@
+@import "../mixins/catalog-navigation-mixins";
+
+body {
+    &:not(.homepage) {
+        @include catalogueNavKioskStyles;
+    }
+}
+
+#catalogue-nav-wrapper {
+    display: block;
+
+    #catalogue-nav-back-link {
+        display: none;
+    }
+}
+
+.homepage {
+    #catalogue-nav-wrapper {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 1700px;
+        margin: 0px auto;
+        padding-left: 20px;
+        padding-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    #catalogue-nav {
+        ul.departments {
+            > li {
+                &.first {
+                    display: none;
+                }
+            }
+
+            &.department-count-14 { // styles work for 13 departments visible
+                a {
+                    width: 13%;
+                }
+            }
+        }
+
+        a {
+            position: relative;
+            height: 130px;
+            width: 15.47%;
+            float: left;
+            font-size: 17px;
+            line-height: 1.2;
+            text-align: left;
+            white-space: normal;
+            text-overflow: clip;
+            margin: 20px 20px 0px 0px;
+            padding: 10px 100px 0px 14px;
+            background: $white;
+            border: 1px solid $paleGrey;
+            border-radius: 5px;
+            @include multipleTransitions(color 0.3s);
+
+            &:active {
+                color: $brightBlue;
+            }
+        }
+
+        .departments-background-mask {
+            display: nonfe;
+        }
+
+        ul.categories {
+            display: none;
+        }
+    }
+}

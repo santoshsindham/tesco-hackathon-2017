@@ -1,0 +1,49 @@
+@import '../breakpoints';
+
+#main-content {
+  #listing {
+    .PDP-Version2__component {
+      p {
+        color: #666;
+        margin: 0 8px;
+        text-align: center;
+
+        @include breakpoint('mobile') {
+          margin-top: 8px;
+        }
+      }
+      a {
+        display: block;
+        color: #00539f;
+        &:active,
+        &:link,
+        &:visited {
+          color: #00539f;
+        }
+        &:hover {
+          text-decoration: none;
+          span {
+            &.link {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    &.list-view {
+      .PDP-Version2__component {
+        p {
+          @include breakpoint('mobile') {
+            margin: 8px 0 0;
+            text-align: left;
+          }
+
+          @include breakpoint('vTablet') {
+            margin: 8px 0 0;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+}

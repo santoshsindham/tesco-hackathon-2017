@@ -1,0 +1,19 @@
+{
+  "id" : "bktgrp4810003",
+  "displayName" : "210-7442_Z",
+  "links" : [ {
+    "id" : "bktgrp4810003",
+    "type" : "bucketGroup",
+    "bucketName" : "210-7442_Z",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/bucketGroup/bktgrp4810003"
+  }, {
+    "id" : "210-7442",
+    "type" : "sku",
+    "rel" : "contains",
+    "href" : "/direct/rest/content/catalog/sku/210-7442",
+    "options" : {
+      "primary" : "Silver"
+    }
+  } ]
+}

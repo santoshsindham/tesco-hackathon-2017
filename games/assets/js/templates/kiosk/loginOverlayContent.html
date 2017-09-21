@@ -1,0 +1,11 @@
+<div class="fnModal message">
+    <span class="<%= statusMessageClass %>"><%= statusMessageText %></span>
+</div>
+<div class="<%= clubcardStage %>">
+    <div class="clubcardImage"></div>
+    <p class="inputPromptMessage"><%= clubcardPromptMessageText %></p>
+    <form id='ir-login-postcode' action='#' method='post' novalidate='novalidate'>
+        <input type="text" id='txt-verify-postcode' name='txt-verify-postcode' placeholder="<%= clubcardPlaceholderText %>" />
+        <button type="submit" class='secondary-button' id="btn-verify-postcode"><%= verifyPostcodeButton %></button>
+	</form>
+</div>

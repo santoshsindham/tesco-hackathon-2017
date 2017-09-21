@@ -1,0 +1,32 @@
+// Grays
+// -------------------------
+$black:                 #000 !default;
+$greyDark:              #606060;
+$greyMid:               #aaa;
+$greyLight:             #d9d9d9;
+$greyLighter:           #f7f7f7;
+$white:                 #fff !default;
+
+
+// Accent colors
+// -------------------------
+$blueDark:              #145899;
+$blueMid:               #0770b8;
+$blueLight:             #539adf;
+$yellowLight:           #ffffd0;
+$red:                   #d92121;
+$orangeDark:            #fe8500;
+$orangeMid:             #fea100;
+$brown:                 #c46907;
+$blueLightprogress:		#0870b9;
+
+// Scaffolding
+// -------------------------
+$textColor:             $greyDark !default;
+$rwdBackgroundColour:	#f5f7fd !default;
+$bodyBackground:		$rwdBackgroundColour;	
+
+// Typography
+// -------------------------
+$baseFontSize:          1em !default;
+$baseMarginBottom:      1.25em;

@@ -1,0 +1,211 @@
+@import "../breakpoints";
+@include breakpoint(tablet);
+@import "basket-mixins";
+
+@include basket-layout-mobile;
+
+// main basket wrapper
+// -----------------------------------------------------
+
+.notification,
+#basket-wrapper {
+	margin-right: 1.25%;
+	margin-left: 1.25%;
+	
+	div.page-error {
+		//margin-right: 270px;
+		display: none;
+	}
+}
+
+
+// mini basket summary (top)
+// -----------------------------------------------------
+
+#basket-summary-mini {
+	@include basket-box-bordered;
+	margin-bottom: 16px;
+	h2:first-child {
+		margin-top: 22px;
+		margin-bottom: 0;
+		span.hidden {
+			display: none;
+		}
+	}
+	.total-wrapper {
+		margin-right: 8px;
+	    input[type=submit] {
+		    margin-top: 8px;
+		    margin-bottom: 8px;
+	    }
+	}
+}
+
+.basket-empty #basket-summary-mini  {
+	@include box-shadow(none);
+	border: none;
+	background-color: transparent;
+	h2 {
+		float: none;
+		margin: 0 0 12px 0;
+	}
+	a.continue-shopping {
+		width: auto;
+		display: inline-block;
+		padding-right: 12px;
+		padding-left: 12px;
+	}
+}
+
+@media screen and (min-width: 640px) {
+	#basket-summary-mini h2:first-child span.hidden {
+		display: inline;
+	}
+}
+
+// primary column
+// -----------------------------------------------------
+#virtual-page{
+	#preorderPricing{
+		border-width: 2px 1px 0 1px;
+	    border-style: solid;
+	    border-color: #353535 #d9d7d7 #d9d7d7 #d9d7d7;
+		.back{
+			display: block;
+			padding: 12px 8px;
+			border-bottom: 1px solid $primaryBorderColor;
+			border-top: 1px solid $primaryBorderColor;
+			font-size: 1.4em;
+			&:first-child {
+				border-top: none;
+			}
+			&:before {
+				font-family: 'Tesco Icons';
+				content: 'g';
+				padding-right: 8px;
+			}
+		}
+		p{
+			background-color:white;
+			padding: 2.8%;
+			margin:0;
+		}
+	}
+}
+#basket-primary,
+#basket-supplemental {
+	margin-right: $mobile-primary-margin-right;
+}
+
+#basket-primary {
+	float: none;
+}
+
+#basket-primary .basket-item  {
+	padding: 0 16px;
+	.available-product-options {
+		width:100%;
+		margin-left:0px;
+	}
+	.back{
+		display:none;
+	}
+	.quantity {
+		margin-bottom: -8px;
+		a,
+		input[type=text],
+		input[type=number],
+		input[type=submit] {
+			margin-bottom: 8px;
+		}
+	}
+}
+
+// secondary column
+// -----------------------------------------------------
+
+// ensure the secondary doesn't move (sticky should be enabled for desktop only)
+#basket-secondary {
+	position: absolute !important;
+	top: 0 !important;
+	right: 0 !important;
+	width: 240px;
+}
+
+#basket-summary {
+	@include basket-box-bordered-mobile;
+	padding-top: 16px;
+}
+
+// lightbox content
+// -----------------------------------------------------
+
+
+#lightbox.basket-overlay {
+	h2 {
+		margin-left: 16px;
+		padding: 0;
+	}
+	p {
+		margin-left: 16px;
+		margin-right: 16px;
+	}
+	.lightbox-actions {
+		&.bottom {
+			margin: 0 16px 16px;
+		}
+	}
+}
+// supplemental
+// -----------------------------------------------------
+
+#basket-wrapper + #supplemental {
+	.products-header h2 {
+	    margin-left: 0;
+	}
+	.product-carousel,
+	#you-might-like.product-carousel {
+		padding-left: 1.25%;
+		padding-right: 1.25%;
+	    .products > li {
+		    // margin-right: 0.85%;
+		    // width: 49.58%;
+		    &:first-child {
+		    	margin-left: 0;
+		    }
+		}
+	    .product-carousel-nav {
+		    margin-right: 0;
+		}
+	}
+	#recently-viewed {
+		margin-bottom: 16px;
+		h2 {
+	    	margin-left: 0;
+	    }
+	}
+}
+//flowers
+//-----------------------------------------------------
+#basket-wrapper .personalised-message-indicative {
+ margin-top: 16px;
+ padding-top: 16px;
+ border-top: 1px solid #f3f1ed;
+ clear: none;
+ padding-left: 0;
+ width: auto;
+}
+
+/* personalised product basket message */
+#basket-primary .basket-item {
+    .personalised-basket-message {
+        p {
+            padding-left: 60px;
+            &:before {
+                position: absolute;
+                top: 2px;
+                left: 11px;
+            }
+        }
+    }
+}

@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\models\SellerModel.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/models/</a> SellerModel.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40.48% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>17/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/28</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">30% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">40.48% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>17/42</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-yes">50×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/models/SellerModel', [
+  'modules/mvc/fn',
+  'modules/pdp/data-stores/Seller',
+  'modules/pdp/models/BaseModel'
+], function (fn, Seller, BaseModel) {
+  'use strict';
+&nbsp;
+  /**
+   *
+   * @param {Object} config
+   * @return {void}
+   */
+  function SellerModel(config) {
+    this.DataStoreClass = Seller;
+    this.sNamespace = 'sellers';
+    this.sParentNamespace = 'products';
+    this.parent.constructor.call(this, config);
+  }
+&nbsp;
+&nbsp;
+  fn.inherit(SellerModel, BaseModel);
+&nbsp;
+&nbsp;
+  /**
+   * Gets the primary delivery option for a seller.
+   * @param {String} sId The id of a seller.
+   * @return {String} The id of the primary delivery option.
+   */
+  SellerModel.prototype.getPrimaryDeliveryOption = <span class="fstat-no" title="function not covered" >function (sId) {</span>
+<span class="cstat-no" title="statement not covered" >    return this.forLoop(this._aDataStores, <span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (this._aDataStores[i].id === sId) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this.isArray(this._aDataStores[i].deliveryOptions, true)) {</span>
+<span class="cstat-no" title="statement not covered" >          return this._aDataStores[i].deliveryOptions[0];</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return undefined;</span>
+    });
+  };
+&nbsp;
+&nbsp;
+  /**
+   * Gets whether there is a seller that is a tesco partner.
+   * @param {String|Array} mId The id(s) of a seller.
+   * @return {Boolean} true/false
+   */
+  SellerModel.prototype.isSellerPartner = <span class="fstat-no" title="function not covered" >function (mId) {</span>
+<span class="cstat-no" title="statement not covered" >    return this.forLoop(this._aDataStores, <span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >      var isSellerPartner = undefined;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (this.isArray(mId, true)) {</span>
+<span class="cstat-no" title="statement not covered" >        isSellerPartner = this.forLoop(mId, <span class="fstat-no" title="function not covered" >function (j) {</span></span>
+<span class="cstat-no" title="statement not covered" >          if (this._aDataStores[i].id === mId[j]) {</span>
+<span class="cstat-no" title="statement not covered" >            if (this._aDataStores[i].name !== 'Tesco') {</span>
+<span class="cstat-no" title="statement not covered" >              return true;</span>
+            }
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          return undefined;</span>
+        });
+      } else <span class="cstat-no" title="statement not covered" >if (this._aDataStores[i].id === mId) {</span>
+<span class="cstat-no" title="statement not covered" >        if (this._aDataStores[i].name !== 'Tesco') {</span>
+<span class="cstat-no" title="statement not covered" >          isSellerPartner = true;</span>
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return isSellerPartner;</span>
+    }) || false;
+  };
+&nbsp;
+&nbsp;
+  SellerModel.prototype.getPrices = function (data) {
+    var sellerData = this.resolveDataArg(data);
+&nbsp;
+    if (!this.isObject(sellerData, true) || !this.isObject(sellerData.prices, true)) {
+      return {};
+    }
+&nbsp;
+    return sellerData.prices;
+  };
+&nbsp;
+&nbsp;
+  SellerModel.prototype.getPrice = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var prices = this.getPrices(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!this.isObject(prices, true)) {</span>
+<span class="cstat-no" title="statement not covered" >      return '';</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return prices.price || '';</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|string} data
+   * @return {Array&lt;string&gt;}
+   */
+  SellerModel.prototype.getPromotions = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var sellerData = this.resolveDataArg(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isObject(sellerData, { notEmpty: true }) || !fn.isArray(sellerData.promotions)) {</span>
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return sellerData.promotions;</span>
+  };
+&nbsp;
+&nbsp;
+  return SellerModel;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

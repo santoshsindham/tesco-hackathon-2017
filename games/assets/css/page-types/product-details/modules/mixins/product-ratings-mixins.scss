@@ -1,0 +1,195 @@
+$linkColor: $blue;
+$linkColorHover: #008DC8;
+$ratingsTextColorLight: #666;
+$enabledStar: #ffc600;
+$ratingsBarBkg: $paleGrey;
+$ratingsOverlayBdr: #ececec;
+$btnTextColor: $grey;
+$btnBdrColor: $paleGrey;
+
+@mixin productRatingsProductDetailsAll {
+    /**
+     * Overrides for the ratings summary for while we
+     * are using BazaarVoice's OOTB solution.
+     */
+    .product-ratings-wrapper {
+        #BVRRSummaryContainer {
+          .bv-cleanslate .bv-summary-bar-minimalist-horizontal .bv-stars-container {
+              margin-right: 0px!important;
+          }
+
+          .bv-cleanslate .bv-rating-stars-container {
+              position: relative !important;
+              top: 1px !important;
+          }
+
+          .bv-cleanslate .bv-primarySummary-rating-container {
+              background-color: transparent !important;
+          }
+
+          .rating-container .rating .stars,
+          .bv-cleanslate .bv-primarySummary-rating-container .bv-rating-stars-container .bv-rating-stars {
+              font-size: 22px!important;
+          }
+
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link,
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link:hover,
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link:active,
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link:visited,
+          .bv-cleanslate .bv-summary-bar .bv-rating-ratio-count,
+          .bv-cleanslate .bv-submission-button {
+              padding: 0px !important;
+              font-family: $tescoFont !important;
+              font-size: 15px !important;
+              line-height: 19px !important;
+              vertical-align: middle !important;
+          }
+
+          .bv-cleanslate .bv-summary-bar .bv-rating-ratio-count {
+              color: $ratingsTextColorLight !important;
+          }
+
+          .bv-cleanslate .bv-summary-bar dd.bv-rating-ratio-count {
+              margin-right: 8px !important;
+          }
+
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link,
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link:hover,
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link:active,
+          .bv-cleanslate .bv-summary-bar .bv-rating.bv-text-link:visited,
+          .bv-cleanslate .bv-submission-button {
+              color: $linkColor !important;
+
+              &:hover {
+                  color: $linkColorHover !important;
+                  text-decoration: underline !important;
+              }
+          }
+        }
+    }
+
+    /**
+     * Overrides for the ratings summary overlay for while we
+     * are using BazaarVoice's OOTB solution.
+     */
+    .PDP-Version2 {
+        .bv-absolute-top-container {
+            z-index: 2000008010!important;
+        }
+
+        .bv-cleanslate .bv-popup {
+            border: 1px solid $ratingsOverlayBdr !important;
+            -webkit-border-radius: 1px!important;
+            border-radius: 1px!important;
+            -webkit-box-shadow: none!important;
+            box-shadow: none!important;
+        }
+
+        .bv-cleanslate .bv-popup:before {
+            border-bottom-color: $ratingsOverlayBdr !important;
+        }
+
+        .bv-cleanslate .bv-popup-histogram-ratings table {
+            width: 94% !important;
+        }
+
+        .bv-cleanslate .bv-popup-histogram {
+            padding-top: 16px!important;
+        }
+
+        .bv-cleanslate .bv-inline-histogram-ratings td,
+        .bv-cleanslate .bv-popup-histogram-ratings td {
+            font-family: $tescoFont !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            color: $ratingsTextColorLight !important;
+        }
+
+        .bv-cleanslate .bv-glyph {
+            color: $enabledStar !important;
+        }
+
+        .bv-cleanslate .bv-content-secondary-ratings-value,
+        .bv-cleanslate .bv-content-secondary-ratings-container {
+            height: 12px !important;
+        }
+
+        .bv-cleanslate .bv-content-secondary-ratings-value,
+        .bv-cleanslate .bv-secondary-rating-summary-value,
+        .bv-cleanslate .bv-secondary-slider-summary-value,
+        .bv-cleanslate .bv-content-slider-value {
+            background-image: none!important;
+            background-image: none!important;
+            background-image: none!important;
+            background-image: none!important;
+            background-image: none!important;
+            filter: none!important;
+            background-image: none!important;
+        }
+
+        .bv-cleanslate .bv-content-secondary-ratings-container {
+            background-color: $ratingsBarBkg !important;
+            background-image: none !important;
+            background-image: none !important;
+            background-image: none !important;
+            background-image: none !important;
+            background-image: none !important;
+            filter: none !important;
+            background-image: none !important;
+        }
+
+        .bv-cleanslate .bv-popup-histogram-ratings td,
+        .bv-cleanslate .bv-popup-histogram-ratings .bv-popup-histogram-ratings-bar {
+            padding-top: 1px !important;
+            padding-bottom: 1px !important;
+        }
+
+        .bv-cleanslate .bv-popup-histogram-ratings .bv-popup-histogram-ratings-score {
+            top: -1px !important;
+            text-align: left !important;
+        }
+
+        .bv-cleanslate .bv-toplevel-actions li {
+            margin-right: 0% !important;
+            margin-left: 0% !important;
+        }
+
+        .bv-cleanslate .bv-action-bar {
+            padding-top: 10px !important;
+            padding-bottom: 0px !important;
+        }
+    }
+
+    html.js .PDP-Version2 .bv-cleanslate .bv-popup-histogram .bv-action-bar .bv-read-review {
+        width: 90% !important;
+        text-transform: uppercase !important;
+        text-align: center !important;
+        border: 1px solid $btnBdrColor !important;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-bottom: 0!important;
+        background: #fff !important;
+        color: $btnTextColor !important;
+        height: 44px !important;
+        border-radius: 1px !important;
+
+        &:hover {
+            color: #00a1e0 !important;
+            background-color: #f2fafd !important;
+            border: 1px solid #00a1e0 !important;
+        }
+
+        &:active {
+            color: #00a1e0 !important;
+            background-color: #E1EEF3 !important;
+            border: 1px solid #00a1e0 !important;
+        }
+
+        &:focus {
+            outline: none !important;
+            color: #00a1e0 !important;
+            background-color: #E1EEF3 !important;
+            border: 1px solid #00a1e0 !important;
+        }
+    }
+}

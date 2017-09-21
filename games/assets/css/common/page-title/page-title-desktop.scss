@@ -1,0 +1,28 @@
+/*******************************************
+* Desktop	page title module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "page-title-mixins";
+
+h1 {
+	width: $onecol * 72;
+	max-height: 132px;
+	font-size:28px;
+	line-height:36px;
+	margin-left: 8px;
+}
+h2 {
+	font-size:2.0em;
+	margin-bottom:6px;
+}
+
+
+#page-container .product-description h1.page-title, .listing h1.page-title {
+    width: auto;
+    margin: 0 0 8px 8px;
+    line-height:1.5em;                
+}
+
+@include h2-desktop;

@@ -1,0 +1,9 @@
+/*******************************************
+*	Tablet module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "homepage-stamp-gallery-mixins";
+
+@include homepage-stamp-device;

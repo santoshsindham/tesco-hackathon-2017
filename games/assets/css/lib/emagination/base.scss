@@ -1,0 +1,265 @@
+/*!
+*  EmaginationJS 1.5 Base CSS
+*/
+
+$prefix: 'EmaginationJS-';
+
+##{$prefix}Personalisation {
+    user-select: none;
+    width: 69%;
+    float: left;
+    background: #f5f5f5;
+    border: solid 1px #ccc;
+    padding: 50px;
+    box-sizing: content-box;
+
+    ##{$prefix}HelpButton {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .#{$prefix}Next {
+        position: absolute;
+        right: 15px;
+    }
+
+    .#{$prefix}Previous {
+        position: absolute;
+        left: 15px;
+    }
+
+    * {
+        box-sizing: content-box;
+    }
+}
+
+##{$prefix}Controls {
+    float: right;
+    width: 30%;
+    background: #f5f5f5;
+    border: solid 1px #ccc;
+    padding: 20px;
+    box-sizing: content-box;
+
+    * {
+        box-sizing: content-box;
+    }
+
+    ##{$prefix}TextControls,
+    ##{$prefix}ControlsPlaceholder {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+##{$prefix}ButtonPanel {
+    float: right;
+    width: 30%;
+    background: none;
+    border: none;
+    padding: 0;
+    background: #f5f5f5;
+    box-sizing: border-box;
+
+    .#{$prefix}Button {
+        float: left;
+
+        width: 33.3%;
+        box-sizing: border-box;
+        padding: 10px;
+        text-align: left;
+        white-space: nowrap;
+        border-left: solid 1px #ccc;
+
+        &:first-child {
+            border-left: 0;
+        }
+    }
+}
+
+.#{$prefix}TextLayer,
+.#{$prefix}ImageLayer {
+    border: solid 2px #444;
+    border-radius: 5px;
+    box-sizing: content-box;
+
+    .#{$prefix}Inner {
+        border: solid 2px #fff;
+        border-radius: 5px;
+    }
+
+    &:hover {
+        border-color: #64487c;
+
+        .#{$prefix}Inner {
+            border-color: #fff;
+        }
+    }
+
+    &.active {
+        border-color: red;
+    }
+}
+
+##{$prefix}LibraryImagesContainer {
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+
+    .#{$prefix}LibraryImage {
+        border: solid 2px #aaaaaa;
+        width: calc(50% - 10px);
+        margin-right: 6px;
+        margin-bottom: 6px;
+        float: left;
+        box-sizing: border-box;
+
+        &.active {
+            border: solid 2px #64487c;
+        }
+    }
+}
+
+
+/*##{$prefix}LoadingOverlay {
+    background: rgb(240, 240, 240);
+    background: rgba(220, 220, 220, 0.6);
+}*/
+
+.#{$prefix}LoadingMessage {
+    width: 100%;
+    text-align: center;
+}
+
+##{$prefix}HelpOverlay {
+    z-index: 9999;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpCMEM4NDgzQjlDRTNFMTExODE4NUVDOTdFQ0I0RDgxRSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGREU5OEVCQzAzMjYxMUUyOTg5OURDMDlDRTJDMTc0RSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGREU5OEVCQjAzMjYxMUUyOTg5OURDMDlDRTJDMTc0RSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkIxQzg0ODNCOUNFM0UxMTE4MTg1RUM5N0VDQjREODFFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkIwQzg0ODNCOUNFM0UxMTE4MTg1RUM5N0VDQjREODFFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+s3YRAQAAABtJREFUeNpiFODh2cBABGBiIBKMKqSOQoAAAwBokQDs5F/8FAAAAABJRU5ErkJggg==') /*../images/fancybox_overlay.png*/;
+}
+
+##{$prefix}CloseHelp {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 36px;
+    height: 36px;
+    color: #fff;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAACYCAMAAACoAftQAAAAvVBMVEUAAAAAAAAAAAAODg4AAAAAAAAAAADNzc0BAQHZ2dkDAwMHBwcAAADf398CAgI/Pz8BAQEAAACCgoIcHBzl5eUAAAC/v7/x8fEGBgZnZ2cAAADs7OwGBgb4+Pg/Pz/Jycmenp5nZ2f39/eDg4MAAADQ0ND4+Piurq7a2tr8/Pzs7OwAAAD5+fn9/f3e3t4AAAD///9OTk7BwcE1NTWsrKyNjY2cnJx6enpdXV1oaGgsLCy6uroiIiLOzs5BQUFt3PCNAAAAL3RSTlMAAQMIDRIZHSMnLTpESFNVXWlpbG15en+HiZCWoaGssrO2vsDFydPU3uL4+fr9/Ywv6xsAAAQVSURBVHhe7JZbc6JMGIQXAUOQEMi3uMYkrmopZgqs5ujZ//+zvpdNzMsMlli1N3uRvtCbpzo9I+nmhyqN9OO6GNQ6Ha1SG0mcrhskXe90rvKE6kbX7r9MF4vp2887nfBrqPW0xJemD4w32e7jHIj2602SbNZ7Qfgd0zJLtgKi2B0+tSsE3h8u0RX7HGGfHWrK9oiIbrK69SiQHxTliO5VWtP0rrNEemhoj6muaYqx2XuGyJrwbgUKohhb3hIFM6wCC7Zm4+M5Zs5fpKNiTYndEOUHDFRYCeADLvGiy7DtL7E5/12gJPacalPlqEc2eoFAdmCa2UOGyOhoUuQgwo7PxCwJMGXYGcQMlyCVX3DchCkGs3V6h0iFgyUSZsuS6QQLGaYDhueUHxhf3RpzOqB8dRMcz84lf5FS9A1Ngi2PQm8PF7RBZOnEyqFnSC/BKX6bHQmucpB13mRzCJtTsPUowlpl14if2JifUXcwgeqdA2OLn1C+PdsbzCKkW0a3KeKxbbAxF4FJ9EgAaXGqyFORAuLZNrkMZNoNKnNS9PE5dpltFofjB4PJXIAk5rP/HMu4Ukmm7XjEkwLfc2yT66tJk7lp2T2H1LMtk2wVVsWpcE0SlW4DbeLE/xG3eRvfQv7Fptw4KvpDNRKLt1/3rZty/xbjrPef1+5D018ITYttkiTrfAUsrmzK3RTIT/woHxH3DaZl9h2rRH2aX0ydaYb1BVK1zNdA32RvNn7DkVmmoyeVJvYBMcdl5Vg2/lW0zpSbUNIKT12KLV8wVjsmNvGW63feU3qj86veGQmAA1e5qzbStNZdmVTlRzzbSjG+4+t4u1iqjxxjR6pczaiNBCCVXoGx25X7mUNGgJBHM/QsXWp+dk4U5xJjX4EXSM7ACcCxnnnm2zI8rxVoFgMr/lUwUpyNPvYVx/eRfaUSQzkzLWxEOVhiwynCAd2GvCm/2bquBPEo+LxnDv0YXdyfFOHQP+8EV/kY0enSorxyitoLxxwiabDRqDImWF2JJVBIeVNEk2HgsDGn7vkhcPy67lMOiBGF4AGS3tX8yYqAfb5eF/kRiMPX4cDjEDLd8wezJT4lwtHrMHBtbg6V9oLhYDYLw3A2eSVbn0elSdMCecFg+Ee0Kq7dlftLXSCrRxNE8lzH7hp0Nu3qpHQty7Ztq2sabHvtpb/SLauisVTye1O+N2Ubbxhu2xSAq6x1UwoAWfum8P3Gu5ZNYaUA2jaFJYCofVPYOWnZFD4TcLpxU1ZAnN24KRnfxQ2bshEE/Vub8r0p35vi/t9eHRoBDMNQDJUvMLkOkDMM+8D7b9cR+kOKLPy4juojnQeAkWWVAyLLLINVdovj44N8LOqi/3Djxo0bN5ZvdbWJuwHhrw2ILYdqBwDT2fEEXtrZFmVcCWLiAAAAAElFTkSuQmCC') /*../images/fancybox_sprite.png*/;
+}
+
+.#{$prefix}TextLayer,
+.#{$prefix}ImageLayer {
+    position: relative;
+}
+
+##{$prefix}Dropzone {
+    /*padding: 15px;
+    background: #eee;
+    border: solid 1px #ccc;
+    text-align: center;
+    margin-bottom: 10px;*/
+
+    /*&.dz-drag-hover,
+    &:hover {
+        border: solid 1px #999;
+        background: #e6e6e6;
+    }*/
+
+    .dz-details,
+    .dz-success-mark,
+    .dz-error-mark,
+    .dz-error-message {
+        display: none;
+    }
+
+    .dz-preview {
+        position: relative;
+
+        .dz-progress {
+            width: 100%;
+            height: 6px;
+            background: #d7d7d7;
+            margin-top: 10px;
+            display: none;
+
+            .dz-upload {
+                width: 0%;
+                height: 100%;
+                background-color: #8cc657;
+                display: block;
+            }
+        }
+    }
+
+    .dz-preview.dz-processing {
+        .dz-progress {
+            display: block;
+        }
+    }
+}
+
+##{$prefix}PhotoEditor {
+    position: relative;
+
+    .#{$prefix}CropWarning {
+        padding: 10px;
+        background: rgba(254, 239, 179, 0.8);
+        color: #9F6000;
+        margin-bottom: 10px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        font-size: 1.2em;
+        line-height: 1.4em;
+        pointer-events: none;
+        box-sizing: border-box;
+    }
+}
+
+##{$prefix}CropContainer {
+    margin-bottom: 10px;
+
+    .cropper-container {
+        left: 0 !important;
+        top: 0 !important;
+    }
+}
+
+.#{$prefix}ToolTip {
+    padding: 5px;
+    box-sizing: border-box;
+    background: #8c67ac;
+    border: solid 2px #fff;
+    color: #fff;
+    font-size: 0.7em;
+    min-width: 80px;
+}
+
+.#{$prefix}ControlsTitle {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.#{$prefix}Error {
+    position: relative;
+}
+
+##{$prefix}ReportErrorForm,
+##{$prefix}ReportErrorConfirmation {
+    width: 300px;
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+}
+
+.#{$prefix}Btn,
+.#{$prefix}Btn:active {
+    user-select: none;
+}

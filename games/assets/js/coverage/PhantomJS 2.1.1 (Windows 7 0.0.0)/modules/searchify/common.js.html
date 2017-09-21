@@ -1,0 +1,2102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\searchify\common.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/searchify/</a> common.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>66/198</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>24/90</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">41.03% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">33.33% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>66/198</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-yes">31×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">25×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*global define: true, window: true, localStorage: true*/
+&nbsp;
+/**
+ * Searchify
+ *
+ * Search As You Type.
+ * Results include: auto-completed search suggestions and auto-suggested products based on search term.
+ *
+ * Example usage:
+ * new Searchify({searchbox : 'search-input'});
+ *
+ */
+&nbsp;
+define('modules/searchify/common', ['domlib'], function ($) {
+&nbsp;
+    'use strict';
+&nbsp;
+    function Searchify(opts) {
+        this.conf = $.extend({}, this.conf, opts);
+        this.init();
+    }
+&nbsp;
+    Searchify.prototype = {
+&nbsp;
+        conf: {
+            searchbox: 'search-field', //Input (text) for searches.
+            url_results: 'https://search.api.tesco.com/sayt', // Endpoint for searches.
+            dom_search_results: 'searchify', // Searchify module.
+            dom_search_items: 'searchify-autocomplete', // Autocomplete module.
+            dom_search_item: 'autocomplete-item', // Autocomplete list item.
+            dom_products_items: 'searchify-autosuggest', // Autosuggest products module.
+            dom_products_item: 'autosuggest-item', // Autosuggest product list item.
+            cache_limit: 200, // Max capacity of entries in cache.
+            max_suggestions: 4, // Max number of suggestions in results.
+            max_products: 4 // Max number of products in results.
+        },
+&nbsp;
+        session: {
+            local_storage_supported: false, // Is localStorage supported in the browser?
+            criteria: null, // Current user search criteria.
+            xhr: null, // XHR request used for searches.
+            xhr_result: null, // XHR JSON Result.
+            cache: [], // Cache search results.
+            results_visible: false // Search results currently showing?
+        },
+&nbsp;
+        oSELECTORS: {
+            MASTHEADWRAPPER: '#masthead-wrapper',
+            SEARCHWRAPPER: '#search-wrapper',
+            SEARCHINPUT: '#search-field',
+            SEARCHRESULTSWRAPPER: '#search-results-wrapper'
+        },
+&nbsp;
+        oCSSCLASSES: {
+            SEARCHIFYOPEN: 'searchifyOpen'
+        },
+&nbsp;
+        oEVENTS: {
+            OPENSEARCHIFYDROPDOWN: 'openSearchifyDropdown',
+            CLOSESEARCHIFYDROPDOWN: 'closeSearchifyDropdown'
+        },
+&nbsp;
+        init: function init() {
+&nbsp;
+            this.unbindEvents();
+            try {
+                this.session.local_storage_supported = !!(typeof localStorage.setItem === 'function');
+                this.retainSearchTerm();
+            } catch (ex) {
+<span class="cstat-no" title="statement not covered" >                this.session.local_storage_supported = false;</span>
+            }
+            this.bindEvents();
+        },
+&nbsp;
+        /**
+         * Remove Autosuggest binds.
+         * (Autosuggest is loaded first and only needs to work on Kiosk)
+         */
+        unbindEvents: function unbindEvents() {
+&nbsp;
+            var self = this;
+&nbsp;
+            $('#' + self.conf.searchbox).unbind().off('keyup keyup.autocomplete');
+        },
+&nbsp;
+        /**
+         * Retain the searched term in the searchbox on search results.
+         */
+        retainSearchTerm: function retainSearchTerm() {
+&nbsp;
+            var self = this,
+                search_term = window.localStorage.getItem('sayt_autosuggest_string_searched');
+&nbsp;
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (self.session.local_storage_supported &amp;&amp; search_term) {
+<span class="cstat-no" title="statement not covered" >                window.localStorage.removeItem('sayt_autosuggest_string_searched');</span>
+<span class="cstat-no" title="statement not covered" >                $('#' + self.conf.searchbox).val(search_term);</span>
+            }
+        },
+&nbsp;
+        bindEvents: function bindEvents() {
+&nbsp;
+            var self = this;
+&nbsp;
+            /**
+             * User input event on searchbox.
+             * Up/Down arrows scroll through search results.
+             */
+            $('#' + self.conf.searchbox).on('keyup', <span class="fstat-no" title="function not covered" >function (e) {</span>
+<span class="cstat-no" title="statement not covered" >                self.onSearchBoxKeyup(e);</span>
+            });
+&nbsp;
+            $(self.oSELECTORS.MASTHEADWRAPPER).on('focus.getSearchifyResultsOnSearchInputFocus', self.oSELECTORS.SEARCHINPUT, <span class="fstat-no" title="function not covered" >function getSearchifyResultsOnSearchInputFocus() {</span>
+<span class="cstat-no" title="statement not covered" >                if ($.trim($(self.oSELECTORS.SEARCHINPUT).val() !== '')) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.search();</span>
+                }
+            });
+&nbsp;
+            /**
+             * Search products results click event.
+             * Set localstorage for post analytics.
+             * Trigger a search submit.
+             */
+            $(self.oSELECTORS.SEARCHRESULTSWRAPPER).on('click', '#' + self.conf.dom_search_results + ' #' + self.conf.dom_products_items + ' .' + self.conf.dom_products_item + ' .item-link', <span class="fstat-no" title="function not covered" >function (e) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_productsuggest_term', 'SAYT - suggested Product'); </span>// eVar3.
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_productsuggest_string', $('#' + self.conf.searchbox).val()); </span>// eVar16.
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_productsuggest_index', 'Suggested Product P' + ($(e.currentTarget).parent('.' + self.conf.dom_products_item).index() + 1)); </span>// eVar40.
+            });
+&nbsp;
+            /**
+             * Search results suggestions click event.
+             * Set localstorage for post analytics.
+             * Trigger a search submit.
+             */
+            $(self.oSELECTORS.SEARCHRESULTSWRAPPER).on('click', '#' + self.conf.dom_search_results + ' #' + self.conf.dom_search_items + ' .' + self.conf.dom_search_item + ' .item-link', <span class="fstat-no" title="function not covered" >function (e) {</span>
+&nbsp;
+                // Track the Autosuggested term click.
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_autosuggest_term', 'SAYT – suggested Search Term'); </span>// eVar3.
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_autosuggest_string', $(e.currentTarget).text()); </span>// eVar16.
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_autosuggest_index', 'Autosuggest Term P' + ($(e.currentTarget).parent('.' + self.conf.dom_search_item).index() + 1)); </span>// eVar40.
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_autosuggest_string_searched', $(e.currentTarget).text()); </span>// retained search term.
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                $('#' + self.conf.searchbox).val($(e.currentTarget).text());</span>
+<span class="cstat-no" title="statement not covered" >                $('#search-submit').trigger('click');</span>
+            });
+&nbsp;
+            /**
+             * Hide search results
+             */
+            $(self.oSELECTORS.MASTHEADWRAPPER).on('searchBarCloseComplete', <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                self.removeSearchResults();</span>
+            });
+        },
+&nbsp;
+        /**
+         * User typed in searchbox.
+         */
+        onSearchBoxKeyup: function onSearchBoxKeyup(e) {
+&nbsp;
+            var self = this,
+                key = (window.event) ? <span class="branch-0 cbranch-no" title="branch not covered" >e.which </span>: e.keyCode;
+&nbsp;
+            switch (key) {
+&nbsp;
+                /**
+                 * (38) Up arrow pressed.
+                 * Scroll upwards through search results.
+                 */
+            case 38:
+                e.preventDefault();
+                self.NavigateSearchResults('up');
+                break;
+&nbsp;
+                /**
+                 * (40) Down arrow pressed.
+                 * Scroll downwards through search results.
+                 */
+            case 40:
+                e.preventDefault();
+                self.NavigateSearchResults('down');
+                break;
+&nbsp;
+                /**
+                 * Ignore the following keys:
+                 * (37/39) Left/Right arrow pressed.
+                 * (32) Spacebar.
+                 */
+            case 37:
+            case 39:
+            case 32:
+                break;
+&nbsp;
+                /**
+                 * Search performed.
+                 */
+<span class="branch-5 cbranch-no" title="branch not covered" >            case 13:</span>
+<span class="cstat-no" title="statement not covered" >                e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                self.storeItem('sayt_autosuggest_string_searched', $('#' + self.conf.searchbox).val()); </span>// retained search term.
+<span class="cstat-no" title="statement not covered" >                $('#search-submit').trigger('click');</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+&nbsp;
+                /**
+                 * Close the menu if escape is pressed.
+                 */
+<span class="branch-6 cbranch-no" title="branch not covered" >            case 27:</span>
+<span class="cstat-no" title="statement not covered" >                self.removeSearchResults();</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+&nbsp;
+                /**
+                 * Any other key.
+                 * Perform a search.
+                 */
+            default:
+                self.search();
+                break;
+            }
+        },
+&nbsp;
+        /**
+         * Store an item in browser local storage.
+         * Try catch used because private browsing in iOS breaks localStorage.
+         */
+        storeItem: <span class="fstat-no" title="function not covered" >function storeItem(key, val) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (this.session.local_storage_supported) {</span>
+<span class="cstat-no" title="statement not covered" >                try {</span>
+<span class="cstat-no" title="statement not covered" >                    localStorage.setItem(key, val);</span>
+<span class="cstat-no" title="statement not covered" >                    return true;</span>
+                } catch (e) {
+<span class="cstat-no" title="statement not covered" >                    return false;</span>
+                }
+            }
+        },
+&nbsp;
+        /**
+         * Removes the search results from the DOM.
+         */
+        removeSearchResults: function removeSearchResults() {
+&nbsp;
+            var self = this;
+&nbsp;
+            $(self.oSELECTORS.MASTHEADWRAPPER).removeClass(self.oCSSCLASSES.SEARCHIFYOPEN)
+                .data(self.oCSSCLASSES.SEARCHIFYOPEN, false);
+            $(self.oSELECTORS.SEARCHWRAPPER).removeClass(self.oCSSCLASSES.SEARCHIFYOPEN)
+                .data(self.oCSSCLASSES.SEARCHIFYOPEN, false);
+&nbsp;
+            $('#' + self.conf.dom_search_results).remove();
+&nbsp;
+            self.session.results_visible = false;
+        },
+&nbsp;
+&nbsp;
+        /**
+         * Updates the popular results messagaging.
+         */
+        updatePopularResults: <span class="fstat-no" title="function not covered" >function updatePopularResults() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                $popular_results = $('#searchify-popular'),
+                content = '&lt;span&gt;Our most popular results matching &lt;/span&gt;&lt;b&gt;&amp;ldquo;' + $('#' + self.conf.searchbox).val() + '&amp;rdquo;&lt;/b&gt;';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($('#' + self.conf.dom_products_items + ' .' + self.conf.dom_products_item).length) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if ($popular_results.length) {</span>
+<span class="cstat-no" title="statement not covered" >                    $popular_results.html(content);</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    $('&lt;div id="searchify-popular" class="searchify-popular"&gt;' + content + '&lt;/div&gt;').insertAfter($('#' + self.conf.dom_search_items));</span>
+                }
+            } else {
+<span class="cstat-no" title="statement not covered" >                $('#searchify-popular').remove();</span>
+            }
+        },
+&nbsp;
+        /**
+         * Search for product categories &amp; products based on user's search criteria.
+         */
+        search: function search(criteria) {
+&nbsp;
+            var self = this,
+                i,
+                i_len;
+&nbsp;
+            /**
+             * Sanatise and validate user search criteria.
+             * Do not perform the previous search again.
+             */
+            self.session.criteria = criteria || <span class="branch-1 cbranch-no" title="branch not covered" >self.sanatiseCriteria($('#' + self.conf.searchbox).val());</span>
+            if (!self.isCriteriaValid(self.session.criteria)) {
+                self.removeSearchResults();
+                return;
+            }
+            if (self.isCriteriaCached(self.session.criteria)) {
+                i_len = self.session.cache.length;
+                for (i = 0; i &lt; i_len; i += 1) {
+                    <span class="missing-if-branch" title="else path not taken" >E</span>if (self.session.criteria === self.session.cache[i].criteria) {
+                        self.showSearchResults(i);
+                        break;
+                    }
+                }
+                return;
+            }
+&nbsp;
+            /** Fetch suggestions and associated products then show the results. */
+            $.when(self.fetchSuggestions(true))
+                .then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                    self.processSuggestions();</span>
+<span class="cstat-no" title="statement not covered" >                    $.when(self.fetchProducts())</span>
+                        .then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            self.processProducts();</span>
+<span class="cstat-no" title="statement not covered" >                            self.showSearchResults();</span>
+                        });
+                });
+&nbsp;
+        },
+&nbsp;
+        /**
+         * Adds the search results to the DOM.
+         */
+        showSearchResults: <span class="fstat-no" title="function not covered" >function showSearchResults() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                i = self.getIndexByCriteria(),
+                suggestions = self.createSearchResultsItems(i);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (suggestions.iResults === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                if ($(self.oSELECTORS.MASTHEADWRAPPER).data(self.oCSSCLASSES.SEARCHIFYOPEN) === true) {</span>
+<span class="cstat-no" title="statement not covered" >                    $(self.oSELECTORS.MASTHEADWRAPPER).trigger(self.oEVENTS.CLOSESEARCHIFYDROPDOWN);</span>
+<span class="cstat-no" title="statement not covered" >                    self.removeSearchResults();</span>
+                }
+            } else {
+<span class="cstat-no" title="statement not covered" >                self.updateSearchResultsContainerContent(suggestions.sMarkup);</span>
+<span class="cstat-no" title="statement not covered" >                self.updateSearchResultsProducts(i);</span>
+<span class="cstat-no" title="statement not covered" >                self.updatePopularResults();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.session.results_visible = true;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if ($(self.oSELECTORS.MASTHEADWRAPPER).data(self.oCSSCLASSES.SEARCHIFYOPEN) !== true) {</span>
+<span class="cstat-no" title="statement not covered" >                    $(self.oSELECTORS.SEARCHWRAPPER).addClass(self.oCSSCLASSES.SEARCHIFYOPEN)</span>
+                        .data(self.oCSSCLASSES.SEARCHIFYOPEN, true);
+<span class="cstat-no" title="statement not covered" >                    $(self.oSELECTORS.MASTHEADWRAPPER).addClass(self.oCSSCLASSES.SEARCHIFYOPEN)</span>
+                        .data(self.oCSSCLASSES.SEARCHIFYOPEN, true)
+                        .trigger(self.oEVENTS.OPENSEARCHIFYDROPDOWN);
+                }
+            }
+        },
+&nbsp;
+        /**
+         * Adds products from search results.
+         */
+        updateSearchResultsProducts: <span class="fstat-no" title="function not covered" >function updateSearchResultsProducts(index) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                items = '',
+                item = '',
+                i,
+                i_len = self.session.cache[index].products.length,
+                product_url;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (i = 0; i &lt; i_len; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >                product_url = self.session.cache[index].products[i].productUrl + '&amp;icid=spiffy_' + window.escape(self.session.cache[index].suggestions[0].id) + '_' + self.session.cache[index].products[i].id + '_' + self.session.criteria;</span>
+<span class="cstat-no" title="statement not covered" >                item = '&lt;li class="autosuggest-item"&gt;&lt;a class="item-link" href="' + product_url + '"&gt;';</span>
+<span class="cstat-no" title="statement not covered" >                item += '&lt;div class="image-wrapper"&gt;';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (self.session.cache[index].products[i].g_image) { // Image may not exist, or it may not be base64.</span>
+<span class="cstat-no" title="statement not covered" >                    if (self.session.cache[index].products[i].g_image.substring(0, 7) === 'http://') {</span>
+<span class="cstat-no" title="statement not covered" >                        item += '&lt;img src="' + self.session.cache[index].products[i].g_image + '" /&gt;';</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        item += '&lt;img src="data:image/jpeg;base64,' + self.session.cache[index].products[i].g_image + '" /&gt;';</span>
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" >                    item += '&lt;img src="' + self.conf.url_results + '/searchbar/img/na.jpg" /&gt;';</span>
+                }
+<span class="cstat-no" title="statement not covered" >                item += '&lt;/div&gt;';</span>
+<span class="cstat-no" title="statement not covered" >                item += '&lt;div class="item-name"&gt;' + self.session.cache[index].products[i].name.replace(new RegExp("(?![^&amp;;]+;)(?!&lt;[^&lt;&gt;]*)(" + self.session.criteria + ")(?![^&lt;&gt;]*&gt;)(?![^&amp;;]+;)", "gi"), "&lt;strong class='link-highlight'&gt;$1&lt;/strong&gt;") + '&lt;/div&gt;';</span>
+<span class="cstat-no" title="statement not covered" >                item += '&lt;/a&gt;&lt;/li&gt;';</span>
+<span class="cstat-no" title="statement not covered" >                items += item;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (i + 1 === self.conf.max_products) { // Enforce max limit.</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($('#' + self.conf.dom_products_items).length) { // Create container if not already present in DOM.</span>
+<span class="cstat-no" title="statement not covered" >                $('#' + self.conf.dom_products_items).html(items);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                $('&lt;ul id="' + self.conf.dom_products_items + '" class="' + self.conf.dom_products_items + '"&gt;' + items + '&lt;/ul&gt;').insertAfter('#' + self.conf.dom_search_items);</span>
+            }
+        },
+&nbsp;
+        /**
+         * Checks whether a specified search criteria exists in the cache.
+         */
+        isCriteriaCached: <span class="fstat-no" title="function not covered" >function isCriteriaCached(criteria) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return this.getIndexByCriteria(criteria) &gt;= 0 ? true : false;</span>
+        },
+&nbsp;
+        /**
+         * Ensures a user's search criteria is valid to use.
+         */
+        isCriteriaValid: function isCriteriaValid(criteria) {
+&nbsp;
+            return $.trim(criteria) !== '' ? true : false;
+        },
+&nbsp;
+        /**
+         * Creates structured URL to use for searching with.
+         */
+        createSearchURL: <span class="fstat-no" title="function not covered" >function createSearchURL(criteria) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var criteria_touse = criteria || this.session.criteria;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return this.conf.url_results + '/k?v=' + criteria_touse;</span>
+&nbsp;
+        },
+&nbsp;
+        /**
+         * Creates structured URL to use for searching products from ID.
+         */
+        createProductsURLFromID: function createProductsURLFromID(ids) {
+&nbsp;
+            return this.conf.url_results + '/p?v=id:' + ids.join(' OR id:');
+        },
+&nbsp;
+        /**
+         * Make AJAX request to endpoint to fetch results for user search criteria.
+         */
+        fetchSuggestions: <span class="fstat-no" title="function not covered" >function fetchSuggestions(force_abort) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                defer = $.Deferred();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (force_abort &amp;&amp; self.session.xhr) {</span>
+<span class="cstat-no" title="statement not covered" >                self.session.xhr.abort();</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            self.session.xhr = $.ajax({</span>
+                url: self.createSearchURL(),
+                type: 'GET',
+                success: <span class="fstat-no" title="function not covered" >function (xhr) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.session.xhr_result = xhr;</span>
+<span class="cstat-no" title="statement not covered" >                    defer.resolve();</span>
+                },
+                dataType: 'jsonp',
+                jsonp: 'json.wrf'
+            });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return defer.promise();</span>
+        },
+&nbsp;
+        /**
+         * Process search results.
+         * Gets the product categories and the products.
+         */
+        processSuggestions: function processSuggestions() {
+&nbsp;
+            var self = this;
+&nbsp;
+            /**
+             * Manage cache limit.
+             */
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (self.session.cache.length &gt;= self.conf.cache_limit) {
+<span class="cstat-no" title="statement not covered" >                self.session.cache = [];</span>
+            }
+&nbsp;
+            /**
+             * Add search results to the cache.
+             */
+            self.session.cache.push({
+                criteria: self.session.criteria,
+                suggestions: self.session.xhr_result,
+                products: []
+            });
+&nbsp;
+        },
+&nbsp;
+        /**
+         * Process products search results.
+         */
+        processProducts: function processProducts() {
+&nbsp;
+            this.session.cache[this.getIndexByCriteria()].products = this.session.xhr_result;
+&nbsp;
+        },
+&nbsp;
+        /**
+         * Create the items for the search results.
+         */
+        createSearchResultsItems: <span class="fstat-no" title="function not covered" >function createSearchResultsItems(index) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                items = '',
+                i,
+                i_len,
+                markup;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            i_len = self.session.cache[index].suggestions.length;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            for (i = 0; i &lt; i_len; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >                items += '&lt;li class="' + self.conf.dom_search_item + '"&gt;&lt;button class="item-link"&gt;' + self.session.cache[index].suggestions[i].id.replace(new RegExp("(?![^&amp;;]+;)(?!&lt;[^&lt;&gt;]*)(" + self.session.criteria + ")(?![^&lt;&gt;]*&gt;)(?![^&amp;;]+;)", "gi"), "&lt;b class='link-highlight'&gt;$1&lt;/b&gt;") + '&lt;/button&gt;&lt;/li&gt;';</span>
+<span class="cstat-no" title="statement not covered" >                if (i + 1 === self.conf.max_suggestions) {</span>
+<span class="cstat-no" title="statement not covered" >                    break;</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            markup = '&lt;ul id="' + self.conf.dom_search_items + '" class="' + self.conf.dom_search_items + '"&gt;' + items + '&lt;/ul&gt;';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return {</span>
+                sMarkup: markup,
+                iResults: i_len
+            };
+&nbsp;
+        },
+&nbsp;
+        /**
+         * Create the DOM container for search results.
+         */
+        updateSearchResultsContainerContent: <span class="fstat-no" title="function not covered" >function updateSearchResultsContainerContent(content) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                search_container;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            content = content || '';</span>
+<span class="cstat-no" title="statement not covered" >            if (!$('#' + self.conf.dom_search_results).length) {</span>
+<span class="cstat-no" title="statement not covered" >                search_container = '&lt;div class="m-' + self.conf.dom_search_results + '" id="' + self.conf.dom_search_results + '"&gt;' + content + '&lt;/div&gt;';</span>
+<span class="cstat-no" title="statement not covered" >                $('#search-results-wrapper').append(search_container);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                $('#' + self.conf.dom_search_results).html(content);</span>
+            }
+        },
+&nbsp;
+&nbsp;
+        /**
+         * Gets the products for the top suggestion.
+         */
+        fetchProducts: function fetchProducts() {
+&nbsp;
+            var self = this,
+                defer = $.Deferred(),
+                ids = self.session.xhr_result.length ? self.session.xhr_result[0].Products : <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
+&nbsp;
+            self.session.xhr = $.ajax({
+                url: self.createProductsURLFromID(ids),
+                type: 'GET',
+                success: <span class="fstat-no" title="function not covered" >function (xhr) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.session.xhr_result = xhr;</span>
+<span class="cstat-no" title="statement not covered" >                    defer.resolve();</span>
+                },
+                dataType: 'jsonp',
+                jsonp: 'json.wrf'
+            });
+&nbsp;
+            return defer.promise();
+        },
+&nbsp;
+        /**
+         * Sanatise user search criteria.
+         */
+        sanatiseCriteria: function sanatiseCriteria(criteria) {
+&nbsp;
+            return $.trim(criteria.toLowerCase());
+        },
+&nbsp;
+        /**
+         * Return the index of the specified search criteria in the cache.
+         */
+        getIndexByCriteria: function getIndexByCriteria(criteria) {
+&nbsp;
+            var self = this,
+                i,
+                i_len = self.session.cache.length;
+&nbsp;
+            criteria = criteria || self.session.criteria;
+&nbsp;
+            for (i = 0; i &lt; i_len; i += 1) {
+                if (self.session.cache[i].criteria === criteria) {
+                    return i;
+                }
+            }
+&nbsp;
+            return -1;
+        },
+&nbsp;
+        /**
+         * Move upwards/donwards through the search results.
+         */
+        NavigateSearchResults: <span class="fstat-no" title="function not covered" >function NavigateSearchResults(direction) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this,</span>
+                $cur_selected;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($('#' + self.conf.dom_search_items + ' .' + self.conf.dom_search_item).length) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (direction === 'up') { // Move up the suggestions 1 by 1.</span>
+<span class="cstat-no" title="statement not covered" >                    $cur_selected = $('#' + self.conf.dom_search_items + ' .' + self.conf.dom_search_item + '.is-selected').prev();</span>
+<span class="cstat-no" title="statement not covered" >                    if (!$cur_selected.length) {</span>
+<span class="cstat-no" title="statement not covered" >                        $cur_selected = $('#' + self.conf.dom_search_items + ' .' + self.conf.dom_search_item).last();</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    $cur_selected.siblings().removeClass('is-selected');</span>
+<span class="cstat-no" title="statement not covered" >                    $cur_selected.addClass('is-selected');</span>
+                } else <span class="cstat-no" title="statement not covered" >if (direction === 'down') { // Move down the suggestions 1 by 1.</span>
+<span class="cstat-no" title="statement not covered" >                    $cur_selected = $('#' + self.conf.dom_search_items + ' .' + self.conf.dom_search_item + '.is-selected').next();</span>
+<span class="cstat-no" title="statement not covered" >                    if (!$cur_selected.length) {</span>
+<span class="cstat-no" title="statement not covered" >                        $cur_selected = $('#' + self.conf.dom_search_items + ' .' + self.conf.dom_search_item).first();</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    $cur_selected.siblings().removeClass('is-selected');</span>
+<span class="cstat-no" title="statement not covered" >                    $cur_selected.addClass('is-selected');</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.updateProductsFromSelection($cur_selected);</span>
+&nbsp;
+            }
+        },
+&nbsp;
+        /**
+         * Updates the product suggestions based on the selected autosuggest term.
+         */
+        updateProductsFromSelection: <span class="fstat-no" title="function not covered" >function updateProductsFromSelection($selected_item) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $('#' + self.conf.searchbox).val($selected_item.text()); </span>// Update the searchbox to reflect suggestion selected.
+<span class="cstat-no" title="statement not covered" >            self.session.criteria = self.sanatiseCriteria($('#' + self.conf.searchbox).val());</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (self.isCriteriaCached(self.session.criteria)) { // Get the products for the selected search suggestion and ONLY update the products results.</span>
+<span class="cstat-no" title="statement not covered" >                if (self.session.cache[self.session.criteria] &amp;&amp; self.session.cache[self.session.criteria].products.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.session.cache.splice(self.session.cache.indexOf(self.session.cache[self.session.criteria]), 1);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                self.updateSearchResultsProducts(self.getIndexByCriteria());</span>
+<span class="cstat-no" title="statement not covered" >                self.updatePopularResults();</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                $.when(self.fetchSuggestions(true))</span>
+                    .then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                        self.processSuggestions();</span>
+<span class="cstat-no" title="statement not covered" >                        $.when(self.fetchProducts())</span>
+                            .then(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                                self.processProducts();</span>
+<span class="cstat-no" title="statement not covered" >                                self.updateSearchResultsProducts(self.getIndexByCriteria());</span>
+<span class="cstat-no" title="statement not covered" >                                self.updatePopularResults();</span>
+                            });
+                    });
+            }
+        },
+&nbsp;
+        /**
+         * Reads previously set analytics and assigns values to eVars.
+         * Used in publishing JS.
+         */
+        processAnalytics: <span class="fstat-no" title="function not covered" >function processAnalytics() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var auto_terms = [</span>
+                { eVar: 'eVar3', item: 'sayt_autosuggest_term' },
+                { eVar: 'eVar16', item: 'sayt_autosuggest_string' },
+                { eVar: 'eVar40', item: 'sayt_autosuggest_index' },
+                { eVar: 'eVar3', item: 'sayt_productsuggest_term' },
+                { eVar: 'eVar16', item: 'sayt_productsuggest_string' },
+                { eVar: 'eVar40', item: 'sayt_productsuggest_index' }
+            ],
+                i,
+                i_len,
+                storedItem;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (window.s &amp;&amp; this.session.local_storage_supported) {</span>
+<span class="cstat-no" title="statement not covered" >                i_len = auto_terms.length;</span>
+<span class="cstat-no" title="statement not covered" >                for (i = 0; i &lt; i_len; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >                    storedItem = localStorage.getItem(auto_terms[i].item);</span>
+<span class="cstat-no" title="statement not covered" >                    if (storedItem) {</span>
+<span class="cstat-no" title="statement not covered" >                        window.s[auto_terms[i].eVar] = storedItem;</span>
+<span class="cstat-no" title="statement not covered" >                        localStorage.removeItem(auto_terms[i].item);</span>
+                    }
+                }
+            }
+        }
+&nbsp;
+    };
+&nbsp;
+    return Searchify;
+&nbsp;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

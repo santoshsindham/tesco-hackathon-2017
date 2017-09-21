@@ -1,0 +1,14 @@
+//seller-store-front module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "seller-store-front-mixins";
+
+@include sellerStore;
+
+.seller-store-front {
+
+  @include horizontalSellerLinks;
+  
+  @include featuredProductsToShow(1);
+
+}

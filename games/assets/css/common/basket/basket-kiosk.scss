@@ -1,0 +1,645 @@
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "basket-mixins";
+@import "../variables";
+
+/* Temps */
+body {
+	overflow:auto !important;
+}
+.basket-overlay .lightbox-actions.bottom {
+	opacity: 1 !important;
+}
+
+/* Hides */
+#supplemental,
+.social-media,
+#basket-summary > h2,
+#basket-redeem,
+.delivery-options,
+#basket-continue-shopping > p,
+#website-feedback,
+.available-product-options,
+.total-wrapper .delivery-options-flyout,
+.basket-summary-inner .total-wrapper > p,
+.basket-summary-inner .clubcard-points li.amount,
+div.savings-wrapper h3, li.amount,
+#basket-summary-mini > .total-wrapper { display:none }
+
+
+
+#basket-wrapper {
+	#footer {
+		z-index:2;
+	}
+
+	margin-right: 48px;
+	margin-left: 48px;
+
+	#basket-primary,
+	#basket-secondary {
+		border: 1px solid $lightPutty;
+		background: #fff;
+	}
+	.save-for-later{
+		display: none;
+	}
+	#basket-primary {
+		width: 72%;
+		.static-basket-header{
+			display: none;
+		}
+		.basket-item-container{
+			height: 700px;
+			padding-bottom: 65px;
+		}
+		.basket-item-container.inline-scrolling{
+			.content-mask{
+				.overlay-wrapper{
+					padding: 0 !important;
+				}
+			}
+		}
+		#basket-empty {
+			text-align:right;
+			position: absolute;
+			bottom: 1px;
+			left: 30px;
+			width: 68.5%;
+			border-top: 1px solid $lightPutty;
+			margin: 0;
+			padding: 10px;
+			box-shadow: 0px -4px 12px -8px;
+			background: #fff;
+			z-index: 1;
+			form{
+				margin-right: 20px;
+			}
+		}
+		input:not(.primary-button), a {
+			display: inline-block;
+			width: auto;
+			background: white;
+			color: $lightPutty;
+			margin-right: -3px;
+			&.secondary-button{
+				border: 1px solid $inactivePutty;
+				&.increase,
+				&.decrease{
+					color: $putty;
+					&.disabled{
+						background: $inactivePutty;
+						color: #fff;
+						&:hover,
+						&:focus,
+						&:active{
+							background: $inactivePutty;
+							color: #fff;
+							border: 1px solid $inactivePutty;
+						}
+					}
+					&:hover,
+					&:focus,
+					&:active{
+						background: $tescoBrightBlue;
+						color: #fff;
+						border: 1px solid $tescoBrightBlue;
+					}
+				}
+			}
+		}
+		input:not(.primary-button) {
+			border: 1px solid $lightPutty;
+			outline: none;
+			color: #7c765f;
+		}
+		a.save.tertiary-button {
+			display:none;
+		}
+		a.remove.tertiary-button {
+			font-size: 4em;
+			margin-top: -10px;
+			display:none;
+		}
+		.basket-item,
+		.product-option {
+			padding: 20px 0;
+			border: 1px solid #d6d2c4;
+			margin: 0 30px;
+			border-left: 0;
+			border-right: 0;
+			border-top: 0;
+			.description {
+				width:40%;
+				h3 {
+					text-align:left !important;
+				}
+			}
+			.description,
+			.product-option {
+				*, h3 {
+					text-align:left;
+				}
+				h2 {
+					height: 40px;
+				}
+				a {
+					color:inherit;
+				}
+				h3 {
+					margin-left: -60px;
+				}
+				p.supplier {
+					font-weight:bold;
+					display: block;
+				}
+			}
+
+			.quantity {
+				width:30%;
+
+				.remove {
+					margin-right: 10px;
+				}
+
+				input[type="text"],
+				input[type="number"] {
+					width: 50px !important;
+					height: 54px;
+					top: -2px;
+					position: relative;
+					text-align: center;
+					border: 1px solid $inactivePutty;
+					&:hover,
+					&:focus,
+					&:active  {
+						border: 1px solid $inactivePutty;
+						outline: none;
+					}
+				}
+				input.update.primary-button {
+					height: 55px;
+					margin-left: 10px;
+					outline: none;
+					color: $putty;
+					display: inline;
+					width: auto;
+					border: 1px solid $inactivePutty;
+					background: $white;
+					font-weight: 400;
+					&[disabled="disabled"] {
+						background: $inactivePutty;
+						color: #fff;
+						border: 0;
+						font-weight: normal;
+						outline: none;
+						&:hover,
+						&:focus,
+						&:active  {
+							background: $inactivePutty;
+							color: #fff;
+							border: 0;
+							font-weight: normal;
+							outline: none;
+						}
+					}
+					&:hover,
+					&:focus,
+					&:active  {
+						border: 1px solid $tescoBrightBlue;
+						outline: none;
+						background: $tescoBrightBlue;
+						color: #fff;
+					}
+				}
+			}
+			.remove-product,
+			.price,
+			.subtotal {
+				width:10%;
+			}
+
+			p.current,
+			p.total {
+				padding-top: 20px;
+				border-top: 0;
+			}
+
+			.remove.tertiary-button {
+				border:0;
+			}
+
+			* {
+				text-align:center;
+			}
+			> div {
+				float: left;
+			}
+			h3.section-heading {
+				text-align:center;
+				border-bottom:1px solid $lightPutty;
+				padding-bottom: 20px;
+				margin-bottom: 30px;
+				display:none;
+			}
+		}
+
+		.basket-item {
+			.product-extras{
+				width: 100%;
+				margin-top: 10px;
+				> div{
+				 	float: left;
+				 	h3.section-heading{
+				 		display: none;
+				 	}
+				}
+			}
+			.available-product-options {
+				display: none;
+				background: #f5f7ff;
+				width: 100%;
+				min-height: 0;
+				height: auto;
+				margin: 10px 0 10px 0;
+				border: 1px solid #d0d0d0;
+				padding: 2px 10px;
+				position: relative;
+				* {
+					display: inline-block;
+					text-align:auto;
+				}
+				h3.section-heading {
+					margin: 0 0 0 8px;
+					border: 0;
+					text-align: left;
+					padding: 0;
+					width: auto;
+					float: left;
+					line-height: 52px;
+					display:block;
+					font-size: 25px;
+					font-weight: normal;
+				}
+				form {
+					width: 61%;
+					margin: 0 110px 0 0;
+					label {
+						margin: 11px 0 0 19px;
+						clear: none;
+						float: right;
+						padding-left: 19px;
+						height: 30px;
+						line-height: 25px;
+						&:first-child{
+							border-left: 1px solid #ffdb98;
+						}
+						input[type="checkbox"] {
+							visibility:hidden;
+						}
+						.checkbox {
+							top: 3px;
+							left: inherit;
+							width: 35px;
+						}
+						.value{
+							margin: 0 0 0 40px;
+						}
+					}
+				}
+				input[type="submit"] {
+					width: 100px;
+					right: 6px;
+					bottom: 5px;
+					margin: 0;
+					position: absolute;
+					font-weight: normal;
+					&[disabled="disabled"] {
+						background:$lightPutty;
+						color:#fff;
+						border: 0;
+						font-weight: normal;
+					}
+				}
+			}
+		}
+
+		.basket-item:first-child {
+			h3.section-heading {
+				display:block !important;
+				font-size: 25px;
+			}
+		}
+
+		/* Selected products */
+		.basket-item {
+			.selected-product-options {
+				width: 95%;
+				min-height: 0 !important;
+				padding: 10px 0;
+				border-top: 1px solid $lightPutty;
+				margin: 10px 0 0 60px;
+				.product-option {
+					position:relative;
+					padding:0;
+					border:0;
+					margin: 10px 0 0 0;
+					> div {
+						border:0;
+						min-height:0;
+					}
+					.description{
+						padding: 0;
+						width: 37.5%;
+					}
+					.quantity{
+						width: 30%;
+					}
+					.price{
+						width: 11.5%;
+					}
+					.subtotal{
+						width: 10.5%;
+					}
+				}
+				.remove.tertiary-button {
+					position: absolute;
+					right: 30px;
+					top: 0;
+					color: $lightPutty;
+				}
+				.subtotal h3.section-heading {
+					display:none !important;
+				}
+				.quantity *,
+				.price *,
+				.subtotal * {
+					text-align:center;
+				}
+			}
+		}
+	}
+
+	.basket-empty #basket-primary {
+		width: 100%;
+		padding: 20px;
+	}
+
+	#basket-secondary {
+		width: 25%;
+		float: right;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.page-error{
+		width: 71.5%;
+		background: #ffd5d9;
+		color: #000;
+		border: 1px solid #ff9fa7;
+		&:before{
+			color: #000;
+		}
+		p{
+			color: #000;
+		}
+	}
+	#basket-continue-shopping {
+		border: 0;
+		background-color: #fff;
+		padding: 0;
+    margin-bottom: 3px;
+		a {
+			background: #fff;
+			width: auto;
+			color: $putty;
+			margin: 10px 2.5%;
+			padding: 7px 16px;
+			font-weight: bold;
+			border: 1px solid $putty;
+			font-size: 20px;
+			display: block;
+			text-align: center;
+			line-height: 1.4em;
+			&:hover,
+			&:focus,
+			&:active {
+				color: #fff;
+				background: $tescoBrightBlue;
+				border: 1px solid $tescoBrightBlue;
+			}
+		}
+	}
+
+	#basket-summary {
+
+		.total {
+			padding-top: 16px;
+			border-top: 1px solid #f3f1ed;
+			padding: 20px 0px 10px 5px;
+			font-weight: normal;
+			margin-top:0;
+
+			span.value {
+				top:21px;
+			}
+		}
+
+		h2 {
+			font-size: 2.5em;
+			margin: 20px 0 20px 0;
+		}
+
+		ul li {
+			font-size:25px;
+		}
+
+		.savings-wrapper {
+			margin-top: 0;
+			padding-top: 0;
+			border-top: 0;
+			padding: 0 16px 0;
+			color:$colorRed;
+		}
+
+		.basket-summary-inner {
+			border-top: 1px solid $pagePutty;
+			.subtotal-wrapper .total{
+				border: none !important;
+			}
+			.clubcard-points{
+				li{
+					padding-left: 20px;
+					.value{
+						right: 20px;
+					}
+				}
+			}
+		}
+
+		span.value {
+			font-weight: normal;
+			font-size: 25px;
+		}
+
+		#basket-summary-mini,
+		.total-wrapper,
+		.subtotal-wrapper {
+			padding: 0px 20px 0;
+			margin-top: 0;
+
+			.total {
+				margin-top: 0;
+				padding-top: 0;
+				border: none;
+				padding: 20px 10px 10px 0;
+				font-size:25px;
+				font-weight: normal;
+
+				span.value {
+					top: 21px;
+				}
+			}
+			p.total {
+				margin-bottom:0;
+				border-bottom: 1px solid $pagePutty;
+				padding-bottom: 20px;
+			}
+		}
+		h3.amount {
+			font-size: 30px;
+			padding: 0;
+			.value{
+				font-size: 40px;
+				font-weight: bold;
+			}
+		}
+		#basket-summary-mini .total-wrapper {
+			border:0;
+		}
+		.total-wrapper {
+			margin-bottom:30px;
+			padding-top: 20px;
+		}
+		input#basket-checkout {
+			width: 95%;
+			margin: 2.5%;
+		}
+	}
+
+	/* Scrolling content */
+	.kiosk-vertical-scroller-wrapper {
+		height: 300px;
+		position: relative;
+		overflow: hidden;
+
+		.kiosk-vertical-scroller-inner {
+			position: absolute;
+			left:0;
+			top:0;
+			width: 95%;
+			background:orange;
+		}
+
+		.kiosk-vertical-scrollbar-wrapper {
+			position: absolute;
+			right:0;
+			top:0;
+			background: green;
+			width: 5%;
+			height: 100%;
+		}
+	}
+}
+#lightbox{
+	.lightbox-actions{
+		padding: 0 30px 30px;
+		#emptyBasketConfirm{
+			text-align: center;
+			.yes{
+				background: $lightPutty;
+				border: 0;
+				padding: 14px 15px 15px;
+				font-size: 1.8em;
+				color: #fff;
+				outline: none;
+				margin: 0 10px 0 0;
+        width: auto;
+        display: inline-block;
+				&:hover,
+				&:focus,
+				&:active  {
+					background: $putty;
+					outline: none;
+				}
+			}
+			.no{
+				padding: 14px 18px 15px;
+				font-size: 1.8em;
+        width: auto;
+        display: inline-block;
+				border: 1px solid $lightPutty;
+				background-color: $white;
+				color: $contentLink;
+				&:hover,
+				&:focus,
+				&:active  {
+					background: $putty;
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+}
+#basket-primary {
+  .basket-item {
+	.delivery-options{
+	  .eventMessaging {
+	     display: none;
+	  }
+	}
+	.click-collect{
+		.clickcollectstyle{
+		 	ul{
+		    	margin-left: 1.6em;
+		    	li{
+		    		font-size: 1.0em;
+		    	}
+			}
+		    ul > :first-child{
+		    	margin-top: 0.3em;
+		    }
+		}
+	}
+  }
+}
+.basket-details #basket-wrapper .basket-item .personalised-message-indicative {
+    text-align: left;
+    clear: both;
+    float: none !important;
+    width: auto;
+    padding-top: 10px;
+
+    p {
+        border-top: solid 1px $lightPutty;
+        padding: 1.5em 0 0.2em 0;
+        margin-top: 10px;
+    }
+    p:before {
+        padding-bottom: 0;
+        position: relative;
+        top: -1px;
+        margin-right: 4px;
+    }
+}
+
+.basket-item {
+
+    /* personalised product basket message */
+    .personalised-basket-message p {
+        &:before {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,367 @@
+//checkout-payment module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "checkout-payment-mixins";
+
+#payment .payment-details,
+#payment .total,
+#gift-card,
+#ecoupon-voucher, #ecoupon-voucher-container {
+	@include boxAndShadow;
+	padding: 0 8px;
+	margin-bottom: 16px;
+	border-top: 2px solid #3e3e40;
+	clear: none;
+}
+
+#cvv-text {
+	.content {
+		background: url('../img/card-cvv.png') 8px 8px no-repeat;
+		padding: 52px 16px 16px 8px;
+	}
+}
+
+.ecoupon-link-delivery {
+	padding: 14px 0px 0px 5px;
+	float: left;
+}
+
+#ecoupon-voucher-container .add-code{
+display: block !important;
+}
+
+#ewallet, #ecoupon-wallet {
+	h3 {
+		padding: 12px 0 0;
+		font-size: 14px;
+
+	}
+}
+.ecoupon-scroller {
+	padding-top: 10px;
+}
+
+.js {
+	#ecoupon-voucher, #ecoupon-voucher-container {
+		p {
+			&:after {
+				content: 'r';
+			}
+		}
+		h3{
+			border-bottom: none;
+			margin-bottom: 0px;
+			&:after {
+				content: 'r';
+			}
+		}
+	}
+	#cvv-text,
+	#ewallet-container,
+	#ecoupon-wallet-container {
+		@include boxAndShadow;
+		padding: 0;
+		margin: 8px;
+		border-top: 2px solid #3e3e40;
+		p {
+			margin: 0;
+			font-size: 1.4em;
+		}
+		.back {
+			display: block;
+			padding: 16px 8px;
+			border-bottom: 1px solid $primaryBorderColor;
+			border-top: 1px solid $primaryBorderColor;
+			font-size: 1.4em;
+			&:first-child {
+				border-top: none;
+			}
+			&:before {
+				font-family: 'Tesco Icons';
+				content: 'g';
+				padding-right: 8px;
+			}
+		}
+
+		#ewallet, #ecoupon-wallet {
+			.your-clubcard-vouchers {
+				.first-set {
+					.cancel, 
+					.update {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+	
+    #ecoupon-wallet-container.hidden {
+    	display: none;
+  	}
+  
+  #ewallet-container #ewallet .module-messages{
+  	padding: 10px 0px;
+  	margin-bottom: 0px;
+  }
+	
+	#ewallet, #ecoupon-wallet {
+	  display: block;
+	}
+	
+	#gift-card {
+		margin-bottom: 0px;
+		h3 {
+			border-bottom: 0px solid $primaryBorderColor;
+			//margin-bottom: 16px;
+		}
+		&.hide {
+			h3 {
+				margin-bottom: 0;
+				border-bottom: 0;
+			}
+		}
+	}
+	
+	.payment-group-block {
+		.total {
+			position: static;	
+		}
+	}
+	.total {
+		bottom: 0;
+	}
+	#virtual-page {
+		
+		#add-new-address {
+			padding-top: 0;
+			.back {
+				display: block;
+			}
+			h4,
+			.field-wrapper,
+			.form-actions {
+				margin-right: 8px;
+				margin-left: 8px;
+			}
+			
+		}
+
+		.field-wrapper {
+			margin-bottom: 8px;
+			label {
+				display: block;
+				margin-bottom: 4px;
+				font-size: 1.4em;
+			}
+			span[for="postal-code-pca"].error {
+		        width: 70%;
+		    }
+		}
+		
+		.field-wrapper.first {
+            margin-top: 16px;
+		}
+
+		.new-address .field-wrapper span[for="postal-code-pca"].error {
+			width: 67%;
+		}
+		
+		.giftcard-module {
+		   #gift-card{
+		   	 margin: 8px;
+		   }
+		  .gift-card-container {
+		    display: block;
+		  }
+		  h3{
+		  	display: none;
+		  }
+		  .back {
+			display: block;
+			border-bottom: 1px solid $primaryBorderColor;
+			&:first-child {
+				border-top: none;
+			}
+			&:before {
+				font-family: 'Tesco Icons';
+				content: 'g';
+				padding-right: 8px;
+			}
+		  }
+	    }
+		
+		#ecoupon-voucher-container {
+			background-color: #fff;
+			border: none;
+			padding-top: 15px;
+			box-shadow: none;
+		}
+		
+		#ecoupon-voucher-form label{
+			position: static;
+		}
+		
+		#ewallet-container #ewallet span.error{
+			margin-top: 0px;
+		}
+		
+		#ecoupon-voucher{
+			background-color: #fff;
+			border: none;
+			padding-top: 15px;
+			box-shadow: none;
+			padding: 0px;
+			margin: 0px 8px 16px;
+		}
+		
+		#ecoupon-voucher-form{
+			padding-bottom: 0px;
+			
+			.field-wrapper{
+				margin-bottom: 10px;
+			}
+		} 
+		
+		.add-new-form-wrapper{
+			padding: 16px 8px 0px 8px;
+			border-top: 1px solid $primaryBorderColor;
+		}
+		
+		#ecoupon-wallet, #ewallet{
+			margin: 0px;
+		}
+		
+		.ecoupons-list{
+			margin-left: 8px;
+		}
+		
+		.btm-border{
+			border-bottom: 1px solid $primaryBorderColor
+		}
+		
+		.running-total{
+			display: none;
+		}
+		
+		.voucher-scroller {
+			margin-left: 8px;
+		}
+		
+		#ecoupon-wallet-container #ecoupon-wallet p{
+			width: 90%;
+		}
+
+		.instruction-text {
+			font-size: 1.2em;
+  			margin-bottom: 10px;
+  			display: inline-block;
+		}
+
+		span[for="coupon-code"] {
+			bottom: 35px;
+			top: auto;
+		}
+		
+		.clubcard-vouchers {
+            label[for="select-voucher"] {
+                position: absolute;
+                left: -9999em;
+            }
+        }
+
+        #dg-giftCardErrMsg span.error {
+		  top: 0;
+		}
+	}
+	
+	#add-new-address {
+    .back:before {
+      font-family: 'Tesco Icons';
+      content: 'g';
+      padding-right: 8px;
+    }
+  }
+}
+
+
+.checkout ~ #virtual-page {
+  .show-more {
+    display: block;
+    font-size: 14px;
+    text-align: right;
+    margin: 0 0 12px;
+  }
+  
+  .field-wrapper {
+    position: relative;
+  }
+}
+
+.add-new-form{
+	display: none;
+}
+
+#payment .age-restriction {
+	@include boxAndShadow;
+	border-top: 2px solid #3e3e40;
+	padding: 0 8px 16px;
+	margin-bottom: 16px;
+	clear: both;
+
+	.hidden {
+		display: none;
+	}
+	
+	&:after {
+		@include clear-fix;
+	}
+
+	h3 {
+		padding: 12px 0;
+		margin-bottom: 0;
+		font-size: 1.8em;
+		font-weight: normal;	
+	}
+
+	p:first-child {
+		margin-top: 16px;
+	}
+
+	p{
+		margin: 8px 0;
+	}
+
+	.field-wrapper {
+		float: left;
+		margin-left: 16px;
+
+		&.first{
+			margin-left: 0;
+		}
+	}
+	
+	.customDropdown.open {
+		z-index: 20;
+	}	
+}
+.age-confirmation-fields {
+    .hint-messaging {
+        margin-top: 63px;
+        width: 237px;
+    }
+}
+
+#main-content {
+  #ecoupon-voucher-container .add-code, #ecoupon-voucher-form {
+    display: none !important;
+  }
+  .giftcard-module h3:after {
+    content: 'r' !important;
+  }
+}
+
+#tempLoader{
+	width:100%; 
+	z-index: 9999; 
+	position: fixed;
+}

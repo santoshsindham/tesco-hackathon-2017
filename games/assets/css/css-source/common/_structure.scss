@@ -1,0 +1,108 @@
+
+/* 4.   Template structure */
+
+/*
+  Guttering should NOT occur on the content
+  All guttering and alignment should take place on the main div or
+  elements inside the main
+*/
+
+#product-navigation {
+    float:left;
+    width:170px;
+    margin: 0 0 10px 0;
+}
+
+#main {
+    float: left;
+    margin: 0 0 20px 0;
+    width: 950px;
+    min-height: 400px;
+}
+
+.primary-content,
+.seconday-content,
+.tertiary-content {
+	float:left;
+}
+
+/* One column */
+.layout-a .primary-content {
+    width:950px;
+}
+.layout-a .application-content {
+    width: 920px;
+    margin-left:10px;
+}
+.layout-a .application-content.content-expanded {
+	width: 940px;
+    margin-left:0;
+}
+.layout-a .application-content.content-expanded-right {
+	width: 930px;
+}
+
+/* Two column with product nav on left */
+.layout-b .primary-content {
+    width: 760px;
+}
+.layout-b .secondary-content {
+	width:170px;
+    margin-right: 20px;
+}
+.layout-b .application-content {
+    width: 750px;
+}
+
+/* Two column with summary payment/basket on right */
+.layout-c .primary-content {
+    width:645px;
+    margin-right:20px;
+}
+.layout-c .secondary-content {
+	width:275px;
+    margin-right: 10px;
+}
+.layout-c .application-content {
+    margin-left:10px;
+}
+.layout-c .application-content.basket-attachment {
+    margin-left:0px;
+}
+/* Three column - 1 col / 2.5 col / 1.5 col */
+#page .layout-d .kb-header {
+	width:auto;
+	margin:0
+}
+.layout-d .primary-content {
+    width:455px;
+    margin-right:20px;
+}
+.layout-d .secondary-content {
+	width:275px;
+    margin-right: 10px;
+}
+.layout-d .tertiary-content {
+    width:170px;
+    margin-right: 20px;
+}
+
+.layout-d .tertiary-content-header {
+    width:750px;
+    margin: 0px;
+}
+
+.two-column .primary-content {
+    margin: 0 10px 0 0;
+}
+.two-column-summary .primary-content {
+    width: 645px;
+    float: left;
+    position: relative;
+    display: block;
+    margin: 0 20px 0 0;
+}
+.secondary-content {
+    float:left;
+    width:275px;
+}

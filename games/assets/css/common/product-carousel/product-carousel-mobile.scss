@@ -1,0 +1,134 @@
+/*******************************************
+*	Mobile Product Carousel module
+*******************************************/
+@import "../variables";
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "product-carousel-mixins";
+
+.streamline-basket-carousel.product-carousel,
+.product-carousel,
+.product-carousel-heroic {
+  margin: 0 0 16px;
+  ul.products {
+		margin-bottom:-13px;
+  }
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 20px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .products-wrapper {
+    margin-right: 42px;
+    margin-left: 42px;
+  }
+
+  .products>li {
+    width: 100%;
+    margin-bottom: 0;
+    .product{
+    	.thumbnail > div:first-child{
+    		width: 85px;
+    		height: 85px;
+    		margin: 0 auto;
+    		overflow: hidden;
+    	}
+    }
+  }
+  .product-carousel-nav {
+    margin-right: 8px;
+    margin-bottom: 0;
+  }
+  .product-carousel-nav li a .icon:after {
+    line-height: 29px;
+  }
+  .product-carousel-nav li a,
+  .product-carousel-nav li a .icon:after {
+    width: 31px;
+    height: 31px;
+  }
+  .product-carousel-nav li a.touchactive{
+	background: -webkit-linear-gradient(top, #296eac 0%, #02539c 100%);
+	display: block;
+	color: #ffffff;
+  }
+
+  .product-carousel-nav {
+    width: 100%;
+    position: relative;
+
+    li {
+      position: absolute;
+      float: none;
+      top: 16px;
+      margin: 0;
+
+      a {
+        height: 156px;
+        width: 32px;
+        .icon:after {
+          top: 65px;
+        }
+      }
+    }
+
+    li:last-child {
+      right: -24px;
+    }
+
+    li:first-child {
+      left: -8px;
+    }
+  }
+}
+.product-carousel-s7{
+	position: relative;
+}
+
+.product-carousel {
+    background-color: $white;
+    .products {
+        > li {
+            .product {
+                height: 155px;
+                border-right-color: $white;
+                a.thumbnail {
+                    height: 85px;
+                    width: 85px;
+                    margin-bottom: 0;
+                    @include vertical-align;
+                }
+            }
+        }
+    }
+}
+
+.product-carousel .product-carousel-nav, .product-carousel-heroic .product-carousel-nav {
+
+  li {
+    top: 75px;
+    a {
+      width: 40px;
+      height: 40px;
+
+      .icon:after {
+        top: 5px;
+        left: 5px;
+      }
+    }
+  }
+
+}
+
+.basket-details .product-carousel .product-carousel-nav li {
+  &:first-child {
+    left: 0px;
+  }
+
+  &:last-child {
+    right: -32px;
+  }
+}

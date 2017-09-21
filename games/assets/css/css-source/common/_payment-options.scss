@@ -1,0 +1,217 @@
+
+.compare ul {
+	overflow: visible;
+}
+.compare .compare-selected,
+.address-list .active,
+.payment-option-active,
+#accessibility-opt .form-field.active {
+    -moz-box-shadow: 0px 0px 5px #4EA5F7;
+    -webkit-box-shadow: 0px 0px 5px #4EA5F7;
+    box-shadow: 0px 0px 8px #4EA5F7;
+    border: 1px solid #848282;
+}
+.compare .compare-disabled .add-to-list a{
+	cursor:default;
+	outline:0px solid #E4F2FF;
+	text-decoration:none;
+}
+#payment-details .card-expired{
+	-moz-box-shadow: 0px 0px 5px #FF0000;
+    -webkit-box-shadow: 0px 0px 5px #FF0000;
+    box-shadow: 0px 0px 5px #FF0000;
+    border: 1px solid #ec1b2c;
+}
+
+.payment-option-new {
+    -moz-box-shadow: 0px 0px 3px #000;
+    -webkit-box-shadow: 0px 0px 3px #000;
+    box-shadow: 0px 0px 3px #000;
+}
+.payment-option-disabled .payment-option-details {
+    display: none;
+}
+
+.payment-option .payment-option-details a.generic-standard{
+    margin: 5px 0 0 220px;
+}
+.payment-option h3 {
+    margin: 0 0 0 25px;
+    font-size:1em;
+}
+.payment-option h3 label {
+    font-size:1.4em;
+    font-weight:bold;
+    color: #6e6e6e;
+}
+.payment-option .form-field label {
+    width:155px;
+}
+.payment-option .form-field .minor {
+    width:auto;
+}
+.form-container .payment-option a,
+.form-container .payment-option input {
+    clear: none;
+}
+.form-container .payment-option .page-notification{
+	display: none;
+}
+.form-container .payment-option .cardholder{
+	border-bottom: none;
+	margin: 0;
+}
+
+.form-container .payment-option-active .page-notification{
+	display: block;
+}
+.form-container .payment-option-active .cardholder{
+	border-bottom: 1px dashed #DDD7D7;
+	margin: 0 0 10px 0;
+}
+
+.form-container .payment-option input.form-textinput,
+.form-container .payment-option select.form-select {
+    margin-right: 10px;
+}
+.payment-option-active h3 {
+	border-bottom: 1px dashed #DDD7D7;
+	margin-bottom:15px;
+    padding: 0 0 10px;
+}
+.payment-option-active .form-field {
+    margin-left: 25px;
+}
+.radio-field .radio-input,
+.address-list .radio-input,
+.payment-option .radio-input {
+    margin: 3px 0;
+    float: left;
+}
+
+#accessibility-opt .radio-field p {
+	font-size:1.2em;
+	margin-left:23px;
+}
+#accessibility-opt .form-field {
+	width:712px;
+	margin-left:0;
+	margin-right:0;
+	padding-left:11px;	
+}
+#accessibility-opt .form-field label {
+    padding:0;
+    font-size:1.2em;
+}
+#accessibility-opt .last-radio-item {
+	margin-top: 20px;
+}
+
+.form-container .cardissuenumber{
+	width: 4em;
+}
+.form-container .payment-option .cardsecuritycode {
+	width:3em;
+}
+.form-container .short-field {
+    width: 28px;
+}
+.form-container .address-select {
+    width: 228px;
+	margin: 0;
+}
+.edit-control .generic-standard,
+.form-container .payment-option .generic-standard {
+    margin: 10px 0 0 150px;
+    display: inline;
+	float: left;
+}
+.form-container .payment-option .disabled-standard{
+	float: left;
+	margin: 0;
+}
+.edit-control .generic-standard {
+	margin: 5px 0 0 0;
+}
+.form-container .charlimiter {
+	position: relative;
+}
+.form-container .charlimiter .char-limit {
+	position: relative;
+	float: none;
+	top: 70px;
+	left: 10px;
+}
+.form-container .charlimiter textarea {
+	float: left;
+}
+.form-container .dob-select {
+	width: 48px;
+}
+.form-container .card-year-select {
+	width: 55px;
+}
+#expiryDiv .card-year-select{
+	width: 64px;
+}
+.payment-wrapper .form-container {
+    padding: 0;
+}
+.payment-wrapper .form-group-divider {
+    padding: 20px 0 10px;
+}
+.form-group-divider .checkboxlabel,
+.payment-wrapper .form-group-divider p {
+    color: #4F5050;
+    font-size: 1.1em;
+}
+.payment-wrapper .checkbox {
+    float: left;
+}
+.form-container .pay-later label{
+	float: left;
+	margin: 4px 0 0 10px;
+}
+.form-group-divider .paylaterinfo {
+    float: left;
+    margin: 4px 0 0 10px;
+    clear: none;
+	display: inline;
+}
+
+#payment-details .age-confirmation label.invalid{
+	margin-left: 40px;
+}
+#payment-details .cardholder .page-notification{
+	margin: 0 0 10px 0;
+}
+
+.giftcardblock{
+    overflow: hidden;
+}
+.shortlabel .button,
+.giftcardblock .form-field,
+.giftcardblock .button {
+    float: left;
+    clear: none;
+}
+.giftcardblock .form-field {
+    margin-right: 15px;
+}
+
+#payment-details .giftcardblock label.invalid{
+	margin-left: 40px;
+}
+.shortlabel label,
+.giftcardblock .form-field label {
+    width: 31px;
+}
+.shortlabel .form-error {
+    margin-left: 35px;
+}
+.payment-wrapper .bottom-spacer {
+    margin-bottom: 40px;
+}
+.form-container .form-shortinput {
+    width: 74px;
+}

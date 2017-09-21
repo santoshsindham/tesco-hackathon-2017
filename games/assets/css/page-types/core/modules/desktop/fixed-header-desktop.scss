@@ -1,0 +1,76 @@
+@import "../mixins/fixed-header-mixins";
+
+@include headerDesktopStyles(120px, 120px, 960px);
+
+#masthead-wrapper {
+    &.headerOutOfView,
+    &.textInputInFocus {
+        top: -120px;
+    }
+
+    &.hideCatNav {
+        height: 70px;
+    }
+}
+
+// ***********************************************
+
+#masthead-wrapper {
+    #ssb-header-links {
+        top: 0px;
+    }
+
+    .header-link {
+        .menu-title {
+            display: none;
+        }
+    }
+
+    .parent-header-link {
+        .badge {
+            left: 25px;
+        }
+    }
+}
+
+// ***********************************************
+
+#search-header-list-item {
+    pointer-events: none;
+}
+
+#search-wrapper {
+    width: 430px;
+    z-index: 0;
+    pointer-events: auto;
+
+    &.searchifyOpen {
+        z-index: 3;
+    }
+
+    #search-field {
+        width: 430px;
+    }
+}
+
+#masthead-wrapper {
+    &.dropdownOpen {
+        &:not(.catNavOpen) {
+            #search-wrapper {
+                z-index: 2;
+            }
+        }
+    }
+}
+
+// ***********************************************
+
+.flyout-menu {
+    top: 55px;
+}
+
+// ***********************************************
+
+#page-background-mask {
+    top: 66px;
+}

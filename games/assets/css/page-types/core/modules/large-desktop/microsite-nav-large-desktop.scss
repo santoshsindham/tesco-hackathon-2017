@@ -1,0 +1,66 @@
+/*******************************************
+* Large desktop microsite nav module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(largeDesktop);
+@import "../mixins/microsite-nav-mixins";
+
+#microsite-nav {
+	padding-left: $onecol;
+	padding-right: $onecol;
+	width: 30 * $onecol;
+	float: right;
+	padding-bottom: 16px;
+	.wrapper {
+		height: auto;
+		margin: 0;
+	}
+	.menu {
+		ul li a:after {
+			display: none;
+		}
+	}
+  .menu,
+  .sub-menu {
+    ul li {
+      width: 100%;
+      float: none;
+    }
+  }
+  .anchor {
+  	display: none;
+  }
+}
+
+.alternative-view #secondary-content {
+	position: absolute;
+}
+
+#my-account-landing {
+	#microsite-nav {
+		padding-top: 0;
+		width: 120 * $onecol;
+		float: none;
+		.menu {
+			//width: 59 * $onecol;
+		}
+	}
+}
+
+.event {
+	#microsite-nav {
+		padding-top: 0px;
+	}
+}
+
+#microsite-nav {
+    .toggle-expand-collapse {
+        &:after {
+            display: none;
+        }
+    }
+    .expand-collapse-content {
+        display: block;
+    }
+}

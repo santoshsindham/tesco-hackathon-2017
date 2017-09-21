@@ -1,0 +1,24 @@
+#################
+## Compiled CSS + JS
+#################
+
+*-built*.js
+*-concat*.js
+*sass-cache*
+*.scssc
+all-*.css
+*.map
+*-min.*
+*.css
+publishing-*.*
+
+
+#############################
+## CSS Split - Based on page
+#############################
+
+css/page-types/core/core-*.scss
+!css/page-types/core/core-rwd-common.scss
+css/page-types/product-listing/product-listing-*.scss
+!css/page-types/product-listing/product-listing-overrides.scss
+css/page-types/product-details/product-details-*.scss

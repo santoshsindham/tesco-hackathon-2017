@@ -1,0 +1,174 @@
+{
+  "id" : "402-9121",
+  "siteProductPageTemplates" : {
+    "site18630002" : {
+      "id" : "379200013",
+      "type" : "page",
+      "href" : "/direct/rest/content/SecureSiteBuilderRepository/page/379200013"
+    }
+  },
+  "prices" : {
+    "id" : "402-9121",
+    "price" : "24.50",
+    "was" : "35.00",
+    "savings" : "10.50",
+    "clubcardPoints" : 24
+  },
+  "displayName" : "Mela Plaque Detail Strappy Jumpsuit 10 Black",
+  "publicLink" : "/direct/mela-london-plaque-detail-strappy-jumpsuit/551-7553.prd?skuId=402-9121",
+  "specification" : {
+    "Material" : [ {
+      "title" : "Material",
+      "description" : "Polyester",
+      "attr" : "material"
+    } ],
+    "Features" : [ {
+      "title" : "Care Instructions",
+      "description" : "Machine washable. 100% Polyester.",
+      "attr" : "care_instructions"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Black",
+    "size" : "10"
+  },
+  "longDescription" : "Take a fresh look at partywear dressing with this strappy black jumpsuit from Mela London. In a chic wide leg design with a gold-tone laser cut plaque detail at the waist, the jumpsuit features double straps and a keyhole cut-out at the back. The jumpsuit is finished with a lightly padded interior bra shelf for discreet support.Concealed part zip fastening at the sideFull length.",
+  "ancestorCategories" : [ {
+    "id" : "cat3375927",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375927"
+  }, {
+    "id" : "cat3376557",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376557"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38310015",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38310015"
+  }, {
+    "id" : "cat38670071",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670071"
+  }, {
+    "id" : "cat38690064",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38690064"
+  }, {
+    "id" : "cat38710074",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710074"
+  }, {
+    "id" : "cat38900056",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38900056"
+  }, {
+    "id" : "cat39370003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39370003"
+  }, {
+    "id" : "cat39370004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39370004"
+  }, {
+    "id" : "cat42180003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat42180003"
+  }, {
+    "id" : "cat42180024",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat42180024"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786MN?$[preset]$",
+      "secureSrc" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786MN?$[preset]$",
+      "secureSrc" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL2?$[preset]$",
+      "secureSrc" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL2?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL3?$[preset]$",
+      "secureSrc" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL3?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL4?$[preset]$",
+      "secureSrc" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL4?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL5?$[preset]$",
+      "secureSrc" : "//tesco.scene7.com/is/image/tesco/402-9121_PI_66786AL5?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Swatches",
+      "src" : "http://direct.tescoassets.com/directuiassets/ProductAssets/402/402-9121/Swatches/402-9121_SW_66786SWswatch_1.jpg",
+      "secureSrc" : "https://secure.tesco.com/directuiassets/ProductAssets/402/402-9121/Swatches/402-9121_SW_66786SWswatch_1.jpg",
+      "renderSource" : "CMS"
+    } ],
+    "pings" : [ {
+      "mediaType" : "PriceMarkdownPings",
+      "src" : "http://direct.tescoassets.com/directuiassets/SiteAssets/NonSeasonal/en_GB/images/ping_priceMarkdown_sale_$[preset]$.png"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 2" : "10 size"
+  },
+  "links" : [ {
+    "id" : "402-9121",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/402-9121",
+    "options" : {
+      "primary" : "Black",
+      "secondary" : "10",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/402/402-9121/Swatches/402-9121_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "551-7553",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/551-7553",
+    "options" : {
+      "primary" : "Black",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/128/128-4901/Swatches/128-4901_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "T000218e7d",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/T000218e7d"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

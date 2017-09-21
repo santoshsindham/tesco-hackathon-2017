@@ -1,0 +1,11 @@
+/*******************************************
+*	Tablet Integrated Registration module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(tablet);
+@import "../forms/forms-mixins";
+@import "integrated-registration-mixins";
+@include integrated-registration-ll-l-m;
+@include integrated-registration-m-s(30px, 512px);
+@include registrationCompleteBanner-m;

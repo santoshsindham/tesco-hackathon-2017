@@ -1,0 +1,21 @@
+@import "../../variables";
+@import "variants-mixin";
+
+@include swatch-variant-dropdown;
+
+.variants-view {
+  .swatch-variant-mobile {
+    .dropdown-customised {
+      .control {
+        .innerText {
+          width: 63%;
+        }
+        .additionalText {
+          display: initial;
+          position: relative;
+          top: 2px;
+        }
+      }
+    }
+  }
+}

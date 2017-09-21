@@ -1,0 +1,52 @@
+/*******************************************
+*	Grid layout module - tablet
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(allTablet);
+
+/* 5 COLUMNS GRID STYLES */ 
+.grid-5, .grid-4 { 
+	width: auto !important; 
+	float: none; 
+	clear: both;
+	
+	.product-grid{
+		max-height: 406px; 
+		overflow: hidden;
+	}
+}
+
+.grid-3, grid-2, grid-1 { 
+	width: auto !important; 
+	float: none; 
+	clear: both;
+	
+	.product-grid{
+		max-height: 235px; 
+		overflow: hidden;
+	}
+}
+	
+/* 4 COLUMNS GRID STYLES */ 
+#main-content .grid-4 { 
+	width: auto !important; 
+	float: none; 
+	clear: both; 
+	
+	.product-grid{
+		max-height: 406px; 
+		overflow: hidden;
+	}
+}
+
+#main-content .grid-3, #main-content .grid-2, #main-content .grid-1, { 
+	width: auto !important; 
+	float: none; 
+	clear: both; 
+	
+	.product-grid{
+		max-height: 235px; 
+		overflow: hidden;
+	}
+}

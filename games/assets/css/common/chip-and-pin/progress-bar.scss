@@ -1,0 +1,148 @@
+//chip-and-pin module - progress bar
+
+#wrapper.spi {
+	#progress-bar {
+		border: 0;
+		ul {
+			background: $inactivePutty;
+			&.position-2 {
+				li {
+					&:nth-child(1) {
+						&.done {
+							&:after {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			&.position-3 {
+				li {
+					&:nth-child(2) {
+						&.done {
+							&:after {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			li {
+				width: 25%;
+				font-family: 'Tesco';
+				border-top: 1px solid #fff;
+				border-bottom: 1px solid #fff;
+				line-height: 57px;
+				font-size: 2.2em;
+	
+				/* ACTIVE */
+	
+				&.active {
+					color: $contentLink;
+					background-color: #fff;
+					border-color: $contentLink !important;
+					right: 0px;
+					left: 0px;
+					border-right: 0px !important;
+					&:before {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_active_before.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						left: -1px;
+					}
+					&:after {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_active_after.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						right: -25px;
+					}
+				}					
+				&:nth-child(4).active:after, &:nth-child(1).active:before {
+					display: none;
+				}
+				&:nth-child(2).active {
+					&:before {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_active_light_before.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						left: -1px;
+					}
+				}
+				&:nth-child(3).active {
+					&:before {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_active_dark_before.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						left: -1px;
+					}
+				}
+				&:nth-child(4).active {
+					border-right: 1px solid $contentLink !important;
+					&:before {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_active_darkest_before.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						left: -1px;
+					}
+				}
+	
+				/* DONE */
+	
+				&.done {
+					color: #fff;
+					background: none $inactivePutty;
+					padding-right: 0;
+					border-color: $inactivePutty;			
+					right: 0px;
+					left: 0px;
+					padding-right: 25px;
+					&:before {
+						display: none;
+					}
+				}
+				&:nth-child(1).done {
+					&:after {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_done_dark_after.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						right: 0px;
+					}
+				}
+				&:nth-child(2).done {
+					background-color: #d8d5cc;
+					&:after {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_done_darkest_after.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						right: 0px;
+					}
+				}
+				&:nth-child(3).done {
+					background-color: #c4c1b8;
+					&:after {
+						display: none;
+					}
+				}
+	
+				/* DISABLED */
+	
+				&.disabled {
+					color: $color-title;
+					background-color: #fff;
+					border-color: #e7e7e7;			
+					right: 0px;
+					left: 0px;
+					padding-left: 0;
+					padding-right: 26px;
+					&:before {
+						display: none;
+					}
+					&:after {
+						background: url('../images/kiosk_checkout/kiosk_progressbar_disabled_after.png') no-repeat left top;
+						@include breadcrumbArrowsCommon;
+						right: 0px;
+					}
+				}
+				&:nth-child(4).disabled {
+					border-right: 1px solid #e7e7e7;
+					&:after {
+						display: none;
+					}
+				}
+			}				
+		}
+	}
+}

@@ -1,0 +1,61 @@
+@import 'basket-overlay-mixins';
+
+.basket-overlay {
+  .add-on-item {
+    left: 116px;
+  }
+}
+
+@include breakpoint(hTablet) {
+  .basket-overlay__recommenders {
+    .bundle-primary,
+    .bundle-secondary {
+      width: 20%;
+    }
+
+    .bundle-actions-wrapper,
+    .bundle-secondary {
+      margin-left: 35px;
+
+      &:before {
+        left: -30px;
+      }
+    }
+  }
+}
+
+@include breakpoint(vTablet) {
+  .basket-overlay__summary {
+    margin-bottom: 30px;
+  }
+
+  .basket-overlay__actions {
+    padding-left: 4px;
+
+    &:after {
+      @include clear-fix;
+    }
+
+    li {
+      float: left;
+      padding-left: 10px;
+      padding-right: 0;
+      width: 50%;
+
+      &:first-child {
+        padding-left: 0;
+        padding-right: 10px;
+      }
+
+      &:last-child {
+        float: none;
+        padding: 0;
+        width: 100%;
+      }
+    }
+
+    .button {
+      max-width: none;
+    }
+  }
+}

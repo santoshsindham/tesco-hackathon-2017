@@ -1,0 +1,42 @@
+//seller-directory module - kiosk
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "seller-directory-mixins";
+
+.seller-directory {
+  
+  .seller-group {
+    @include box-shadow(none);
+    border: none;
+    background-color: transparent;
+    width: auto;
+  }
+  
+  .letter-group {
+    display: inline-block;
+    margin: 0 10px;
+    height: 630px;
+    @include boxAndShadow;
+    clear: none;
+    
+    h2 {
+      border-bottom: none;
+    }
+  }
+  
+  .seller {
+    width: 220px;
+    border: 1px solid $primaryBorderColor;
+    float: left;
+    overflow: hidden;
+    margin: 16px 1%;
+  }
+  
+  #main-content .top {
+    display: none;
+  }
+  
+  .product-carousel-nav {
+    display: block;
+  }
+}

@@ -1,0 +1,41 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  {{#state.toDisplayOption}}
+    <div class="element-wrapper">
+      {{#state.inDropdown}}
+        <div class="select-wrapper">
+          <label for="{{props.internalName}}" class="screen-reader">Select {{props.name}}</label>
+          <select id="{{props.internalName}}" name="{{props.internalName}}" data-variant-group="{{props.internalName}}" data-productID="{{props.productID}}">
+            {{^state.hideDefaultOption}}
+              <option value="" data-variant-value="" data-option-index="-1">
+                  Select {{props.name}}
+              </option>
+            {{/state.hideDefaultOption}}
+            {{#props.links}}
+              <option value="{{id}}" data-value="{{id}}" {{^subscribable}}{{^available}}disabled="disabled"{{/available}}{{/subscribable}}
+                  data-variant-value="{{value}}" data-inventory="{{inventoryMerged}}" {{#selected}}selected="selected"{{/selected}}
+                  data-product-variant="{{isProductVariant}}" data-variant-group-type="{{props.type}}" data-variant-type="{{type}}">
+                {{value}}
+                {{#inventoryMerged}}
+                  {{^available}} - Sold out{{/available}}
+                {{/inventoryMerged}}
+              </option>
+            {{/props.links}}
+          </select>
+        </div>
+      {{/state.inDropdown}}
+
+      {{^state.inDropdown}}
+        <strong class="single-variant-type">{{props.name}}</strong>:
+        {{#props.links}}
+          <span>
+            {{value}}
+            {{#inventoryMerged}}
+              {{^available}} - Sold out{{/available}}
+            {{/inventoryMerged}}
+          </span>
+        {{/props.links}}
+      {{/state.inDropdown}}
+    </div>
+  {{/state.toDisplayOption}}
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

@@ -1,0 +1,45 @@
+/*******************************************
+* Large desktop	visual nav module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(largeDesktop);
+@import "../mixins/visual-nav-mixins";
+
+#visual-nav, .visual-nav {
+	padding: 0 $onecol;
+	.anchor {
+		display: none;
+	}
+	h2 {
+		padding-left: $onecol;
+	}
+	ul {
+	  li {
+			margin-bottom: 16px;
+			a {
+	  			width: 28 * $onecol;
+	  			height: 176px;
+	  			line-height: 16px;
+				&:after {
+					display: none;
+		  		}
+	  			&.stamp-no-title {
+                    height: 134px;
+                }
+			}
+			span {
+				height: 37px;
+			}
+			.stamp-title-above span {
+                height: 42px;
+            }
+		.wrapper-img {
+			height: auto;
+			img {
+				margin-top: 0;
+			}
+		}
+    }
+	}
+}

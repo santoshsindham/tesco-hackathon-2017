@@ -1,0 +1,20 @@
+.pdp-configurator {
+
+    .add-to-basket-container {
+
+        .product-description {
+            padding: 10px 3.333333333333%;
+
+            span{
+            
+                &.highlight {
+                    width: 70%;
+                }
+            }
+
+            .add-to-basket {
+                top: 0px;
+            }
+        }
+    }
+}

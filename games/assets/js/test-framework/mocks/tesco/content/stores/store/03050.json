@@ -1,0 +1,49 @@
+{
+    "id" : "03050",
+    "postalCode" : "EN62PB",
+    "country" : "GB",
+    "satClose" : "0000",
+    "thuClose" : "2359",
+    "longitude" : "-.181386",
+    "storeName" : "POTTERS BAR SUPERSTORE",
+    "sunClose" : "1600",
+    "wedOpen" : "0001",
+    "wedClose" : "2359",
+    "latitude" : "51.693925",
+    "monOpen" : "0600",
+    "gridReference" : "5257020100",
+    "addressTwo" : "0",
+    "facilities" : [ {
+      "id" : "AUTOMATIC_DOORS",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/AUTOMATIC_DOORS"
+    }, {
+      "id" : "DIRECT_DESK",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/DIRECT_DESK"
+    } ],
+    "thuOpen" : "0001",
+    "storeTypes" : [ {
+      "id" : "Superstore",
+      "type" : "storeType",
+      "href" : "/direct/rest/content/stores/storeType/Superstore"
+    } ],
+    "friOpen" : "0001",
+    "county" : "HERTFORDSHIRE",
+    "tueOpen" : "0001",
+    "storeId" : "3050",
+    "satOpen" : "0001",
+    "friClose" : "2359",
+    "monClose" : "2359",
+    "telephone" : "8456779556",
+    "tueClose" : "2359",
+    "sunOpen" : "1000",
+    "addressOne" : "MUTTON LANE",
+    "townCity" : "POTTERS BAR",
+    "links" : [ {
+      "id" : "03050",
+      "type" : "store",
+      "rel" : "self",
+      "href" : "/direct/rest/content/stores/store/03050"
+    } ]
+  }

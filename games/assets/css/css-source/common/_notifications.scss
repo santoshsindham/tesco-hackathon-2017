@@ -1,0 +1,51 @@
+
+.page-success,
+.page-error {
+	font-size: 1.4em;
+    color: #4F5050;
+    padding: 12px 10px;
+    margin: 0 0 10px;
+}
+.page-error {
+    background: #FFCCCC url("../images/../images/icon_sprite.png") no-repeat scroll 0 -75px;
+    border: 1px solid #ec1b2c;
+    padding: 15px 10px 12px 50px;
+}
+.page-error label,
+#payment-details .page-error label{
+    color: #30539F;
+    font-size: 0.9em;
+    display: block;
+	font-weight: normal;
+}
+.page-error p{
+	margin: 0;
+    font-size:1em;
+}
+.page-error ul li{
+	font-size: 0.9em;
+	font-weight: normal;
+	color: #00539f;
+}
+.transaction-fail{
+	font-weight: normal;
+	margin: 10px 0 10px 0;
+}
+.transaction-fail span{
+	font-size: 0.9em;
+}
+.page-success {
+    background-color: #E5FFEE;
+    border: 1px solid #05ae20;
+    margin-right: 10px;
+}
+.page-success span {
+    display: block;
+    color: #848282;
+}
+.page-notification{
+	padding: 10px;
+	background: #fcf7cf;
+	color: #848282;
+	font-size: 1.2em;
+}

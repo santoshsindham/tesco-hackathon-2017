@@ -1,0 +1,17 @@
+<div class="dialog-container enterVoucherCode">
+    <header class="dialog-header"><h2><%= overlayHeader %></h2></header>
+    <div class="dialog-content">
+        <div class="fnModal message">
+            <span class="<%= statusMessageClass %>"><%= statusMessageText %></span>
+        </div>
+        <div class='intro-message'>
+            <p></p>
+        </div>
+    	<form id='irEnterVoucherCode' action='#' method='post' novalidate='novalidate'>
+    		<label for='txtVoucherCode'><%= overlayLabel %></label>
+            <input type="text" id='txtVoucherCode' name="<%= formName_addVoucherCode %>" value="<%= addVoucherCode %>" class="fnvoucherCode" placeholder="<%= overlayPlaceholder %>" />
+        	<button type="submit" class='secondary-button' id="btnAddVoucherCode"><%= buttonAdd %></button>
+		</form>
+    </div>
+    <footer class="footerContainer"></footer>
+</div>

@@ -1,0 +1,48 @@
+$bkg-color: #ededec;
+
+@mixin infoMessagingProductDetailsAll {
+  .info-messaging-block {
+    padding: 24px;
+    background-color: $bkg-color;
+    border-radius: 4px;
+
+    &.with-icon {
+      .info-message {
+        margin-left: 72px;
+      }
+    }
+
+    .info-icon-wrapper {
+      left: 24px;
+    }
+  }
+
+  .price-promise-info-message-block {
+    .icon {
+      color: $tescoRed;
+    }
+  }
+}
+
+@mixin infoMessagingProductDetailsMobile {
+  .info-messaging-block {
+    padding: 16px;
+
+    &.with-icon {
+      .info-message {
+        margin-left: 64px;
+      }
+    }
+
+    .info-icon-wrapper {
+      left: 16px;
+    }
+  }
+}
+
+@mixin infoMessagingProductDetailsKiosk {
+  .info-messaging-block {
+    margin-bottom: 30px;
+    position: relative;
+  }
+}

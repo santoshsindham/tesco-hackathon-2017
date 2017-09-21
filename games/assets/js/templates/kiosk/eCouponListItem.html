@@ -1,0 +1,8 @@
+<h2 class="<% if(isAvailable == 'true') { %> available<% } else { %> unavailable<% } %>"><% if(isAvailable == "true") { %> eCoupon added<% } else { %> eCoupon unavailable<% } %></h2>
+<button type="button" value="<%= couponId %>">Delete</button>
+<p>[<%= eCouponDescription %>]</p>
+<p><% if(eCouponMessage && eCouponMessage != null) { %> <%= eCouponMessage %> <% } %></p>
+<p><%= eCouponCode %></p>
+<% if (expiryDate) {%>
+<p>expires <%= expiryDate %></p> 
+<% } %>

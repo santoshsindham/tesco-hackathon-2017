@@ -1,0 +1,30 @@
+/*******************************************
+*	Tablet navigation module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "navigation-mixins";
+
+#secondary-content {
+	padding: 0 0 8px;
+}
+
+#navigation {
+	.menu ul li,
+	.sub-menu ul li {
+	  a,
+	  a span {
+ 			height: 50px;
+		}
+	}
+}
+
+// Vertical Tablet
+@include breakpoint(vTablet){
+	#navigation {
+  	.sub-menu title h2 {
+  		padding: 11px 11px 11px 50px;
+  	}
+  }
+}

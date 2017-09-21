@@ -1,0 +1,13 @@
+/*******************************************
+*	Large Desktop Integrated Registration module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "integrated-registration-mixins";
+
+@include integrated-registration-ll-l-m;
+    
+@include integrated-registration-ll-l(310px);
+
+@include registrationCompleteBanner-l-ll;

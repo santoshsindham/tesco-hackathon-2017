@@ -1,0 +1,38 @@
+<script id="promotionsTemplateForKioskOverlay" type="text/template">
+    <div class="offers">
+        <h3>Special Offers</h3>
+        {{#length}}
+            <ul class="special-offers-list number-of-offers-{{length}}">
+                {{#.}}
+                    <li>
+                        {{#displayName}}
+                            <div class="special-offer-container {{#enableToggle}}fnToggleDescription{{/enableToggle}}">
+                                <div class="special-offer-container-top">
+                                    <div class="offer-title">
+                                        <h4>{{displayName}}</h4>
+                                    </div>
+                                    <div class="offer-icon">
+                                        <div class="show-more-cheveron"></div>
+                                    </div>
+                                </div>
+                                <div class="special-offer-container-bottom">
+                                    <div class="offer-description">
+                                        {{#customerInstructions}}
+                                            <p class="qualifying-text">{{customerInstructions}}</p>
+                                        {{/customerInstructions}}
+                                        {{#linkSaveURL}}
+                                            <p class="offer-cta"><a href="{{linkSaveURL}}">See other products that qualify for this offer</a></p>
+                                        {{/linkSaveURL}}
+                                        {{#description}}
+                                            <p class="offer-terms">{{description}}</p>
+                                        {{/description}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{/displayName}}
+                    </li>
+                {{/.}}
+            </ul>
+        {{/length}}
+    </div>
+</script>

@@ -1,0 +1,10 @@
+<script type="text/template" id="product-ping-template">
+    <div id="{{sViewId}}" class="{{sViewClass}}" data-picture data-alt="{{props.mediaType}}">
+        <div data-src="{{{props.srcLarge}}}" data-media="(min-width: 1200px)"></div>
+        <div data-src="{{{props.srcSmall}}}" data-media="(max-width: 1199px)"></div>
+        <noscript>
+            <img src="{{{props.srcSmall}}}" alt="{{props.mediaType}}">
+      </noscript>
+    </div>
+    {{{oEvent}}}
+</script>

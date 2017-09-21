@@ -1,0 +1,102 @@
+@import "../mixins/catalog-navigation-mixins";
+
+@include catalogueNavDeviceStyles;
+
+#catalogue-nav-back-link {
+    top: 0px;
+    height: 560px;
+    width: 15.2%;
+    left: -15%;
+
+    &.catNavDepartmentOpen {
+        left: 0%;
+    }
+}
+
+.fixHeaderToBottom {
+    #catalogue-nav-back-link {
+        top: 49px;
+    }
+}
+
+#catalogue-nav-wrapper {
+    top: 49px;
+
+    &.catNavDepartmentOpen {
+        #catalogue-nav {
+            ul.departments {
+                > li {
+                    ul.categories-l1 {
+                        left: 15%;
+                    }
+                }
+            }
+        }
+    }
+
+    &.catNavCategoryOpen {
+        #catalogue-nav {
+            left: 0%;
+
+            ul.departments {
+                > li {
+                    ul.categories-l1 {
+                        width: 85%;
+
+                        > li {
+                            ul.categories-l2 {
+                                left: -1%;
+                                width: 101%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#catalogue-nav {
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    transition: none;
+
+    ul.departments {
+        width: 100%;
+        border-right: none;
+
+        > li {
+            > a {
+                margin-right: 0px;
+            }
+
+            .departments-background-mask {
+                display: none;
+            }
+        }
+    }
+
+    ul.categories-l1 {
+        left: 100%;
+        width: 85%;
+        z-index: 1;
+        border-left: 1px solid $paleGrey;
+
+        > li {
+            > a {
+                margin-right: 0px;
+            }
+
+            .categories-l1-background-mask {
+                display: none;
+            }
+        }
+    }
+
+    ul.categories-l2 {
+        left: 100%;
+        z-index: 2;
+        border-left: 1px solid $paleGrey;
+    }
+}

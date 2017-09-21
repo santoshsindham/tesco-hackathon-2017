@@ -1,0 +1,46 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{countdownClass}}">
+    <div class="countdown-message highlight">
+      <span class="countdown-message-text"></span>
+    </div>
+
+    <div class="delivery-options-text" itemprop="availableDeliveryMethod">
+      <p class="highlight">
+        <strong>
+          {{mvc.deliveryOptions.0.free}}
+          {{mvc.deliveryOptions.0.name}}
+
+          {{#mvc.deliveryOptions.0.leadTime}}
+            ({{mvc.deliveryOptions.0.leadTime}})
+          {{/mvc.deliveryOptions.0.leadTime}}
+
+          {{^mvc.deliveryOptions.0.free}}
+            {{^mvc.deliveryOptions.0.chargeableClickAndCollect}}
+              {{#mvc.deliveryOptions.0.charge}}
+                &pound;{{mvc.deliveryOptions.0.charge}}
+              {{/mvc.deliveryOptions.0.charge}}
+            {{/mvc.deliveryOptions.0.chargeableClickAndCollect}}
+          {{/mvc.deliveryOptions.0.free}}
+        </strong>
+      </p>
+    </div>
+
+    {{#mvc.deliveryOptions.0.chargeableClickAndCollect}}
+      <p class="click-and-collect-charges smaller">
+        <span>FREE for orders of &pound;{{basketThreshold}} or more,</span>
+        <span>&pound;{{deliveryCharge}} for orders under &pound;{{basketThreshold}}.</span>
+      </p>
+    {{/mvc.deliveryOptions.0.chargeableClickAndCollect}}
+
+    {{#mvc.custom.deliveryOptions.moreOptionsText}}
+      <p class="more-delivery-options">
+        <span class="more-delivery-options-text">{{mvc.custom.deliveryOptions.moreOptionsText}}</span>
+        <a class="more-delivery-options-link hidden-tablet hidden-mobile">See details</a>
+      </p>
+    {{/mvc.custom.deliveryOptions.moreOptionsText}}
+    {{^mvc.deliveryOptions.0.isResiliency}}
+    <div class="delivery-snippet-icon-wrapper hidden-kiosk hidden-largeDesktop hidden-desktop">
+      <span class="icon highlight larger" data-icon="r"></span>
+    </div>
+    {{/mvc.deliveryOptions.0.isResiliency}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>

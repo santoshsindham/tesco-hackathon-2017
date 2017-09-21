@@ -1,0 +1,84 @@
+//help module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "help-mixins";
+
+@include help-touch;
+
+.help {
+	#main-content,
+	#secondary-content {
+		margin: 0 6px 16px;
+	}
+	#main-content {
+
+		.search-field-wrapper {
+			width: 70%;
+		}
+
+		.search-field .secondary-button {
+			width: auto;
+		}
+
+		.help-search-results.related-results,
+		.content-block-inner {
+			padding: 0 2.5%;
+		}
+
+		.help-search-results.related-results {
+			margin-bottom: 0;
+		}
+
+		.help-search-results .back {
+			padding: 16px 2.5%;
+		}
+
+		.content-block {
+			.topic-list {
+				position: relative;
+				margin-bottom: 0;
+				.select-topic {
+					display: block;
+					font-size: 1em;
+					a {
+						@include border-radius(3px);
+						margin: 0;
+						padding: $onecol / 2;
+						text-align: left;
+						&:before {
+							float: right;
+						}
+					}
+				}
+
+				ul {
+					@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+					position: absolute;
+					top: 38px;
+					width: 100%;
+					height: auto;
+					display: none;
+					overflow: visible;
+					border: 1px solid #BFBDBD;
+					background-color: #fff;
+					z-index: 15;
+					li {
+						float: none;
+					    width: 100%;
+					    a {
+						    padding-right: $onecol / 2;
+						    padding-left: $onecol / 2;
+					    }
+					    &:nth-child(odd) a,
+						&:nth-child(even) a {
+							margin: 0;
+						}
+					    &:nth-child(2) a {
+					    	border-top: 1px solid #BFBDBD;
+					    }
+					}
+				}
+			}
+		}
+	}
+}

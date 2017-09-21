@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\bfpo\common.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/bfpo/</a> common.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.41% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/88</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/62</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.14% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.41% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/88</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define([
+    'domlib',
+    'modules/breakpoint',
+    'modules/validation'
+], function ($, breakpoint, validationExtras) {
+    'use strict';
+&nbsp;
+    var bfpo = {
+&nbsp;
+        sContainer: 'div.bfpo-container',
+        sToggle: 'a.bfpo-toggle',
+        sToggleContentClassName: 'bfpo-toggle-content',
+        sToggleActiveClassName: 'is-open',
+        sStreetNameInput: '#nv-PrimaryStreet',
+        bEventsBound: false,
+        validation: {
+            rules: {
+                oEDITABLE_ADDRESSES: {
+                    companyname: {
+                        checkEditableAddresses: true,
+                        validateSpecialInvalidCharacters: true
+                    },
+                    flatnumber: {
+                        checkEditableAddresses: true,
+                        validateSpecialInvalidCharacters: true
+                    },
+                    buildingname: {
+                        checkEditableAddresses: true,
+                        validateSpecialInvalidCharacters: true
+                    }
+                },
+                oIR_EDITABLE_ADDRESSES: {
+                    '/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName': {
+                        checkEditableAddresses: true
+                    },
+                    '/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber': {
+                        checkEditableAddresses: true
+                    },
+                    '/com/tesco/ecom/util/PCAAddressVO.pCAAddress.buildingNameNumber': {
+                        checkEditableAddresses: true
+                    }
+                },
+                oBFPO_ADDRESS: {
+                    companyname: {
+                        required: true
+                    },
+                    flatnumber: {
+                        required: true
+                    },
+                    buildingname: {
+                        required: false
+                    }
+                },
+                oIR_BFPO_ADDRESS: {
+                    '/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName': {
+                        required: true
+                    },
+                    '/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber': {
+                        required: true
+                    },
+                    '/com/tesco/ecom/util/PCAAddressVO.pCAAddress.buildingNameNumber': {
+                        required: false
+                    }
+                }
+            },
+            addRules: <span class="fstat-no" title="function not covered" >function (oRules, $context) {</span>
+<span class="cstat-no" title="statement not covered" >                var item = '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                for (item in oRules) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (oRules.hasOwnProperty(item)) {</span>
+<span class="cstat-no" title="statement not covered" >                        $('input[name="' + item + '"]', $context).rules('add', oRules[item]);</span>
+                    }
+                }
+            },
+            removeRules: <span class="fstat-no" title="function not covered" >function (oRules, $context) {</span>
+<span class="cstat-no" title="statement not covered" >                var item = '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                for (item in oRules) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (oRules.hasOwnProperty(item)) {</span>
+<span class="cstat-no" title="statement not covered" >                        $('input[name="' + item + '"]', $context).rules('remove');</span>
+                    }
+                }
+            }
+        },
+        sEnableSaveRequiredFields: '[name=companyname], [name=flatnumber]',
+&nbsp;
+        updateValidation: <span class="fstat-no" title="function not covered" >function updateValidation($form) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo,</span>
+                validator = $form.validate(),
+                settings = validator.settings;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($form.data('isBfpoAddress')) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if ($form.is('#ir-register1')) {</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'] = '';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'] = '';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.buildingNameNumber'] = '';</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.removeRules(self.validation.rules.oIR_EDITABLE_ADDRESSES, $form);</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.addRules(self.validation.rules.oIR_BFPO_ADDRESS, $form);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName']) {</span>
+<span class="cstat-no" title="statement not covered" >                        settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'] = {};</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'].required = validationExtras.msg.companyname.required;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber']) {</span>
+<span class="cstat-no" title="statement not covered" >                        settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'] = {};</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'].required = validationExtras.msg.flatnumber.required;</span>
+<span class="cstat-no" title="statement not covered" >                    $form.find('input[name="/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName"], input[name="/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber"]').addClass('required');</span>
+<span class="cstat-no" title="statement not covered" >                    $form.find('input[name="/com/tesco/ecom/util/PCAAddressVO.pCAAddress.buildingNameNumber"]').removeClass('required');</span>
+&nbsp;
+                } else {
+<span class="cstat-no" title="statement not covered" >                    validator.groups.companyname = '';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups.flatnumber = '';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups.buildingname = '';</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.removeRules(self.validation.rules.oEDITABLE_ADDRESSES, $form);</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.addRules(self.validation.rules.oBFPO_ADDRESS, $form);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!settings.messages.companyname) {</span>
+<span class="cstat-no" title="statement not covered" >                        settings.messages.companyname = {};</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    settings.messages.companyname.required = validationExtras.msg.companyname.required;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!settings.messages.flatnumber) {</span>
+<span class="cstat-no" title="statement not covered" >                        settings.messages.flatnumber = {};</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    settings.messages.flatnumber.required = validationExtras.msg.flatnumber.required;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    $form.find('input[name="buildingname"]').removeClass('highlight required');</span>
+                }
+&nbsp;
+            } else {
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if ($form.is('#ir-register1')) {</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'] = 'editableAddressesError';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'] = 'editableAddressesError';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.buildingNameNumber'] = 'editableAddressesError';</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.removeRules(self.validation.rules.oIR_BFPO_ADDRESS, $form);</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.addRules(self.validation.rules.oIR_EDITABLE_ADDRESSES, $form);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'] &amp;&amp; settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'].required) {</span>
+<span class="cstat-no" title="statement not covered" >                        delete settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.organisationName'].required;</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'] &amp;&amp; settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'].required) {</span>
+<span class="cstat-no" title="statement not covered" >                        delete settings.messages['/com/tesco/ecom/util/PCAAddressVO.pCAAddress.subBuildingNumber'].required;</span>
+                    }
+&nbsp;
+                } else {
+<span class="cstat-no" title="statement not covered" >                    validator.groups.companyname = 'editableAddressesError';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups.flatnumber = 'editableAddressesError';</span>
+<span class="cstat-no" title="statement not covered" >                    validator.groups.buildingname = 'editableAddressesError';</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.removeRules(self.validation.rules.oBFPO_ADDRESS, $form);</span>
+<span class="cstat-no" title="statement not covered" >                    self.validation.addRules(self.validation.rules.oEDITABLE_ADDRESSES, $form);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (settings.messages.companyname &amp;&amp; settings.messages.companyname.required) {</span>
+<span class="cstat-no" title="statement not covered" >                        delete settings.messages.companyname.required;</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (settings.messages.flatnumber &amp;&amp; settings.messages.flatnumber.required) {</span>
+<span class="cstat-no" title="statement not covered" >                        delete settings.messages.flatnumber.required;</span>
+                    }
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            validator.resetForm();</span>
+        },
+&nbsp;
+        open: <span class="fstat-no" title="function not covered" >function open($parent) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($parent &amp;&amp; $parent.length) {</span>
+<span class="cstat-no" title="statement not covered" >                $parent.find(self.sContainer).show();</span>
+<span class="cstat-no" title="statement not covered" >                self.disableStreetNameInput($parent.find(self.sStreetNameInput));</span>
+            }
+        },
+&nbsp;
+        close: <span class="fstat-no" title="function not covered" >function close($parent) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo,</span>
+                $container = null;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($parent &amp;&amp; $parent.length) {</span>
+<span class="cstat-no" title="statement not covered" >                $container = $parent.find(self.sContainer);</span>
+<span class="cstat-no" title="statement not covered" >                $container.hide();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (breakpoint.mobile) {</span>
+<span class="cstat-no" title="statement not covered" >                    $container.toggleClass(self.sToggleActiveClassName, false);</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.enableStreetNameInput($parent.find(self.sStreetNameInput));</span>
+            }
+        },
+&nbsp;
+        bindToggle: <span class="fstat-no" title="function not covered" >function bindToggle($parent) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $parent.find(self.sToggle)</span>
+                .off('click')
+                .on('click', self.toggle);
+        },
+&nbsp;
+        toggle: <span class="fstat-no" title="function not covered" >function toggle(event) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo,</span>
+                $container = event !== undefined ?
+                        $(event.target).closest(self.sContainer) :
+                        $(self.sContainer);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $container.toggleClass(self.sToggleActiveClassName);</span>
+        },
+&nbsp;
+        bindEvents: <span class="fstat-no" title="function not covered" >function bindEvents() {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!self.bEventsBound) {</span>
+<span class="cstat-no" title="statement not covered" >                $(window).on('breakpointChange', <span class="fstat-no" title="function not covered" >function hideBfpoContainer(event) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (event.oldViewport === 'mobile' || event.newViewport === 'mobile') {</span>
+<span class="cstat-no" title="statement not covered" >                        self.close($(self.sContainer).parent());</span>
+                    }
+                });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.bEventsBound = true;</span>
+            }
+        },
+&nbsp;
+        init: <span class="fstat-no" title="function not covered" >function init() {</span>
+<span class="cstat-no" title="statement not covered" >            var self = bfpo;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            self.bindEvents();</span>
+        },
+&nbsp;
+        disableStreetNameInput: <span class="fstat-no" title="function not covered" >function disableStreetNameInput($el) {</span>
+<span class="cstat-no" title="statement not covered" >            if ($el &amp;&amp; $el.length) {</span>
+<span class="cstat-no" title="statement not covered" >                $el.removeClass('valid')</span>
+                    .prop('readonly', true)
+                    .on('keydown', <span class="fstat-no" title="function not covered" >function disableBackspaceKey(event) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (event.which === 8) {</span>
+<span class="cstat-no" title="statement not covered" >                            event.preventDefault();</span>
+                        }
+                    });
+            }
+        },
+&nbsp;
+        enableStreetNameInput: <span class="fstat-no" title="function not covered" >function enableStreetNameInput($el) {</span>
+<span class="cstat-no" title="statement not covered" >            if ($el &amp;&amp; $el.length) {</span>
+<span class="cstat-no" title="statement not covered" >                $el.prop('readonly', false)</span>
+                    .off('keydown');
+            }
+        }
+    };
+&nbsp;
+    return bfpo;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

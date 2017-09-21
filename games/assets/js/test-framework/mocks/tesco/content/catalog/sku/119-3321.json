@@ -1,0 +1,143 @@
+{
+  "id" : "119-3321",
+  "prices" : {
+    "id" : "119-3321",
+    "price" : "0.24",
+    "clubcardPoints" : 0
+  },
+  "displayName" : "Baby Accessories_Test3_Nov302012 republish",
+  "publicLink" : "/direct/baby-accessories_test3_nov302012-republish/119-3321.prd?skuId=119-3321",
+  "specification" : {
+    "Dimensions" : [ {
+      "title" : "Product Height",
+      "description" : "1.0 Metre",
+      "attr" : "product_height"
+    }, {
+      "title" : "Product Width",
+      "description" : "1.0 Metre",
+      "attr" : "product_width"
+    }, {
+      "title" : "Product Depth",
+      "description" : "1.0 Metre",
+      "attr" : "product_depth"
+    }, {
+      "title" : "Product Weight",
+      "description" : "1.0 Kilogram",
+      "attr" : "product_weight"
+    } ],
+    "Material" : [ {
+      "title" : "Material",
+      "description" : "Organic cotton",
+      "attr" : "material"
+    } ],
+    "Key Information" : [ {
+      "title" : "Type",
+      "description" : "Footmuff",
+      "attr" : "type"
+    }, {
+      "title" : "Colour",
+      "description" : "Blue",
+      "attr" : "colour"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Blue",
+    "mediaType" : "Footmuff"
+  },
+  "isDigitalSku" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat10150003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat10150003"
+  }, {
+    "id" : "cat10160010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat10160010"
+  }, {
+    "id" : "cat1170041",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat1170041"
+  }, {
+    "id" : "cat19560004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19560004"
+  }, {
+    "id" : "cat2020076",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat2020076"
+  }, {
+    "id" : "cat2190020",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat2190020"
+  }, {
+    "id" : "cat4380009",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat4380009"
+  }, {
+    "id" : "cat680191",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680191"
+  }, {
+    "id" : "cat680203",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680203"
+  }, {
+    "id" : "cat680205",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680205"
+  }, {
+    "id" : "cat680209",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680209"
+  }, {
+    "id" : "cat680210",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680210"
+  }, {
+    "id" : "cat9670003",
+    "type" : "buylist",
+    "href" : "/direct/rest/content/catalog/buylist/cat9670003"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "/assets/images/missing/Default_image_unavailable_[preset].jpg",
+      "renderSource" : "Missing",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ ]
+  },
+  "links" : [ {
+    "id" : "119-3321",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/119-3321"
+  }, {
+    "id" : "119-3321",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/119-3321"
+  }, {
+    "id" : "T00007726f",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/T00007726f"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

@@ -1,0 +1,14 @@
+@import "../../common/variables";
+@import "personalised-product-mixins";
+
+#lightbox .EmaginationErrorOverlay {
+    div {
+        padding: 100px;
+        margin: 127px auto;
+    }
+}
+
+.product-ping {
+    top: 3px;
+    left: 0px;
+}

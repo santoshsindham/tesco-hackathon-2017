@@ -1,0 +1,10 @@
+@import "../mixins/product-description-mixins";
+
+.videoPosition {
+    height: 300px;
+    .errorVideo {
+        height: 300px;
+    }
+}
+
+@include error-styles-video-common (112px,224px,relative,1.6em);

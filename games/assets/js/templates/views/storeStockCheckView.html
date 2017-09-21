@@ -1,0 +1,30 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  {{#state.hasStockStatus}}
+    <p class="with-margin-btm">
+      Local store: <strong class="nearest-store-stock-status {{props.stockStatusClass}}">{{props.nearestStore.stockStatus}}</strong>
+    </p>
+    <p>
+      <strong class="nearest-store-name">{{props.nearestStore.name}}</strong>
+    </p>
+    {{#props.nearestStore.distance}}
+    <p class="nearest-store-distance with-margin-btm">
+      <strong>{{props.nearestStore.distance}}</strong> from
+      <strong class="nearest-store-lookup">{{props.nearestStore.postCode}}</strong>
+    </p>
+    {{/props.nearestStore.distance}}
+    <a class="change-store-link" data-id="{{props.listingID}}">Change store</a>
+  {{/state.hasStockStatus}}
+  {{^state.hasStockStatus}}
+    <form class="stock-check-form" data-id="{{mvc.sellers.id}}">
+      <label for="stock-check-form-postcode" class="stock-check-label text">Check stock in your local store:</label>
+      <input id="stock-check-form-postcode" title="Enter town / postcode" placeholder="Enter town / postcode" value="" class="postcode pull-left-all" type="text" autocomplete="off">
+      <div class="button-wrapper">
+        <input type="submit" class="button secondary" value="Check" />
+      </div>
+    </form>
+    {{#state.isGeolocationAvailable}}
+      <a class="current-location-link with-geolocation" data-id="{{mvc.sellers.id}}">Use my current location</a>
+    {{/state.isGeolocationAvailable}}
+  {{/state.hasStockStatus}}
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

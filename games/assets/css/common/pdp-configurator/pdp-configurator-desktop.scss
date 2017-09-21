@@ -1,0 +1,11 @@
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "pdp-configurator-mixins";
+@import "product-info/product-info-desktop";
+@import "inspiration-panel/inspiration-panel-tablet";
+
+.pdp-configurator {
+    .is-desktop-only {
+        display: block !important;
+    }
+}

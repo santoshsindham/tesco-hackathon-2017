@@ -1,0 +1,90 @@
+<h2 class="deliveryGroupHeading">Delivery <%= deliveryGroupNumber %> from <span class="deliveryGroupSupplierName"><%= soldBy %></span></h2>
+<div class="deliveryGroup" data-groupid="<%= deliveryGroupId %>">
+    <% if (deliveryGroupMessage !== '' && deliveryGroupMessage !== null) { %>
+    <div class="message"><span class="<%= deliveryGroupMessageType %>"><%= deliveryGroupMessage %></span></div>
+    <% } %>
+    <div class="deliveryGroupContent deliveryItemsContainer">
+        <h3>Item(s)</h3>
+        <ul class="fnItems<% if (deliveryGroupNumber) { %><%= deliveryGroupNumber %><% } %> deliveryItems"></ul>
+    </div>
+    <div class="deliveryTypeCustomerDetailsWrapper">
+        <div class="deliveryGroupContent deliveryType">
+            <h3>Delivery type</h3>
+            <p class="deliveryTypeOption"><%= deliveryType %><% if (deliveryCost) { %><b class="deliveryCost"><%= deliveryCost %></b><% } %></p>
+            
+            <% if ( deliveryType=="ClickNCollect" && deliveryCost !=="FREE" ){
+            %> <p class="kioskWhatsThisCharge"><a href="#">What's this charge?</a></p> <% } %>
+            
+            <% if (storeInfoDetails) { %>
+                <p>Collect from <!-- <%= collectPostalCode %>:  --><span><%= collectFrom %></span></p>
+                <% if (deliveryDate) { %>
+                	<p>Collect from store <%= deliveryTime %> <span><%= deliveryDate %></span></p>
+                <% } %>
+            <% } %>
+            
+            <% if (deliveryAddress) { %>
+                <p class="address">
+                    <% if (deliveryAddressOne) { %><%= deliveryAddressOne %><% } %>                    
+                    <% if (deliveryAddressTwo) { %><%= deliveryAddressTwo %><% } %>                    
+                    <% if (deliveryPostCode) { %><%= deliveryPostCode %><% } %>
+                </p>
+                <% if (deliveryDate) { %>
+                	<% if (deliveryOn) { %>
+                		<p><%= deliveryOn %> <span><%= deliveryDate %></span></p>
+                	<% } %>
+                <% } %>
+            <% } %>
+            
+            <% if (deliveryMessage) { %>
+                <p class="deliveryMessage"><%= deliveryMessage %></p>
+            <% } %>
+            
+            <% if (resiliencyDeliveryMessage) { %>
+                <p class="deliveryMessage"><%= resiliencyDeliveryMessage %></p>
+            <% } %>            
+            
+            <% if (collectionMessage) { %>
+                <p class="collectionMessage"><%= collectionMessage %></p>
+            <% } %>
+            
+             <% if (deliveryAddress) { %>
+                <p>Courier instructions <span><%= courierInstructions %></span>                
+	                <% if (courierInstructionsOne != null) { %>
+	                	<span><%= courierInstructionsOne %></span>
+	                <% } %>
+                </p>
+                <% if (isDelInstAvailable) { %>                
+                	<button class="tertiary-button fncourierInstructionsBtn">Change Courier instructions</button>
+                <% } %>
+                
+                 <% if (!isDelInstAvailable) { %>                
+                	<button class="tertiary-button fncourierInstructionsBtn">Add Courier instructions</button>
+                <% } %>
+                
+            <% } %>
+        </div>
+
+        <div class="deliveryGroupContent customerDetails">
+            <h3>Your details</h3>
+            <% if (customerDetails_name) { %>
+            <p class="itemHolder"><span class="itemLabel">Name:</span> <span class="itemValue"><%= customerDetails_name %></span></p>
+            <% } %>
+            <% if (customerDetails_contactNumber) { %>
+            <p class="itemHolder"><span class="itemLabel">Contact number:</span> <span class="itemValue"><%= customerDetails_contactNumber %></span></p>
+            <% } %>
+            <% if (customerDetails_email) { %>
+            <p class="itemHolder"><span class="itemLabel">Email:</span> <span class="itemValue fnEmailAddress"><%= customerDetails_email %></span></p>
+            <% } %>
+        </div>
+
+        <div class="deliveryTypeCustomerDetailsFooter">
+	    	<div class="deliveryGroupContent">
+	    		<button class="tertiary-button fnChangeDeliveryTypeBtn">Change delivery</button>
+	    	</div>
+	    	<div class="deliveryGroupContent">
+	    		<p class="smallPrint">These details are used to keep you updated on your order and to locate your item on collection.</p>
+	        	<button class="tertiary-button fnChangeDetailsBtn">Change details</button>
+	    	</div>
+	    </div>
+    </div>
+</div>

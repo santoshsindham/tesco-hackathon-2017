@@ -1,0 +1,17 @@
+/*******************************************
+*   searchify : Mobile
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(mobile);
+@import "../mixins/searchify-mixins";
+
+#spf-seeAllResults {
+    clear: both;
+    text-align: center;
+    min-height: 8px !important;
+
+    span {
+        float: none !important;
+    }
+}

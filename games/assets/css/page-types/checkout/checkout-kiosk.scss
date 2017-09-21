@@ -1,0 +1,11 @@
+/** Common Blocks / Modules - Checkout - Kiosk Viewport **/
+
+/* .kiosk class should be removed from here once it is added in page-types/all-styles-kiosk*/
+.kiosk {
+  @import '../../common/checkout/checkout-kiosk';
+  @import '../../common/checkout-product/checkout-product-kiosk';
+  @import '../../common/checkout-delivery/checkout-delivery-kiosk';
+  @import '../../common/checkout-payment/checkout-payment-kiosk';
+  @import '../../common/datepicker/datepicker-kiosk';
+  @import '../../common/integrated-registration/integrated-registration-kiosk';
+}

@@ -1,0 +1,383 @@
+/*******************************************
+*   Kiosk Product Tile module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(kiosk);
+@import "../mixins/product-tile-mixins";
+
+.product-grid {
+    display: none;
+    overflow: hidden;
+    padding: 0 (1.5 * $onecol);
+    .products-header {
+        margin-left: 1.5 * $onecol;
+        margin-right: 1.5 * $onecol;
+    }
+    .products-wrapper {
+        margin-left: $onecol;
+        margin-right: $onecol;
+    }
+    .products>li {
+        margin-left: 0.5 * $onecol;
+        margin-right: 0.5 * $onecol;
+    }
+}
+
+$product-tile-font-size-small  : 14px;
+$product-tile-font-size-medium : 16px;
+$product-tile-font-size-large  : 36px;
+
+.products>li {
+    .ping {
+        padding: 3px 7px 3px;
+        font-size: 12px;
+    }
+    .percentage span {
+    	line-height: 1;
+    	padding: 14px 0;
+    }
+    .product {
+        &:after {
+            @include clear-fix;
+        }
+    	width: 14.312 * $onecol;
+        padding: 0 $onecol 0;
+        position: relative;
+
+        .offer {
+            top: 85px;
+            bottom: auto;
+        }
+
+        // PRODUCT IMAGE
+        .thumbnail {
+            display: block;
+      		margin-bottom: 16px;
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+            .blinkbox-ping {
+                margin-top: -17px;
+            }
+        }
+
+        // PRODUCT TITLE - min-height set in CSS only - JS to determine actual height
+        // min height used to distribute white space when no author/artist, no format/release date and
+        // no unavilable/special offers information displayed - this is to stop all white space
+        // appearing at the base of the tile
+        .title-author-format {
+            min-height: 80px;
+      		margin-bottom: 16px;
+            h3 {
+                width: 100%;
+                max-height: 64px;
+                margin: 0;
+        		line-height: 18px;
+        		font-size: 17px;
+				padding-bottom: 0;
+                &.media {
+                    max-height: 44px;
+                    margin-bottom: 0;
+                }
+                a {
+                    padding-bottom: 1px;
+                    line-height: 18px;
+          			font-size: 17px;
+                }
+            }
+            .author,
+            .format-release {
+            	margin-bottom: 0;
+                padding-bottom: 2px;
+                font-size: $product-tile-font-size-small;
+                line-height: 1.3em;
+            }
+        }
+
+        // RATINGS - height set in CSS only as it never changes and is always visible
+        .rating-container {
+      		height: 15px;
+            clear: both;
+      		font-size: 15px;
+      		line-height: 15px;
+      		.total-reviewers {
+        		font-size: 15px;
+      		}
+        }
+
+        // BUY FROM/SELLER - height set in CSS only as it never changes and is always visible
+        .buy-block {
+            height: 21px;
+            margin: 0;
+            font-size: $product-tile-font-size-small;
+            .retailer {
+                font-weight: bold;
+            }
+        }
+
+        // FORMER AND ACTUAL PRICES - height set in CSS only as it never changes
+        .former-prices {
+            top: 231px;
+            left: $onecol;
+			line-height: 1.4em!important;
+            float: right;
+            display: table;
+			font-size: $product-tile-font-size-small;
+            li {
+                display: none;
+                color: #ee1c2e;
+				float:none;
+                &:first-child {
+                    display: table-cell;
+					vertical-align: bottom;
+					padding: 0 0 0.4em;
+					height: $product-tile-font-size-large;
+					line-height: $product-tile-font-size-small;
+					font-size: $product-tile-font-size-small;
+					white-space: normal;
+                }
+            }
+            &.wrapped,
+            &.wrapped li {
+                line-height: 13px;
+            }
+
+      	display: none;
+        }
+        .price {
+        	display: table-cell;
+			vertical-align: bottom;
+            top: 275px;
+            left: $onecol;
+            clear: none;
+            float: left;
+      		height: 24px;
+      		line-height: 24px;
+      		font-size: 24px;
+      		margin: 0;
+            .from {
+				line-height: 12px;
+				margin-top: -0.3em;
+				margin-left: -12px;
+			}
+            &.smaller {
+				font-size: $product-tile-font-size-large - $product-tile-font-size-small;
+				line-height: 1em;
+        	}
+		}
+
+        // SAVINGS - hidden in kiosk view
+        .saving {
+            display: none;
+        }
+
+    	// UNAVILABLE/SPECIAL OFFERS - optional, height set in CSS only as it never changes
+		// * always last to appear in product tile for kiosk
+		.additional-info {
+			display: block;
+			height: 14px;
+			clear: both;
+			margin: 0;
+			font-size: $product-tile-font-size-small;
+		}
+    }
+}
+
+#listing {
+    .offer {
+        top: 81px;
+        bottom: auto;
+        left: 15px;
+    }
+    .thumbnail {
+        position: static;
+        width: 170px;
+        height: 120px;
+		margin-bottom: 8px;
+		margin-top: 4px;
+        .blinkbox-ping {
+        	height: auto;
+        }
+    }
+}
+
+$nav-item-width: 17 * $onecol;
+$nav-item-height: 136px;
+
+.product-carousel.shop-by,
+.product-grid.shop-by {
+    @include border-radius(4px);
+    position: relative;
+    width: 1746px;
+    float: left;
+    padding: $onecol 0 0 $onecol;
+    margin-left: 2 * $onecol;
+    margin-bottom: $onecol;
+    border: 1px solid $primaryBorderColor;
+    background-color: #fff;
+    .products-header {
+        display: inline-block;
+        float: left;
+        margin: 0 16px 16px 0;
+        min-height: $nav-item-height;
+        padding: 0;
+        width: 272px;
+        border-top: none;
+        h2 {
+            display: block;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 2.2em;
+            font-weight: normal;
+            margin: 0;
+            line-height: $nav-item-height;
+        }
+    }
+    .products-wrapper {
+        clear: none;
+        width: 5 * ($nav-item-width + $onecol);
+        overflow: hidden;
+        margin: 0;
+    }
+    .product-carousel-nav {
+    	display: none !important;
+    }
+    .products {
+        width: auto;
+        overflow: visible;
+        white-space: nowrap;
+        font-size: 0;
+        & > li {
+            margin-bottom: 0;
+            width: $nav-item-width;
+            float: none;
+            display: inline-block;
+            z-index: 0;
+            margin-left: 0 !important;
+            margin-right: $onecol;
+            &:first-child {
+                margin-left: 0;
+            }
+            &.half-size {
+                width: $nav-item-width;
+                .product:first-child {
+                    margin-right: 0;
+                }
+            }
+            .product {
+                height: auto;
+                padding: 0;
+                float: left;
+                &:first-child {
+                    margin-right: $onecol;
+                }
+                a {
+                    display: block;
+                    text-align: center;
+                    min-height: $nav-item-height;
+                    line-height: $nav-item-height;
+                    font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                    font-size: 24px;
+                    font-weight: bold;
+                    img {
+                        vertical-align: middle;
+                    }
+                }
+
+        .price {
+          margin: 8px 12px;
+        }
+      }
+
+      &:last-child {
+        .product {
+          border-width: 0;
+        }
+            }
+        }
+    }
+    &.item-limit {
+        .products > li:nth-child(n+5) {
+            display: inline-block;
+        }
+    }
+    .view-all {
+        @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        @include tescoFont;
+        @include border-radius(4px);
+        position: absolute;
+        top: $onecol;
+        right: $onecol;
+        z-index: 1;
+        display: none;
+        width: $nav-item-width;
+        min-height: $nav-item-height;
+        padding: 0 0 0 26px;
+        font-size: 2.4em;
+        line-height: $nav-item-height;
+        text-align: left;
+        border: 1px solid #BFBDBD;
+        background: #fff;
+        &:hover {
+            text-decoration: none;
+        }
+        &:before {
+            @include round-icon-kiosk;
+            color: $contentLink;
+            border-color: $contentLink;
+            content: 'r';
+            margin-right: 11px;
+        }
+    }
+}
+
+// Grouped onecol adjust is to cater for images in the tesc environment being 90px in height.
+// Need to adjust the padding to compensate for the image height increase from 80px to 90px.
+// Done this way to ensure the overall shop-by wrappers done't increase their height on kiosk
+// as there's limited space.
+
+$grouped-nav-item-height: 90px;
+$grouped-onecol-adjust: $onecol - 5;
+
+.shop-by-grouped {
+    clear: both;
+    &:after {
+        @include clear-fix;
+    }
+    .shop-by {
+        @include border-radius(4px 4px 0 0);
+        margin-bottom: 0;
+        padding-top: $grouped-onecol-adjust;
+        .products-header,
+        .products-header h2,
+        .products > li .product a,
+        .view-all {
+            min-height: $grouped-nav-item-height;
+            line-height: $grouped-nav-item-height;
+        }
+        .products-header {
+            margin-bottom: $grouped-onecol-adjust;
+        }
+        .view-all {
+            top: $grouped-onecol-adjust;
+        }
+        .products {
+            padding-bottom: $grouped-onecol-adjust;
+            > li .product a img {
+                max-height: $grouped-nav-item-height;
+            }
+        }
+    }
+    + .shop-by-grouped {
+        .shop-by {
+            @include border-radius(0 0 4px 4px);
+            border-top: none;
+        }
+    }
+}
+
+.product-grid.shop-by {
+    display: block;
+    overflow: hidden;
+}

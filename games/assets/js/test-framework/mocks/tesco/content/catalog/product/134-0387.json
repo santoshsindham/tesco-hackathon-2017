@@ -1,0 +1,208 @@
+{
+  "id" : "134-0387",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "134-0387",
+    "fromPrice" : "5.00",
+    "toPrice" : "50.00",
+    "was" : "14.00",
+    "wasWas" : "15.32",
+    "savings" : "10.32",
+    "clubcardPoints" : 5
+  },
+  "displayName" : "desc_fte_req4_style01",
+  "publicLink" : "/direct/desc_fte_req4_style01/134-0387.prd",
+  "longDescription" : "text_fte_req4_style01",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat4950004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat4950004"
+  }, {
+    "id" : "cat680208",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680208"
+  } ],
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "/assets/images/missing/Default_image_unavailable_[preset].jpg",
+        "renderSource" : "Missing",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Boys",
+    "styleRef" : "fte_req4_style01",
+    "supplier" : "FF"
+  },
+  "links" : [ {
+    "id" : "298-1399",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/298-1399",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "01 Child",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/298/298-1399/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "116-5351",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/116-5351",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "02 Child",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/116/116-5351/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "226-1706",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/226-1706",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 14 1/2",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/226/226-1706/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "646-0834",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/646-0834",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 15",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/646/646-0834/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "293-3876",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/293-3876",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 15 1/2",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/293/293-3876/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "152-8878",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/152-8878",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "0-3 mths",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/152/152-8878/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "537-4378",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/537-4378",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 16-18",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/537/537-4378/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "586-2574",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/586-2574",
+    "options" : {
+      "primary" : "Berry",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/129/129-0955/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "527-6024",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/527-6024",
+    "options" : {
+      "primary" : "Black",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/118/118-3299/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "167-1912",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/167-1912",
+    "options" : {
+      "primary" : "Chocolate",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/347/347-9628/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "482-8572",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/482-8572",
+    "options" : {
+      "primary" : "Denim",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/135/135-9485/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "355-3334",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/355-3334",
+    "options" : {
+      "primary" : "Floral",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/139/139-1389/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "401-1903",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/401-1903",
+    "options" : {
+      "primary" : "Fuchsia",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/222/222-3126/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "134-0387",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/134-0387",
+    "options" : {
+      "primary" : "Green",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/116/116-5351/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "226-1706",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/226-1706",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 14 1/2",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/226/226-1706/Swatches/302-0239_SW_1000004SW01_pdp.jpg"
+    }
+  } ]
+}

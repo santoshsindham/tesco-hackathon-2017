@@ -1,0 +1,213 @@
+@import "pdp-s7viewer-mixins";
+
+/* HTML5 overlay styles */
+
+$leftRightSpace: -7px;
+$videoContainerHeight: 280px;
+$carouselImageDimension: 270px;
+
+
+.no-touch {
+    #product-carousel.videoVisible #pdpScene7Container .hot-area {
+        .btn-s7-step {
+            &:hover {
+                border-color: $tescoBrightBlue;
+            }
+        }
+    }
+}
+
+#product-carousel {
+    &.zoomVisible {
+        #pdpScene7Container {
+            @include pdp-scene7-container-mobile-zoom-and-video(hidden,280px);
+            div.hot-area {
+                display: none;
+            }
+        }
+    }
+    &.videoVisible {
+        #pdpScene7Container {
+            @include pdp-scene7-container-mobile-zoom-and-video(visible,270px);         
+            #s7container {
+                top: -10px;
+                &.s7container {
+                    width: 100%;
+                    min-height: 200px;
+                    overflow: hidden;
+                }
+            }           
+            .hot-area {
+                top: auto;
+                bottom: -32px;
+                display: block;
+                .next,.prev {
+                    display: block;
+                    opacity: 1;
+                }
+                &.next {
+                    right: $leftRightSpace;
+                }
+                &.prev {
+                    left: $leftRightSpace;
+                }
+                @include button-s7-step;                
+            }
+        }
+    }
+}
+
+.product-carousel-s7 {
+    position:relative;
+    .media-controls {
+        padding: 8px 5px 0 8px;
+        div {
+            color: $contentLink;
+            text-align: center;         
+        }
+    }
+}
+
+/* basic gallery styles */
+.product-carousel-s7 {
+    #product-thumb-carousel {
+        overflow: visible;
+    }
+    #product-thumb-carousel-gallery {
+        @include hundredPercentWidthAndHeight;
+        @include displayAndPositioning(block,relative);     
+        overflow: hidden;
+        &.hidden {
+            display: none;
+        }
+        .carousel-step {
+            @include displayAndPositioning(none,absolute);          
+            &.carousel-prev {
+                top: 50%;
+                left: 10px;
+            }
+            &.carousel-next {
+                top: 50%;
+                right: 10px;
+            }       
+        }
+        ul {
+            width: 8000px;
+            li {
+                float: left;
+                @include hundredPercentWidthAndHeight;
+                margin: 0 0;
+                padding: 0 0;
+                text-align: center;             
+                img {
+                    width: $carouselImageDimension;
+                    height: $carouselImageDimension;
+                    display: inline;
+                }
+            }
+        }
+    }
+}
+
+#virtual-page {         
+    .s7zoomview {
+        @include displayAndPositioning(block,relative);     
+        @extend .s7ViewDimensionsAndZindex;
+    }   
+    .s7spinview {
+        @extend .s7ViewDimensionsAndZindex;     
+    }
+}
+
+
+
+.genericCarouselPositionIndicator {
+    @include displayAndPositioning(block,absolute);
+    bottom: 1px;
+    text-align: center;
+    @include width-height-and-overflow(100%,20px,hidden);
+    @include dots12-to-dots29;  
+    &.video {
+        position: relative;
+        width: 78%;
+        left: auto;
+        margin: auto auto;
+        top: -1px;
+        li.selected {
+            background: none $tescoBrightBlue !important;
+        }
+    }
+    &.gallery {
+        top: auto;
+        bottom: 12px;
+    }
+    @include generic-carousel-indicator-dots-list;  
+}
+
+.videoVisible #product-thumb-carousel-videos, .zoomVisible #product-thumb-carousel {
+    @include displayAndPositioning(block,relative);
+    width: 100%;
+    height: 21px;
+    bottom: 5px;
+    .carousel-step, .carousel-slider {
+        display: none;
+    }       
+}
+
+#pdpScene7Container {
+    .videoContainer .videoPosition .play-icon, .videoContainer .videoPosition .pause-icon, .btn-overlay, #prodVideoView.videoView .video-controls {
+        display: none !important;
+    }
+}
+
+.videoVisible #product-thumb-carousel-videos ul li {
+    width: 9px;
+    height: 9px;
+}
+
+#product-carousel.videoVisible.hideArrows #pdpScene7Container .hot-area .btn-s7-step {
+    display: none !important;
+}
+#product-carousel.spinVisible #pdpScene7Container .s7iconeffect {
+    top: -600px !important;
+    visibility: hidden !important;
+    display: none !important;
+    opacity: 0 !important;
+}
+
+.s7ViewDimensionsAndZindex {
+    height: 75% !important; 
+    width: 100% !important;
+    z-index: 1;
+}
+
+/* ************************************** */
+/* Scene7 image player updated March 2015 */
+/* ************************************** */
+#pdpScene7Container .s7container #prodZoomView.s7flyoutzoomview {
+    .s7flyoutzoom {
+        display: none !important;
+        opacity: 0 !important;
+    }
+}
+.s7setindicator {
+    position: absolute;
+    bottom: 0;
+}
+/* hide additional product images when using no-touch on SVP as functionallity does not support this */
+.no-touch .genericCarouselPositionIndicator.gallery {
+    opacity: 0;
+}
+#virtual-page {
+   .s7tip {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        height: 0px  !important;
+        width: 0px  !important;
+        background: transparent !important;
+    }
+    #prodZoomView #s7setindicator {
+        position: absolute;
+    }
+}

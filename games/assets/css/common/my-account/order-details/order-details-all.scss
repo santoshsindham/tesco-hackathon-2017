@@ -1,0 +1,597 @@
+#order-details {
+    position: relative;
+    margin-top: 16px;
+    
+    &:after {
+        @include clear-fix;
+    }
+    
+    p {
+        font-size: 1.4em;
+        line-height: 1.4em;
+        margin: 0 0 12px;
+    }
+    p.delivery-links {
+    	background: #fff;
+		padding-top: 10px;
+		a {
+		    font-size: 1em;
+		}
+	}
+}
+
+#order-summary {
+    #order-header {
+        padding: 0;
+    }
+}
+
+#order-header-title {
+    .title-group {
+        padding: 5px 8px 4px;
+        float: left;
+    }
+    .title-links {
+	    padding: 5px 8px 4px;
+	    p {
+	    	margin-bottom: 4px;
+	    }
+	}
+    .title {
+        float: left;
+        margin-right: 55px;
+        width: auto;
+        h2 {
+            font-size: 14px;
+            line-height: 20px;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            padding-bottom: 0;
+        }
+        .value {
+            display: block;
+            font-weight: bold;
+            font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            margin: 0;
+        }
+    }
+}
+
+#order-header-actions {
+    clear: left;
+    padding: 8px 8px 6px;
+    .tertiary-button {
+        float: left;
+        width: auto;
+        margin-right: 8px;
+        padding: 8px 12px;
+        margin-bottom: 0;
+        border: 1px solid #7c765f;
+	    background-color: #fff;
+	    color: #7c765f;
+    }
+    .order-vat-invoicebtn {
+           margin-top:0;
+       }
+    #order-history-btn {
+        float: right;
+        margin-right: 0;
+        .icon {
+            font-size: 12px;
+            line-height: 20px;
+            margin-left: 8px;
+        }
+    }
+    .custom {
+        display: none;
+    }
+    .payment-summary-link {
+        display: none;
+    }
+
+}
+
+
+// Transition the Order History accordion!
+#order-header-title {
+    overflow: hidden;
+}
+#order-header-title,
+#order-header-actions {
+    background: #ffffff;
+    position: relative;
+    z-index: 2;
+}
+#order-history {
+    clear: left;
+    height: 0;
+    visibility: hidden;
+    position: relative;
+    z-index: 1;
+    ul {
+        background: #ffffff;
+        border-top: 1px solid $pagePutty;
+        visibility: hidden;
+        position: relative;
+        top: -100px;
+        z-index: -1;
+        -webkit-transition: all .4s ease;
+           -moz-transition: all .4s ease;
+            -ms-transition: all .4s ease;
+             -o-transition: all .4s ease;
+                transition: all .4s ease;
+    }
+    &.animate {
+        height: auto;
+        visibility: visible;
+        ul {
+            visibility: visible;
+            top: 0;
+            z-index: 1;
+        }
+    }
+    
+    li {
+        font-size: 1.2em;       
+        padding: 8px;
+    }
+    span {
+        font-weight: bold;
+        margin-right: 8px;
+    }
+    .back {
+        display: none;
+    }
+    h3 {
+        display: none;
+    }
+}
+
+.dg-order-details {
+    overflow: hidden; //cannot use clear-fix because of payment-summary
+    .contact {
+        float: right;
+        width: auto;
+        padding: 8px 12px;
+    }
+}
+
+#order-details {
+    #order-summary {
+        .dg-order-details {
+            .sold-block {
+                line-height: 20px;
+                padding-top: 0;
+                margin-bottom: 0;
+                padding-bottom: 8px;
+            }
+            >h2:first-child {
+            	width: 100%;
+            }
+            .delivery-item-holder {
+            	border-top: 1px solid #f3f1ed;
+            	.delivery-item{
+	            	.description {
+	            		p.supplier {
+						    font-size: 12px;
+						    margin-left: 152px;
+						    padding: 4px 0px;
+						 }
+						 h2 {
+						    padding-bottom: 0px;
+						}
+	            	}
+	            }
+	            #trackingPopup {
+	            	border-top: 1px solid #f3f1ed;
+	            }
+            } 
+            .delivery-item-header{
+			    position: relative;
+			    clear: both;
+			    h3 {
+				    margin: 9px 0px;
+				    float: left;
+				    width: 34%;
+				}
+				.track-parcel {
+					width: 24%;
+				}
+			}
+        }
+    }
+}
+
+.delivery-details {
+    width: 100%;
+    margin-bottom: 16px;
+    clear: left;
+    
+    .toggle-delivery-details {
+        font-size: 1.4em;
+    }
+    .delivery-details-expanded {        
+        clear: left;
+        float: left;
+        width: 100%;        
+        padding: 0px 20px;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        height: 0;
+        overflow: hidden;
+        
+        &.animate {
+            height: auto;
+            padding: 16px 20px 0px 20px;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            line-height: 1.4;
+        }
+        &.eGamingDelivery{
+        	.eGaming-delivery-detail{
+        	width: auto;
+        	}
+        }
+    }
+    .delivery-date {
+        display: block;
+    }
+}
+
+#order-details {
+    .delivery-details-expanded {
+        p {
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+    }
+}
+
+.parcel-details {
+    clear: left;
+    width: 100%;
+    overflow: hidden;
+    .delivery-type {
+    	position: relative;
+    }
+    h2 {
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+    .track-parcel {
+        float: left;
+        width: auto;
+        .icon {
+            font-size: 12px;
+            line-height: 20px;
+            margin-left: 8px;
+        }
+    }
+}
+
+.delivery-item {
+    clear: left;
+    
+    &:after {
+        @include clear-fix;
+    }
+    .description {
+        h2 {
+            position: relative;
+            margin: 0 0 8px;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.4em;
+            line-height: 1.4em;
+        }
+        p.supplier {
+			font-size: 12px;
+			margin-left: 152px;
+			padding: 4px 0px;
+		}
+        .product-title {
+            display: block;
+            margin-left: 88px;
+        }
+    }
+    .section-heading {
+        font-size: 1.4em;
+        display: none;
+    }
+
+    &:first-child {
+        .section-heading {
+            display: block;
+        }
+    }
+}
+
+#order-details {
+	.delivery-details{
+	    .delivery-details-expanded {
+	    	 padding: 16px 20px;
+	         .ghs-cancel-error {
+	         	background-color: #effafc;
+    			color: #645946;
+    			padding: 16px;
+    			margin-top: -16px;
+    			p {
+    				margin-bottom: 0px;
+    			}
+	         }
+	    }
+    }
+    .delivery-item {
+        .status, 
+        .price {
+            p {
+                font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
+    
+    #payment-summary .total {
+        //delivery items and charges are grouped by seller name on order details page
+        //the bold on the totals clash with seller name styling
+        font-weight: normal; 
+    }
+}
+
+.dispatch-heading {
+    /*border-top: 1px solid $pagePutty; */
+    padding: 12px 0px;
+    h3 {
+        font-size: 1.8em;
+        line-height: 20px;
+        font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+        font-weight: bold;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.order-details-top {
+    font-size: 14px;
+    margin: 0 0 16px;
+    text-align: right;
+	margin-top: 16px;
+    .icon {
+        font-size: 1em;
+    }
+}
+
+/* Parcel Tracking Engine (PTE) */
+
+a.track-parcel.tertiary-button {
+	margin-bottom: 0;
+	&.open {
+		border-bottom: 0;
+		padding-bottom: 9px;
+	}
+}
+
+.parcel-details {
+	table {
+		display: block;
+		clear: both;
+		width: 100%;
+		/*margin: 0 0 20px 0;*/
+		margin:0;
+		font-size: 1.4em;
+		border: 1px solid $pagePutty;
+		overflow: hidden;
+		border-collapse: collapse;
+		
+		&.hidden {
+			height: 0px;
+			opacity: 0;
+			margin: 0 0;
+		}	
+		tbody {
+			width: 100%;
+			display: table;
+			tr {
+				&:nth-child(even) {
+					background: #fafafa;
+				}
+				&:last-child td {
+					border-bottom: 0;
+				}
+				th {
+					text-align: left;
+					padding: 9px 9px;
+					background: #ffffff;
+					border-bottom: 1px solid $pagePutty;
+				}
+				td {
+					padding: 9px 9px;
+					border-bottom: 1px solid $pagePutty;
+				}
+			}
+		}
+	}
+}
+
+div.track-parcel-table {
+	font-size: 1.4em;
+	
+	div {
+		margin-bottom: 2px;
+		
+		&:first-child {
+			margin: 0 0 2px 0;
+		}
+		&:nth-child(2) {
+			display: none;
+		}
+		&:nth-child(odd) {
+			background: #fafafa;
+		}
+	}
+	span {
+		display: block;
+		padding: 7px 9px 1px;
+		
+		&:first-child:before {
+			content: "Date: ";
+			font-weight: bold;
+		}
+		&:last-child {
+			border-bottom: 1px solid #e7e7e7;
+			padding: 7px 9px;
+		}
+		&:nth-child(2):before {
+			content: "Time: ";
+			font-weight: bold;
+		}
+		&:nth-child(3):before {
+			content: "Action: ";
+			font-weight: bold;
+		}
+		&:nth-child(4):before {
+			content: "Location: ";
+			font-weight: bold;
+		}
+		&.title {
+			display: block;
+			padding: 9px 9px;
+			
+			&:first-child:before {
+				content: "";
+			}
+			span {
+				border: 0;
+				margin-top: 8px;
+				padding: 0px 0px;
+				
+				&:before {
+					content: "";
+				}
+			}
+		}
+		span {
+			padding: 0;
+			border: 0;
+		}
+		&.tracking-empty:before {
+			content: "";
+			font-weight: normal;
+		}
+	}
+}
+
+span.no-parcel-information {
+	font-size: 1.4em;
+}
+
+#trackingPopup table+a{
+	font-size: 1.4em;
+}
+
+.parcel-tracking-container{
+	position: relative;	
+    float: left;
+	width: 100%;
+	li.status{
+		display: inline-block;
+	    font-size: 1.4em;
+	    position: relative;
+	    border-top: 2px solid #d8d8d8;
+	    height: 40px;
+	    padding: 15px 0 0 0;
+	    span{
+	    	float: left;
+	    }
+	    &:last-child{
+			border: none;
+			width: auto;
+			&.live{
+				border-top: none;
+			}
+		}
+		&.standard{
+			&::before{
+				content: "";
+			    width: auto;
+			    background: none;
+				display: inline-block;
+			}
+			span{
+				&.icon{
+					position: absolute;
+				}
+			}
+		}
+		&.active{
+			border-top: 2px solid #00539f;
+			span{
+				color: #00539f;
+    			font-weight: bold;
+			}
+			&.standard{
+				border-top: 2px solid #00539f;
+				&.live{
+					border-top: 2px solid #d8d8d8;
+				}
+			}
+		}
+		&.inactive{
+			span{
+				color: #d5d5d5;
+				font-weight: bold;
+			}
+			&.standard{
+				border-top: 2px solid #d8d8d8;
+			    span{
+				     &.icon{
+					 color: #d8d8d8;
+					}
+				}
+			    &::before{
+					border: none;
+					width: auto;
+				}
+			}
+			&::before{
+				background: #fff;;
+			    border: 2px solid #d8d8d8;			   
+			}
+		}
+		&.live{
+			border-top: 2px solid #d8d8d8;
+		}
+		&::before{
+			content: "";
+		    background: #00539f;
+		    display: inline-block;		    
+		    position: absolute;
+		    top: -12px;
+		    left: -5px;
+		}
+	}
+}
+
+#order-details #order-summary .dg-order-details.delivery-group-block .delivery-item-header .track-parcel{
+    float: right;
+    text-align: right !important;
+    font-size: 14px;
+    line-height: 20px;
+    clear: both;
+    background: none !important;
+    border: none;
+    color: #00a1e0 !important;
+    width: 100%;
+}

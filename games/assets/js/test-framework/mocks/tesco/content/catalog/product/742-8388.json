@@ -1,0 +1,155 @@
+{
+  "id" : "742-8388",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : false,
+  "prices" : { },
+  "displayName" : "Mothercare Premature Sleepsuits - 3 Pack",
+  "publicLink" : "/direct/mothercare-premature-sleepsuits-3-pack/742-8388.prd",
+  "longDescription" : "Pink Premature Sleepsuits - 3 Pack<br><br>Designed in conjunction with neonatal care units<br>Outside-sewn label to protect delicate skin<br>Soft touch hook and loop fastenings<br>Fully opens flat for easy dressing and for easy medical monitoring or treatment without disturbing baby<br>Can be washed up to 95 degrees celsius - so can be laundered in hospital<br>Made from cotton rich fabric<br>",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat27650035",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat27650035"
+  }, {
+    "id" : "cat27650041",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat27650041"
+  }, {
+    "id" : "cat27690003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat27690003"
+  }, {
+    "id" : "cat33100003",
+    "type" : "buylist",
+    "href" : "/direct/rest/content/catalog/buylist/cat33100003"
+  }, {
+    "id" : "cat33170003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat33170003"
+  }, {
+    "id" : "cat33170004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat33170004"
+  }, {
+    "id" : "cat33170034",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat33170034"
+  }, {
+    "id" : "cat3374231",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3374231"
+  }, {
+    "id" : "cat3376115",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376115"
+  }, {
+    "id" : "cat3376552",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376552"
+  }, {
+    "id" : "cat3376645",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376645"
+  }, {
+    "id" : "cat3376683",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376683"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat3376691",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376691"
+  }, {
+    "id" : "cat33890068",
+    "type" : "buylist",
+    "href" : "/direct/rest/content/catalog/buylist/cat33890068"
+  }, {
+    "id" : "cat38710017",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710017"
+  }, {
+    "id" : "cat38920004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38920004"
+  }, {
+    "id" : "cat39060041",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39060041"
+  }, {
+    "id" : "cat39060048",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39060048"
+  }, {
+    "id" : "cat39280012",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39280012"
+  }, {
+    "id" : "cat39280014",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39280014"
+  }, {
+    "id" : "cat39470007",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39470007"
+  } ],
+  "brand" : "Mothercare",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/742-8388_PI_1000321MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "links" : [ {
+    "id" : "742-8388",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/742-8388",
+    "options" : {
+      "primary" : "Pink",
+      "secondary" : "One Size"
+    }
+  }, {
+    "id" : "742-8388",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/742-8388"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "742-8388",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/742-8388",
+    "options" : {
+      "primary" : "Pink",
+      "secondary" : "One Size"
+    }
+  } ]
+}

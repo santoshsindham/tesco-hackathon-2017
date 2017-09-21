@@ -1,0 +1,151 @@
+﻿<article>
+    <h4><%= title %></h4>
+    <p><%= introduction %></p>
+    <div class="module">
+        <h5>I. Creating folders &amp; files structure</h5>
+        <p>In the first place, you'll need to create some additional folders and files, especially if you're building your section from scratch.</p>
+        <blockquote class="message warning">If the section already exists, it will be a bit simpler, as some of them will be there anyway. But let's do it from the beginning for a purpose of this tutorial.</blockquote>
+        <ol>
+            <li>
+                <p>Create scripts for your section</p>
+                <ul>
+                    <li>Go to <code>'E:/{RELEASE_NAME}/htmlTemplates/assets/js/modules'</code> and create a new folder e.g. <b>'mySection'</b></li>
+                    <li>Create <b>common.js</b> file under the new <code>mySection</code> folder</li>
+                    <li>Under the new <code>mySection</code> folder create an additional file that will contain your default models e.g. <b>'mv-models.js'</b><br /><em>you can add simple console.log() to each of them if you wish, to easily confirm later they're being loaded correctly</em></li>
+                </ul>
+            </li>
+            <li>
+                <p>Create static html page to load your section script</p>
+                <ul>
+                    <li>Go to <code>'pages'</code> folder under <code>'E:/{RELEASE_NAME}/htmlTemplates/'</code> path and create a new php file</li>
+                    <li>Give it a name e.g. <b>testPage.php</b> and add <code>include_once('../blocks/site-header.php');</code> at the top <em>to load the Buildkit header, meta tags etc.</em></li>
+                    <li>Add a <code>&lt;body&gt;&lt;/body&gt;</code> tag afterwards as well as a closing <code>&lt;/html&gt;</code> tag <em>(as the opening one has been already added by 'site-header.php')</em></li>
+                    <li>Add <code>&lt;script type="text/javascript"&gt;&lt;/script&gt;</code>, just before the closing <code>&lt;/body&gt;</code> tag</li>
+                    <li>Put <code>require(['modules/mySection/common']);</code> inside the <b>script</b> wrapper you've just created</li>
+                </ul>
+            </li>
+            <li>
+                <p>Create templates</p>
+                <ul>
+                    <li>Go to <code>'mvapi/templates'</code> folder under <code>'E:/{RELEASE_NAME}/htmlTemplates/'</code> path and create a new subfolder called <b>'mySection'</b><br /><em class="note">Please note that the folder name MUST be the same as your section name!</em></li>
+                    <li>Create three files out there: <b>header.html</b> <b>footer.html</b> and <b>main.html</b></li>
+                </ul>
+            </li>
+            <li>
+                <p>Go to your browser and load the <code>testPage.php</code> to see if everything works as expected so far</p>
+                <ul>
+                    <li><em>Please note that at this point you won't be able see anything related to the 'templates' yet</em></li>
+                </ul>
+            </li>
+        </ol>
+        <h5>II. Preparing the script to work with 'mvApi' framework</h5>
+        <p>Now, since you already have got all folders and files in place, you'll need to make your section's script to put everything together.</p>
+        <ol>
+            <li><p>Load 'mvApi' framework dependencies</p>
+                <ul>
+                    <li>Go to your <b>'modules/mySection/common.js'</b> file</li>
+                    <li>Using the usual RequireJS method load <b>'mvApi'</b> and <b>'mv-models'</b> using <code>['modules/mvapi/common', 'modules/mySection/mv-models']</code></li>
+                    <li>Remember to add namespaces for both modules e.g. <code>(mvApi, mvModels)</code></li>
+                    <li>Eventually, your RequireJS call code should look like this:<br /><code>define('modules/mySection/common', ['modules/mvapi/common', 'modules/mySection/mv-models'], function (mvapi, mvModels) {<br />&nbsp;&nbsp;&nbsp;&nbsp;//section logic goes here<br />});</code></li>
+                </ul>
+            </li>
+            <li><p>Add some content to your templates</p>
+                <ul>
+                    <li>Go to your <code>header.html</code> file and put <code>&lt;%= page_title %&gt;</code> inside</li>
+                    <li>Go to your <code>footer.html</code> file and put <code>&lt;%= page_summary %&gt;</code> inside</li>
+                    <li>Go to your <code>main.html</code> file and put <code>&lt;%= page_content %&gt;</code> inside</li>
+                </ul>
+            </li>
+            <li><p>Add a basic layout to your test page</p>
+                <ul>
+                    <li>Go to your <b>'testPage.php'</b> file</li>
+                    <li>Put <code>&lt;div class="header"&gt&lt;/div&gt;</code> <code>&lt;div class="main"&gt&lt;/div&gt;</code> and <code>&lt;div class="footer"&gt&lt;/div&gt;</code> inside</li>
+                </ul> 
+            </li>
+        </ol>
+        <h5>III. Create models for your page</h5>
+        <p>Due to the way the '<b>mvApi</b>' and '<b>BackboneJS</b>' works, you'll need a model for each of your page components (header, footer, main section)</p>
+        <ol>
+            <li><p>Add default models and config for all page components, so <b>'mvApi'</b> knows how to deal with them</p>
+                <ul>
+                    <li>Go to your <b>'mv-models.js'</b> file</li>
+                    <li>Prepare the script so it works with RequireJS, e.g.<br /><code>define('modules/mySection/mv-models', function () {<br />&nbsp;&nbsp;&nbsp;&nbsp;//config + models object goes here<br />});</code></li>
+                    <li>Create an empty object inside and return it at the end of the script, e.g.<br /><code>var self = {};<br />return self;</code></li>
+                    <li>Add <b>'header'</b> key to the <code>self</code> object, with the following data, so it looks like this:<br /><code class="wide">'header': {<br />&nbsp;&nbsp;&nbsp;&nbsp;'section': 'mySection',<br />&nbsp;&nbsp;&nbsp;&nbsp;'templateId': 'header',<br />&nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_title': 'Test of mvApi Framework'<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</code></li>
+                    <li>Add <b>'footer'</b> key to the <code>self</code> object, with the following data, so it looks like this:<br /><code class="wide">'footer': {<br />&nbsp;&nbsp;&nbsp;&nbsp;'section': 'mySection',<br />&nbsp;&nbsp;&nbsp;&nbsp;'templateId': 'footer',<br />&nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_summary': 'Page built on top of mvApi framework'<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</code></li>
+                    <li>Add <b>'main'</b> key to the <code>self</code> object, with the following data, so it looks like this:<br /><code class="wide">'main': {<br />&nbsp;&nbsp;&nbsp;&nbsp;'section': 'mySection',<br />&nbsp;&nbsp;&nbsp;&nbsp;'templateId': 'main',<br />&nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_content': 'Default content of the page'<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br />}</code></li>
+                </ul>
+            </li>
+            <li><p>After that, your object should look like this:</p>
+                <code class="wide">
+                    var self = {<br . /><br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;'header': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'section': 'mySection',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'templateId': 'header',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_title': 'Test of mvApi Framework'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;},
+                    <br />&nbsp;&nbsp;&nbsp;&nbsp;'footer': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'section': 'mySection',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'templateId': 'footer',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_summary': 'Page built on top of mvApi framework'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;},
+                    <br />&nbsp;&nbsp;&nbsp;&nbsp;'main': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'section': 'mySection',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'templateId': 'main',<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_content': 'Default content of the page'<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />&nbsp;&nbsp;&nbsp;&nbsp;}<br /><br />
+                    };<br /><br />
+                    return self;
+                </code>
+            </li>
+        </ol>
+        <h5>IV. Display your components</h5>
+        <p>It's time to finally put everything together and display page components.</p>
+        <ol>
+            <li><p>Pass your default models to <b>'mvApi'</b> framework</p>
+                <ul>
+                    <li>Go to your section script <b>'common.js'</b></li>
+                    <li>Create an init method (e.g. on document ready) and invoke the following 'mvApi' method inside it:<br /><code>mvApi.cacheInitialModels(mvModels);</code><br /><em>Please note you need to do it only once in your section script, so it can be e.g. a self-invoking anonymous method</em></li>
+                </ul>
+            </li>
+            <li><p>Render header</p>
+                <ul>
+                    <li>Add a call to <code>mvApi.render('header');</code> method</li>
+                </ul>
+            </li>
+            <li><p>Render page content</p>
+                <ul>
+                    <li>Add a call to <code>mvApi.render('main');</code> method</li>
+                </ul>
+            </li>
+            <li><p>Render footer</p>
+                <ul>
+                    <li>Add a call to <code>mvApi.render('footer');</code> method</li>
+                </ul>
+            </li>
+            <li>
+                <p>Go to your browser and load the <code>testPage.php</code> to see it in action</p>
+            </li>
+        </ol>
+        <h5>V. Play with components changes</h5>
+        <p>Congratulations! You've just rendered your first page built on top of the <b>'mvApi'</b> framework :)<br />The next step will be to change components already rendered on the page. This example will show you how to change page <b>'header'</b>, but you can use the same method to do it with other components.</p>
+        <ol>
+            <li><p>Change the header by changing its model</p>
+                <ul>
+                    <li>In your <b>mySection/common.js</b> script, after all previous steps simply add the following code<br />
+                        <code class="wide">
+                            var modelChange = {<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;'defaults': {<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'page_title': 'New title of the page'<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                            };<br />
+                            mvApi.render('header', modelChange);
+                        </code>
+                    </li>
+                    <li>Go to your browser and load the <code>testPage.php</code> to see it in action<br />
+                        <em>If you didn't change anything in the code and simply followed this tutorial, you'll probaly need to add a breakpoint or some additional logic in your section, otherwise <b>'mvApi'</b> will render the header with 'Test of mvApi Framework' title and then will re-render it straight away with 'New title of the page' so quickly, that you probably won't even notice the change :)</em>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+        <h5>VI. Play more with advanced components changes, make AJAX requests etc.</h5>
+        <p>You are ready to start doing more advanced changes with components rendered with <b>'mvApi'</b>.</p>
+        <ol>
+            <li><p>Please refer to <code>'/GMO_CodeQuality_Tests/report/outcome/jsdoc'</code> path at your local dev environment</p>
+                <ul>
+                    <li>Play with properties like placeholderClass, target, injectType, try to add callbacks for different scenarios, render collection of items etc.</li>
+                    <li>And raise questions as soon as they appear :)</li>
+                    <li>Good luck!</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</article>

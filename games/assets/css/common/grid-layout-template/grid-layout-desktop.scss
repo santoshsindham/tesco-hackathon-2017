@@ -1,0 +1,106 @@
+/*******************************************
+*	Grid layout module - desktop
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+
+/* 5 COLUMNS GRID STYLES */ 
+.grid-5, .grid-4 { 
+	float: left; 
+	position: relative; 
+	width: 100%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+
+.grid-3 { 
+	float: left; 
+	position: relative; 
+	width: 75%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+
+.grid-2 { 
+	float: left; 
+	position: relative; 
+	width: 50%;
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	} 
+}
+
+.grid-1 { 
+	float: left; 
+	position: 
+	relative; 
+	width: 25%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+
+/* 4 COLUMNS GRID STYLES */ 
+#main-content .grid-4 { 
+	float: left; 
+	position: relative; 
+	width: 100%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+	
+#main-content .grid-3 { 
+	float: left;
+	position: relative; 
+	width: 75%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+
+#main-content .grid-2 { 
+	float: left; 
+	position: relative; 
+	width: 50%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+
+#main-content .grid-1 { 
+	float: left; 
+	position: relative; 
+	width: 25%; 
+	
+	.product-grid {
+		max-height: 397px; 
+		overflow: hidden;
+	}
+}
+	
+.fixed-tile .product{ 
+	height: 310px !important; 
+	padding: 0 16px !important;
+}
+
+.top .cms-image img{ 
+	margin-top: 77px !important; 
+}

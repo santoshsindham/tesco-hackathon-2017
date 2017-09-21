@@ -1,0 +1,737 @@
+@import "../../components/breakpoints";
+@import '../mixins/fixed-header-mixins';
+@import "../../components/variables";
+
+html {
+  &.touch {
+    &.disableScroll {
+      overflow-y: hidden;
+    }
+  }
+
+  &.no-touch {
+    &.disableScroll {
+      overflow-y: scroll;
+    }
+  }
+}
+
+body {
+  &.disableScroll {
+    position: fixed;
+    width: 100%;
+  }
+}
+
+#masthead-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: $white;
+  border-bottom: 2px solid $paleGrey;
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // removes the default active background state on Chrome/Safari touch devices
+  box-shadow: none;
+  @include multipleTransitions(height 0.3s, box-shadow 0.3s);
+
+  &.outOfViewTransEnabled {
+    @include multipleTransitions(all 0.2s);
+  }
+
+  &.textInputInFocus {
+    position: absolute;
+  }
+
+  &.wrapperOverflowHidden {
+    overflow: hidden;
+  }
+
+  &.pageScrolling {
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.16);
+  }
+}
+
+#wrapper {
+  &.checkout,
+  &.order-confirmation {
+    #masthead-wrapper {
+      position: relative;
+      top: auto;
+      left: auto;
+      z-index: 0;
+    }
+  }
+
+  &.listing {
+    #masthead-wrapper {
+      z-index: 2;
+    }
+  }
+}
+
+#masthead {
+  margin: 0 auto;
+}
+
+// ***********************************************
+
+#tesco-direct-logo {
+  @include tescoDirectLogoStyle;
+}
+
+// ***********************************************
+
+#masthead-wrapper {
+  padding: 10px 10px 0;
+
+  #catalogue-nav-link,
+  #search-link,
+  #ssb-header-links {
+    display: none;
+  }
+
+  .screen-reader {
+    @include screen-reader;
+  }
+
+  #header-links {
+    float: right;
+
+    > ul {
+      display: inline-block;
+
+      > li {
+        display: inline-block;
+      }
+    }
+  }
+
+  #ssb-header-links {
+    position: relative;
+    top: 2px;
+    float: left;
+
+    > li {
+      margin-left: 0;
+    }
+  }
+
+  #asyncTopMenuHolder {
+    float: left;
+  }
+
+  .header-link {
+    float: left;
+    font-family: $tescoFont;
+    font-size: 15px;
+    color: $darkGrey;
+    @include multipleTransitions(color 0.3s);
+    line-height: 25px;
+    text-decoration: none;
+    padding: 10px;
+    cursor: pointer;
+
+    .icon {
+      font-size: 22px;
+      color: $blue;
+      @include multipleTransitions(color 0.3s);
+      vertical-align: middle;
+    }
+
+    &#basket-link {
+      .icon {
+        font-size: 24px;
+      }
+    }
+
+    .no-touch & {
+      &:hover {
+        color: $brightBlue;
+
+        .icon {
+          color: $brightBlue;
+        }
+      }
+    }
+
+    &.dropdownOpen,
+    &:active {
+      color: $brightBlue;
+
+      .icon {
+        color: $brightBlue;
+      }
+    }
+
+    &#catalogue-nav-link {
+      .icon {
+        font-size: 20px;
+      }
+    }
+
+    .menu-title {
+      vertical-align: middle;
+      margin-left: 5px;
+      @include multipleTransitions(margin-left 0.3s);
+    }
+
+    &.header-link-bold {
+      font-weight: bold;
+    }
+
+    &.header-link-red {
+      color: $red;
+    }
+
+    &#store-locator-header-link {
+      margin-left: 10px;
+    }
+
+    &.badge-visible,
+    &.itemsInBasket {
+      .menu-title {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .parent-header-link {
+    position: relative;
+    padding-bottom: 17px;
+    border-bottom: 3px solid transparent;
+    @include multipleTransitions(border-bottom 0.3s);
+
+    .no-touch & {
+      &:hover {
+        border-bottom: 3px solid $brightBlue;
+      }
+    }
+
+    &.dropdownOpen,
+    &:active {
+      border-bottom: 3px solid $brightBlue;
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      left: 26px;
+      width: 25px;
+      height: 25px;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      color: $white;
+      background-color: $brightBlue;
+      border: 3px solid #fff;
+      @include border-radius(50%);
+
+      .tick {
+        font-size: 10px;
+        line-height: 22px;
+      }
+    }
+  }
+}
+
+// ***********************************************
+
+#search-header-list-item {
+  position: relative;
+}
+
+#search-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 180px;
+  width: 380px;
+  height: 28px;
+  overflow: hidden;
+  z-index: 2;
+  background-color: $white;
+  box-shadow: none;
+  @include multipleTransitions(all 0.3s);
+
+  #search-results-wrapper {
+    @include multipleTransitions(height 0.3s);
+  }
+
+  &.dropdownOpen {
+    &.searchifyOpen {
+      z-index: 3;
+      border-bottom: 2px solid $paleGrey;
+      box-shadow: 0 3px 5px 0 rgba(0,0,0,.16);
+
+      #search-results-wrapper {
+        border-right: 1px solid $paleGrey;
+        border-left: 1px solid $paleGrey;
+      }
+    }
+  }
+
+  form {
+    margin-bottom: 0;
+  }
+
+  .screen-reader {
+    @include screen-reader;
+  }
+
+  .search {
+    position: relative;
+  }
+
+  .search-close-link {
+    display: none;
+  }
+
+  #search-field {
+    width: 380px;
+    height: 28px;
+    font-family: $tescoFont;
+    font-size: 15px;
+    color: $darkGrey;
+    line-height: 18px;
+    padding: 5px 70px 5px 10px;
+    margin-left: 0;
+    background-color: #ededed;
+    border: none;
+    @include border-radius(5px);
+  }
+
+  #search-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 28px;
+    width: 60px;
+    font-family: $tescoFont;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    margin-top: 0;
+    color: $white;
+    background-color: $blue;
+    border: none;
+    @include border-radius(0px, 5px, 5px, 0px);
+    cursor: pointer;
+    @include multipleTransitions(background-color 0.3s);
+    -webkit-tap-highlight-color: rgba(0,0,0,0); // removes the default active background state on Chrome/Safari touch devices
+    -webkit-appearance: none; // removes the default input button style on Chrome/Safari touch devices
+
+    &:active {
+      color: $white;
+      background-color: $brightBlue;
+    }
+
+    .no-touch & {
+      &:focus,
+      &:hover {
+        background-color: $brightBlue;
+      }
+    }
+  }
+}
+
+// ***********************************************
+
+.flyout-menu {
+  position: absolute;
+  height: 0;
+  top: 57px;
+  width: 320px;
+  right: 0;
+  overflow: hidden;
+  z-index: 2;
+  font-family: $tescoFont;
+  color: $grey;
+  background-color: #fff;
+  border-left: 1px solid $paleGrey;
+  border-right: 1px solid $paleGrey;
+  box-shadow: none;
+  @include multipleTransitions(all 0.3s);
+
+  p {
+    font-size: 15px;
+    line-height: 21px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+  }
+
+  a {
+    display: block;
+    font-size: 15px;
+    line-height: 30px;
+    color: $grey;
+    @include multipleTransitions(color 0.3s);
+    text-decoration: none;
+    cursor: pointer;
+
+    .no-touch & {
+      &:focus,
+      &:hover {
+        color: $brightBlue;
+        text-decoration: none;
+      }
+    }
+  }
+
+  li {
+    padding: 5px 0;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  a.sign-in {
+    @include primaryButton;
+    @include basketOverlayStyles;
+    margin-bottom: 5px;
+  }
+
+  &.dropdownOpen {
+    z-index: 3;
+    border-bottom: 2px solid $paleGrey;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,.16);
+  }
+}
+
+// ***********************************************
+
+#account-header-list-item {
+  position: relative;
+}
+
+#account-flyout-menu {
+  li {
+    &.hello-user {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 5px;
+      padding-top: 15px;
+      padding-bottom: 10px;
+      color: $darkGrey;
+      border-bottom: 1px solid $paleGrey;
+    }
+
+    &.manage-address-book,
+    &.recently-viewed {
+      margin-bottom: 5px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $paleGrey;
+      .disabled{
+        color: #ccc;
+      }
+    }
+
+    &.website-feedback {
+      margin-bottom: 5px;
+    }
+
+    &.sign-in-out {
+      padding-bottom: 20px;
+    }
+
+    span.new-customer {
+      font-size: 15px;
+
+      a {
+        display: inline;
+        color: $brightBlue;
+
+        &:focus,
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    input.signout {
+      width: 100%;
+      font-family: $tescoFont;
+      font-size: 15px;
+      line-height: 30px;
+      text-align: left;
+      display: block;
+      padding: 10px 0 0;
+      margin-top: 0;
+      color: $grey;
+      @include multipleTransitions(color 0.3s);
+      background-color: transparent;
+      border-top: 1px solid #ccc;
+      border-left: none;
+      border-bottom: none;
+      border-right: none;
+      text-decoration: none;
+      cursor: pointer;
+
+      .no-touch & {
+        &:focus,
+        &:hover {
+          color: $brightBlue;
+        }
+      }
+    }
+  }
+
+  &.dropdownOpen {
+    height: 560px;
+
+    &.signed-in {
+      height: 510px;
+    }
+
+    &.remembered-user {
+      height: 520px;
+    }
+  }
+}
+
+// ***********************************************
+
+#basket-header-list-item {
+  position: relative;
+}
+
+#basket-flyout-menu {
+  span.basket-flyout-loader {
+    display: none;
+  }
+
+  .basket-flyout-message-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .sign-in-instruction {
+    margin-bottom: 20px;
+  }
+
+  .sign-in-link-wrapper {
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-bottom: 15px;
+  }
+
+  &.basketContentLoading {
+    height: 200px;
+
+    span.basket-flyout-loader {
+      display: block;
+      @include loader();
+    }
+  }
+
+  &.dropdownOpen {
+    &.noitemsInBasket {
+      &.anonymousUser {
+        height: 170px;
+      }
+
+      &.knownUser {
+        height: 55px;
+      }
+    }
+  }
+
+  &.basketContentScrollable {
+    .basket-flyout-contents {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch; // adds momentum scroll on iOS devices
+      border-top: 3px solid $white;
+      border-bottom: 3px solid $white;
+      box-shadow: 0 1px 0 $paleGrey, 0 -1px 0 $paleGrey;
+      @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+      ul.basket-contents-list {
+        > li {
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .basket-flyout-footer-wrapper {
+      position: absolute;
+      bottom: 0;
+      width: 318px;
+    }
+  }
+
+  .basket-flyout-contents {
+    ul.basket-contents-list {
+      > li {
+        overflow: hidden;
+        padding-bottom: 15px;
+        padding-top: 15px;
+        border-bottom: 1px solid $paleGrey;
+
+        .basket-item-visual {
+          width: 40px;
+          float: left;
+
+          img {
+            max-width: 40px;
+            max-height: 40px;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+
+        .basket-item-details {
+          margin-left: 60px;
+
+          .basket-item-row-1 {
+            margin-bottom: 10px;
+
+            a {
+              line-height: 17px;
+            }
+          }
+
+          .basket-item-row-2 {
+            overflow: hidden;
+            font-size: 14px;
+            color: $blue;
+
+            .basket-item-cost {
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .basket-flyout-footer-wrapper {
+    padding: 15px 20px;
+    background-color: $white;
+
+    .basket-totals {
+      font-size: 14px;
+      margin-bottom: 15px;
+
+      .basket-data {
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        &.basket-data-savings {
+          color: $red;
+        }
+
+        &.basket-data-total {
+          font-weight: 700;
+        }
+
+        .basket-data-value {
+          float: right;
+        }
+      }
+    }
+
+    .basket-submit {
+      overflow: hidden;
+      margin-bottom: 20px;
+
+      #edit-basket-items.button {
+        @include secondaryButton;
+        @include basketOverlayStyles;
+        width: 48%;
+        float: left;
+      }
+
+      #headerBasketCheckout .button {
+        @include primaryButton;
+        @include basketOverlayStyles;
+        width: 48%;
+        float: right;
+        margin-top: 0;
+      }
+    }
+
+    .basket-footnote {
+      p {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+
+      a {
+        position: relative;
+        display: inline;
+        color: $brightBlue;
+
+        &:after {
+          font-family: 'Tesco Icons';
+          content: 'r';
+          position: absolute;
+          right: -20px;
+          top: -5px;
+        }
+
+        &:active {
+          text-decoration: underline;
+        }
+
+        .no-touch & {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ***********************************************
+
+/*@keyframes pageMaskFadeIn {
+    0%   {opacity: 0;}
+    25%  {opacity: 0.2;}
+    50%  {opacity: 0.3;}
+    75%  {opacity: 0.4;}
+    100% {opacity: 0.6;}
+}
+
+@-webkit-keyframes pageMaskFadeIn {
+    0%   {opacity: 0;}
+    25%  {opacity: 0.2;}
+    50%  {opacity: 0.3;}
+    75%  {opacity: 0.4;}
+    100% {opacity: 0.6;}
+}*/
+
+#page-background-mask {
+  position: fixed;
+  top: 68px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  background-color: #000;
+  @include opacity(0);
+  @include multipleTransitions(opacity 0.1s);
+
+  &.pageMaskVisible {
+    display: block;
+    /*@include opacity(0.6);
+        -webkit-animation: pageMaskFadeIn 0.1s;
+                animation: pageMaskFadeIn 0.1s;*/
+  }
+
+  &.pageMaskOpacity {
+    @include opacity(0.5);
+  }
+
+  &.catNavOpen {
+    top: 0;
+    z-index: 0;
+  }
+}

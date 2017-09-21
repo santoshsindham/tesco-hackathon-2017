@@ -1,0 +1,168 @@
+/*******************************************
+*	Uniform Embroidery Service
+*******************************************/
+@import '../variables';
+@import 'ues-mixins';
+
+#ues-container {
+  .uesBanner .fullWidth {
+    .pageTitle {
+      float: left;
+      font-size: 64px;
+      width: 548px;
+      height: 159px;
+      line-height: 64px;
+      margin: 0;
+      padding: 13px 44px 73px 43px;
+      position: relative;
+    }
+    .titleImage {
+      float: right;
+      width: 340px;
+      height: 350px;
+      background: url(../images/ues/ll_headerimage.jpg) top center no-repeat #000;
+      margin-right: 61px;
+      position: relative;
+      top: -124px;
+    }
+    .registerSection {
+      display: none;
+    }
+    .descriptionSection {
+      float: left;
+      position: absolute;
+      top: 116px;
+      left: 584px;
+      margin: 6px 11px 30px 0;
+      width: 742px;
+      p {
+        font-size: 24px;
+        line-height: 24px;
+        color: $asphalt;
+      }
+    }
+    .searchHolder {
+      float: left;
+      top: 235px;
+      left: -497px;
+      margin: 4px 30px 0 0;
+      width: 487px;
+      height: 80px;
+      .schoolInfo {
+        font-size: 28px;
+        background-color: $tescoBlue;
+        border: 1px solid $tescoBlue;
+        border-radius: 4px;
+        text-align: center;
+        padding: 20px 0;
+        color: $white;
+      }
+      .schoolIndicator {
+        width: 90%;
+        border-radius: 10px;
+        padding: 10px 21px 9px 14px;
+        font-size: 26px;
+        height: 78px;
+      }
+      .searchSec {
+        display: none;
+        .icon {
+          height: 78px;
+          font-size: 24px;
+          padding: 30px 20px 32px;
+          border-radius: 0 10px 10px 0;
+        }
+      }
+      .ssTable {
+        .userMessage {
+          width: 487px;
+        }
+        .schoolResultsSection {
+          overflow-y: auto;
+          .container {
+            height: auto;
+            max-height: 364px;
+          }
+        }
+      }
+    }
+  }
+  .contentWrapper {
+    position: static;
+    .donationSection {
+      float: right;
+      position: absolute;
+      top: 388px;
+      left: 586px;
+      width: 1164px;
+      height: 166px;
+      .donationCounter {
+        padding: 24px 0 10px 50px;
+        width: 426px;
+        .donationAmt {
+          font-size: 80px;
+          line-height: 95px;
+        }
+      }
+      .donationText {
+        padding-top: 32px;
+      }
+      span {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+    .info {
+      width: 1708px;
+      min-height: 81px;
+      margin: 0 0 10px 48px;
+      p {
+        font-size: 12px;
+        color: $infoGrey;
+      }
+    }
+  }
+  .commsHolder_1 {
+    height: 85px;
+    width: 1270px;
+    margin: 0px 0px 40px 48px;
+    padding-bottom: 44px;
+  }
+  .commsHolder_2 {
+    width: 1700px;
+    height: 211px;
+    margin: 76px 0px 20px 48px;
+    padding-bottom: 44px;
+  }
+
+  .schoolInfoContainer {
+    clear: right;
+    float: left;
+    max-height: 100px;
+    padding: 4px 40px;
+  }
+  .schoolInfoSection {
+    h2 {
+      margin-bottom: 3px;
+      img {
+        width: 80px;
+        height: 80px;
+      }
+      span {
+        display: block;
+        padding-left: 100px;
+        padding-top: 14px;
+
+      }
+    }
+    .schoolAddress {
+      padding-left: 104px;
+    }
+  }
+  .schoolDonationContainer {
+    margin-bottom: 4px;
+    .schoolDonation {
+      padding-top: 16px;
+    }
+  }
+}

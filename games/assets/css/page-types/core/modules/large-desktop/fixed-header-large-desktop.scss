@@ -1,0 +1,39 @@
+@import "../mixins/fixed-header-mixins";
+
+@include headerDesktopStyles(130px, 130px, 1200px);
+
+#masthead-wrapper {
+    &.headerOutOfView,
+    &.textInputInFocus {
+        top: -130px;
+    }
+
+    &.hideCatNav {
+        height: 70px;
+    }
+}
+
+// ***********************************************
+
+#search-header-list-item {
+    pointer-events: none;
+}
+
+#search-wrapper {
+    z-index: 0;
+    pointer-events: auto;
+
+    &.searchifyOpen {
+        z-index: 3;
+    }
+}
+
+#masthead-wrapper {
+    &.dropdownOpen {
+        &:not(.catNavOpen) {
+            #search-wrapper {
+                z-index: 2;
+            }
+        }
+    }
+}

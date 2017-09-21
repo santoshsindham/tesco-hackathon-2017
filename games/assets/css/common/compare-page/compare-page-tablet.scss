@@ -1,0 +1,6 @@
+//compare-page module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "compare-page-mixins";
+
+@include smallScreen;

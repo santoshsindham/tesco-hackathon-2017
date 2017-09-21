@@ -1,0 +1,14 @@
+/*******************************************
+*	self-service : Large Desktop
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "self-service-mixins";
+
+#secReason {
+	&:disabled {
+		background: #f4f4f4;
+		border-color: #eeeeee;
+	}
+}

@@ -1,0 +1,17 @@
+<form id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} float-wrapper {{mvc.sellers.buyBoxMessage}}-state">
+    <button id="{{mvc.formHandler.id}}" type="button" data-mvc-key="id"
+        data-mvc-value="{{mvc.formHandler.id}}" class="button secondary" {{mvc.custom.disabled}}>
+      <span>{{mvc.sellers.buyButtonLabel}}</span>
+    </button>
+    <div class="stock-alert-success">
+      <div class="stock-alert-success__box">
+        <div class="icon-wrapper"><span class="icon larger" data-icon="5"></span></div>
+        <p><small><strong>Your stock alert is set up</strong></small></p>
+        <p>We will email you when this item is back in stock</p>
+      </div>
+      <p class="stock-alert-success__link">
+        <a href="/direct/my/email-when-stock-back.page">Manage stock alerts</a> within your account
+      </p>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+</form>

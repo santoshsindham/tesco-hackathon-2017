@@ -1,0 +1,144 @@
+//chip-and-pin module - debug bar
+
+.debugBarLayout {
+	.chip-and-pin-debug-bar {
+		z-index:2000;
+		overflow:hidden;
+	    position: absolute;
+	    top: 0;
+	    right: 0;
+	    width: 50px;
+	    height: 50px;
+	    background:#990000;
+	    transition: all 0.15s ease;
+	    
+	    .actions {
+	    	display:none;
+	    }
+	    
+	    li {
+	    	margin:10px 0;
+	    }
+	    
+	    h2 {
+	    	margin:0;
+	    }
+	     
+	    &.is-open {
+	    	width:250px;
+	    	min-height:175px;
+	    	height:auto;
+	    	background:#ddd;
+	    	
+	    	.expand-collapse {
+	    		i {
+	    			background-position:0 0;
+	    		}
+	    	}
+	    	
+	    	header {
+	    		visibility:visible;
+	    }
+	    }
+	    
+	    &[data-section='unknown'] {
+	    	display:none;
+	    }
+
+	    &[data-section='login'] {
+	    	.login-actions {
+	    		display:block;
+	    	}
+	    }
+	    
+	    &[data-section='loginPostcode'] {
+	    	.loginPostcodeActions,.sessionActions {
+	    		display:block;
+	    	}
+	    }
+	    
+	    &[data-section='loginUserDetails'] {
+	    	.login-actions, .loginUserDetailsActions {
+	    		display:block;
+	    	}
+	    }
+	    
+	    &[data-section='review'] {
+	    	.reviewActions {
+	    		display:block;
+	    	}
+	    }
+	    
+	    &[data-section='delivery'] {
+	    	.delivery-actions {
+	    		display:block;
+	    	}
+	    }
+	    
+	    &[data-section='deliveryVouchers'] {
+	    	.deliveryVouchersActions {
+	    		display:block;
+	    	}
+	    }
+	 
+	    &[data-section='payment'] {
+	    	.payment-actions {
+	    		display:block;
+	    	}
+	    }
+
+        &[data-section='eCouponEntry'] {
+            .eCouponEntryActions {
+                display: block;
+            }
+        }
+	 
+	 	button, a {
+	 		border:none;
+	 		width:100%;
+	 		height:50px;
+	 		font-size:14px;
+	 		font-family: "Tesco", sans-serif;
+	 	}
+	 	
+	 	a {
+	 		line-height: 26px;
+	 	}
+	 	   
+	    .expand-collapse {
+			position: absolute;
+			top: 0;
+			right: 0;
+			
+			i {
+				position: absolute;
+				top: 13px;
+				right: 13px;
+				display: block;
+				width: 25px;
+				height: 25px;
+				background:transparent url("../img/arrow.png") no-repeat -25px 0;
+			}
+
+			span {
+				display:block;
+				width:50px;
+				height:50px;
+				margin:5px;
+				overflow:hidden;
+				text-indent:-9999px;
+			}
+	    }
+	    
+	    header {
+	    	margin:20px;
+	    	visibility:hidden;
+	    }
+	    
+	    .debug-content {
+	    	width:250px;
+	    	margin:20px 0;
+	    	padding:0 20px;
+	    }
+	}
+}

@@ -1,0 +1,102 @@
+{
+  "id" : "767-7465",
+  "prices" : {
+    "id" : "767-7465",
+    "price" : "39.99",
+    "clubcardPoints" : 39
+  },
+  "displayName" : "Broonel - Contour Series - Blue Heavy Duty Vegan Leather Case Cover for Laptops up to 11.6 Inches",
+  "publicLink" : "/direct/broonel-contour-series-blue-heavy-duty-vegan-leather-case-cover-for-laptops-up-to-116-inches/767-7465.prd?skuId=767-7465",
+  "specification" : {
+    "Key Information" : [ {
+      "title" : "Type",
+      "description" : "Soft boxes",
+      "attr" : "type"
+    } ]
+  },
+  "longDescription" : "Contour Series cases offer heavy duty protection to all laptops and notebooks, while still contouring to the device's shape. An elevating stand unfolds comfortably on flat surfaces and allows for a more ergonomic typing experience.",
+  "ancestorCategories" : [ {
+    "id" : "cat14140023",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat14140023"
+  }, {
+    "id" : "cat3373999",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3373999"
+  }, {
+    "id" : "cat3376048",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376048"
+  }, {
+    "id" : "cat3376584",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376584"
+  }, {
+    "id" : "cat3376642",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376642"
+  }, {
+    "id" : "cat3376693",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376693"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/767-7465_PI_1000455MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/767-7465_PI_1000455MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/767-7465_PI_1000455AL2-Angled Shot?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/767-7465_PI_1000455AL1-Angled Shot?$[preset]$",
+      "renderSource" : "Scene 7"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 1" : "Ergonomic flip-out stand",
+    "Bullet 2" : "Dual zips and business card holder",
+    "Bullet 3" : "Soft Microfibre interior for added protection"
+  },
+  "links" : [ {
+    "id" : "767-7465",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/767-7465"
+  }, {
+    "id" : "767-7465",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/767-7465"
+  }, {
+    "id" : "O00020504d",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/O00020504d"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

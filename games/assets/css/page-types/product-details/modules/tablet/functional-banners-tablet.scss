@@ -1,0 +1,26 @@
+@include breakpoint(vTablet) {
+  .functional-banner {
+    &.functional-banner-single {
+      padding-bottom: 15px;
+      padding-top: 15px;
+    }
+
+    &.functional-banner-double {
+      display: block;
+
+      > div {
+        display: block;
+
+        &:first-child {
+          border-bottom: 6px solid $background;
+          border-right: 0;
+          padding-bottom: 15px;
+
+          ~ * {
+            padding-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

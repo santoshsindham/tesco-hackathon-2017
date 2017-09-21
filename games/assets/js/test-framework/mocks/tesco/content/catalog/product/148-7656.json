@@ -1,0 +1,192 @@
+{
+  "id" : "148-7656",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "148-7656",
+    "price" : "9.99",
+    "was" : "32.99",
+    "savings" : "23.00",
+    "clubcardPoints" : 9
+  },
+  "displayName" : "Mountain Warehouse Trek Mens Short Sleeved Shirt",
+  "publicLink" : "/direct/mountain-warehouse-trek-mens-short-sleeved-shirt/148-7656.prd",
+  "longDescription" : "Perfect for hotter climes, the Mountain Warehouse Trek Mens Short Sleeved Shirt is lightweight and fast drying, ideal for the tropics. With a soft mesh lining, the shirt also features air vents at the armholes for enhanced ventilation. The design has a pleated back and two chest pockets to keep your personals close to hand, ensuring the Trek shirt proves its worth in the hottest of climates keeping you well ventilated and dry. Fast Drying - Dries quickly thanks to its absorbent nature Lightweight - Makes it great for travelling, walking and more. No added bulk Shrink & Fade Resistant - Looks great even after multiple wears and washes Mesh Lined - Improves breathability by allowing moisture to be drawn away from the skin, keeping you dry and comfortable Pockets - Two Velcro closure chest pockets Air Vents - There are two air vents at the armholes to promote ventilation Mesh Lined",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat3376549",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376549"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38470010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38470010"
+  }, {
+    "id" : "cat38670012",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670012"
+  } ],
+  "brand" : "Mountain Warehouse",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/167-1286_PI_1000223MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Mens"
+  },
+  "links" : [ {
+    "id" : "331-2373",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/331-2373",
+    "options" : {
+      "primary" : "Beige",
+      "secondary" : "L"
+    }
+  }, {
+    "id" : "441-7289",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/441-7289",
+    "options" : {
+      "primary" : "Beige",
+      "secondary" : "M"
+    }
+  }, {
+    "id" : "469-2140",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/469-2140",
+    "options" : {
+      "primary" : "Beige",
+      "secondary" : "S"
+    }
+  }, {
+    "id" : "674-2402",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/674-2402",
+    "options" : {
+      "primary" : "Beige",
+      "secondary" : "XL"
+    }
+  }, {
+    "id" : "404-9903",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/404-9903",
+    "options" : {
+      "primary" : "Beige",
+      "secondary" : "XXL"
+    }
+  }, {
+    "id" : "670-6195",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/670-6195",
+    "options" : {
+      "primary" : "Beige",
+      "secondary" : "XXXL"
+    }
+  }, {
+    "id" : "763-6938",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/763-6938",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "L"
+    }
+  }, {
+    "id" : "223-6964",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/223-6964",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "M"
+    }
+  }, {
+    "id" : "167-1286",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/167-1286",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "S"
+    }
+  }, {
+    "id" : "201-9966",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/201-9966",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "XL"
+    }
+  }, {
+    "id" : "430-3645",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/430-3645",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "XXL"
+    }
+  }, {
+    "id" : "730-9899",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/730-9899",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "XXXL"
+    }
+  }, {
+    "id" : "148-7656",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/148-7656"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "167-1286",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/167-1286",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "S"
+    }
+  } ]
+}

@@ -1,0 +1,32 @@
+<div id="{{sViewId}}" class="block-wrapper with-indents">
+  <div class="carousel-fullwidth block">
+      <header class="cfw-header">
+          <h2 class="block-title cfw-title"><strong> Bundle Offer:</strong> <span>{{{props.title}}}</span> </h2>
+          <div class="product-carousel-nav-wrapper">
+            <ul class="product-carousel-nav {{props.customNavigationClass}}">
+                <li class="disabled">
+                    <a href="#" class="previous">
+                        <span class="label">Previous</span>
+                        <span aria-hidden="true" class="icon"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="next">
+                        <span class="label">Next</span>
+                        <span aria-hidden="true" class="icon"></span>
+                    </a>
+                </li>
+            </ul>
+          </div>
+      </header>
+    {{#views.carouselItems}}
+      {{{render}}}
+    {{/views.carouselItems}}
+    {{^state.displayBucketLink}}
+      <span class="bucket-link">
+        <a href="{{{props.bucketLink}}}">See all items in this offer </a>
+      </span>
+    {{/state.displayBucketLink}}
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

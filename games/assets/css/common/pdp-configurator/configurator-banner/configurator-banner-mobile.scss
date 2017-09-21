@@ -1,0 +1,146 @@
+.pdp-configurator {
+	#page-container .configurator-banner {
+	    padding: 6px 8px 2px;
+		height: 50px;
+		overflow: hidden;
+
+		h1 {
+		    img {
+		    	max-width: 80px;
+		    	max-height: 35px;
+		    }
+		}
+		
+		h1,
+		.banner-title,
+		.banner-msg {
+			font-weight: normal;
+			font-size: 1.6em;
+			line-height: 2.4em;
+			margin-top: 0;
+			background: transparent;
+			max-width: 200%;
+		}
+
+		.back-btn {
+			padding: 0 20px;
+			position: relative;
+			&:after {				
+				content: 'g';
+				font-family: 'Tesco Icons';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				font-size: 14px;					
+			}
+		}
+
+		.hudl-banner {
+			.banner-msg {
+				display: none
+			}
+		}
+
+		&[class*='is-'] {
+			.hudl-banner {
+				display: none;
+			}
+		}
+
+		&.is-case-category {
+			.case-category-banner {
+				display: block;
+			}
+		}
+
+		&.is-product-info,
+		&.is-accessory.is-product-info {
+			.accessories-banner {
+				display: none;
+			}
+			.product-info-banner {
+				display: block;
+			}
+		}
+
+		&.is-accessory {
+			.accessories-banner {
+				display: block;
+			}
+		}
+
+	}
+}
+.pdp-configurator {
+	#page-container .configurator-banner {
+	    padding: 6px 8px 2px;
+		height: 50px;
+		overflow: hidden;
+
+		h1 {
+		    img {
+		    	max-width: 80px;
+		    	max-height: 35px;
+		    }
+		}
+		
+		h1,
+		.banner-title,
+		.banner-msg {
+			font-weight: normal;
+			font-size: 1.6em;
+			line-height: 2.4em;
+			margin-top: 0;
+			background: transparent;
+			max-width: 200%;
+		}
+
+		.back-btn {
+			padding: 0 20px;
+			position: relative;
+			&:after {				
+				content: 'g';
+				font-family: 'Tesco Icons';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				font-size: 14px;					
+			}
+		}
+
+		.hudl-banner {
+			.banner-msg {
+				display: none
+			}
+		}
+
+		&[class*='is-'] {
+			.hudl-banner {
+				display: none;
+			}
+		}
+
+		&.is-case-category {
+			.case-category-banner {
+				display: block;
+			}
+		}
+
+		&.is-product-info,
+		&.is-accessory.is-product-info {
+			.accessories-banner {
+				display: none;
+			}
+			.product-info-banner {
+				display: block;
+			}
+		}
+
+		&.is-accessory {
+			.accessories-banner {
+				display: block;
+			}
+		}
+
+	}
+}

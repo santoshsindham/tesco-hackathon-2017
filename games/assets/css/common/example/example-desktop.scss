@@ -1,0 +1,11 @@
+/*******************************************
+*	Desktop Example module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "example-mixins";
+
+#test {
+	
+}

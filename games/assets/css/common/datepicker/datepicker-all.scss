@@ -1,0 +1,174 @@
+//datepicker module - all
+@import "../variables";
+@import "datepicker-mixins";
+
+
+.datepicker-tooltip {
+	position: relative;
+
+}
+
+.datepicker {
+		background-color: #fff;
+		border-color: #999;
+		border-color: rgba(0, 0, 0, 0.2);
+		border-style: solid;
+		border-width: 1px;
+		display: none;
+		position: relative;
+		width: 282px;
+		&:after {
+			@include clear-fix;
+		}
+
+		.nav {
+				font-weight: bold;
+				position: relative;
+				width: 100%;
+				background-color: #fff;
+				color: #3E3E3F;
+				border-bottom: 1px solid #ddd;
+				
+				&:after {
+					@include clear-fix;
+				}
+
+				span {
+					display: block;
+					//float: left;
+					text-align: center;
+					line-height: 40px;
+					//position: relative;
+				}
+				.bg {
+					width: 100%;
+					background-color: #fdf5d9;
+					height: 28px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					@include border-radius(4px);
+				}
+				.fg {
+					width: 100%;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+		}
+		.button {
+			position: absolute;
+			display: block;
+			width: 40px;
+			height: 40px;
+			cursor: pointer;
+			top: 0;
+			border-radius: 0;
+
+			&.prev {
+				left: 0;
+				border-width: 0 1px 0 0;
+
+				&.disabled {
+					color: #DBDBDB;
+					cursor: normal;
+				}
+			}
+
+			&.next {
+				right: 0;
+				border-width: 0 0 0 1px;
+			}
+		}
+
+		.months {
+			.name {
+				padding: 0;
+				font-size: 14px;
+			}
+		}
+		.years {
+			float: right;
+			margin-right: 4px;
+			.name {
+				width: 36px;
+				padding: 0;
+			}
+		}
+		.dow, .days div {
+			float: left;
+			width: 40px;
+			line-height: 40px;
+			text-align: center;
+		}
+
+		.dow {
+			line-height: 24px;
+			background: #3E3E3F;
+			color: #fff;
+			font-size: 10px;
+			text-transform: uppercase;
+		}
+
+		.days {
+			clear: left;
+			color: #848282;
+
+			div {
+				font-size: 14px;
+				border-width: 0 1px 1px 0;
+				border-style: solid;
+				border-color: #D8D8D9;
+				&.row-end {
+					border-right: none;
+				}
+
+				&.last-row {
+					border-bottom: none;
+				}
+			}
+		}
+		
+		.available {
+			color: #285B90;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.past {
+			color: #D8D8D9;
+		}
+
+		.days .overlap {
+			//color: #D8D8D9;
+			color: transparent;
+			&.today span {
+				border: none;
+				background: none;
+			}
+		}
+
+		.today {
+			color: #848282;
+			span {
+				display: block;
+				background: #fff;
+				width: 40px;
+				height: 40px;
+				border: 2px solid #848282;
+				line-height: 36px;
+			}
+		}
+		
+		.today.selected{
+			span{
+				@include fullGradient(#57A337, #389110);
+				color: #fff;
+				font-weight: normal;
+			}
+		}
+		.selected {
+			@include fullGradient(#57A337, #389110);
+			color: #fff;
+		}
+}

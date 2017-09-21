@@ -1,0 +1,35 @@
+/*******************************************
+* searchify - tablet
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(allTablet);
+@import "../mixins/searchify-mixins";
+
+
+@include breakpoint(vTablet) {
+
+    #spf-seeAllResults {
+        clear: both;
+        text-align: center;
+        min-height: 8px !important;
+
+        span {
+            float: none !important;
+        }
+    }
+
+}
+
+@include breakpoint(hTablet) {
+
+    #spf-seeAllResults {
+        clear: both;
+        text-align: center;
+        min-height: 8px !important;
+
+        span {
+            float: none !important;
+        }
+    }
+}

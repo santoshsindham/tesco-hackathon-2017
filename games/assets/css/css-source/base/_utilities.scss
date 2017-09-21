@@ -1,0 +1,11 @@
+.clearfix {
+  @include clearfix();
+}
+
+.visuallyhidden {
+  @include visuallyhidden();
+}
+
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
+  @include visuallyhidden-focusable();
+}

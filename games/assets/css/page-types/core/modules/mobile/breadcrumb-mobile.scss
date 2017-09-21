@@ -1,0 +1,19 @@
+/*******************************************
+*	Mobile Breadcrumb module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(mobile);
+@import "../mixins/breadcrumb-mixins";
+
+@include smallBreadcumbs;
+
+#breadcrumb {
+	height: 46px;
+}
+
+#page-container .product-description h1.page-title, .listing h1.page-title {
+    width: auto;
+    margin: 0 0 8px 8px;
+    line-height:1.5em;
+}

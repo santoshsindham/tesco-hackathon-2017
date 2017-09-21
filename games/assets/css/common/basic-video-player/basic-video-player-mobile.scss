@@ -1,0 +1,26 @@
+#pdpScene7Container {
+    #prodVideoView.videoView {
+        height: 100%;
+        width: 97%;
+        margin: 0 auto;
+        .videoContainer {
+            height: $videoContainerHeight;
+            .videoPosition {
+                height: 260px;
+                object {
+                    top: -20px;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+@include error-styles-video-common (76px,77%,relative,1.6em);
+.errorVideo {
+    @include error-wrap-styles-position-and-top(9px,absolute);
+    height: 81%;
+    .errorWrap {
+        margin: auto;
+    }
+}

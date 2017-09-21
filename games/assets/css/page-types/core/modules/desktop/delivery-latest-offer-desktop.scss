@@ -1,0 +1,23 @@
+//delivery-latest-offer module - desktop
+@import "../../components/breakpoints";
+@include breakpoint(desktop);
+@import "../mixins/delivery-latest-offer-mixins";
+
+.delivery-latest-offers {
+	margin: 0 $onecol 20px $onecol;
+
+	li {
+		text-align: center;
+		width: $onecol * 58;
+
+		a {
+			text-align: left;
+			display: inline-block;
+		}
+
+		&:first-child {
+			margin-right: $onecol * 2;
+		}
+	}
+
+}

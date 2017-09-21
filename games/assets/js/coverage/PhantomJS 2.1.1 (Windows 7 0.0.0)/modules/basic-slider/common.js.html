@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\basic-slider\common.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/basic-slider/</a> common.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.44% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>14/72</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">7.14% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">19.44% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>14/72</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*global define: true, window: true */
+define(['domlib', 'modules/common'], function ($, common) {
+    'use strict';
+    /**
+     *  BasicSlider
+     *
+     *  Creates a simple HTML based slider control
+     */
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function BasicSlider($cont, options) {</span>
+<span class="cstat-no" title="statement not covered" >        this.$cont = $cont;</span>
+<span class="cstat-no" title="statement not covered" >        this.$handle = null;</span>
+<span class="cstat-no" title="statement not covered" >        this.$trail = null;</span>
+<span class="cstat-no" title="statement not covered" >        this.isMouseDown = false;</span>
+<span class="cstat-no" title="statement not covered" >        this.handleWidth = 0;</span>
+<span class="cstat-no" title="statement not covered" >        this.handleCenterOffset = 0;</span>
+<span class="cstat-no" title="statement not covered" >        this.width = 0;</span>
+<span class="cstat-no" title="statement not covered" >        this.value = 0; </span>// This value should
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.settings = {</span>
+            onSlideMove: null
+        };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        $.extend(this.settings, options);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.init();</span>
+    }
+&nbsp;
+    BasicSlider.prototype.init = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.buildMarkUp();</span>
+<span class="cstat-no" title="statement not covered" >        this.bindHandlers();</span>
+    };
+&nbsp;
+    /**
+     *  Recalculate the width when the container is resized
+     *
+     */
+    BasicSlider.prototype.resize = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.width = this.$cont.width();</span>
+    };
+&nbsp;
+    /**
+     *  Make sure the width of the slider is not zero
+     *
+     */
+    BasicSlider.prototype.checkWidth = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        if (this.width &lt;= 0) {</span>
+<span class="cstat-no" title="statement not covered" >            this.width = this.$cont.width();</span>
+        }
+    };
+&nbsp;
+    BasicSlider.prototype.buildMarkUp = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        var markUp = '&lt;div class="basic-slider"&gt;&lt;div class="basic-slider-trail"&gt;&lt;/div&gt;&lt;div class="basic-slider-handle"&gt;&lt;/div&gt;&lt;div class="basic-slider-track"&gt;&lt;/div&gt;&lt;/div&gt;';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.$cont.html(markUp);</span>
+<span class="cstat-no" title="statement not covered" >        this.$slider = $('.basic-slider', this.$cont);</span>
+<span class="cstat-no" title="statement not covered" >        this.$handle = $('.basic-slider-handle', this.$cont);</span>
+<span class="cstat-no" title="statement not covered" >        this.$trail = $('.basic-slider-trail', this.$cont);</span>
+<span class="cstat-no" title="statement not covered" >        this.width = this.$cont.width();</span>
+<span class="cstat-no" title="statement not covered" >        this.handleWidth = this.$handle.outerWidth();</span>
+<span class="cstat-no" title="statement not covered" >        this.handleCenterOffset = this.handleWidth / 2;</span>
+    };
+&nbsp;
+    BasicSlider.prototype.setPosition = <span class="fstat-no" title="function not covered" >function (leftPercent) {</span>
+<span class="cstat-no" title="statement not covered" >        this.$handle.css({</span>
+            'left': leftPercent + '%'
+        });
+<span class="cstat-no" title="statement not covered" >        this.$trail.width(leftPercent + '%');</span>
+<span class="cstat-no" title="statement not covered" >        this.value = leftPercent;</span>
+    };
+&nbsp;
+    BasicSlider.prototype.calculatePercentageFromOffsetLeft = <span class="fstat-no" title="function not covered" >function (offsetLeft) {</span>
+<span class="cstat-no" title="statement not covered" >        var percentageWidth = Math.ceil((offsetLeft / this.width) * 100);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.setPosition(percentageWidth);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (typeof this.settings.onSlideMove === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >            this.settings.onSlideMove(this.value);</span>
+        }
+    };
+&nbsp;
+    BasicSlider.prototype.doMouseDrag = <span class="fstat-no" title="function not covered" >function (evt) {</span>
+<span class="cstat-no" title="statement not covered" >        var relativeLeft,</span>
+            handleLeft;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.checkWidth();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.isMouseDown) {</span>
+<span class="cstat-no" title="statement not covered" >            relativeLeft = evt.pageX - this.$cont.offset().left;</span>
+<span class="cstat-no" title="statement not covered" >            handleLeft = relativeLeft - this.handleCenterOffset;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (relativeLeft &lt;= this.handleCenterOffset) {</span>
+<span class="cstat-no" title="statement not covered" >                handleLeft = 0;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (relativeLeft &gt;= (this.width + this.handleCenterOffset)) {</span>
+<span class="cstat-no" title="statement not covered" >                handleLeft = this.width;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.calculatePercentageFromOffsetLeft(handleLeft);</span>
+        }
+    };
+&nbsp;
+    BasicSlider.prototype.doCLick = <span class="fstat-no" title="function not covered" >function (evt) {</span>
+<span class="cstat-no" title="statement not covered" >        var relativeLeft;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.checkWidth();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        relativeLeft = evt.pageX - this.$cont.offset().left;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (relativeLeft &gt;= 0 &amp;&amp; relativeLeft &lt;= this.width) {</span>
+<span class="cstat-no" title="statement not covered" >            this.calculatePercentageFromOffsetLeft(relativeLeft - this.handleCenterOffset);</span>
+        }
+    };
+&nbsp;
+    BasicSlider.prototype.doMouseDown = <span class="fstat-no" title="function not covered" >function (evt) {</span>
+<span class="cstat-no" title="statement not covered" >        evt.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >        evt.stopPropagation();</span>
+<span class="cstat-no" title="statement not covered" >        this.isMouseDown = true;</span>
+    };
+&nbsp;
+    BasicSlider.prototype.doMouseUp = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.isMouseDown = false;</span>
+    };
+&nbsp;
+    BasicSlider.prototype.bindHandlers = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        this.$cont.on('mousedown', $.proxy(this.doMouseDown, this));</span>
+<span class="cstat-no" title="statement not covered" >        this.$cont.on('mouseup', $.proxy(this.doMouseUp, this));</span>
+<span class="cstat-no" title="statement not covered" >        this.$cont.on('mouseenter', $.proxy(this.doMouseUp, this));</span>
+<span class="cstat-no" title="statement not covered" >        this.$cont.on('mousemove', $.proxy(this.doMouseDrag, this));</span>
+<span class="cstat-no" title="statement not covered" >        this.$cont.on('click', '.basic-slider', $.proxy(this.doCLick, this));</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+<span class="cstat-no" title="statement not covered" >        $(window).resize(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.resize();</span>
+        });
+    };
+&nbsp;
+    common.BasicSlider = BasicSlider;
+&nbsp;
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

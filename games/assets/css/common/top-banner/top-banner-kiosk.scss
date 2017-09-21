@@ -1,0 +1,8 @@
+//top-banner module - kiosk
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "top-banner-mixins";
+
+.top-banner {
+	display: none;
+}

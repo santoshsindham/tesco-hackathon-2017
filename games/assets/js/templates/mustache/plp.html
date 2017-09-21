@@ -1,0 +1,185 @@
+<script type="text/template" id="info-panel-template-group">
+    <div id="{{sViewId}}" class="PDP-Version2__component info-panel-group {{sViewClass}} {{sClassNames}}">
+        {{#aSubViews}}
+            {{{render}}}
+        {{/aSubViews}}
+
+        <div class="info-panel-mask-wrapper">
+            <div class="info-panel-mask"></div>
+        </div>
+
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="info-panel-template">
+    <div id="{{sViewId}}" class="info-panel {{sViewClass}} {{sClassNames}}" data-mvc-tag="{{tag}}">
+        <div class="info-panel-header">
+            <h4 class="info-panel-title ellipsed">{{{sTitle}}}</h4>
+            <span class="icon larger info-panel-back-icon" data-icon="g"></span>
+        </div>
+        <div class="info-panel-content-wrapper">
+          <h3 class="info-panel-content-title">{{{sTitle}}}</h3>
+          <div class="info-panel-content {{sContentClasses}}">
+              {{#aSubViews}}
+                  {{{render}}}
+              {{/aSubViews}}
+          </div>
+        </div>
+        <a class="icon info-panel-close-icon" data-icon="y"></a>
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="info-panel-template-tooltip">
+  <div id="{{sViewId}}" class="PDP-Version2__component info-panel {{sViewClass}} {{sClassNames}}">
+    <div class="info-panel-content-wrapper">
+      <span class="icon tooltip-error-icon" data-icon="8"></span>
+      <div class="text text-block smaller info-panel-content">
+        {{#aSubViews}}
+          {{{render}}}
+        {{/aSubViews}}
+      </div>
+    </div>
+    <a class="icon info-panel-close-icon" data-icon="y"></a>
+    <span class="icon tooltip-pointer"></span>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="store-stock-check-overlay-template">
+  <div class="col-largeDesktop-7 col-desktop-7">
+    <div class="col-stores-wrapper">
+      <form class="stock-check-form" data-id="{{props.id}}">
+        <label for="stock-check-overlay-form-postcode" class="stock-check-label text">Check stock in your local store:</label>
+        <input id="stock-check-overlay-form-postcode" title="Enter town / postcode" placeholder="Enter town / postcode" value="{{props.nearestStoreLookup}}" class="postcode pull-left-all" type="text" autocomplete="off">
+        <div class="button-wrapper">
+          <input type="submit" class="button secondary" value="Check" />
+        </div>
+      </form>
+      {{#props.nearestStores.length}}
+      <div class="block with-sm-margin-btm">
+        <div class="col-largeDesktop-7 col-desktop-7 col-tablet-7 col-mobile-12">
+          <p class="larger"><strong>Nearest availability to '{{props.nearestStoreLookup}}'</strong></p>
+        </div>
+        {{#props.showInStockOnlyCheckbox}}
+        <div class="element-wrapper in-stock-filter-checkbox-wrapper">
+          <label for="in-stock-filter-checkbox" class="pull-right-all pull-left-mobile">
+            <input type="checkbox" id="in-stock-filter-checkbox" class="in-stock-filter-checkbox" {{#state.isInStockOnly}}checked="checked"{{/state.isInStockOnly}} data-id="{{props.id}}">
+            <div class="check-box"></div>
+            <div class="label">In stock stores only</div>
+          </label>
+        </div>
+        {{/props.showInStockOnlyCheckbox}}
+      </div>
+      <div class="block stores-list-wrapper">
+        <ul>
+          {{#props.nearestStores}}
+          <li id="store-{{id}}" class="stores-list-item {{stockStatusClass}} {{#isSelected}}is-selected{{/isSelected}}" data-storeid="{{id}}">
+            <a id="{{index}}" class="store-detail-link" data-index="{{index}}">
+              <span class="store-index">{{position}}</span>
+              <span class="store-name col-tablet-12">{{storeName}}</span>
+              <span class="stock-status col-tablet-4 col-mobile-6">{{stockStatusMessage}}</span>
+              {{#distance}}<span class="store-distance col-tablet-4 col-mobile-6">{{distance}} miles</span>{{/distance}}
+              <span class="view-store-info-toggle col-tablet-4 col-mobile-12"><span>View store info</span></span>
+            </a>
+            <div class="store-details-wrapper">
+              <div class="hidden-tablet hidden-mobile">
+                <p>Your selected store:</p>
+                <h5 class="with-margin-btm">
+                  <span class="tableIndex">{{position}}</span>
+                  <strong>{{storeName}}</strong>
+                  {{#distance}}<span class="store-detail-distance">{{distance}} miles</span>{{/distance}}
+                </h5>
+              </div>
+              <div class="store-address-collection-times">
+                <div class="col-largeDesktop-6 col-desktop-6 col-tablet-6">
+                  <h6 class="text">Address &amp; telephone</h6>
+                  <address itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress" class="text smaller">
+                    {{#addressOne}}<span itemprop="streetAddress">{{addressOne}}</span>{{/addressOne}}
+                    {{#addressTwo}}<span itemprop="streetAddress">{{addressTwo}}</span>{{/addressTwo}}
+                    {{#townCity}}<span itemprop="addressLocality">{{townCity}}</span>{{/townCity}}
+                    {{#county}}<span itemprop="addressRegion">{{county}}</span>{{/county}}
+                    {{#postalCode}}<span itemprop="postalCode">{{postalCode}}</span>{{/postalCode}}
+                    {{#country}}<span itemprop="addressCountry">{{country}}</span>{{/country}}
+                  </address>
+                  {{#telephone}}
+                  <p class="smaller with-margin-btm">{{telephone}}</p>
+                  {{/telephone}}
+                  <p class="smaller with-margin-btm hidden-largeDesktop hidden-desktop">
+                    <a href="//tesco.com/store-locator/uk/?bID={{bid}}" target="_blank" class="tesco-store-locator-link">
+                      View map &amp; full store information</a>
+                  </p>
+                </div>
+                <div class="col-largeDesktop-6 col-desktop-6 col-tablet-6">
+                  <h6 class="text">Collection times</h6>
+                  <table class="store-collection-times text smaller">
+                    <thead class="hidden-all">
+                      <tr>
+                        <th scope="col" class="day">Day</th>
+                        <th scope="col">Open</th>
+                        <th scope="col">Closed</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="day">Monday</td>
+                        <td>{{monOpen}}</td>
+                        <td>{{monClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Tuesday</td>
+                        <td>{{tueOpen}}</td>
+                        <td>{{tueClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Wednesday</td>
+                        <td>{{wedOpen}}</td>
+                        <td>{{wedClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Thursday</td>
+                        <td>{{thuOpen}}</td>
+                        <td>{{thuClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Friday</td>
+                        <td>{{friOpen}}</td>
+                        <td>{{friClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Saturday</td>
+                        <td>{{satOpen}}</td>
+                        <td>{{satClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Sunday</td>
+                        <td>{{sunOpen}}</td>
+                        <td>{{sunClose}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </li>
+          {{/props.nearestStores}}
+        </ul>
+      </div>
+      {{/props.nearestStores.length}}
+      {{#props.showMoreStoresButton}}
+      <a class="check-more-stores-link button secondary" data-id="{{props.id}}">Check more stores</a>
+      {{/props.showMoreStoresButton}}
+      <p class="smaller">Stock levels may change by the time you arrive at the store. Store and online prices may vary. We don't stock this item in our smaller stores (Express and Metro)</p>
+    </div>
+  </div>
+  <div class="col-largeDesktop-5 col-desktop-5">
+    <div class="map-col-wrapper">
+      <div id="stockMapDetails">
+        <div id="mapContainer"></div>
+      </div>
+      <div class="selected-store-details-wrapper"></div>
+    </div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>

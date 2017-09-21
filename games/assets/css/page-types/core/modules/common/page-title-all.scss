@@ -1,0 +1,59 @@
+/*******************************************
+*	Page title module
+*******************************************/
+
+@import "../../components/variables";
+@import "../mixins/page-title-mixins";
+
+/*******************************************
+*	DEFAULT STYLES
+*******************************************/
+
+$onecol: 16px;
+
+h1 {
+	margin: 0 $onecol 16px $onecol; //-9px top compensates for bigger line height
+	padding: 0;
+	font-size: 3.2em;
+	line-height: 42px;
+	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	/*width: $onecol*42;*/
+	font-weight: normal;
+	overflow: hidden;
+}
+h2 {
+  font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	font-weight: normal;
+}
+#view-all-categories {
+	display: none;
+}
+.js .titleCount{
+	display: none;
+}
+.js .resultsTitle {
+	display: block;
+	&:first-letter{
+		text-transform: uppercase;
+	}
+}
+.only-kiosk{
+    display: none;
+}
+
+.page-title {
+    &--v2 {
+        max-height: none; //remove global inheritance
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 36px;
+        font-family: $tescoFont;
+        color: $pageTitle;
+        display: inline;
+    }
+}

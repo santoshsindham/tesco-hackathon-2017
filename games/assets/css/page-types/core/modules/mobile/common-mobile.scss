@@ -1,0 +1,109 @@
+/*******************************************
+*	Mobile Example module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(mobile);
+@import "../mixins/common-mixins";
+
+@include notificationOverlay;
+
+.rating {
+	margin-right: 4px;
+}
+
+.checkbox {
+	:hover>&,
+	:target>&,
+	:active>& {
+		&:after {
+			display: none;
+		}
+	}
+	.selected>a>&,
+	.selected>& {
+		&:after {
+			display: block;
+		}
+	}
+}
+
+@include overlay-touch;
+
+#lightbox {
+	margin: 16px 6%;
+	width: 88%;
+	h2 {
+		padding: 16px;
+	}
+	> a.close {
+		overflow: hidden;
+	}
+	.lightbox-actions {
+		.apply {
+			float: none;
+			width: 100%;
+			margin: 0;
+			.icon {
+				float: right;
+				line-height: 34px;
+                font-size: 16px;
+			}
+		}
+		&.top {
+			padding-top: 0;
+		}
+	}
+}
+
+.notification-block {
+    margin: 8px 8px;
+}
+
+.hint-messaging {
+    margin-top: 17px;
+}
+
+.hint-messaging-messages {
+    padding: 15px;
+    &:after {
+        top: -19px;
+        left: 51%;
+        margin-left: -16px;
+        display: block;
+        content: " ";
+        position: absolute;
+        z-index: 9;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 13px 19px 13px;
+        border-color: transparent transparent $tescoBrightBlue transparent;
+    }
+
+    &:before {
+        top: -18px;
+        left: 51%;
+        margin-left: -16px;
+        display: block;
+        content: " ";
+        position: absolute;
+        z-index: 11;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 13px 19px 13px;
+        border-color: transparent transparent $passwordLightBlue transparent;
+    }
+}
+
+.hint-messaging-message {
+    margin-bottom: 5px;
+}
+
+.section-container {
+
+    .section-title {
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,20 @@
+/*******************************************
+*	Kiosk Link Save module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(kiosk);
+
+.link-save {
+	#filter-controls {
+		border: 0;
+	}
+	#product-filter-actions {
+		.refine {
+			top: -8px;
+		}
+	}
+}
+.kiosk .linksave .tab-module-kiosk {
+    margin-top: 30px;
+}

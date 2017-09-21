@@ -1,0 +1,100 @@
+{
+  "id" : "581-8614",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Hard Drive Capacity",
+    "internalName" : "hard_drive_in_gb"
+  } ],
+  "userActionable" : true,
+  "siteProductPageTemplates" : {
+    "site18630002" : {
+      "id" : "400900013",
+      "type" : "page",
+      "href" : "/direct/rest/content/SecureSiteBuilderRepository/page/400900013"
+    }
+  },
+  "prices" : {
+    "id" : "581-8614",
+    "fromPrice" : "249.99",
+    "toPrice" : "323.99",
+    "clubcardPoints" : 249
+  },
+  "displayName" : "Xbox One S 500GB FIFA 17 Console",
+  "publicLink" : "/direct/xbox-one-s-500gb-fifa-17-console/581-8614.prd",
+  "avgRating" : 4.82,
+  "longDescription" : "Get the Ultimate FIFA experience only on Xbox One.</P><P></P><P>\r\n\r\nOwn the Xbox One S FIFA 17 Bundle (500GB), with three Loan Legends and one month of EA Access, only on Xbox One. Also featuring 4K Blu-ray, 4K video streaming, High Dynamic Range, and a full game download of FIFA 17.</P><P>\r\nPowered by Frostbite, FIFA 17 delivers true-to-life action, takes players to new football worlds, introduces characters full of depth and emotion, and immerses you in authentic football experiences like FIFA 17 The Journey, a brand new cinematic and narrative-driven mode. And with EA Access, play EA games for a limited time before they're released and get unlimited access to The Vault, exclusively on Xbox One. With all the biggest blockbusters this year, and over 100 console exclusives, there's never been a better time to game with Xbox One.</P><P></P><P>\r\n* 4K streaming with select apps, see Xbox.com. HDR functionality available with supported games and TVs. After free month, EA Access requires paid subscription, sold separately; see www.ea.com/eaaccess for details. Loan Legends will be randomly selected and only available for play in five games; ISP fees apply. Xbox Live Gold (sold separately) also required to access certain Vault title online",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat12590007",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat12590007"
+  }, {
+    "id" : "cat19280051",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19280051"
+  }, {
+    "id" : "cat19380008",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19380008"
+  }, {
+    "id" : "cat29730025",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat29730025"
+  }, {
+    "id" : "cat3376381",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376381"
+  }, {
+    "id" : "cat3376578",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376578"
+  }, {
+    "id" : "cat3376674",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376674"
+  }, {
+    "id" : "cat3376693",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376693"
+  } ],
+  "brand" : "FIFA 17",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/581-8614_PI_66650MN?$[preset]$",
+        "secureSrc" : "//tesco.scene7.com/is/image/tesco/581-8614_PI_66650MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "noofRatingsProduced" : 696,
+  "links" : [ {
+    "id" : "581-8614",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/581-8614"
+  }, {
+    "id" : "581-8614",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/581-8614",
+    "options" : {
+      "primary" : "500GB"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

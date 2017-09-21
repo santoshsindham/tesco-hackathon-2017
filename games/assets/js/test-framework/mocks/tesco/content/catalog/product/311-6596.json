@@ -1,0 +1,102 @@
+{
+  "id" : "311-6596",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Size",
+    "internalName" : "p_size_ml"
+  }, {
+    "type" : "secondary",
+    "name" : "Size UOM",
+    "internalName" : "size_uom"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "311-6596",
+    "fromPrice" : "6.98",
+    "toPrice" : "7.25",
+    "clubcardPoints" : 6
+  },
+  "displayName" : "Revlon Charlie Silver Eau de Toilette (EDT) For Women",
+  "publicLink" : "/direct/revlon-charlie-silver-eau-de-toilette-edt-for-women/311-6596.prd",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat19430004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19430004"
+  }, {
+    "id" : "cat33170003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat33170003"
+  }, {
+    "id" : "cat33170007",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat33170007"
+  }, {
+    "id" : "cat3376000",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376000"
+  }, {
+    "id" : "cat3376570",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376570"
+  }, {
+    "id" : "cat3376688",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376688"
+  }, {
+    "id" : "cat3376691",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376691"
+  } ],
+  "brand" : "Revlon",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/196-2352_PI_1000526MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "gender" : "Female"
+  },
+  "links" : [ {
+    "id" : "196-2352",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/196-2352",
+    "options" : {
+      "primary" : "100",
+      "secondary" : "ml"
+    }
+  }, {
+    "id" : "311-6596",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/311-6596"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "196-2352",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/196-2352",
+    "options" : {
+      "primary" : "100",
+      "secondary" : "ml"
+    }
+  } ]
+}

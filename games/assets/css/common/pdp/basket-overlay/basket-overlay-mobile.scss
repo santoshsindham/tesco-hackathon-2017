@@ -1,0 +1,22 @@
+@import 'basket-overlay-mixins';
+
+.basket-overlay {
+  .add-on-item {
+    left: 120px;
+  }
+}
+
+.basket-overlay__summary {
+  margin-bottom: 30px;
+}
+
+.basket-overlay__actions {
+  margin-bottom: 30px;
+  padding-left: 4px;
+}
+
+.basket-overlay__recommenders {
+  .block-wrapper {
+    margin-bottom: 80px;
+  }
+}

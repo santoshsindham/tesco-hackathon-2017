@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\views\SwatchVariantView.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/views/</a> SwatchVariantView.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.09% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">26.09% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>12/46</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/views/SwatchVariantView', [
+  'domlib',
+  'modules/mvc/fn',
+  'modules/pdp/views/BaseView',
+  'modules/custom-dropdown/oo-dropdown'
+], function ($, fn, BaseView, customDropdown) {
+  'use strict';
+&nbsp;
+  /**
+   * The view class that renders the color variants.
+   * @param {oConfig} oConfig The configuration for the view.
+   * @return {void}
+   */
+<span class="fstat-no" title="function not covered" >  function SwatchVariantView(oConfig) {</span>
+<span class="cstat-no" title="statement not covered" >    this.sViewName = 'SwatchVariantView';</span>
+<span class="cstat-no" title="statement not covered" >    this.sNamespace = 'products';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTag = 'variants';</span>
+<span class="cstat-no" title="statement not covered" >    this.sViewClass = 'swatch-variant-view';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTemplate = $('#swatch-variant-view-template')[0].innerHTML;</span>
+<span class="cstat-no" title="statement not covered" >    this.parent.constructor.call(this, oConfig);</span>
+  }
+&nbsp;
+  fn.inherit(SwatchVariantView, BaseView);
+&nbsp;
+  SwatchVariantView._name = 'SwatchVariantView';
+  SwatchVariantView.sNamespace = 'products';
+  SwatchVariantView.sTag = 'variants';
+&nbsp;
+  SwatchVariantView.prototype._setProps = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var opts = data.vm;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!this.isObject(opts, true)) {</span>
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.forLoop(opts.links, <span class="fstat-no" title="function not covered" >function loopLinks(i) {</span></span>
+<span class="cstat-no" title="statement not covered" >      opts.links[i].value = opts.links[i].options[opts.type];</span>
+<span class="cstat-no" title="statement not covered" >      opts.links[i].swatch = opts.links[i].options.swatch;</span>
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      name: opts.name,
+      internalName: opts.internalName,
+      selected: opts.selected,
+      links: opts.links
+    };
+  };
+&nbsp;
+  SwatchVariantView.prototype._setStates = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var opts = data.vm;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!this.isObject(opts, true)) {</span>
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      isProductVariant: !!opts.isProductVariant &amp;&amp; opts.type === 'primary',
+      inDropdown: (opts.displayCount === null &amp;&amp; opts.links.length &gt; 1)
+          || (typeof opts.displayCount === 'number' &amp;&amp; opts.displayCount &gt; 1),
+      hasInventory: !!opts.hasInventory
+    };
+  };
+&nbsp;
+  SwatchVariantView.prototype._cacheDomElms = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var $wrapper = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.parent._cacheDomElms.call(this);</span>
+<span class="cstat-no" title="statement not covered" >    $wrapper = $(this.oElms.elWrapper);</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.$swatchInfo = $wrapper.find('.swatch-variant-information');</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.$swatchLinksList = $wrapper.find('.swatch-variant');</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.$mobileSwatch = $wrapper.find('.swatch-variant-mobile');</span>
+<span class="cstat-no" title="statement not covered" >    this.oElms.$mobileSelect = $wrapper.find('select');</span>
+  };
+&nbsp;
+  SwatchVariantView.prototype._initDependancies = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.oElms.$mobileSelect.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      this._dropdown = customDropdown.init(this.oElms.$mobileSelect, {</span>
+        $container: $(this.oElms.$mobileSwatch),
+        defaultNativeWidth: true,
+        overrideDefaultTouch: true,
+        overrideTimer: true,
+        additionalText: 'View all colours'
+      });
+    }
+  };
+&nbsp;
+  SwatchVariantView.prototype.refresh = <span class="fstat-no" title="function not covered" >function (args) {</span>
+<span class="cstat-no" title="statement not covered" >    var html = this.render({ mParamData: args.data }),</span>
+      node = $.parseHTML($.trim(html), document, true)[0],
+      onUpdateInventory = this.isObject(args.data.mvc.flags, true)
+          &amp;&amp; args.data.mvc.flags.onUpdateInventory;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!onUpdateInventory) {</span>
+<span class="cstat-no" title="statement not covered" >      this.oElms.$swatchInfo[0].innerHTML = node.querySelectorAll(</span>
+        '.swatch-variant-information'
+      )[0].innerHTML;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.oElms.$swatchLinksList[0].innerHTML = node.querySelectorAll(</span>
+        '.swatch-variant'
+      )[0].innerHTML;
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oElms.$select[0].innerHTML = node.getElementsByTagName('select')[0].innerHTML;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._cacheDomElms();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.isObject(this._dropdown, true)) {</span>
+<span class="cstat-no" title="statement not covered" >      this._dropdown.update();</span>
+    }
+  };
+&nbsp;
+  return SwatchVariantView;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

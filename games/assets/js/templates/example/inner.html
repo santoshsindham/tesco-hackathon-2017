@@ -1,0 +1,49 @@
+<section class="page_info"></section>
+
+<section class="introduction"></section>
+
+<section>
+    <h4>Modules</h4>
+    <article class="module">
+        <h5>common.js</h5>
+        <p>The <span>common.js</span> module is the main point of entry for all UI Buildkit modules that are going to use <b>mvApi</b>. It is the only module that is intended to expose public methods and by doing so it creates the public <span>mvApi</span> itself.</p>
+        <p>In order to use it, the following steps need to be taken in the module:</p>
+        <ul>
+            <li>A module needs to require 'modules/mvapi/common' using RequireJS</li>
+            <li>A module needs to require set of inital models for the module, e.g. 'modules/mvapi-example/mv-models'</li>
+            <li>To display a component on a page, the <code>'mvApi.render(id)'</code> method needs to be invoked, where <span>'id'</span> is an ID of a model to be rendered - a corresponding initial data for this model should be already loaded in the previous step.</li>
+            <li>To change anything within a component rendered previously with mvApi, only a change to its model needs to be provided. To do so, the <code>'mvApi.render(id, modelChange, callback)'</code> should be invoked.<br /><br />
+                <p>The <span>'id'</span> is a <b>REQUIRED</b> ID of a model to be rendered</p>
+                <p>The <span>'modelChange'</span> is an <b>OPTIONAL</b> JSON object containing only those keys, which values need to be changed</p>
+                <p>The <span>'callback'</span> is an <b>OPTIONAL</b> method that should be invoked after the view has been rendered.</p>                
+            </li>
+        </ul>
+        <p class="message warning">Please note the sequence of the optional params provided (model change or callback) is not mandatory. <code>mvApi</code> recognizes the type of paramater provided and uses them accordingly. So you can do either one of the following:</p>
+        <ul>
+            <li><code>'mvApi.render(id)'</code></li>
+            <li><code>'mvApi.render(id, modelChange)'</code></li>
+            <li><code>'mvApi.render(id, modelChange, callback)'</code></li>
+            <li><code>'mvApi.render(id, callback)'</code></li>
+            <li><code>'mvApi.render(id, callback, modelChange)'</code></li>                        
+        </ul>
+    </article>
+    <article class="module">
+        <h5>models.js</h5>
+        <p>The <span>models.js</span> module provides two methods for the <span>'common.js'</span> module:</p>
+        <ul>
+            <li><code>getData()</code> - which is being invoked if an AJAX request to a service is required. After receiving a successful response, it injects it to the data provided and a new Backbone model created by view in a next step will be based on this joined object.</li>
+            <li><code>create()</code> - which is being invoked by a view and it simply creates and returns an instance of Backbone model based on data provided.</li>
+        </ul>
+        <p class="message warning">These methods are private for the whole <b>mvApi</b> scope - there is no need to require this module and invoke its methods directly inside any of the Buildkit modules!</p>
+    </article>
+    <article class="module">
+        <h5>views.js</h5>
+        <p>The <span>views.js</span> module provides one method for the <span>'common.js'</span> module:</p>
+        <ul>
+            <li><code>render()</code> - which is a wrapper around two other private methods <code>renderItem()</code> and <code>renderCollection()</code> and invokes one of them accordingly to current conditions.
+        </ul>
+        <p class="message warning">This method is private for the whole <b>mvApi</b> scope - there is no need to require the module and invoke its method directly inside any of the Buildkit modules!</p>
+    </article>
+</section>
+
+<section class="summary"></section>

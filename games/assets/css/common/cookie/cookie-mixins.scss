@@ -1,0 +1,28 @@
+@import "../variables";
+
+@mixin desktopLargedesktopCookie {
+  .tesco-cookie {
+  	background-color: $color-title;
+  	color: $putty;
+
+  	div{
+  	 width:940px;
+   }
+  }
+}
+
+@mixin mobileTabletCookie {
+  .tesco-cookie {
+  	background-color:$color-title;
+  	color:$putty;
+  	p{
+  	 width:84%;
+   }
+   div{
+   	width:99%;
+   }
+   .tesco-cookie-accept{
+   	width:16%;
+   }
+  }
+}

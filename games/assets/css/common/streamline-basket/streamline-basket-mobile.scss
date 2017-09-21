@@ -1,0 +1,72 @@
+/*******************************************
+*	Streamline Basket - Mobile
+*******************************************/
+
+#virtual-page {
+	background-color: #fff;
+	.more-options .service-items ul li div.tooltipPopup{
+		left :4px !important;
+	}
+
+	&.streamline-basket {
+	   background: $pagePutty;
+
+		 .add-on-item {
+			 left: 75px;
+top: 47px;
+
+     }
+     .basket-overlay__addOnMessage {
+       overflow: hidden;
+       width: 100%;
+     }
+	}
+}
+
+
+.streamline-basket-carousel {
+    .products-header {
+        margin: 0;
+    }
+}
+
+#streamline-basket-iframe {  height:960px; }
+
+.streamline-basket {
+    .loading-overlay { top: 113px; }
+    .current-details {
+         padding: 16px;
+         .section-main {
+            width: 100%; margin-bottom: 8px;
+            .updated-info { margin-bottom: 16px;
+                .product-image { width: 40px; height: 40px; }
+                p { font-size: 1.8em; line-height: 40px; }
+            }
+            .more-options { margin-bottom: 16px; }
+            .summary {
+                p { font-size: 1em; }
+                ul { margin: 0.5em 0;
+                     li * { font-size: 0.85em; }
+                }
+                .total { margin: 0; }
+            }
+         }
+        .section-nav {
+            width: 100%; margin: 0 0 16px 0; padding: 0;
+            ul li { float: right; width: 62%; }
+            ul li:first-child { float: left; width: 35%;
+                input { font-size: 1.3em; }
+            }
+            input.primary-button, input.secondary-button {
+             margin-bottom: 16px;
+             z-index: 0;
+            }
+        }
+    }
+}
+
+html.flowersEnabled .current-details .summary p.personalised-message-indicative {
+    line-height: 1.5em;
+    text-indent: -2.4em;
+    margin-left: 2.4em;
+}

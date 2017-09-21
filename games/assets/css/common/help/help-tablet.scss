@@ -1,0 +1,38 @@
+//help module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "help-mixins";
+
+@include help-touch;
+
+.help {
+  #main-content,
+  #secondary-content {
+    margin: 0 6px 16px;
+    width: auto;
+    .content-block-inner {
+      padding: 0 2.5%;
+    }
+
+    .help-search-results.related-results {
+      padding: 0 2.5%;
+      margin-bottom: 0;
+    }
+    .help-faqs {
+      margin-bottom: 0;
+    }
+  }
+  .search-field {
+      .secondary-button {
+        width: 12%;
+      }
+      .search-field-wrapper {
+        width: 100%;
+      }
+    } 
+      
+
+  #secondary-content {
+    padding: 0 2.5%;
+  }
+}

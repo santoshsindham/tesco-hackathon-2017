@@ -1,0 +1,243 @@
+//chip-and-pin module - user detail form
+
+#user-detail-form-wrapper {
+  border-top: 1px solid #d6d2c4;
+    .message .error {
+      color: #000;
+      background-color: #fcd4d7;
+      border-color: #fc9fa7;
+      display: block;
+      padding: 0 20px 0 80px;
+      line-height: 55px;
+      border-style: solid;
+      border-width: 1px;
+      font-size: 25px;
+
+    }
+	input[type=text].error {
+        border: 1px solid $error;
+    }
+    .formFields {
+
+      padding-top: 20px;
+    }
+	width: 99%;
+	.disabledField {
+        border: none !important;
+        color: $darkPutty !important;
+   }	
+	fieldset {
+		border:0;
+		&.lightPuttyLine {
+			border-top: 1px solid $lightPutty;
+		}
+		.salutation-wrapper {		
+	         #reg-title.error + .customDropdown .control {
+	                border-color: $error;
+	         }
+		    #title.error + .customDropdown .control {
+	                border-color: $error;
+	         }	      
+			width: 100%;
+			clear: both;
+			height: 105px;
+			&:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+		}
+		.field-wrapper {
+			position: relative;
+			float:left;
+			&:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			input {
+				height: 45px;
+				width: 400px;
+				padding: 0 16px;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				margin-left:10px;
+				font-size: 1.6em;
+				font-family: "Tesco", "Helvetica Neue", arial;
+				color: $color-title;
+				border: 1px solid $lightPutty;
+				&:focus {
+	                border-color: $tescoBrightBlue;
+	            }     
+			}	
+			select {
+				padding: 12px 0;
+				left: -9999em;
+				position: absolute;
+			}
+			label {
+				margin: 0 0 4px;
+				font-size: 1.6em;
+				font-family: "Tesco", "Helvetica Neue", arial;
+				font-weight: bold;
+			}
+			&.reg-title {
+				width: 150px;
+				height: 45px;
+				overflow: visible;
+				span.error {
+					    margin-left: 58px;
+					    margin-top: 41px;
+					    width: 158px;
+					}
+				.customDropdown {
+					position: absolute;
+					top: 0;
+					left: 55px;
+					width: 140px;					
+					a.control {
+						padding: 9px 12px;
+						width: 140px;
+						border-color: $lightPutty;
+					}
+					a {
+					    font-size: 1.4em;
+					    line-height: 34px;
+					    padding: 0 12px;
+					    border: 1px solid transparent;
+					    text-decoration: none;
+					    cursor: pointer;
+					    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+					    -webkit-appearance: none;
+					    border-radius: 0px;
+					    display: inline-block;
+					    line-height: 23px;
+					    margin: 0 0 8px 0;
+					    padding: 10px 12px;
+					    border: 1px solid #a9a9a9;
+					    &:hover {
+					        background: $tescoBrightBlue;
+					        border: 1px solid $tescoBrightBlue;
+					        color: #fff;
+					        text-decoration: none;
+					    }
+					    .innerText {
+							font-weight: normal;
+						}
+						.icon {
+							right: 9px;
+							position: absolute;
+						}
+					}					
+					&.open {
+						ul {
+							li {
+								a.sort {
+									display: block;
+									margin-bottom: 0;
+									font-size: 14px;
+									text-align: left;
+									border: 1px solid #fff;
+									background: #fff;
+									&:hover {
+				                        margin-bottom: 0;
+				                        filter: none;
+				                        -ms-filter: none;
+										color: #fff;
+				                        background-color: $tescoBrightBlue;
+				                        border: 1px solid $tescoBrightBlue;
+									}
+								}
+							}
+						}
+					}
+				}
+				label {
+					position: absolute;
+					top: 15px;
+				}
+			}			
+			&.register-firstname {
+				margin-left: 109px;
+				input {
+					width: 305px;
+				}
+				span.error {
+				    margin-left: 86px;
+				    max-width: 317px;
+				}
+			}			
+			&.register-lastname {
+				float: right;
+				span.error {
+				    margin-left: 84px;
+				    max-width: 398px;
+				}
+			}
+			&.reg-email {
+				input {
+					width: 513px
+				}
+				span.error {
+				    margin-left: 52px;				    
+				}
+			}
+          &.reg-date {
+            float:right;
+            height: 100px;
+            span.error{
+              margin-left: 350px ;
+            }
+            label {
+              text-align: right;
+              width: 340px;
+              display: inline-block;
+              vertical-align: middle;
+             }
+            #register-date-day, #register-date-month,#register-date-year{
+              width: 145px;
+            }
+
+          }
+			&#contact-number {
+				float: right;
+				span.error {
+				    margin-left: 124px;
+				    width:392px;
+				}
+			}
+			&#continue {
+				width: 100%;
+
+				input {
+					position: absolute;
+					top: 11px;
+					right: 0px;
+					width: 235px;
+					color: #fff;
+					&:hover {
+						border-color: $tescoBrightBlue;
+					}
+				}
+				p {
+					float : left;
+					font-size: 1.6em;
+					line-height: 1.7em;
+					margin: 10px 0 0 0;
+					font-family: "Tesco", "Helvetica Neue", arial;
+					color: $color-title;
+				}
+			}
+		}
+
+        .date-wrapper-only {
+          overflow: hidden;
+          height: 280px;
+          padding-top: 80px;
+          padding-right: 200px;
+        }
+	}
+}

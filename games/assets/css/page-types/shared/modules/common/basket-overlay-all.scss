@@ -1,0 +1,149 @@
+//@import '../mixins/basket-overlay-mixins';
+
+$tableDividerClr: #eee;
+
+.basket-overlay__top {
+  overflow: hidden;
+  width: 100%;
+}
+
+.basket-overlay__item-added {
+  margin-bottom: 20px;
+
+  .image-wrapper {
+    width: 100px;
+
+    img {
+      float: left;
+      margin-right: 20px;
+    }
+  }
+
+  h2 {
+    margin-left: 100px;
+
+    &.without-image {
+      margin-left: 0;
+    }
+  }
+
+  .add-on-item {
+    top: 58px;
+    left: 105px
+  }
+}
+
+.basket-overlay__services {
+  &.without-services {
+    display: none;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  .services__form {
+    background-color: $naturalWhite;
+    margin-bottom: 30px;
+    padding: 10px 15px;
+
+    legend {
+      border-bottom: 1px solid $tableDividerClr;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+    }
+
+    .fieldset-wrapper {
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .price-wrapper {
+      position: absolute;
+      right: 0;
+    }
+
+    .icon {
+      line-height: 32px;
+      text-align: right;
+    }
+
+    .price {
+      line-height: 32px;
+      margin-right: 10px;
+      text-align: right;
+    }
+  }
+}
+
+.basket-overlay__summary {
+  p {
+    margin-bottom: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  tr {
+    border-bottom: 1px solid $tableDividerClr;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  th {
+    padding: 5px 0;
+    text-align: left;
+  }
+
+  td {
+    padding: 5px 0;
+    text-align: right;
+  }
+}
+
+.basket-overlay__addOnMessage {
+  border: 1px solid red;
+  margin-top: 10px;
+  padding: 10px;
+
+  a.icon {
+    display: block;
+  }
+
+  p {
+	  padding-bottom: 10px;
+    padding-left: 30px;
+   }
+}
+
+.basket-overlay__actions {
+  padding: 4px;
+  padding-left: 30px;
+
+  li {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.basket-overlay__recommenders {
+  margin-top: 30px;
+  width: 100%;
+
+  .block-wrapper {
+    margin-bottom: 50px;
+
+    &.with-indents {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

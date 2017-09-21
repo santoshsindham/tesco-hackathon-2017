@@ -1,0 +1,11 @@
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "sign-out-mixins";
+
+
+.sign-out {
+	padding-bottom: 7px;
+	@include side-by-side-buttons-reversed;
+
+	
+}

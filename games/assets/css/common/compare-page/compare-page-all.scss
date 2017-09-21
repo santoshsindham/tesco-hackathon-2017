@@ -1,0 +1,276 @@
+//compare-page module - all
+@import "../variables";
+@import "compare-page-mixins";
+
+.compare-page #main-content {
+    width: 100%;
+    padding: 0 8px;
+}
+
+#compare-table {
+
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+
+    table {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+
+        td {
+
+            &:first-child {
+                width: 16%;
+            }
+            width: 21%;
+            padding: 8px;
+
+            &.animate {
+                width: auto;
+                max-width: inherit;
+                display: table-column;
+                overflow: hidden;
+            }
+        }
+
+    }
+
+    .products {
+
+        td {
+            &:first-child {
+                border-width: 0px 0px 1px 0;
+                h2 {
+                    display: none;
+                }
+            }
+            height: 105px;
+            background: #fff;
+            border-width: 1px 1px 1px 1px;
+            border-style: solid;
+            border-color: $lightPutty;
+
+            &:first-child {
+                background: none;
+            }
+
+            .product {
+                position: relative;
+            }
+
+            .rating {
+                top: 0;
+            }
+
+            .thumbnail {
+                width: 52px;
+                float: left;
+                padding-right: 4px;
+                img {
+                    width: 100%;
+                    height: auto!important;
+                }
+            }
+
+            h3 {
+                font-size: 14px;
+                height: 48px;
+                overflow: hidden;
+                font-weight: normal;
+                margin: 0 0 4px 0;
+                padding-right: 1em;
+            }
+
+            .price {
+                margin: 0 0 0 52px;
+                font-size: 22px;
+                font-weight: bold;
+                font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                padding-bottom: 12px;
+            }
+
+            .close {
+                color: #ccc;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                font-size: 0.4em;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $contentLink;
+                }
+            }
+
+            .rating-container {
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+            }
+
+        }
+    }
+
+    .compare-group {
+        font-size: 1.4em;
+
+        .checkbox {
+            float: none;
+            margin-left: 0;
+            margin-right: 8px;
+            height: 24px;
+        }
+
+
+        thead td {
+            background: $lightPutty;
+            border-width: 0px 1px 1px 1px;
+            border-style: solid;
+            border-color: $lightPutty;
+            color: $xDarkPutty;
+
+        }
+
+        tbody td {
+            background: #fff;
+            border-width: 0px 1px 1px 1px;
+            border-style: solid;
+            border-color: $lightPutty;
+            text-align: center;
+
+            a {
+                vertical-align: middle;
+                display: table-cell;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            span {
+                vertical-align: middle;
+                display: table-cell;
+            }
+
+            &:first-child {
+                text-align: left;
+            }
+        }
+
+    }
+
+    .continue-shopping {
+        @include linkWithBorder;
+        font-size: 1.4em;
+        float: right;
+
+        &:hover {
+            text-decoration: none;
+        }
+
+        &.first {
+            margin-right: 8px;
+        }
+    }
+}
+
+.kiosk-carousel-nav {
+    display: none;
+}
+
+.compare-page {
+
+    .message{
+        display: none;
+    }
+
+    .empty-column-overlay {
+        z-index: 10;
+        display: none;
+        background: #fff;
+        background: rgba(255,255,255,0.7);
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+        border: 1px solid transparent;
+        font-size: 1.2em;
+
+        .content {
+            padding-top: 20px;
+        }
+
+        p {
+            margin-bottom: 8px;
+        }
+
+        a {
+            font-size: 1.15em;
+            @include linkWithBorder;
+        }
+
+        &.remaining-1 {
+            display: block;
+            width: 20.9%;
+        }
+
+        &.remaining-2 {
+            display: block;
+            width: 41.85%;
+        }
+
+        &.remaining-3 {
+            display: block;
+            width: 62.8%;
+        }
+
+        &.remaining-4 {
+            display: block;
+            width: 83.95%;
+        }
+    }
+
+    .buttons {
+        overflow: hidden;
+        margin-bottom: 12px;
+
+        .filter, .show-all {
+            width: auto;
+            padding-left: 16px;
+            padding-right: 16px;
+            float: left;
+
+            &.disabled {
+                cursor: default;
+            }
+        }
+
+        .filter {
+            margin-right: 10px;
+        }
+
+        .show-all {
+            display: none;
+        }
+    }
+
+    .continue-shopping {
+    	@include linkWithBorder;
+    	float: right;
+    	font-size: 1.5em;
+    	text-decoration: none;
+    }
+
+    .message {
+        @include boxAndShadow;
+        width: 100%;
+        padding: 16px;
+        margin-bottom: 12px;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

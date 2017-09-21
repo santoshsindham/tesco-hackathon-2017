@@ -1,0 +1,13 @@
+/*******************************************
+*   Sitewide Promo Block (DTOP)
+*   Auth: Martin McLoughlin
+*******************************************/
+@import "../../../core/components/variables";
+
+.siteWidePromoBlock-item {
+    width: 426px;
+    margin-bottom: 30px;
+    &.odd {
+        margin-right: 108px;
+    }
+}

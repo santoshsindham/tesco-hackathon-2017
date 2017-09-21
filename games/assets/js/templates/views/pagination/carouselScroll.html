@@ -1,0 +1,9 @@
+<div class="ddl paginate paginate--carousel-scroll {{#data.loading}}paginate--loading{{/data.loading}}" id="{{data.id}}">
+  {{^data.isLastPage}}
+    {{#data.loading}}
+      <div class="paginate__loader">
+        <div class="with-bkg-loader"></div>
+      </div>
+    {{/data.loading}}
+  {{/data.isLastPage}}
+</div>

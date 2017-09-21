@@ -1,0 +1,7 @@
+/*******************************************
+*	Kiosk Customer Review module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "customer-review-mixins";

@@ -1,0 +1,125 @@
+/*******************************************
+*	Desktop Product Filters module
+*******************************************/
+@import "../breakpoints";
+@import "../variables";
+@include breakpoint(desktop);
+@import "product-filters-mixins";
+
+@include overlay-filter-m-l;
+@include overlay-filter-s-m-l-xl;
+
+#product-filter-actions {
+	  width: auto;
+	  margin: 0 8px;
+	  .control {
+			font-size: 1.4em;
+			padding: 0 12px;
+			border: 1px solid $lightPutty;
+			border-radius: 0;
+			color: $color-title;
+			background: $white;
+
+			&:focus, &:hover {
+				background: $white !important;
+				color: $tescoBrightBlue !important;
+	      border: 1px solid $tescoBrightBlue !important;
+			}
+	  }
+	  .sort {
+	          a {
+	            min-width: 270px;
+	          }
+	    }
+	}
+
+	.filter-activeList_disabled {
+	  position: relative;
+	  .filter-controls {
+	    position: absolute;
+	    top: 10px;
+	  }
+	}
+
+
+/*******************************************
+*	New PLP
+*******************************************/
+
+.filter-side.lhnV2 {
+	@include refineBy-m-l;
+	margin: 0px;
+
+	.filter-categoryItem{
+		width: 460px;
+	}
+
+	.filter-categoryLabel{
+		padding: 16px 10px;
+	}
+
+	.filter-controls {
+		display: none;
+	}
+
+	.filter-categoryList {
+		margin-bottom: 0px;
+	}
+
+	.filter-activeList {
+		border-bottom: 1px solid #ccc;
+	    padding: 0px;
+	    line-height: 76px;
+	    margin: 0px 10px;
+	}
+}
+
+.plp_sortbyV2#frmTest {
+	@include frmTest-m-l;
+	.product-count {
+		display: inline-block;
+		text-align: left;
+		font-size: 22px;
+	    line-height: 26px;
+	    color: #333;
+		top: 0px;
+		padding-right: 218px;
+	}
+
+	#product-filter-actions {
+		height: 111px;
+		text-align: left;
+		padding-top: 16px;
+		.refine {
+			a {
+			    min-width: 225px;
+			}
+		}
+
+		.sort {
+			.control {
+			    min-width: 225px;
+			}
+		}
+	}
+}
+
+.plpV2#main-content{
+	.products-wrapper {
+		padding: 0px;
+	}
+}
+
+/* New PLP designs */
+
+.no-touch #product-filters-wrapper.lhnV2 a.filter-filterOption:hover{
+	color: #666;
+}
+.no-touch .filter-side.lhnV2 .filter-filterGroupLabel:hover{
+	background-color: #fff !important;
+	color: #008DC8;
+}
+.collapsible-categories {
+	margin-top:5px;
+}
+

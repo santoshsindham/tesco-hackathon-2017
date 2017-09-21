@@ -1,0 +1,13 @@
+@include breakpoint(vTablet) {
+  #basket-flyout-menu {
+    .basket-flyout-footer-wrapper {
+      .basket-submit {
+        #add-on-tooltip {
+          &.add-on-tooltip {
+            bottom: 68%;
+          }
+        }
+      }
+    }
+  }
+}

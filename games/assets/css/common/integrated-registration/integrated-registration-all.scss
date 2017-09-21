@@ -1,0 +1,451 @@
+/*******************************************
+*	Integrated Registration module
+*******************************************/
+
+@import "../variables";
+@import "integrated-registration-mixins";
+@import "../forms/forms-mixins";
+
+
+.customDropdown a {
+    color: $xDarkPutty;
+}
+.legendTopBorder {
+    padding: 16px 0 16px 0;
+    border-top: 1px solid #eee;
+    width: 100%;
+}
+.full-page-form {
+    &:after {
+        @include clear-fix;
+    }
+    form {
+        overflow-x: hidden;
+        p {
+            margin: 0 0 20px;
+            font-size: 1.4em;
+        }
+    }
+    fieldset {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    legend {
+        @extend .legendTopBorder;
+        @include fontSize(10);
+    }
+    .field-wrapper.terms-checkbox-wrapper {
+        @extend .legendTopBorder;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+    .field-note {
+        margin-bottom: 0;
+        font-size: 1.2em;
+        line-height: 1.6em;
+        color: #848282;
+    }
+    .field-wrapper {
+        position: relative;
+        margin: 0 0 20px;
+        &:after {
+            @include clear-fix;
+        }
+        &.error input {
+            border-color: $colorRed;
+        }
+        input[type=checkbox] {
+            display: none;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        .customDropdown .control {
+            .icon {
+                font-size: 12px;
+            }
+        }
+
+        /* Hide second instance of error */
+        .pcaCapturePlusTable {
+            span[for="postal-code-pca"].error {
+                display: none !important;
+            }
+        }
+    }
+    label {
+        display: block;
+        margin: 0 0 4px;
+        font-size: 1.4em;
+        span.field-required {
+            color: $colorRed;
+        }
+    }
+
+    input[type=checkbox] {
+        width: 20px;
+        height: 20px;
+        float: left;
+        margin: 0 10px 0 0;
+        padding: 0;
+    }
+    input[type=submit] {
+        margin: 16px 0 0;
+        font-weight: bold;
+    }
+
+    .disabled {
+        overflow: visible;
+        label {
+            display: inline;
+            margin-right: 1em;
+        }
+        span {
+            font-size: 1.4em;
+            color: #848282;
+        }
+        a {
+            @include underlineLink;
+            display: inline;
+            position: relative;
+            left: 0.25em;
+            float: none;
+            font-size: 0.86em;
+        }
+    }
+    select {
+        padding: 12px 0;
+        @include screen-reader;
+    }
+    .forgotten-password {
+        float: left;
+        clear: left;
+        margin: 0.5em 0 0;
+        a {
+            display: block;
+        }
+    }
+}
+
+.full-page-form #ir-sign-in-mod fieldset {
+    margin-top: 7px;
+}
+
+.full-page-form #ir-sign-in-mod fieldset {
+    margin-top: 7px;
+}
+
+.password-requirements.hint-messaging {
+    input[type=password]:focus  + input + & {
+        display: block;
+    }
+}
+
+#integrated-registration {
+    .password-requirements.hint-messaging {
+        ul {
+            list-style-type: none;
+        }
+        li:before {
+            color: $tescoRed;
+            font-size: 10px;
+            font-family: $tescoIconFont;
+            content: 'y';
+            margin: 0 5px 0 0;
+        }
+
+    }
+    &.fnCheckLengthPass {
+        @include hintMessagingList(1);
+    }
+    &.fnCheckNumberPass {
+        @include hintMessagingList(2);
+    }
+    &.fnCheckLowerCasePass {
+        @include hintMessagingList(3);
+    }
+    &.fnCheckUpperCasePass {
+        @include hintMessagingList(4);
+    }
+    &.fnSpecialCharactersPass {
+        @include hintMessagingList(5);
+    }
+}
+
+#register-phone:focus  ~ .hint-messaging {
+    display: block;
+}
+
+.field-note.password-info {
+    margin-top: 32px;
+}
+
+/* About you complete */
+body.registered #about-you-complete {
+    display: block;
+}
+/* About you complete - checkout */
+.checkout #about-you-complete {
+    position: static;
+    display: none;
+    margin-bottom: 16px;
+    background: #fff;
+    height: auto;
+    text-align: left;
+    z-index: 0;
+    .inner {
+        border-top: 1px solid #d6d2c4;
+        padding-top: 15px;
+        width: 100%;
+    }
+    .text-wrap {
+        h2 {
+            margin: 0;
+            color: $positiveGreen;
+        }
+        p {
+            text-align: left;
+        }
+    }
+    .icon-complete {
+        color: #fff;
+        background: $positiveGreen;
+        border: 1px solid $positiveGreen;
+        margin-left: 10px;
+    }
+}
+#about-you-complete {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 66px;
+    width: 100%;
+    z-index: 101;
+    background: $positiveGreen;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    @include multipleTransitions(height 0.3s);
+
+    &.hideAboutYouComplete {
+        height: 0px;
+    }
+c
+    h2 {
+        font-size: 20px;
+        font-weight: normal;
+        padding: 0;
+        margin: 0 0 10px 10px;
+        text-align: left;
+    }
+    > h2 {
+        padding: 18px 0;
+        margin-left: 10px;
+    }
+    .inner {
+        display: inline-block;
+        padding: 18px 0;
+        margin: 0;
+    }
+    .icon-complete {
+        width: 32px;
+        height: 32px;
+        display: block;
+        border-radius: 50%;
+        font-size: 20px;
+        padding: 6px;
+        margin: 0 10px 0 0;
+        color: $positiveGreen;
+        background: #fff;
+    }
+    .icon-wrap,
+    .text-wrap {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .text-wrap {
+        h2 {
+            margin: 0;
+            color: #fff;
+        }
+        p {
+            margin: 2px 0 0 0;
+        }
+    }
+}
+
+
+/* integrated registration */
+#integrated-registration {
+	input[type=text],
+	input[type=password],
+	input[type=email],
+	input[type=tel] {
+		width: 100%;
+	}
+
+    .full-page-form {
+    	padding-bottom: 16px;
+      .button-note {
+        font-size: 1.3em;
+      }
+    }
+
+    .customDropdown {
+        z-index: 15;
+    }
+
+    .field-note {
+        p {
+            font-size: 1em;
+            color: #848282;
+        }
+    }
+
+    .footnotes {
+        margin-top: 16px;
+        border-top: none;
+        p {
+            color: #848282;
+        }
+    }
+
+    .error-holder {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+        span.error {
+            font-size: 1em;
+        }
+    }
+
+    .pca-container {
+        span.error {
+
+        }
+    }
+
+    .native-select-trigger {
+		left: 0;
+	  	width: auto;
+	  	padding-left: 12px;
+		padding-right: 12px;
+	  	z-index: 10000;
+	  	opacity: 0;
+	  	bottom: 0px;
+    }
+
+}
+
+/* about you module */
+#about-you-mod {
+    overflow: hidden;
+    margin-bottom: 10px;
+
+    .tabs {
+        width: 600px;
+        li {
+            float: left;
+            width: 50%;
+            padding: 12px 0;
+        }
+
+        label {
+            float: left;
+            width: 85%;
+        }
+    }
+}
+
+/* form module containers */
+#ir-sign-in-mod,
+#ir-register1-mod {
+    clear: both;
+}
+
+#ir-sign-in-mod {
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+
+    #irspc-SigninIframe {
+      border: none;
+      width: 100%;
+      min-height: 270px;
+    }
+}
+
+#ir-register1-mod {
+    display: none;
+}
+
+@include custom-radio($inputBorderColor, -3px, 0px);
+
+#about-you-mod {
+	.custom-radio {
+    	vertical-align: middle;
+    	float: left;
+	}
+}
+
+
+
+/* Error messaging */
+#integrated-registration,
+.checkout ~ #virtual-page,
+.checkout {
+
+    span.error {
+        @include errorMessages();   
+    }
+}
+
+.checkout {
+    #integrated-registration {
+        .full-page-form {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    .store-search-form label.error,
+    .store-search-form label.invalid2 {
+        @include errorMessages(relative, -72px);
+        display: inline-block;
+        margin-right: 68px;
+    }
+
+    #dg-giftCardErrMsg {
+      label.invalid2, span.error {
+            color:$tescoRed;
+        }
+        span.error {
+            top:0;
+        }
+    }
+}
+
+#integrated-registration {
+    span[for="postal-code-pca"].error {
+        top: -27px;
+        width: 200px;
+    }
+
+    span[for="register-terms"].error {
+        top: 11px;
+        left: 30px;
+        border: 0;
+        background: #fff;
+        a {
+            color: $tescoRed;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+
+    select.error ~ .customDropdown a.control {
+        border: 1px solid $tescoRed;
+        background: $inputYellow;
+    }
+}

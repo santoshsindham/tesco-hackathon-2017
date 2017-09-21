@@ -1,0 +1,66 @@
+{
+  "id" : "24A-5X7U",
+  "authors" : [ "Peter James" ],
+  "noofRatingsProduced" : 2,
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/24A-5X7U_PI_66650MN?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/24A-5X7U_PI_66650MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/24A-5X7U_PI_66650MN?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/24A-5X7U_PI_66650MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    } ],
+    "pings" : [ {
+      "mediaType" : "PromotionPings",
+      "src" : "//www.tesco.com/directuiassets/Merchandising/NonSeasonal/en_GB/banners/offer_banners/pings/Ping_2For7_$[preset]$.png"
+    } ]
+  },
+  "skuSynopsis" : "From Peter James, the award-winning author of the Roy Grace series, comes Billionaire, an exhilarating financial thriller.  City stockbroker Alex Rocq leads a comfortable life - with a luxury flat in London, a country cottage, a very expensive car, and a lucrative job that still leaves time for leisure. But all this isn't enough. After receiving a tip-off, Alex decides to play the commodities market for himself. He soon learns the hard way that fortune doesn't always favour the brave, and his luck comes to an abrupt end. When he is offered the chance to write off his debts - in exchange for special services and silence - Rocq can't believe his luck. But how far will a desperate man go to harness the power players around him?",
+  "publicLink" : "/direct/billionaire/24A-5X7U.prd?skuId=24a-5x7u",
+  "prices" : {
+    "id" : "24A-5X7U",
+    "price" : "3.85",
+    "rrp" : "7.99",
+    "savings" : "4.14",
+    "clubcardPoints" : 3
+  },
+  "links" : [ {
+    "id" : "24A-5X7U",
+    "type" : "booksSku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/booksSku/24A-5X7U"
+  }, {
+    "id" : "24A-5X7U",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/24A-5X7U"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  } ],
+  "avgRating" : 4.0,
+  "displayName" : "Billionaire",
+  "bookDetails" : {
+    "genre" : "Thriller  suspense",
+    "authors" : "Peter James",
+    "edition" : "Main Market Ed.",
+    "ISBN" : "9781447256014",
+    "authorBiography" : "Peter James was educated at Charterhouse, then at film school. He lived in North America for a number of years, working as a screenwriter and film producer before returning to England. His novels, including the Sunday Times number one bestselling Roy Grace series, have been translated into thirty-six languages, with worldwide sales of sixteen million copies. Three books have been filmed.   In addition to his popular Roy Grace series, Peter has also written several standalone titles, including The House on Cold Hill, The Perfect Murder, Atom Bomb Angel and Dead Letter Drop. All his novels reflect his deep interest in the world of the police, with whom he does in-depth research, as well as his fascination with science, medicine and the paranormal. He has also produced numerous films, including The Merchant of Venice, starring Al Pacino, Jeremy Irons and Joseph Fiennes. He divides his time between his homes in Notting Hill, London, and near Brighton in Sussex.",
+    "publicationDate" : "31-12-2015",
+    "totalPages" : "400",
+    "formats" : "Paperback",
+    "publisher" : "Pan Macmillan"
+  },
+  "rangedInStore": true
+}

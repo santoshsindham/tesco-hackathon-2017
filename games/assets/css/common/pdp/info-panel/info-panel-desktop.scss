@@ -1,0 +1,4 @@
+@import 'info-panel-mixins';
+@import 'info-panel-overrides';
+@include infoPanelDesktop;
+@include infoPanelOverridesDesktop;

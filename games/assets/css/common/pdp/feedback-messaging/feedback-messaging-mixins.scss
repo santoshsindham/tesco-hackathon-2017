@@ -1,0 +1,35 @@
+@mixin feedbackMessagingProductDetailsAll {
+    .feedback-message-block {
+        &::after {
+            @include clear-fix;
+        }
+    }
+
+    .feedback-message {
+        float: right;
+        text-align: right;
+
+        .icon {
+            top: 1px;
+            margin-right: 4px;
+        }
+
+        a {
+            display: inline;
+        }
+    }
+}
+
+@mixin feedbackMessagingProductDetailsMobile {
+    .feedback-message-block {
+        &::after {
+            @include clear-fix;
+        }
+    }
+
+    .feedback-message {
+        a {
+            display: block;
+        }
+    }
+}

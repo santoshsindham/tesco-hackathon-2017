@@ -1,0 +1,68 @@
+
+<div id="user-detail-form-wrapper" class="open" style="display: block;">
+
+	<form id="customerDetailsForm" action="#" method="post" novalidate="novalidate">
+        <div class="fnModal message">
+        </div>
+		<fieldset class="formFields">
+
+            <% if(!isRegisteredUser() || id !== 'addUserDetails'){ %>
+			<div class="salutation-wrapper">
+				<% if (titleOptions) { %>
+                <div class="field-wrapper reg-title" id="userTitle">
+					<label for="<%= formName_title %>"><%= titleLabelText %></label>
+					<select id="<%= formName_title %>" name="<%= formName_title %>" class="require honorific-prefix" style="top: auto; bottom: 0;" data-value="<%= title %>">
+						<% for (var x = 0; x < titleOptions.length; x++) { %>
+                            <option value="<%= titleOptions[x]['value'] %>"><%= titleOptions[x]['label'] %></option>
+                        <% } %>
+					</select>
+				</div>
+                <% } %>
+				<div class="field-wrapper register-firstname">
+					<label for="<%= formName_firstName %>"><%= firstNameLabelText %></label>
+                    <input id="<%= formName_firstName %>" maxlength="20" name="<%= formName_firstName %>" value="<%= firstName %>" class="required fnFirstName" type="text" autocomplete="off" />
+				</div>
+				<div class="field-wrapper register-lastname">
+					<label for="<%= formName_lastName %>"><%= surnameLabelText %></label>
+                    <input id="<%= formName_lastName %>" maxlength="25" name="<%= formName_lastName %>" value="<%= lastName %>" class="required fnLastName" type="text" autocomplete="off" />
+				</div>
+			</div>
+			<div class="salutation-wrapper">
+				<% if (formName_email) { %>
+                <div class="field-wrapper reg-email">
+					<label for="<%= formName_email %>"><%= emailLabelText %></label>
+					<input id="<%= formName_email %>" maxlength="255" name="<%= formName_email %>" value="<%= email %>" class="email fnEmail <% if (formName_state && formName_state !== '') { %><%= formName_state %><% } %>" type="text" placeholder="<%= emailPlaceholderText %>" autocomplete="off" />
+				</div>
+                <% } %>
+                <% if (formName_contactNumber) { %>
+				<div class="field-wrapper" id="contact-number">
+					<label for="<%= formName_contactNumber %>"><%= contactNumberLabelText %></label>
+                    <input id="<%= formName_contactNumber %>" pattern="\d*" maxlength="11" name="<%= formName_contactNumber %>" value="<%= contactNumber %>" class="fnContactNumber digits" type="text" placeholder="<%= contactNumberPlaceholderText %>" autocomplete="off" />
+				</div>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if(isAgeRestricted()) { %>
+            <div class="date-wrapper<% if(isRegisteredUser()){ %> date-wrapper-only<% } %>">
+                <div class="field-wrapper reg-date">
+                    <label><%= ageRestrictionDOBMessage %></label>
+                    <input id="<%= formDateFull %>" maxlength="2" name="<%= formDateFull %>" value="<%= dateFull %>" class="dateDay" type="hidden" />
+                    <input id="<%= formDateDay %>" maxlength="2" name="<%= formDateDay %>" value="<%= dateDay %>" class="dateDay" type="text" placeholder="DD" autocomplete="off" />
+                    <input id="<%= formDateMonth %>" maxlength="2" name="<%= formDateMonth %>" value="<%= dateMonth %>" class="dateMonth" type="text" placeholder="MM" autocomplete="off" />
+                    <input id="<%= formDateYear %>" maxlength="4" name="<%= formDateYear %>" value="<%= dateYear %>" class="dateYear" type="text" placeholder="YYYY" autocomplete="off" />
+                </div>
+            </div>
+            <% } %>
+		</fieldset>
+		<fieldset class="lightPuttyLine">
+			<div class="field-wrapper " id="continue" style="">
+                <% if(!isRegisteredUser() || id !== 'addUserDetails'){ %>
+				<p class="info"><%= footerMessage %></p>				
+				<% } %>
+                <input id="continueButton" name="continue-button" value="<%= continueBtnText %>" class="button secondary-button <%= fnContinueButtonClass %>" type="submit" />
+			</div>
+		</fieldset>
+	</form>
+
+</div>

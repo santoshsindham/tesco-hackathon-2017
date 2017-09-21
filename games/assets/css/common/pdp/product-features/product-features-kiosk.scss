@@ -1,0 +1,15 @@
+@import "product-features-mixins";
+
+.product-features.product-features-non-book-layout {
+    background: transparent;
+    list-style-type: disc;
+    margin: 0 0 15px 15px;
+    li {
+        line-height: 28px;
+        list-style-position: inside;
+        /*overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;*/
+        width: 370px;
+    }
+}

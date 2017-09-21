@@ -1,0 +1,2 @@
+xcopy /s/y/r C:\ATG\ATG9.4\Tesco\application\tescodotcom\j2ee-apps\commerce.ear\commerce.war\assets\js\built\main-concat.js \\ukdbt86atgfw01v.dotcom.tesco.org\DBT86WebR2\CMS\DBT86\dmzZone\live\web\directuiassets\SiteAssets\NonSeasonal\en_GB\js\built
+xcopy /s/y/r C:\ATG\ATG9.4\Tesco\application\tescodotcom\j2ee-apps\commerce.ear\commerce.war\assets\css\*.css \\ukdbt86atgfw01v.dotcom.tesco.org\DBT86WebR2\CMS\DBT86\dmzZone\live\web\directuiassets\SiteAssets\NonSeasonal\en_GB\css

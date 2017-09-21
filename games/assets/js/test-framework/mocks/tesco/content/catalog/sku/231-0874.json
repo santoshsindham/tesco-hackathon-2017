@@ -1,0 +1,103 @@
+{
+  "id" : "231-0874",
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786MN?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786MN?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL2?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL2?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL3?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL3?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL4?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL4?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL5?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL5?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "http://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL6?$[preset]$",
+      "secureSrc" : "https://tesco.scene7.com/is/image/tesco/231-0874_PI_66786AL6?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Swatches",
+      "src" : "http://direct.tescoassets.com/directuiassets/ProductAssets/231/231-0874/Swatches/231-0874_SW_1000025SW01.jpg",
+      "secureSrc" : "https://secure.tesco.com/directuiassets/ProductAssets/231/231-0874/Swatches/231-0874_SW_1000025SW01.jpg",
+      "renderSource" : "CMS"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 2" : "10 size"
+  },
+  "publicLink" : "/direct/ff-monochrome-check-pinafore/629-1760.prd?skuId=231-0874",
+  "longDescription" : "Master this season's heritage trend with this gorgeous checked pinafore dress from F&amp;F. Offering a chic monochrome check design throughout, the dress features a close fitting cut for a flattering silhouette. With slip pockets on the sides and pinafore-style shoulder straps, the dress is finished with faux leather trims on the front. Style the dress over a turtleneck and ankle boots for a trend-led look.Concealed part zip fastening at the backSits above the knee. Model height is 5 feet 10 inches",
+  "specification" : {
+    "Material" : [ {
+      "title" : "Material",
+      "description" : "Polyester",
+      "attr" : "material"
+    } ],
+    "Features" : [ {
+      "title" : "Care Instructions",
+      "description" : "Main: 61% Polyester, 35% Viscose, 4% Elastane, Lining: 100% Polyester.",
+      "attr" : "care_instructions"
+    } ]
+  },
+  "prices" : {
+    "id" : "231-0874",
+    "price" : "25.00",
+    "clubcardPoints" : 25
+  },
+  "links" : [ {
+    "id" : "231-0874",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/231-0874",
+    "options" : {
+      "primary" : "Black & White",
+      "secondary" : "10",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/231/231-0874/Swatches/231-0874_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "629-1760",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/629-1760",
+    "options" : {
+      "primary" : "Black & White",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/231/231-0874/Swatches/231-0874_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  } ],
+  "attributes" : {
+    "colour" : "Black & White",
+    "size" : "10"
+  },
+  "displayName" : "F&F Monochrome Check Pinafore 10 Black/White"
+}

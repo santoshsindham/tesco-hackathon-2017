@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\data-stores\Store.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/data-stores/</a> Store.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>34/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">54.84% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>34/62</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>34/34</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-yes">29×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/data-stores/Store', [], function () {
+  'use strict';
+&nbsp;
+  /**
+   * The data object for the store, including all the properties a store has.
+   * @param {Object} data The properties to map into the store data object.
+   * @return {void}
+   */
+  function Store(data) {
+    this.id = data.id || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.addressOne = data.addressOne || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.addressTwo = data.addressTwo || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.country = data.country || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.county = data.county || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.facilities = data.facilities || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.facilitiesTiming = data.facilitiesTiming || null;
+    this.friClose = data.friClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.friOpen = data.friOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.gridReference = data.gridReference || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.latitude = parseFloat(data.latitude) || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.longitude = parseFloat(data.longitude) || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.monClose = data.monClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.monOpen = data.monOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.postalCode = data.postalCode || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.satClose = data.satClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.satOpen = data.satOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.storeId = data.storeId || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.storeName = data.storeName || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.storeTimings = data.storeTimings || null;
+    this.storeTypes = data.storeTypes || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.sunClose = data.sunClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.sunOpen = data.sunOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.telephone = data.telephone || null;
+    this.thuClose = data.thuClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.thuOpen = data.thuOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.townCity = data.townCity || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.tueClose = data.tueClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.tueOpen = data.tueOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.wedClose = data.wedClose || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+    this.wedOpen = data.wedOpen || <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
+  }
+&nbsp;
+  return Store;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "pdp-configurator-mixins";
+@import "product-info/product-info-large-desktop";
+@import "product-selector/product-selector-large-desktop";
+@import "add-to-basket/add-to-basket-large-desktop";
+
+
+.pdp-configurator {
+    .is-large-desktop-only {
+        display: block !important;
+    }
+}

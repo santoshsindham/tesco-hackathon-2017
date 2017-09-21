@@ -1,0 +1,20 @@
+/*******************************************
+*	Grid layout module - mobile
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(mobile);
+
+/* 5 COLUMNS GRID STYLES */ 
+.grid-5, grid-4, grid-3, grid-2, grid-1 { 
+	width: auto !important; 
+	float: none; 
+	clear: both;
+}
+		
+/* 4 COLUMNS GRID STYLES */ 
+#main-content .grid-4, #main-content .grid-3, #main-content .grid-2, #main-content .grid-1 { 
+	width: auto !important; 
+	float: none; 
+	clear: both; 
+}

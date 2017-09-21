@@ -1,0 +1,67 @@
+//simple-order-amend module - desktop
+@import "../variables";
+ #wrapper {
+    &.simpleOrderAmend {
+        .savedAddressesDropdown {
+            &.native-select-trigger {
+                margin-left: auto !important;
+            }
+        }
+        #order-summary > {
+            .checkout {
+                .thumbnail {
+                    width: 138px;
+                }
+                .amendDeliveryGroup {
+                    padding: 16px 16px;
+                }
+                .amendSection {
+                    .warningMessage {
+                        padding-right: 30px;
+                    }
+                    &.amendDeliveryDate {
+                        .deliveryDate {
+                            margin-left: -7px;
+                            .title {
+                padding: 0 0 15px 0;
+                            }
+                        }
+                    }
+                    .header {
+                        width: 25%;
+                    }
+                    .content {
+                        width: 75%;
+                        .editContent {
+                            width: 297px;
+                        }
+                        .delivery-group-block {
+                            .amendAddressForm {
+                                .delivery-block {
+                                    .delivery-options {
+                                        .stores-container {
+                                            .stores {
+                                                li {
+                                                    label {
+                                                        font-size: 1em;
+                                                    }
+                                                }
+                                            }
+                                            .store-details-container {
+                                                .tabs {
+                                                    li {
+                                                        padding-right: 0;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+@mixin scene7ScrubberDimensions($width: 360px) {
+    $scrubberWidth: $width;
+    width: $scrubberWidth;
+    left: 50%;
+    margin-left: -($scrubberWidth / 2);
+
+    .s7track {
+        width: $scrubberWidth;
+    }
+}

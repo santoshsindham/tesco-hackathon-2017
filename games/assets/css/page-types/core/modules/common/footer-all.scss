@@ -1,0 +1,315 @@
+/*******************************************
+* Footer module
+*******************************************/
+
+@import "../../components/variables";
+@import "../mixins/footer-mixins";
+
+$onecol: 16px;
+
+#footer {
+	@include noselsct;
+	clear: both;
+	position: relative;
+	width:100%;
+	// To stop footer flashing in Chrome
+	/*-webkit-transform:translate3d(0,0,0);*/
+	&:before {
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+	}
+
+	// Links
+	.container-link {
+		padding-left: 64px;
+		padding-right: 6px;
+		padding-bottom: 26px;
+
+		&:after {
+			@include clear-fix;
+		}
+        .logo {
+          position: relative;
+          top: 20px;
+          float: left;
+          display: block;
+          width: 112px;
+          height: 30px;
+          z-index: 1;
+          font-size: 4em;
+          color: #fff;
+          line-height: 2rem;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+		img {
+			margin-top: 24px;
+			float: left;
+		}
+		ul {
+			float: right;
+			padding-top: 19px;
+			li {
+				float: left;
+				padding-right: 5px;
+				padding-top: 1px;
+				font-size: 1.4em;
+				padding-right: 19px;
+				font-family: "Helvetica Neue", Arial, sans-serif;
+				a {
+					display: block;
+					position: relative;
+					text-decoration: none;
+					background: #fff;
+					border-bottom: none;
+					padding: 8px;
+					color: $grey;
+					&:hover,
+					&:focus,
+					&:active {
+						border-bottom:none;
+						background: $tescoBrightBlue;
+						color: #fff;
+					}
+					&.kiosk-help{
+						display: none;
+					}
+					span.icon {
+						display: inline-block;
+						padding-right: 4px;
+						font-size: 12px;
+						line-height: 1.38em;
+					}
+					span.icon-cta {
+						right: 22px;
+						font-size: 8px;
+						position: absolute;
+						top: 20px;
+						display: none;
+					}
+					[data-icon]:before {
+						font-family: 'Tesco Icons';
+					}
+				}
+			}
+		}
+	}
+
+	// Accordion
+	.accordion {
+		> li {
+			&:hover {
+				background: $tescoBrightBlue;
+			}
+		}
+		padding-left: 66px;
+		position: relative;
+		[data-icon]:before {
+			font-family: 'Tesco Icons';
+		}
+		.accordion-item-active .title-box [data-icon]:before {
+			content: "c";
+		}
+		&:after {
+			 @include clear-fix;
+		}
+	}
+	.accordion-element {
+		border-bottom: none;
+		// Title of sections / Text on accordion elements
+		.title-box {
+			color: $color-accordion-element-title-text;
+			white-space: nowrap;
+			padding: 35px 0 0 0;
+			padding-right: 10px;
+			font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+			font-weight: bold;
+			h2 {
+				font-size: 2em;
+				color: #fff;
+				padding-bottom: 0;
+				position: relative;
+				a {
+					color: #fff;
+					text-decoration: none;
+					cursor:default;
+				}
+			}
+			// Icon at the end of any element
+			span.icon {
+
+				font-size: 8px;
+				line-height: 20px;
+				float: right;
+				display: none;
+			}
+		}
+		// list container in accordion
+		.content {
+			height: auto;
+			padding-right: 1 * $onecol;
+			ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 15px 0 0 0px;
+			}
+			li {
+				padding: 8px 0 0 0;
+				border-bottom: none;
+				&:hover{
+					background:$tescoBrightBlue;
+					a {
+						color: #FFF;
+					}
+				}
+
+				&.kiosk span.icon {
+					display: none;
+				}
+				a {
+					color: $color-accordion-element-item-text;
+					display: inline-block;
+					font-size: 1.4em;
+					&:hover,
+					&:focus,
+					&:active {
+						color: #fff;
+						text-decoration: none;
+						border-color: $color-accordion-element-item-underline-hover;
+					}
+					span.icon {
+
+    				border: none;
+    				font-size: 10px;
+    				/*color: $color-accordion-element-item-underline;*/
+    				padding-bottom: 2px;
+    				padding-left: 5px;
+    				line-height: 18px;
+    				margin-left: 0;                        // #mq-mod
+					}
+				}
+			}
+		}
+	}
+
+	// ELH & copyright
+	.panel-bottom {
+		clear: both;
+		width: 100%;
+		float: left;
+		padding-top: 25px;
+		padding-bottom: 30px;
+		span {
+			color: $color-accordion-element-item-text;          // #mq-mod
+			display: block;
+			float: left;
+			&.icon {
+                &:before {
+                  font-size: 60px;
+                  line-height: 20px;
+                }
+				font-size: 19px;
+				color: #fff;
+				overflow: hidden;
+				width: 120px;
+				margin-right: 8px;
+                white-space: nowrap;
+			}
+			&.copyright {
+				padding-top: 4px;
+				font-size: 0.8em;
+				font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans-serif;
+			}
+		}
+	}
+}
+
+.plain-full-bleed {
+	> .page {
+		.panel-logo-all {
+			padding-left: 10px;
+			margin: 0px auto;
+		}
+	}
+}
+
+// Payment logos etc.
+.panel-logo-all {
+	clear: both;
+	background: $color-panel-logo-all-bg;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	overflow: hidden;
+	li {
+		float: left;
+		a {
+			display: inline-block;
+			overflow: hidden;
+			text-indent: 100%;
+			white-space: nowrap;
+			background-repeat: no-repeat;
+		}
+	}
+}
+
+// secure footer
+p.footer-message-secure {
+	position: relative;
+	margin: 0 8px;
+	padding: 12px 0 12px 24px;
+	border-top: 1px solid $lightPutty;
+	color: $darkPutty;
+	span.icon {
+		position: absolute;
+		left: 0;
+		top: 9px;
+		font-size: 16px;
+	}
+}
+
+p.footer-message-secure-legal{
+	position: relative;
+	margin: 0 8px;
+	padding: 12px 0px;
+	color: $darkPutty;
+}
+
+#footer {
+	.panel-logo-all.secure:first-child {
+		float: left;
+		clear: none;
+		margin: 12px 8px;
+		padding: 0;
+		overflow: visible;
+		line-height: normal;
+	}
+	.panel-bottom span.copyright{
+		color:$pagePutty;
+	}
+	.panel-bottom.secure {
+		width: auto;
+		clear: none;
+		float: right;
+		margin: 16px 8px 0;
+		padding: 0;
+		line-height: normal;
+		.icon-every-little {
+			margin: 3px 0 0;
+			span.icon {
+				margin: 0;
+			    color: #000;
+			}
+		}
+		.copyright {
+			float: left;
+			margin: 0 32px 12px 0;
+			color: inherit;
+			font-size: 1.2em;
+			line-height: normal;
+		}
+	}
+}

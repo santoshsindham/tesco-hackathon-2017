@@ -1,0 +1,81 @@
+/*******************************************
+*	Large Desktop Footer module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "footer-mixins";
+
+@include common-desktop-footer;
+
+#footer {
+	.container-link {
+		padding-bottom: 0;
+		.logo {
+			position: relative;
+			top: 92px;
+			float: left;
+			display: block;
+			width: 112px;
+			height: 30px;
+			z-index: 1;
+			font-size: 6em;
+			color: #fff;
+			line-height: 2rem;
+			&:hover {
+              text-decoration: none;
+            }
+		}
+	}
+	.accordion {
+		position: relative;
+		padding-top: 33px;
+		padding-left: 32   * $onecol;
+	}
+	.accordion-element {
+		.content {
+			padding-right: 0;
+			li {
+				padding-right: 2 * $onecol!important;
+			}
+		}
+		&.last {
+			width: 58 * $onecol;
+			padding-left: 10px;
+		}
+		.title-box {
+		 padding: 0 0 21px 0px;
+		}
+		.content{
+			ul {
+				padding-top: 0;
+				li {
+					padding: 4px 0 4px 10px;
+					margin-left:-10px;
+					margin-right:10px;
+				}
+			}
+		}
+	}
+	.panel-bottom {
+		padding-right: 2 * $onecol;
+		line-height: 21px;
+		vertical-align: middle;
+		text-align: right;
+		span.icon {
+			vertical-align: middle;
+		}
+		span.icon,
+		span.copyright {
+			float: none;
+			display: inline-block;
+			line-height: 21px;
+		}
+		span.icon {
+			width: 120px;
+		}
+		span.copyright {
+			font-size: 1.2em;
+		}
+	}
+}

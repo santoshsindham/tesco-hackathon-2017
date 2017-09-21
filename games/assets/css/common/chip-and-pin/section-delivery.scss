@@ -1,0 +1,517 @@
+//chip-and-pin module - delivery sectrion
+@import "../variables";
+
+#wrapper.spi {
+	&.hide-tabs {
+		.tabs {
+			display: none;
+		}
+		.delivery {
+			margin-top: 13px;
+		}
+	}
+	.tabs {
+    	height: 54px;
+        clear: both;
+    	overflow: hidden;
+		background: $pagePutty;
+		margin: 13px 13px 0 13px;
+    	ul {
+    		position: relative;
+    		width: 15000px;
+    		li {
+        		float: left;
+        		overflow: hidden;
+    			display: block;
+    			padding: 13px 0 13px 17px;
+    			width: 540px;
+    			border-right: 1px solid #fff;
+    			font-family: 'Tesco', arial;
+    			font-size: 25px;
+    			cursor: default;
+   				color: #fff;
+    			&.active {
+    				color: $tescoBrightBlue;
+    				background: #fff;
+    			}
+    			&.disabled {
+    				background: $inactivePutty;
+	    		}
+	    		&.completed {
+	    			background: url('../images/chip_and_pin/delivery_tabs_tick.png') right bottom no-repeat $inactivePutty;
+	    		}
+	    		&.slideOverflowIcon {
+    				width: 163px;
+    				background: $inactivePutty;
+    				padding: 13px 0;
+    				text-align: center;
+    				cursor: pointer;
+    				border-right: 0;
+    			}
+    		}
+    	}
+    }
+	.delivery {
+	    background: white;
+	    height: 780px;
+	    overflow: hidden;
+	    margin: 0px 13px 0 13px;
+	
+	    * {
+	        box-sizing: content-box;
+	    }
+	
+	    p {
+	        margin: 0;
+	        font-size: 1em;
+	    }
+	
+	    .items {
+	        float: left;
+	        position: relative;
+	        width: 505px;
+	        height: 780px;
+	        overflow: hidden;
+	
+	        .numberOfItemsBox {
+	            font-weight: bold;
+	            line-height: 80px;
+	            padding: 0 20px;
+	            font-size: 30px;
+	         }
+	
+	        .itemsListContainer {
+	            height: 531px;
+	            overflow: hidden;
+	            position: relative;
+	        }
+	
+	        .itemsList {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            margin-top: 1px;
+
+                .uiGiftMessage {
+                    display: none;
+                }
+	
+	            li {
+	                float: right;	                
+	                height: 106px;	                
+	                font-size: 25px;
+	                line-height: 1.2em;
+                    margin-bottom: 20px;
+                    .item {
+                        padding: 7px 0 0 0;
+                        border-bottom: solid 1px #fff;
+	                    border-top: solid 1px #f2f1ed;
+                        overflow: auto;
+                        position: relative;                       
+                    }                 
+
+		            .static-product-image {
+	                    display:none;
+	                }
+
+	                   .quantity {
+	                       float: left;
+	                       width: 35px;
+	                       text-align: right;
+	                       margin-right: 10px;
+	                       font-weight: bold;
+	                    }
+	
+	                    .details {
+	                        float: left;
+	                        width: 460px;
+	                        height: 92px;
+	                        position: relative;
+	                    }
+
+                        .personalised-message-indicative {
+                            font-size: 0.8em;
+                            padding-left: 10px;
+                            p {
+                                font-size: 0.95em;
+                            }
+                            p:before {
+                                font-size: 1.2em;
+                                font-style: normal;
+                                position: relative;
+                                top: -4px;
+                            }
+                        }
+
+                        .price {
+	                       position: absolute;
+	                       bottom: 0;
+	                       right: 20px;
+	                    }
+
+                  .item.service {
+                     width: 460px;
+                     .details {
+                         width: 415px;
+                     }
+                  }
+	
+	            }
+	            
+	            li:last-child {
+                    .item {
+                        border-color: #f2f1ed;
+                    }
+	            }
+	
+	        }
+	
+	        .itemsNav {
+	            position: absolute;
+	            width: 470px;
+	            height: 70px;
+	            overflow: hidden;
+	            left: 20px;
+	            bottom: 80px;
+	            display: none;
+	
+	            a {
+	                float: right;
+	                width: 115px;
+	                height: 70px;
+	                background: #e3e0d8;
+	                position: relative;
+	                z-index: 1;
+	
+	                span {
+	                    display: block;
+	                    width: 25px;
+	                    height: 25px;
+	                    margin: 23px 0 0 45px;
+	                    overflow: hidden;
+	                    text-indent: -9999px;
+	                    background: transparent url('../img/arrow.png') no-repeat 0 0;
+	            }
+	            }
+	
+	            a:first-child {
+	                float: left;
+	            }
+	
+	            a.up span {
+	                background-position: 0 0;
+	            }
+	            a.down span {
+	                background-position: -25px 0;
+	            }
+	
+	            a.enabled {
+	                background-color: $putty;
+	            }
+	
+	            a.enabled:active, a.enabled.active {
+	                background: $tescoBrightBlue;
+	            }
+	
+	            .pages {
+	                position: absolute;
+	                z-index: 0;
+	                width: 100%;
+	                font-size: 25px;
+	                line-height: 70px;
+	                text-align: center;
+	
+	                li {
+	                       width: 30px;
+	                       height: 70px;
+	                       display: inline-block;
+	
+	                       &.active {
+	                           color: $tescoBrightBlue;
+	                           font-size: 30px;
+	                       }
+	                }
+	            }
+	        }
+	    }
+	
+	    .deliveryOptionsArea {
+	        float: right;
+	        width: 1145px;
+	        overflow: hidden;
+	        margin: 80px 53px 0 0;
+	
+	        h5 {
+	            font-size: 2.66em;
+	            margin: 25px 0;
+	        }
+	
+	        .deliveryOptions {
+	            display: block;
+	            overflow: auto;
+	
+	            li {
+	                display: inline-block;
+	                margin-bottom: 40px;
+	                
+	                a {
+	                    float: left;
+	                    width: 539px;
+	                    height: 223px;
+	                    overflow: hidden;
+	                    border: solid 3px #f7392f;
+	                    margin-left: 45px;
+	                    
+	                    &.disabled {
+	                    	border: 3px solid #645945;
+	                    }
+	
+	                    .icon {
+	                        float: left;
+	                        width: 70px;
+	                        height: 205px;
+	                        margin: 0 24px;
+	                        background: transparent url('../img/ico_delivery_options.png') no-repeat 0 32px;
+	                    }
+	
+	                    .icon.store {
+	                        background-position: 0 32px;
+	                    }
+	                    .icon.expressDelivery {
+	                        background-position: -70px 32px;
+	                    }
+	                    .icon.standardDelivery {
+	                        background-position: -140px 32px;
+	                    }
+	                    .icon.express {
+	                        background-position: -70px 32px;
+	                    }
+	                    .icon.standard {
+	                        background-position: -140px 32px;
+	                    }
+	
+	                    .details {
+	                        width: 370px;
+	                        height: 180px;
+	                        padding: 0;
+	                        margin: 25px 0 0 0;
+	                        overflow: hidden;
+	                        float: left;
+	                        position: relative;
+	                        font-size: 40px; 
+	
+	                        p {
+	                            line-height: 1em;
+	                        }
+							p.restrictThisStore {
+							    font-size: 18px;
+							    line-height: 22px;
+							    color: #000;
+							}
+	                        b {
+	                            color: #F7392F;
+	                            font-weight: normal;
+	                            display: block;
+	                        }
+	
+	                        .deliveryOptionMessage {
+	                            font-style: normal;
+	                            display: block;
+	                            position: absolute;
+	                            right: 20px;
+	                            bottom: 3px;
+	                            font-size: 20px;
+	                            text-align: right;
+	                        }
+	                        
+	                     }
+	
+	                    .arrow {
+	                        width: 51px;
+	                        height: 100%;
+	                        overflow: hidden;
+	                        float: right;
+	                        background: #f7392f;
+	
+	                        b {
+	                            display: block;
+	                            width: 25px;
+	                            height: 25px;
+	                            background: transparent url('../img/arrow.png') no-repeat -25px -25px;
+	                            margin: 90px 0 0 17px;
+	                        }
+	                    }
+	                }
+	            }
+	
+	            li:first-child {
+	                a {
+	                   margin-left: 0;
+                   }
+	            }
+	        }
+	
+	        .deliveryOptions.red {
+	            li {
+	                a {
+	                   border-color: #f7392f;
+	                   &.disabled {
+	                   	 	opacity: .3;
+						    border-color: #645945;
+						    color: #645945;
+						    cursor: default;
+						    
+						    .details b{
+				                 color: #645945;
+				            }
+				            .arrow {
+				            	background-color: #645945;
+				            }
+	                   }
+                   }
+	           }
+	            .details {
+	                b {
+	                    color: #f7392F;
+	                }
+	            }
+	            .arrow {
+	                background-color: #f7392f;
+	            }
+	        }
+	
+	        .deliveryOptions.orange {
+	            li {
+	                a {
+	                   border-color: #fe532d;
+                   }
+	            }
+	            .details {
+	                b {
+	                    color: #fe532d;
+	                }
+	            }
+	            .arrow {
+	                background-color: #fe532d;
+	            }
+	        }
+	
+	        /*.deliveryOptions li:active, .deliveryOptions li.active {
+	            a {
+	               border-color: $tescoBrightBlue;
+               }
+	
+	            .arrow {
+	                background-color: $tescoBrightBlue;
+	            }
+	        }*/
+	
+	        .deliveryNotes {
+	            p {
+	                font-size: 20px;
+	                font-family: Arial, sans-serif;
+	                border-top: 1px solid #F2F1ED;
+	                padding: 10px 0;
+	
+	                &:first-child {
+	                    border: none;
+	                }
+	
+	            }
+                .deliveriesToHospitalsMessage {
+                    padding-left: 16px;
+
+                    span {
+                        font-size: 40px;
+                        float: left;
+                        margin-right: 12px;
+                        background-color: $darkPutty;
+                        color: #fff;
+                        border-radius: 50%;
+                    }
+                    p {
+                        padding-top: 10px;
+                        padding-bottom: 5px;
+                    }
+                }
+	        }
+	    }
+	}
+    
+}
+
+#lightbox {
+
+    .deliveryList {
+        height: 342px;
+        background: #fff;
+        position: relative;
+
+        #pagination-nav,
+        .pagination-nav-container {
+            position: absolute;
+            top: -10px;
+            right: -18px;
+            width: 48px;
+        }
+
+        .addressList {
+            margin: 0;
+
+            li {
+                padding: 12px 0;
+                line-height: 5.2em;
+                clear: both;
+            }
+
+            .labelErrorMessage {
+				margin: 0 0 0 13px;
+				padding: 12px 0 0 0;
+				display: inline-block;
+				font-weight: bold;
+				width: 300px;
+				line-height: 1;
+				font-size: 18px;
+				text-align: center;
+				vertical-align: middle;
+			}
+
+            .address {
+                font-size: 2.5em;
+            }
+
+            .nickname {
+                font-size: 2.5em;
+                font-weight: bold;
+            }
+
+            .blockedMessage {
+                font-size: 2em;
+                font-weight: bold;
+                float: right;
+            }
+
+            .secondary-button {
+                width: auto;
+                display: inline-block;
+                padding: 12px 40px;
+                float: right;
+            }
+        }
+
+        #content-mask,
+        .content-mask {
+            height: 332px;
+
+            .overlay-wrapper {
+                padding-right: 70px;
+            }
+        }
+    }
+
+    .findAddressBtn {
+        width: auto;
+        padding: 12px 40px;
+        float: right;
+    }
+}

@@ -1,0 +1,56 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  {{#state.toDisplayOption}}
+    <div class="swatch-variant-information">
+      <strong>{{props.name}}:</strong> <span class="swatch-variant-display-name">{{props.selectedValue}}</span>
+    </div>
+    <ul class="swatch-variant" data-variant-group="{{props.internalName}}" data-productID="{{props.productID}}">
+      {{#props.links}}
+        <li {{#selected}}class="swatch-variant-selected"{{/selected}}>
+          <a title="{{value}}" class="{{^available}}swatch-variant-unavailable{{/available}}" data-variant-value="{{value}}"
+              data-variant-id="{{id}}" data-product-variant="{{isProductVariant}}" data-variant-group-type="{{props.type}}" data-variant-type="{{type}}">
+            <img src="{{swatch}}" title="{{value}}" alt="{{value}}" />
+            <span class="swatch-variant-label">{{value}}</span>
+          </a>
+        </li>
+      {{/props.links}}
+    </ul>
+
+    <div class="swatch-variant-mobile">
+      {{#state.inDropdown}}
+        <div class="select-wrapper">
+          <label for="{{props.internalName}}" class="screen-reader">Select {{props.name}}</label>
+          <select id="{{props.internalName}}" name="{{props.internalName}}" data-variant-group="{{props.internalName}}" data-productID="{{props.productID}}">
+            {{#props.links}}
+              <option value="{{id}}" data-variant-id="{{id}}" {{^available}}data-available="false"{{/available}}
+                  data-variant-value="{{value}}" data-inventory="{{inventoryMerged}}" {{#selected}}selected="selected"{{/selected}}
+                  data-swatch-url="{{swatch}}" data-product-variant="{{isProductVariant}}" data-variant-group-type="{{props.type}}"
+                  data-variant-type="{{type}}">
+                {{value}}
+                {{#inventoryMerged}}
+                  {{^available}} - Sold out{{/available}}
+                {{/inventoryMerged}}
+              </option>
+            {{/props.links}}
+          </select>
+        </div>
+      {{/state.inDropdown}}
+
+      {{^state.inDropdown}}
+      <div class="dropdown-customised">
+        {{#props.links}}
+        <span class="control block-link single-swatch-only {{^available}}swatch-variant-unavailable{{/available}}">
+          <img src="{{swatch}}" title="{{value}}" alt="{{value}}" />
+          <span class="innerText">
+            {{value}}
+            {{#inventoryMerged}}
+              {{^available}} - Sold out{{/available}}
+            {{/inventoryMerged}}
+          </span>
+        </span>
+        {{/props.links}}
+      </div>
+      {{/state.inDropdown}}
+    </div>
+  {{/state.toDisplayOption}}
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

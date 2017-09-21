@@ -1,0 +1,400 @@
+/* 5.4 Promotion */
+
+/*
+  Styles combined with HTML Blocks section - which encompasses all promotional banners and adverts
+*/
+
+/* 5.6 Product List */
+
+/*
+	Similar to the product grid with similar content
+	Content laid out horizontally
+*/
+
+.product-list {
+    padding-right: 10px;
+}
+.product-list li {
+    border: 1px solid #DDD7D7;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 0 0 10px 0;
+    padding: 0px;
+    width:750px;
+}
+.product-list li.book-list {
+    border: 1px solid #DDD7D7;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin: 0 0 10px 0;
+    min-height: 178px;
+}
+.product-list li a{
+	float: left;
+	position: relative;
+}
+.product-list .product-details a{
+	float: none;
+}
+.product-list .jt-tooltip-content li {
+    //width: 178px;
+}
+.product-list .product-details-core {
+	float:left;
+	//min-height:119px;
+	width:360px;
+}
+.product-list .book-product .product-details-core {
+	//min-height:149px;
+}
+.product-details-core p {
+	margin:0 0 2px;
+	font-size:1.1em;
+}
+.product-list .product-details .book-author{
+	//font-size:1.2em;
+	//color: #00539f;
+	margin: 0;
+	//padding:0;
+	font-size: 1.6em;
+}
+.product-list .product-details .book-format{
+	font-size:1.1em;
+	color:#000;
+	margin:2px 0 2px 3px;
+	padding:5px 0 10px 0;
+	min-height:27px;
+	font-weight:bold;
+}
+.product-list .product-details .book-format span{
+	font-size:1.0em;
+	color:#000;
+	padding-left:10px;
+	font-weight:normal;
+}
+.product-list .product-details{
+    width: 360px;
+    margin-left: 8px;
+}
+.product-list .product-features{
+	list-style:inside disc;
+    clear: both;
+    font-size: 1.1em;
+    margin: 0;
+	overflow: hidden;
+}
+.product-list .product-features li{
+	margin: 0;
+	padding: 0px 0px 2px 0px;
+	border: none;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+	float: none;
+	min-height: inherit;
+}
+.product-list .product-details-book .product-features {
+	list-style:none outside;
+}
+.product-list .product-details-book .product-features li{
+	display:block;
+	list-style:none outside;
+}
+.product-list .product-compare-add{
+    width: 330px;
+}
+.product-list .product-availability-offers{
+	float:left;
+    border-top: 1px dashed #DDD7D7;
+    border-bottom: 1px dashed #DDD7D7;
+    width: 350px;
+	padding: 5px 0;
+	-moz-border-image: url(../images/border_dotted.gif) 1 1 1 1 / 1px 0 1px 0 repeat repeat;
+	-webkit-border-image: url(../images/border_dotted.gif) 1 1 1 1 / 1px 0 1px 0 repeat repeat;
+	border-image: url(../images/border_dotted.gif) 1 1 1 1 / 1px 0 1px 0 repeat repeat;
+	margin: 0 0 2px 0;
+}
+.product-availability-offers{
+	position: relative;
+}
+.product-list .book-product .product-availability-offers{
+	margin-bottom: 0px;
+}
+.product-list .in-stock-actions{
+	margin-bottom:8px;
+}
+.product-list .in-stock{
+    float: left;
+    margin: 0;
+    font-weight:bold;
+    font-size:1.2em;
+    padding: 1px 5px 2px 5px;
+    border:1px solid #05ae20;
+    color:#05ae20;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    text-transform:lowercase;
+}
+.product-list .product-purchase{
+    width: 182px;
+	position: relative;
+	margin-left: 6px;
+}
+
+.product-list .product-purchase fieldset{
+	padding:0;
+	margin:0;
+	border:none;
+}
+.product-list .product-purchase .input-large {
+    padding: 5px 0px;
+    width: 100%;
+    margin-bottom:5px;
+}
+
+.product-list .book-product .product-purchase .input-large {
+	margin-top:3px;
+	}
+
+.product-list .product-purchase .basket-large {
+	padding: 3px 0px 3px 0px;
+    width: 100%;	
+}
+.product-list-view .product-purchase .basket-large{
+	padding: 4px 0;
+	text-align:center;
+}
+.product-list .current-price{
+    margin: 0;
+	font-size: 1.4em;
+	line-height:2em;
+}
+.product-list .old-price{
+    font-size: 1.2em;
+    color: #4F5050;
+	width:auto;
+	margin:0 10px 0 0;
+	float:left;
+}
+.product-list .rrp-price{
+    margin: 0;
+    font-size: 1.2em;
+    color: #4F5050;
+	width:179px;
+}
+.product-grid .rrp-price,.product-grid .old-price{
+    font-size: 1.1em;
+    line-height: 1.3em;
+    width:auto;
+	margin:0 8px 0 0;
+	float:left;
+	margin-top: 2px;
+}
+
+.product-list .product-price.book .old-price{
+    margin: 0;
+    font-size: 1.2em;
+    color: #4F5050;
+	width:179px;
+	text-decoration:none;
+}
+.product-list .discount{
+    margin: 0 0 3px 0;
+    font-size: 1.2em;
+	font-weight:normal;
+	width:150px;
+	clear:both;
+}
+.product-list .clubcard-points,
+.product-list .pay-options{
+    color: #4F5050;
+    font-size: 1.1em;
+    width:180px;
+}
+.product-list .clubcard-points{
+    margin: 0px;
+}
+.product-list .pay-options{
+    margin: 0;
+}
+.product-list .currency{
+    font-size: 1.8em;
+    margin: 0 3px 0 1px;
+}
+.product-list .pounds{
+    font-size: 1.9em;
+    font-weight: bold;
+}
+.product-list .pence{
+    font-size: 1.7em;
+    font-weight: bold;
+}
+.product-list .product-rating{
+    overflow: hidden;
+    margin: 0 0 5px -1px;
+    min-height:16px;
+}
+.product-list .product-rating img{
+    margin: 0 5px 0 0;
+}
+.product-list li a img {
+	margin: 8px 8px 0;	
+}
+
+.product-purchase,
+.product-details {
+    float: left;
+}
+.product-name,
+.product-features,
+.product-offers-button {
+    margin: 7px 0 0;
+}
+.product-rating {
+    font-size: 1.1em;
+}
+.compared-product .product-rating,.compared-product .user-reviews-none{
+	margin:0 0 0 5px;
+	min-height:20px;
+	padding-bottom:0px;	
+}
+.product-rating-visual:hover {
+    text-decoration: none;
+}
+.product-features {
+    color: #4F5050;
+    list-style: disc inside;
+    font-size: 1.1em;
+}
+.product-offers-button {
+    display: block;
+    height: 20px;
+    background: transparent url(../images/offers_button.png) no-repeat scroll left top;
+    margin-bottom: 36px;
+    width: 171px;
+    cursor: pointer;
+}
+.product-offers-button:hover {
+    text-decoration: none;
+}
+.product-offers-button span {
+    color: #FFF;
+    font-weight: bold;
+    float: left;
+    text-align: center;
+}
+.product-offers-button-title {
+    width: 135px;
+    padding: 2px 0;
+    font-size: 1.3em;
+}
+.product-offers-button-view {
+    width: 35px;
+    padding: 3px 0;
+}
+.add-to-list {
+	z-index: 8000;
+}
+.add-to-list a {
+	font-size:1.1em;
+}
+.product-list .add-to-list a {
+	font-size:1em;
+}
+.product-compare-add,
+.product-list .add-to-list {
+    width: 359px;
+	padding: 1px 10px 4px 0px;
+    color: #00539f;
+    font-size: 1.1em;
+    background: #e4f2ff;
+	float: left;
+	margin-top: 2px;
+/*	position: relative;*/
+}
+.product-list .add-to-list {
+	width: 339px;
+	position:static;
+	z-index: 0;
+	padding-bottom:3px;
+}
+.product-purchase {
+    margin-left: 10px;
+    width: 155px;
+}
+.product-purchase .product-purchase-intro,
+.product-purchase .product-price-header {
+    margin: 0;
+    font-size: 1.2em;
+    min-height:35px;
+}
+.product-list .product-purchase-intro {margin-top:7px;}
+
+.product-purchase-intro .from{
+    font-size: 0.9em;
+    display: block;
+    padding-bottom: 5px;
+}
+.product-purchase-intro .seller{
+	font-weight: bold;
+	height: 2em;
+	width: 133px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+    -o-text-overflow:ellipsis;
+	display: block;
+	float: right;
+}
+.product-price-header,
+.product-purchase-intro {
+    color: #575757;
+    font-size: 1.1em;
+}
+.product-price {
+	min-height:121px;
+}
+
+.product-list .product-price {
+	min-height:0; 
+	//*height:104px; 
+	margin-top:0px;
+}
+
+.product-price.multipleseller {
+	min-height: 94px;
+    margin-bottom: 5px;
+}
+.product-list .product-price.multipleseller .old-price{
+	text-decoration:none;
+}
+.multiple-seller .product-price {
+	min-height: 106px;
+    margin-bottom: 5px;
+}
+.product-price-header {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.product-purchase-promo {
+    font-size: 1.1em;
+    color: #4F5050;
+    padding: 5px;
+    display: block;
+    margin: 0 0 10px;
+}
+.product-list .discount-ping{
+	width: 61px;
+	height: 61px;
+	position: absolute;
+	top: 12px;
+	right: 2px;
+}
+.product-list .new-slash{
+    width: 85px;
+    height: 46px;
+    position: absolute;
+	z-index: 8000;
+	top: -10px;
+	left: -10px;
+}

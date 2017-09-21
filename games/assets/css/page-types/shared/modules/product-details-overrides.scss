@@ -1,0 +1,193 @@
+@mixin productDetailsOverridesAll {
+    .PDP-Version2 {
+
+        /**
+         * Override for page background color
+         */
+        #wrapper {
+            background-color: $background;
+        }
+
+        /**
+         * Override to normalise z-indexing on the new PDP so that we do not create
+         * the same mess of z-indexing as is present across the rest of the site.
+         */
+        #masthead-wrapper {
+            z-index: 2;
+        }
+
+        /**
+         * START override for while blocks with links are
+         * in the #supplemental grid space.
+         */
+        #supplemental {
+            a {
+                color: $linkColor;
+                cursor: pointer;
+            }
+        }
+
+        .product-ping {
+          z-index: 0;
+        }
+
+    }
+
+    .PDP-Version2__component {
+      h2.cfw-title {
+        margin: 0;
+      }
+    }
+
+    .product {
+        .PDP-Version2__page {
+            /**
+             * Added to stop breadcrumb inheriting new PDP font size as it is
+             * looking for old font size from old PDP
+             */
+            #breadcrumb li {
+                font-size: 14px;
+            }
+
+            /**
+             * Breadcrumb override for it's width until we refactor the module.
+             */
+            #breadcrumb {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .tab-view {
+              display: none;
+            }
+        }
+    }
+
+    .PDP-Version2__page {
+        #rr_placement_0, #rr_placement_1, #rr_placement_2, #rrSwitch1 {
+            display: none;
+        }
+        .PDPAdditionalRecommender {
+            display: block;
+        }
+
+        /**
+        * Override e.g. recently viewed carousel next/previous arrows
+        * that have been overridden by other styles in here (.PDP-Version2 .icon)
+        * current steer (3/12/2015) is that recently viewed carousel will not be
+        * any further restyled in PDP v2
+        */
+        .product-carousel .next .icon,
+        .product-carousel .previous .icon {
+            color: #fff;
+        }
+
+        /**
+         * Override icon color in the pre-order top banner
+         */
+        .price-promise-info-message-block .icon {
+            color: $tescoRed;
+        }
+
+        /**
+         * Override required until the range block is refactored to stop using
+         * legacy markup and styling.
+         */
+        #range-container .collectionContainer.range {
+            font-size: 10px;
+        }
+
+        &.product {
+            /**
+             * START override for review stars for while
+             * we are running two PDPs. Targets version 1.
+             */
+             .rating-container {
+                height: 32px;
+
+                .ratings-wrapper {
+                    width: 110px;
+                    height: 26px;
+
+                    .ratings-stars {
+                        font-size: 22px;
+                        line-height: 24px;
+                    }
+                }
+
+                .average-rating,
+                .ratings-count {
+                    font-size: 14px;
+                    line-height: 26px;
+                }
+             }
+
+            /**
+             * END overrides
+             */
+        }
+    }
+}
+
+/**
+ * Show more overrides for old PDP as component is now shared
+ */
+.show-more-footer {
+    .button {
+        @include buttonStyles;
+    }
+}
+
+@mixin productDetailsOverridesLargeDesktop {
+    /**
+     * Breadcrumb override for it's width until we refactor the module.
+     */
+    .PDP-Version2__page {
+        #breadcrumb {
+            height: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            max-width: 1220px;
+        }
+    }
+}
+
+@mixin productDetailsOverridesDesktop {
+    /**
+     * Breadcrumb override for it's width until we refactor the module.
+     */
+    .PDP-Version2__page {
+        #breadcrumb {
+            height: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            max-width: 980px;
+        }
+    }
+}
+
+@mixin productDetailsOverridesTablet {
+    /**
+     * Breadcrumb override for it's width until we refactor the module.
+     */
+    .PDP-Version2__page {
+        #breadcrumb {
+            height: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+            width: 100%;
+        }
+    }
+}
+
+@mixin productDetailsOverridesMobile {
+    .PDP-Version2__page {
+
+    }
+}
+
+@mixin productDetailsOverridesKiosk {
+    .PDP-Version2__page {
+      margin: 0;
+    }
+}

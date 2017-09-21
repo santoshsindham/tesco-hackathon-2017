@@ -1,0 +1,9 @@
+@import "../mixins/product-description-mixins";
+
+/* error styles */
+.errorVideo {
+    height: 480px;
+    .errorWrap {
+        @include error-wrap-styles-position-and-top(43%,relative);
+    }
+}

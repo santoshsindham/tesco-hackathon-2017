@@ -1,0 +1,103 @@
+/*******************************************
+*	Mobile Integrated Registration module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "integrated-registration-mixins";
+@include clubcard-details-ll-l-m-s;
+@include registrationCompleteBanner-s;
+@include integrated-registration-m-s(20px, auto);
+
+#integrated-registration {
+	.full-page-form {		
+		@include integrated-registration-box;		
+		margin: 16px 8px;
+		h2 {
+			margin: 16px 0;
+			font-size: 1.8em;
+		}
+		form {
+			.checkbox-wrapper {
+				label {
+					width: auto;
+					display: inline;
+					float: none;
+					padding: 0;
+					margin: 0;
+					line-height: normal;
+				}
+			}
+		}
+		.checkbox {
+			float: left;
+			margin: 0 10px 0 0;
+		}
+		input[type=submit] {
+			border: none;
+			margin: 20px 0 0;
+		}
+		#about-you-mod {
+			.tabs {
+				width: 100%;			
+				li {
+					width: 100%;				
+					label {
+						line-height: 1.3em;	
+					}
+				}
+			}
+		}
+		#ir-sign-in-mod {
+			margin-top: 16px;
+			
+			.forgotten-password {
+		        margin-top: 20px;
+		    }
+		}
+		#ir-register1-mod {
+			margin-top: 16px;			
+			.salutation-wrapper {
+				margin-bottom: 20px;
+			}
+            .manually-add-address {
+                .locality-city {
+                    padding-left: 1.2em;
+                }
+            }
+            .pca-container {
+                width: 100%;
+            }
+		}
+
+		.field-wrapper {
+			span[for="postal-code-pca"].error {
+                width: 75%;
+            }
+            &.reg-title span.error,
+			&.reg-title .customDropdown a.control {
+				width: 85px;
+			}
+		}
+		
+	}
+
+	.reg-title {
+		.customDropdown {
+			width: 85px;
+			&.open {
+				width: 100%;
+				background:#fff !important;
+			}
+		}
+	}
+}
+
+.checkout {
+    .store-search-form label.error {
+        top: -74px;
+    }
+    .store-search-form label.invalid2 {
+    	top: -72px;
+    }
+}

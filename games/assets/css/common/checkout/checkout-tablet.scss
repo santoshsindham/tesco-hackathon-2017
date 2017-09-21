@@ -1,0 +1,43 @@
+//checkout module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "checkout-mixins";
+
+.checkout {
+  #main-content {
+    width: auto;
+
+    //e-gaming terms and conditions block css start
+    #egaming-tc-container {
+      padding: 24px 16px;
+
+      .egaming-tc-content {
+        width: 100%;
+      }
+
+      .checkbox-wrapper {
+        .egaming-tc-check-label {
+          width: 93%;
+        }
+      }
+    }
+    //e-gaming terms and conditions block css end
+  }
+
+  #progress-bar {
+    margin: 0 0 16px;
+  }
+
+.pcaAutoCompleteSmall {
+    z-index: 1000;
+  }
+
+  .pcaCapturePlusTable .pcaAutoComplete .pcaContent, .pcaCapturePlusTable .pcaAutoCompleteSmall .pcaContent {
+    max-height: 100px !important;
+    overflow-y: scroll !important;
+  }
+}
+
+#giftMessage {
+  width: 100%;
+}

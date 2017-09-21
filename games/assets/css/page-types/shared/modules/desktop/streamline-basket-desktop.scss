@@ -1,0 +1,72 @@
+/*******************************************
+*	Streamline Basket - Desktop
+*******************************************/
+
+#streamline-basket-iframe { height: 960px;}
+
+.streamline-basket .more-options div.checkbox {
+    cursor: pointer;
+}
+
+#lightbox {
+    &.streamline-basket {
+        .section-main {
+            width: 65%;
+        }
+
+        .section-nav {
+            width: 35%;
+            top: -109px;
+            margin-bottom: -109px;
+        }
+
+        .recommendersArea {
+          min-height: 380px;
+        }
+    }
+}
+
+.streamline-basket-carousel {
+	.products>li{
+		.product {
+			a.thumbnail img {
+  				display: block;
+ 			 	margin: 0 auto;
+ 			 	width: 217px;
+  				height: 217px;
+  			}
+		}
+	}
+}
+
+//when in desktop, streamline-basket-carousel should look like tablet product-carousel
+@media screen and (min-width: 600px) and (max-width: 959px) {
+    .product-carousel.streamline-basket-carousel {
+        .products > li {
+            width: 50%;
+            .product {
+                padding: 16px;
+                .thumbnail {
+                    width: 85px;
+                    position: absolute;
+                    top: 50%;
+                    left: 16px;
+                    margin-top: -43px;
+                    > div:first-child {
+                        width: 85px;
+                        height: 85px;
+                        margin: 0 auto;
+                        overflow: hidden;
+                    }
+                }
+                .title-author-format,
+                .rating-container,
+                .price {
+                    clear: none;
+                    margin-left: 85px;
+                    padding-left: 16px;
+                }
+            }
+        }
+    }
+}

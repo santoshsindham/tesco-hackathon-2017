@@ -1,0 +1,190 @@
+{
+  "id" : "154-1779",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "154-1779",
+    "price" : "60.00",
+    "clubcardPoints" : 60
+  },
+  "displayName" : "Trespass Torrie Fleece Lined Softshell Jacket",
+  "publicLink" : "/direct/trespass-torrie-fleece-lined-softshell-jacket/154-1779.prd",
+  "longDescription" : "Combat the cold this winter with the help of the Torrie softshell jacket from outdoor clothing experts Trespass. Featuring the Tres-tex&reg; membrane that allows the body's water vapour to pass through while preventing rain and snow from penetrating, the softshell jacket is water and windproof as well as being breathable. A fleece lining adds warmth and comfort, while zip pockets and a removable hood are practical additions. The jacket is finished with riptape at the cuffs&nbsp;plus toggle drawstrings through the hood and hem to ensure a close, comfortable fit.Zip-through fasteningSits below the hip",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat3375746",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375746"
+  }, {
+    "id" : "cat3376549",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376549"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38420068",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420068"
+  }, {
+    "id" : "cat38420088",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420088"
+  }, {
+    "id" : "cat38470010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38470010"
+  }, {
+    "id" : "cat38670087",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670087"
+  }, {
+    "id" : "cat38690065",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38690065"
+  }, {
+    "id" : "cat38710074",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710074"
+  }, {
+    "id" : "cat38890077",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38890077"
+  } ],
+  "brand" : "Trespass",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/395-0175_PI_66786MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Mens",
+    "styleRef" : "ez621411",
+    "supplier" : "FF",
+    "onlineExclusive" : "Y"
+  },
+  "links" : [ {
+    "id" : "697-6517",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/697-6517",
+    "options" : {
+      "primary" : "Electric blue",
+      "secondary" : "S",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/697/697-6517/Swatches/697-6517_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "518-9850",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/518-9850",
+    "options" : {
+      "primary" : "Electric blue",
+      "secondary" : "M",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/518/518-9850/Swatches/518-9850_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "371-6601",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/371-6601",
+    "options" : {
+      "primary" : "Electric blue",
+      "secondary" : "L",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/371/371-6601/Swatches/371-6601_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "395-0175",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/395-0175",
+    "options" : {
+      "primary" : "Electric blue",
+      "secondary" : "XL",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/395/395-0175/Swatches/395-0175_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "497-1402",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/497-1402",
+    "options" : {
+      "primary" : "Black",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/162/162-4728/Swatches/162-4728_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "382-6917",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/382-6917",
+    "options" : {
+      "primary" : "Blue",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/285/285-0290/Swatches/285-0290_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "154-1779",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/154-1779",
+    "options" : {
+      "primary" : "Electric blue",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/371/371-6601/Swatches/371-6601_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "204-7271",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/204-7271",
+    "options" : {
+      "primary" : "Grey",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/279/279-2020/Swatches/279-2020_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "321-7150",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/321-7150",
+    "options" : {
+      "primary" : "Navy",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/126/126-3616/Swatches/126-3616_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "395-0175",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/395-0175",
+    "options" : {
+      "primary" : "Electric blue",
+      "secondary" : "XL",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/395/395-0175/Swatches/395-0175_SW_1000025SW01_pdp.jpg"
+    }
+  } ]
+}

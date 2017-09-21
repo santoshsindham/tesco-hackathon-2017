@@ -1,0 +1,18 @@
+/*******************************************
+*	Desktop module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(desktop);
+@import "../mixins/homepage-stamp-gallery-mixins";
+
+.homepage-trade-stamp {
+	ul {
+		li {
+
+			&:last-child {
+				display: none;
+			}
+		}
+	}
+}

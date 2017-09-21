@@ -1,0 +1,14 @@
+@import "../../variables";
+@import "../pdp-configurator-mixins";
+
+.pdp-configurator {
+    .add-to-basket-container {
+        header {
+            padding: 25px 4.166666666666666%; /* 25/600 */
+        }
+
+        .product-description {
+            padding: 12px 4.166666666666666%; /* 25/600 */
+        }
+    }
+}

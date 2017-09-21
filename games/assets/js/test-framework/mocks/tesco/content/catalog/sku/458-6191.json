@@ -1,0 +1,213 @@
+{
+  "id" : "458-6191",
+  "prices" : {
+    "id" : "458-6191",
+    "price" : "5.00",
+    "clubcardPoints" : 5
+  },
+  "displayName" : "iPad Mini Wi-Fi, 16GB Black",
+  "publicLink" : "/direct/ipad-mini-with-wi-fi/159-1889.prd?skuId=458-6191",
+  "specification" : {
+    "Storage" : [ {
+      "title" : "Hard Drive/Storage Capacity",
+      "description" : "16GB",
+      "attr" : "hard_drive/storage_capacity"
+    } ],
+    "Built-in Devices" : [ {
+      "title" : "Optical Drive Type",
+      "description" : "None",
+      "attr" : "optical_drive_type"
+    } ],
+    "Memory" : [ {
+      "title" : "Hard Drive Capacity",
+      "description" : "16GB",
+      "attr" : "hard_drive_capacity"
+    } ],
+    "Dimensions" : [ {
+      "title" : "Product Height",
+      "description" : "1.0 Centimetre",
+      "attr" : "product_height"
+    }, {
+      "title" : "Product Width",
+      "description" : "1.0 Centimetre",
+      "attr" : "product_width"
+    }, {
+      "title" : "Product Depth",
+      "description" : "1.0 Centimetre",
+      "attr" : "product_depth"
+    }, {
+      "title" : "Product Weight",
+      "description" : "1.0 Gram",
+      "attr" : "product_weight"
+    } ],
+    "Display & Graphics" : [ {
+      "title" : "Screen Size",
+      "description" : "7.9",
+      "attr" : "screen_size"
+    }, {
+      "title" : "Screen Type",
+      "description" : "LED",
+      "attr" : "screen_type"
+    }, {
+      "title" : "Graphics Chipset",
+      "description" : "Dual-core A5",
+      "attr" : "graphics_chipset"
+    } ],
+    "Key Information" : [ {
+      "title" : "Type",
+      "description" : "Tablet",
+      "attr" : "type"
+    }, {
+      "title" : "Customer Benefits",
+      "description" : "16GB",
+      "attr" : "customer_benefits"
+    }, {
+      "title" : "Manufacturer Warranty Period",
+      "description" : "Not Known",
+      "attr" : "manufacturer_warranty_period"
+    }, {
+      "title" : "Colour",
+      "description" : "Black",
+      "attr" : "colour"
+    }, {
+      "title" : "Operating System",
+      "description" : "Apple iOS 6",
+      "attr" : "operating_system"
+    }, {
+      "title" : "Battery Life",
+      "description" : "Up to 10 hours",
+      "attr" : "battery_life"
+    }, {
+      "title" : "Colour",
+      "description" : "Black",
+      "attr" : "colour"
+    } ],
+    "Connectivity" : [ {
+      "title" : "Wi-Fi Type",
+      "description" : "802.11a/b/g/n Wi-Fi (802.11n 2.4GHz and 5GHz)",
+      "attr" : "wi-fi_type"
+    }, {
+      "title" : "Bluetooth",
+      "description" : "Y",
+      "attr" : "bluetooth"
+    } ],
+    "Variant" : [ {
+      "title" : "Hard Drive/Storage Capacity",
+      "description" : "16GB",
+      "attr" : "hard_drive/storage_capacity"
+    } ],
+    "Processor" : [ {
+      "title" : "Processor",
+      "description" : "Apple A5 1GHz Dual-Core",
+      "attr" : "processor"
+    }, {
+      "title" : "Processor Model Number",
+      "description" : "Apple A5 1GHz Dual-Core",
+      "attr" : "processor_model_number"
+    }, {
+      "title" : "Processor Speed (GHz)",
+      "description" : "1",
+      "attr" : "processor_speed_(ghz)"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Black"
+  },
+  "longDescription" : "\"The iPad Mini integrates everything you love about an iPad in a more compact, manageable size.  The iPad Mini combines a beautiful 7.9-inch display with a fast and fluid performance, without compromising your favourite apps like FaceTime and iSight cameras.  \n\nThe colours are vivid and the text is sharp, but what really makes it stand out is its size.  At 7.9-inches, this iPad Mini is small enough to hold in one hand.  The iPad Mini is compatible with over 275,000 apps including those from the iPad, making the iPad Mini practically impossible to put down.  \n\nTake advantage of the ultra-fast wireless capabilities, with a connection that is up to twice as fast as any previous-generation iPad, giving you access to fast mobile data networks around the world.  Download content, stream videos and browse the web at amazing speeds.\"",
+  "ancestorCategories" : [ {
+    "id" : "cat1150013",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat1150013"
+  }, {
+    "id" : "cat6490010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat6490010"
+  }, {
+    "id" : "cat680178",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680178"
+  }, {
+    "id" : "cat680184",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680184"
+  }, {
+    "id" : "cat680207",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680207"
+  }, {
+    "id" : "cat680209",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680209"
+  }, {
+    "id" : "cat680210",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680210"
+  }, {
+    "id" : "cat9570043",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat9570043"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tescoist/458-6191_PI_1000005MN01?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tescoist/458-6191_PI_1000005MN01?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Swatches",
+      "src" : "/directuiassets/ProductAssets/458/458-6191/Swatches/458-6191_SW_1000005SW01.jpg",
+      "renderSource" : "CMS"
+    } ],
+    "pings" : [ {
+      "mediaType" : "ClubcardPings",
+      "src" : "/directuiassets/SiteAssets/NonSeasonal/en_GB/images/ping_clubcard_$[preset]$.png"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 1" : "A beautiful display, powerful A5 chip, FaceTime HD camera, iSight camera with 1080p HD video recording, ultra-fast wireless, 16GB of storage and access to over 275,000 apps through the Apple Store",
+    "Bullet 2" : "iPad mini is an iPad in every way, shape and slightly smaller form. Up to 10 hours of battery whilst surfing the web on Wi-Fi, watching video or listening to music",
+    "Bullet 3" : "1st Generation iPad mini, released Nov 2nd 2012"
+  },
+  "links" : [ {
+    "id" : "458-6191",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/458-6191",
+    "options" : {
+      "primary" : "16GB",
+      "swatch" : "/directuiassets/ProductAssets/458/458-6191/Swatches/458-6191_SW_1000005SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "159-1889",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/159-1889"
+  }, {
+    "id" : "T0000a64eb",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/T0000a64eb"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

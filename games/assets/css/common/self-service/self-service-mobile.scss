@@ -1,0 +1,11 @@
+/*******************************************
+*	self-service : Mobile
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "self-service-mixins";
+
+.order-details #nav-bar .icon-user {
+	margin-right: 0;
+}

@@ -1,0 +1,1001 @@
+@import "../../../core/components/variables";
+@import "../mixins/media-viewer-mixins";
+
+#media-viewer-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    .static-product-image {
+        text-align: center;
+        @include centerImage(100%,100%,100%);
+        &.scene7-enabled {
+            display: none;
+        }
+    }
+
+    .ajax-loader {
+        display: none;
+    }
+
+    .product-ping {
+        pointer-events: none;
+        top: 10px;
+        left: 10px;
+    }
+}
+
+
+/**************************************************************************************************/
+#media-viewer-wrapper {
+
+    /**********************************************************************************************/
+    .icon-zoom {
+        &:after {
+            content: '\e907';
+        }
+    }
+    .icon-volume {
+        &:after {
+            content: '\e906';
+        }
+    }
+    .icon-play {
+        &:after {
+            content: '\e903';
+        }
+    }
+    .icon-pause {
+        &:after {
+            content: '\e905';
+        }
+    }
+    .icon-mute {
+        &:after {
+            content: '\e904';
+        }
+    }
+    .icon-spin {
+        &:after {
+            content: '\e902';
+        }
+    }
+    .icon-full-screen {
+        &:after {
+            content: '\e901';
+        }
+    }
+    .icon-empty-dot {
+        &:after {
+            content: '\e908';
+        }
+    }
+    .icon-filled-dot {
+        &:after {
+            content: '\e909';
+        }
+    }
+    .icon-dual-dot {
+        &:after {
+            content: '\e908';
+        }
+        &.active,
+        &:hover {
+            &:after {
+                content: '\e909';
+            }
+        }
+    }
+
+    /**********************************************************************************************/
+    .btn-zoom-image {
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 52px;
+        height: 50px;
+        padding: 0px 10px;
+        background: rgb(255, 255, 255);
+        background: rgba(255, 255, 255, 0.7);
+        @include border-radius(4px, 0, 0, 0);
+
+        .icon-zoom {
+            display: table-cell;
+            vertical-align: middle;
+            width: 52px;
+            height: 50px;
+            font-size: 30px;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .no-touch & {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .btn-zoom-image {
+        #mv-overlay-content & {
+            display: none;
+        }
+    }
+
+    &.single-item {
+        .btn-zoom-image {
+            @include border-radius(4px, 4px, 0, 0);
+            margin: auto;
+            right: 0;
+            left: 0;
+        }
+    }
+}
+
+
+/**************************************************************************************************/
+#media-viewer--main {
+    width: 100%;
+}
+
+
+/**************************************************************************************************/
+#media-viewer {
+    width: 100%;
+    position: relative;
+
+    .media-viewer--portrait & {
+        // padding-bottom: 142.8571428571429%; // 7:10
+
+        // actual FF video is 502x720
+        padding-bottom: 143.4262948207171%; // 251:360
+    }
+
+    .media-viewer--landscape & {
+        padding-bottom: 56.25%; // 16:9
+    }
+}
+
+#media-viewer-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+/**************************************************************************************************/
+#mediaViewerScene7Container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /*
+     * removes the default active background state on Chrome/Safari touch devices
+     */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+#s7container-mask {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+/**************************************************************************************************/
+#media-viewer--sidebar {
+    .media-viewer--portrait & {
+        float: left;
+        width: 73px;
+        margin-left: -93px;
+        text-align: center;
+        position: relative;
+    }
+
+    .media-viewer--landscape & {
+        margin: 0 auto;
+        padding: 10px 50px 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .single-item & {
+        display: none;
+    }
+}
+
+.mv-thumbnail-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /*
+     * removes the default active background state on Chrome/Safari touch devices
+     */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .media-viewer--portrait & {
+        max-height: 412px;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        overflow: hidden;
+    }
+
+    .media-viewer--landscape & {
+        margin: 0 auto;
+    }
+}
+
+#mv-carousel-index {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0 10px;
+    background: $darkBg;
+    color: $white;
+    font-size: 14px;
+    line-height: 26px;
+
+    .media-viewer--portrait & {
+        min-width: 60%;
+    }
+
+    .media-viewer--landscape & {
+        display: none;
+        width: 60px;
+        height: 26px;
+        text-align: center;
+        position: absolute;
+        top: -36px;
+    }
+}
+
+.btn-feature-media {
+    width: 73px;
+    margin-top: 40px;
+    font-size: 14px;
+    line-height: 1;
+
+    .icon-play {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 40px;
+        line-height: 1;
+    }
+    .icon-spin {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 40px;
+        line-height: 1;
+    }
+}
+
+
+/***************************************************************************************************
+ * Media carousel
+ **************************************************************************************************/
+.image-viewer-carousel {
+    position: relative;
+    white-space: nowrap;
+    font-size: 0;
+    letter-spacing: 0;
+    word-spacing: 0;
+
+    li {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        text-align: center;
+        &.fnShowVideo {
+            display: none;
+        }
+        &.auto {
+            width: auto;
+        }
+        img {
+            width: 100%;
+        }
+    }
+
+    .videoVisible & {
+        display: none;
+    }
+}
+
+.staticVisible {
+  .image-viewer-carousel {
+    height: 100%;
+
+    li {
+      @include centerImage(100%, 100%, 100%);
+    }
+  }
+}
+
+
+/***************************************************************************************************
+ * Media carousel navigation
+ **************************************************************************************************/
+.media-viewer--carousel-nav {
+    .btn-s7-carousel {
+        margin-top: -48px;
+        padding: 24px 0;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        @include opacity(1);
+        @include transition(opacity 150ms);
+        display: none;
+        &.btn-s7-carousel-fade-in {
+            @include opacity(1);
+        }
+        &.btn-s7-carousel-fade-out {
+            @include opacity(0);
+        }
+        &.btn-s7-prev {
+            left: 0;
+            .btn-s7-step {
+                @include border-radius(0, 4px, 4px, 0);
+            }
+            .btn-s7-step:after {
+                content: 'g';
+            }
+        }
+        &.btn-s7-next {
+            right: 0;
+            .btn-s7-step {
+                @include border-radius(4px, 0, 0, 4px);
+            }
+            .btn-s7-step:after {
+                content: 'r';
+            }
+        }
+        .no-touch & {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .btn-s7-step {
+            display: block;
+            width: 39px;
+            height: 48px;
+            border: none;
+            background: rgb(255, 255, 255);
+            background: rgba(255, 255, 255, 0.7);
+            color: $darkPutty;
+            font-size: 34px;
+            line-height: 48px;
+            font-family: 'Tesco Icons';
+            @include noselsct;
+            .no-touch & {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .single-item & {
+            display: none;
+        }
+    }
+}
+
+
+/**************************************************************************************************/
+#mv-dotMarker-wrapper {
+    float: right;
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+    display: none;
+    .mv-dotMarker-container{
+        ul {
+            margin: 0 auto;
+        }
+        li {
+            display: inline-block;
+            margin: 0 6px -4px 0;
+            pointer-events: none;
+            vertical-align: middle;
+            line-height: 32px;
+        }
+        .icon-play,
+        .icon-spin,
+        .icon-dual-dot {
+            color: #999999;
+            &.active,
+            &:hover {
+                color: #1189D1;
+            }
+        }
+        .icon-spin {
+            font-size: 18px;
+        }
+        .icon-dual-dot {
+            font-size: 12px
+        }
+    }
+}
+
+
+/***************************************************************************************************
+ * Thumbnail carousel
+ **************************************************************************************************/
+.mv-thumbnail-carousel {
+    position: relative;
+    transition: all 300ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    white-space: nowrap;
+    > li {
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+        vertical-align: top;
+
+        .mv-thumbnail {
+            display: table-cell;
+            border-bottom: 2px solid transparent;
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 1;
+
+            &.with-icon {
+                border-width: 1px 1px 2px 1px;
+                border-style: solid;
+                border-color: #ececec;
+                @include border-radius(4px);
+                background: #f8f8f8; // TODO replace with var
+            }
+        }
+        .icon-spin,
+        .icon-play {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 30px;
+            line-height: 1;
+        }
+
+        .no-touch &:hover {
+            color: $tescoBrightBlue;
+            img {
+                @include opacity(0.5);
+            }
+        }
+
+        &.active {
+            color: $tescoBrightBlue;
+            img {
+                @include opacity(0.5);
+            }
+
+            .mv-thumbnail {
+                border-bottom-color: $tescoBrightBlue;
+            }
+        }
+
+        &.static-img {
+          .mv-thumbnail {
+            @include centerImage(100%, 100%, 100%);
+            display: block;
+          }
+        }
+    }
+
+    .media-viewer--portrait & {
+        max-height: 348px;
+        white-space: normal;
+        > li {
+            margin-bottom: 10px;
+            .mv-thumbnail {
+                width: 73px;
+                height: 106px;
+            }
+        }
+    }
+
+    .media-viewer--landscape & {
+        > li {
+            width: 100px;
+            margin: 0 -3px 0 0;
+
+            .mv-thumbnail {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    }
+}
+
+
+/***************************************************************************************************
+ * Thumbnail carousel navigation
+ **************************************************************************************************/
+.mv-thumbnail-nav {
+    .icon {
+        display: block;
+        color: $darkPutty;
+        background: #fff;
+        cursor: pointer;
+        font-size: 28px;
+        line-height: 1;
+        position: absolute;
+
+        &:after {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-family: 'Tesco Icons';
+        }
+        &:hover {
+            text-decoration: none;
+            &:after {
+                @include opacity(.7);
+            }
+        }
+    }
+
+    .disabled {
+        opacity: 0;
+        .icon {
+            &:hover {
+                cursor: default;
+            }
+        }
+    }
+
+    .media-viewer--portrait & {
+        .icon {
+            width: 100%;
+            height: 32px;
+
+            &.previous {
+                top: 0;
+                &.icon:after {
+                    content: "\31";
+                }
+            }
+
+            &.next {
+                bottom: 0;
+                &.icon:after {
+                    content: "\32";
+                }
+            }
+        }
+    }
+
+    .media-viewer--landscape & {
+        .icon {
+            width: 50px;
+            height: 92px;
+            top: 0;
+
+            &.previous {
+                left: -50px;
+                &.icon:after {
+                    content: 'g';
+                }
+            }
+
+            &.next {
+                right: -50px;
+                &.icon:after {
+                    content: 'r';
+                }
+            }
+
+            &:after {
+                line-height: 92px;
+            }
+        }
+    }
+}
+
+
+/***************************************************************************************************
+ * Overlay
+ **************************************************************************************************/
+#mv-overlay-content {
+    #media-viewer {
+        &.videoVisible,
+        &.spinVisible {
+            padding-bottom: 0;
+
+            #media-viewer-inner {
+                position: relative;
+            }
+        }
+
+        #s7HTML5VideoPlayer {
+            width: auto;
+            max-width: 100%;
+            margin: auto;
+            right: 0;
+        }
+
+        .video-controls {
+            margin: auto;
+            right: 0;
+        }
+    }
+
+    .media-viewer--carousel-nav {
+        .btn-s7-carousel {
+            position: fixed;
+        }
+    }
+
+    // Hide zoomed image in Flyout - this is a dirty hack and needs to be done properly
+    // to stop scene7 requesting images on hover zoom
+    .no-touch & {
+        .s7flyoutzoom {
+            display: none !important;
+        }
+        .s7staticimage {
+            top: 0 !important;
+        }
+    }
+
+    .media-viewer--portrait & {
+        #media-viewer--sidebar {
+            position: fixed;
+        }
+    }
+
+    .media-viewer--landscape & {
+        #media-viewer {
+            &.zoomVisible {
+                padding-bottom: 0;
+                #media-viewer-inner {
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+
+/***************************************************************************************************
+ * Scene 7 components
+ **************************************************************************************************/
+#mediaViewerScene7Container {
+
+    .s7container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .s7iconeffect {
+        background: rgba(146, 142, 136, 0.8);
+        height: 40px;
+        text-align: center;
+        padding: 10px;
+
+        .touch & {
+            &[media-type='standard']:after,
+            &[media-type='multitouch']:after {
+                font-size: 16px; // over-ride original pdpscene7
+            }
+        }
+    }
+
+    /***********************************************************************************************
+     * FlyoutZoomView for no-touch
+     **********************************************************************************************/
+    .s7flyoutzoomview {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        cursor: crosshair;
+        margin: 0 auto !important;
+        border: 0;
+        .s7cursor[input='mouse'] {
+          background-image: none !important;
+        }
+        .s7flyoutzoom {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background-color: #fff;
+        }
+        .s7tip {
+            top: 50%;
+            bottom: auto;
+            font-size: 14px;
+            line-height: 32px;
+            font-family: $tescoFont;
+            margin-top: -10px;
+            padding: 0 10px;
+            color: #fff;
+            background: rgb(100, 94, 85);
+            background: rgba(100, 94, 85, 0.8);
+            border-radius: 0px;
+            opacity: 1;
+        }
+
+        .zoomVisible & {
+            display: block;
+        }
+    }
+
+    /***********************************************************************************************
+     * ZoomView for touch
+     **********************************************************************************************/
+    .s7zoomview {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: auto;
+
+        .zoomVisible & {
+            display: block;
+        }
+    }
+
+    /***********************************************************************************************
+     * SpinView
+     **********************************************************************************************/
+    .s7spinview {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: auto;
+        .s7iconeffect {
+            &[state='spin_1D'],
+            &[state='spin_2D'] {
+                width: auto;
+                &:before {
+                    color: #fff;
+                    content: '\e902';
+                    font-size: 16px;
+                    font-family: "Tesco Icons";
+                    margin-right: 10px;
+                }
+                &:after {
+                    color: #fff;
+                    content: 'Drag handle to rotate product';
+                    top: -4px;
+                    position: relative;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .spinVisible & {
+            display: block;
+        }
+    }
+
+    /***********************************************************************************************
+     * PageScrubber for SpinView
+     **********************************************************************************************/
+    .s7pagescrubber {
+        @include scene7ScrubberDimensions;
+        height: 50px;
+        bottom: 50px;
+        z-index: 1;
+        .s7bubble {
+            display: none;
+        }
+        .s7track {
+            height: 5px;
+            text-align: center;
+            background-color: $backgroundPutty;
+            position: absolute;
+            bottom: 0px;
+            @include border-radius(4px);
+            border: 1px solid $lightPutty;
+            .s7dragbutton {
+                background: #645e55;
+                height: 32px;
+                width: 32px;
+                @include border-radius(4px);
+                position: absolute;
+                top: -14px;
+                left: 0px;
+                color: white;
+            }
+        }
+        .s7dragbutton {
+            &:after {
+                font-size: 16px;
+                margin-top: 6px;
+                display: inline-block;
+                content: '||';
+            }
+        }
+
+        .spinVisible & {
+            display: block;
+        }
+    }
+}
+
+
+/***************************************************************************************************
+ * Video component
+***************************************************************************************************/
+#mediaViewerScene7Container {
+    .videoView {
+        display: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .videoVisible & {
+            display: block;
+        }
+    }
+
+    .videoContainer {
+        display: block;
+
+        .videoPosition {
+            display: table;
+            height: 100%;
+            width: 100%;
+            opacity: 1;
+
+            .icon-play,
+            .icon-pause {
+                display: block;
+                vertical-align: middle;
+                color: #ffffff;
+                font-size: 100px;
+                line-height: 1;
+                margin-top: -50px;
+                margin-left: -50px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                @include multipleTransitions(transform 200ms, opacity 600ms);
+
+                &:hover {
+                    color: #008DC8;
+                }
+
+                &.hide-video-icon {
+                    @include transform-scale(2, 2);
+                    @include opacity(0);
+                }
+            }
+
+            #s7HTML5VideoPlayer,
+            #s7FlashVideoPlayer {
+                width: 100%;
+                height: 100%;
+                background: #ffffff;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+
+            .touch & {
+                #s7HTML5VideoPlayer {
+                    background: #000000;
+                }
+            }
+
+            .errorVideo {
+                height: 100%;
+                background-color: $backgroundFill;
+                .errorWrap {
+                    width: auto;
+                    padding: 0;
+                    background: none;
+                    top: auto;
+                    span {
+                        display: block;
+                        width: 60%;
+                        margin: auto;
+                        padding: 10px 20px;
+                        background: $darkBg;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
+        .video-controls {
+            display: none;
+            overflow: hidden;
+            height: 60px;
+            padding: 0;
+            background: #f8f8f8;
+            background: rgba(248, 248, 248, 0.8);
+            @include transition(bottom 300ms);
+            bottom: 0;
+
+            &.video-controls-out {
+                bottom: -60px;
+            }
+
+            .btn {
+                width: 32px;
+                height: 32px;
+                margin-top: -16px;
+                background: none;
+                text-indent: 0;
+                font-weight: 400;
+                font-size: 30px;
+                line-height: 1;
+                top: 50%;
+                &:hover {
+                    color: $linkColorHover;
+                }
+            }
+
+            .play,
+            .mute {
+                bottom: auto;
+            }
+
+            .play,
+            .pause {
+                left: -7px;
+                &:hover {
+                    border:0;
+                }
+            }
+            .mute {
+                right: 64px;
+                &:hover {
+                    border:0;
+                }
+            }
+            .fullScreen {
+                right: 25px;
+                &:hover {
+                    border:0;
+                }
+            }
+
+            .seek-bar {
+                margin: 0 94px 0 52px;
+                .basic-slider {
+                    height: 27px;
+                    .basic-slider-trail {
+                        height: 6px;
+                        border-radius: 2px;
+                        background: $darkBg;
+                        top: 27px;
+                        &:hover {
+                            background: $linkColorHover;
+                        }
+                    }
+                    .basic-slider-handle {
+                        display: none;
+                    }
+                    .basic-slider-track {
+                        height: 6px;
+                        border: 1px solid $darkBg;
+                        border-radius: 2px;
+                        background: none;
+                        top: 27px;
+                    }
+                }
+            }
+        }
+    }
+}

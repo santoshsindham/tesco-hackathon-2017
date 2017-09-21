@@ -1,0 +1,66 @@
+{
+  "id" : "ZA3-TD6B",
+  "authors" : [ "Guy Martin" ],
+  "noofRatingsProduced" : 12,
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "http://direct.tescoassets.com/directuiassets/ProductAssets/Books/Large/07/53/55/50/9780753555033_PI_[preset].jpg",
+      "secureSrc" : "https://secure.tesco.com/directuiassets/ProductAssets/Books/Large/07/53/55/50/9780753555033_PI_[preset].jpg",
+      "renderSource" : "CMS",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "http://direct.tescoassets.com/directuiassets/ProductAssets/Books/Large/07/53/55/50/9780753555033_PI_[preset].jpg",
+      "secureSrc" : "https://secure.tesco.com/directuiassets/ProductAssets/Books/Large/07/53/55/50/9780753555033_PI_[preset].jpg",
+      "renderSource" : "CMS"
+    } ],
+    "pings" : [ {
+      "mediaType" : "PromotionPings",
+      "src" : "http://www.tesco.com/directuiassets/Merchandising/NonSeasonal/en_GB/banners/offer_banners/pings/Ping_2For7_$[preset]$.png"
+    } ]
+  },
+  "skuSynopsis" : "This book is the Phenomenal Sunday Times No1 Bestseller. 'It was the start of the third lap of the 2010 Senior TT, the last race of the fortnight. The last chance to get a TT win for another year, and I was pushing hard. Ballagarey. The kind of corner that makes me continue road racing. A proper man's corner. You go through the right-hander at something like 170mph, leant right over, eyes fixed as far down the road as I can see. But this time something happened. This time the front end tucked ...'  Guy Martin, international road-racing legend, maverick star of the Isle of Man TT, truck mechanic and TV presenter, lives on the edge, addicted to speed, thoroughly exhilarated by danger. In this book we'll get inside his head as he stares death in the face, and risks his life in search of the next high. We'll discover what it feels like to survive a 170mph fireball at the TT in 2010, and come back to do it all again. He'll sweep us up in a gritty sort of glory as he slogs it out for a place on the podium, but we'll also see him struggle with the flip side of fame.  We'll meet his friends and foes, his family, his team mates and bosses and we'll discover what motivates him, and where his strengths and weaknesses lie. For the first time, here is the full story in Guy's own words. From the boy who learned to prep bikes with his dad, to the spirited team mechanic, paying his way by collecting beer glasses in pubs, to the young racer at the start of his first race and the buzz he's been chasing ever since. This thrilling autobiography is an intense and dramatic ride.",
+  "publicLink" : "/direct/guy-martin-my-autobiography/ZA3-TD6B.prd?skuId=za3-td6b",
+  "prices" : {
+    "id" : "ZA3-TD6B",
+    "price" : "3.85",
+    "rrp" : "8.99",
+    "savings" : "5.14",
+    "clubcardPoints" : 3
+  },
+  "links" : [ {
+    "id" : "ZA3-TD6B",
+    "type" : "booksSku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/booksSku/ZA3-TD6B"
+  }, {
+    "id" : "ZA3-TD6B",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/ZA3-TD6B"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  } ],
+  "avgRating" : 4.92,
+  "displayName" : "Guy Martin: My Autobiography",
+  "bookDetails" : {
+    "genre" : "Autobiography: sport",
+    "authors" : "Guy Martin",
+    "illustrations" : "illustrations",
+    "ISBN" : "9780753555033",
+    "secondaryGenre" : "Motorcycle racing",
+    "authorBiography" : "Except for one summer spent sleeping inside a truck in a concrete yard in Northern Ireland, Guy Martin has lived within 20 miles of the Grimsby hospital he was born in, on the 4th November 1981. But that hasn't stopped the professional truck mechanic from winning multiple international road races, plus scoring fifteen Isle of Man TT podiums. Nor has it prevented him from becoming a regular face on prime-time Channel 4, presenting critically acclaimed documentaries and travelogues, as well as his popular returning series Speed with Guy Martin. Did we mention he's also the author of two phenomenal number-one bestselling memoirs? Not bad for a truck fitter.",
+    "publicationDate" : "21-05-2015",
+    "totalPages" : "320",
+    "formats" : "Paperback",
+    "publisher" : "Ebury Publishing"
+  }
+}

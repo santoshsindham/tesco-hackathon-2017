@@ -1,0 +1,53 @@
+//checkout-product module - large desktop
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "checkout-product-mixins";
+
+.checkout {
+
+	.delivery-group-block {
+		.delivery-saver {
+		    top: -119px;
+		}
+		.error-wrapper {
+    		height: 0;
+			margin-bottom: 11px;
+		}
+		.price {
+			font-size: 1.35em;
+		}
+
+		.thumbnail {
+			width: 170px;
+			height: 170px;
+		}
+
+		.product-details, .additional-service-item h3 {
+			max-width: 70%;
+			float: left;
+			margin-left: 0;
+			&:after {
+				@include clear-fix;
+			}
+		}
+
+		.price-container {
+			margin-top: 0;
+			clear: right;
+		}
+
+		.additional-service-item {
+			clear: both;
+			margin-left: 113px;
+
+			h3 {
+				margin: 0;
+			}
+		}
+	}
+
+	.clubcard-exchange {
+		@include tooltipLarge;
+	}
+
+}

@@ -1,0 +1,40 @@
+//every-little-helps-stamps module - desktop
+@import "../../components/breakpoints";
+@include breakpoint(desktop);
+@import "../mixins/every-little-helps-stamps-mixins";
+
+.every-little-helps-stamps {
+
+	padding-top: 16px;
+
+	li {
+
+		height: 90px;
+		width: 28 * $onecol;
+
+		a {
+			padding-right: 35px;
+		}
+
+		&:nth-child(4){
+			display: none;
+		}
+	}
+
+}
+
+.product-description .secondary-content .every-little-helps-stamps {
+    li {
+        margin-left: 0;
+    }
+}
+
+.category .every-little-helps-stamps {
+    li {
+        margin: 0;
+        width: $onecol * 58;
+        &:nth-child(odd) {
+            margin-right: $onecol * 2;
+        }
+    }
+}

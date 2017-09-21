@@ -1,0 +1,255 @@
+<project default="all" basedir="C:/ATG/ATG9.4/Tesco/application/tescodotcom/j2ee-apps/commerce.ear/responsive.war/assets">
+
+	<!-- Settings for CSS -->
+	<property name="css.src-dir" value="${basedir}/css"/>
+	<property name="css.legacy-src-dir" value="${css.src-dir}/css-source"/>
+	<property name="css.files" value="base.css,all-styles-common.css,all-styles-desktop.css,all-styles-kiosk.css,all-styles-large-desktop.css,all-styles-mobile.css,all-styles-tablet.css"/>
+	<property name="css-non-rwd.files" value="base.css,all-styles-common.css,all-styles-desktop.css"/>
+	<property name="css-legacy.files" value="legacy.css"/>
+	<property name="scss.src-dir" value="${basedir}/css"/>
+	
+	<!-- Settings for JS -->
+	<property name="js.src-dir" value="${basedir}/js"/>
+	<property name="js.lib-dir" value="${basedir}/js/lib"/>
+	<property name="js.mod-dir" value="${basedir}/js/modules"/>
+	<property name="js.lib.files" value="modernizr.js,jquery-1.8.1.min.js,jquery-ui-1.9.2.easing.min.js,ios-orientation-fix.js,hammer.js,hammer.jquery.js,fast-click.js,html5placeholder.jquery.js,picturefill.js"/>
+	<property name="js.mod.files" value="header.js,carousel.js,footer.js,visual-nav.js,navigation.js,main-nav.js,basket-preview.js,breadcrumb.js,grid.js"/>	
+	
+	<property name="js.core.files" value="tesco-rwd.js"/>
+	<property name="js.core.lib.files" value="jquery-1.8.1.min.js,jquery-ui-1.9.2.easing.min.js,html5placeholder.jquery.js,picturefill.js"/>
+	<property name="js.core.mod.files" value="header.js,footer.js,carousel.js,navigation.js,viewport.js,main-nav.js,basket-preview.js,breadcrumb.js,grid.js"/>
+	<property name="js.mobile.lib.files" value="ios-orientation-fix.js,hammer.js,hammer.jquery.js,fast-click.js"/>
+	<property name="js.desktop.lib.files" value="modernizr.js"/>
+	
+	<property name="js.mobile.mod.files" value=""/>
+	<property name="js.desktop.mod.files" value=""/>	
+	
+	<!-- General settings -->
+	<property name="yuicompressor-jar" value="${basedir}/build/YUI/yuicompressor-2.4.6.jar"/>
+	
+	<target name="all" depends="css,javascript"/>
+			
+	<target name="css">
+		<echo>Processing RWD SCSS files</echo>
+		
+		<!-- Remove existing grid.scss --> 
+		<echo>Removing Existing grid mixin</echo>
+		<delete file="${css.src-dir}/common/grid.scss" />
+		
+		<echo>Removing Existing breakpoints mixin</echo>	
+		<delete file="${css.src-dir}/common/breakpoints.scss" />				
+		<!-- Set the modified breakpoints mixin when build the non-RWD version of the CSS -->
+		<copy file="${css.src-dir}/common/breakpoints-non-rwd.base" tofile="${css.src-dir}/common/breakpoints.scss"/>
+
+		<!-- Remove existing grid.scss --> 
+		<echo>Removing Existing grid mixin</echo>
+		<delete file="${css.src-dir}/common/grid.scss" />
+		
+		<!-- Set the default breakpoints mixin when build the RWD version of the CSS -->
+		<copy file="${css.src-dir}/common/grid-non-rwd.base" tofile="${css.src-dir}/common/grid.scss"/>
+
+
+		<echo>Processing Non-RWD SCSS files</echo>
+		
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass base.scss base.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-common.scss all-styles-common.css"/>
+		</exec>		
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-desktop.scss all-styles-desktop.css"/>
+		</exec>		
+		
+		<echo>Concatenating Non-RWD CSS file</echo>
+		<!-- Concat CSS Files -->
+		<concat destfile="${css.src-dir}/concat-non-rwd.css" encoding="UTF-8">
+			<filelist dir="${css.src-dir}" files="${css-non-rwd.files}"/>
+			<filelist dir="${css.legacy-src-dir}" files="${css-legacy.files}"/>			
+		</concat>
+		
+		<echo>Minifying Non-RWD CSS file</echo>
+		<!-- Minimize CSS -->
+		<java jar="${yuicompressor-jar}" fork="true">
+		  <arg line="--charset UTF-8"/>
+		  <arg line="--preserve-semi"/>
+		  <arg line="-o ${css.src-dir}/css-min-non-rwd.css"/>
+		  <arg line="${css.src-dir}/concat-non-rwd.css"/>
+		</java>
+		
+		<!--
+		<echo>Removing Temp Non-RWD CSS file</echo>		
+		<delete>
+			<fileset dir="${css.src-dir}">
+				<include name="concat-non-rwd.css"/>
+			</fileset>
+		</delete>		
+		-->
+		
+		<!-- Remove existing breakpoints.scss --> 
+		<echo>Removing Existing breakpoints mixin</echo>
+		<delete file="${css.src-dir}/common/breakpoints.scss" />
+		
+		<echo>Removing Existing grid mixin</echo>
+		<delete file="${css.src-dir}/common/grid.scss" />		
+		
+		<!-- Set the default breakpoints mixin when build the RWD version of the CSS -->
+		<copy file="${css.src-dir}/common/grid.base" tofile="${css.src-dir}/common/grid.scss"/>
+			
+		
+		<!-- Set the default breakpoints mixin when build the RWD version of the CSS -->
+		<copy file="${css.src-dir}/common/breakpoints.base" tofile="${css.src-dir}/common/breakpoints.scss"/>
+		
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass base.scss base.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-common.scss all-styles-common.css"/>
+		</exec>		
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-desktop.scss all-styles-desktop.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-kiosk.scss all-styles-kiosk.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-large-desktop.scss all-styles-large-desktop.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-mobile.scss all-styles-mobile.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass all-styles-tablet.scss all-styles-tablet.css"/>
+		</exec>
+				
+		<exec dir="${css.legacy-src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass legacy.scss legacy.css"/>
+		</exec>
+		
+		<!-- IE Specific Styles -->
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass ie8.scss ie8.css"/>
+		</exec>	
+		<exec dir="${scss.src-dir}" executable="cmd">
+		   <arg value="/c"/>
+		   <arg value="sass ie9.scss ie9.css"/>
+		</exec>
+		
+		<echo>Concatenating RWD CSS file</echo>
+		<!-- Concat CSS Files -->
+		<concat destfile="${css.src-dir}/concat.css" encoding="UTF-8">
+			<filelist dir="${css.src-dir}" files="${css.files}"/>
+		</concat>
+		
+		<echo>Minifying RWD CSS file</echo>
+		<!-- Minimize CSS -->
+		<java jar="${yuicompressor-jar}" fork="true">
+		  <arg line="--charset UTF-8"/>
+		  <arg line="--preserve-semi"/>
+		  <arg line="-o ${css.src-dir}/css-min.css"/>
+		  <arg line="${css.src-dir}/concat.css"/>
+		</java>
+				
+		<!--
+		<echo>Removing Temp RWD CSS file</echo>				
+		<delete>
+			<fileset dir="${css.src-dir}">
+				<include name="concat.css"/>
+			</fileset>
+		</delete>		
+		-->	
+		
+		
+		
+		<echo>Removing Existing breakpoints mixin</echo>
+		<delete file="${css.src-dir}/common/breakpoints.scss" />	
+		<!-- Put original brakepoint.scss back -->
+		<copy file="${css.src-dir}/common/breakpoints.base" tofile="${css.src-dir}/common/breakpoints.scss"/>
+	</target>
+	
+	<!-- Concat and minimize JS -->
+	<target name="javascript">
+		<echo>Processing Javascript</echo>
+	
+		<!-- Base JS File Concat -->
+		<concat destfile="${js.src-dir}/core-concat.js" encoding="UTF-8">
+			<filelist dir="${js.lib-dir}" files="${js.core.lib.files}"/>
+			<filelist dir="${js.mod-dir}" files="${js.core.mod.files}"/>
+			<filelist dir="${js.src-dir}" files="${js.core.files}"/>
+		</concat>
+
+		<!-- Mobile JS File Concat -->
+		<concat destfile="${js.src-dir}/mobile-concat.js" encoding="UTF-8">		
+			<filelist dir="${js.lib-dir}" files="${js.mobile.lib.files}"/>
+			<filelist dir="${js.mod-dir}" files="${js.mobile.mod.files}"/>
+		</concat>
+		
+		<!-- Desktop JS File Concat -->
+		<concat destfile="${js.src-dir}/desktop-concat.js" encoding="UTF-8">			
+			<filelist dir="${js.lib-dir}" files="${js.desktop.lib.files}"/>
+			<filelist dir="${js.mod-dir}" files="${js.desktop.mod.files}"/>
+		</concat>
+						
+		<!-- Concat JS Files -->
+		<concat destfile="${js.src-dir}/all-concat.js" encoding="UTF-8">
+			<fileset file="${js.src-dir}/core-concat.js"/>
+			<fileset file="${js.src-dir}/mobile-concat.js"/>
+			<fileset file="${js.src-dir}/desktop-concat.js"/>
+		</concat>
+		
+		<!-- Minimize All JS -->
+		<java jar="${yuicompressor-jar}" fork="true">
+			<arg line="--charset UTF-8"/>
+			<arg line="--preserve-semi"/>
+			<arg line="-o ${js.src-dir}/all-min.js"/>
+			<arg line="${js.src-dir}/all-concat.js"/>
+		</java>
+		
+		<!-- Minimize Base JS -->
+		<java jar="${yuicompressor-jar}" fork="true">
+			<arg line="--charset UTF-8"/>
+			<arg line="--preserve-semi"/>
+			<arg line="-o ${js.src-dir}/core-min.js"/>
+			<arg line="${js.src-dir}/core-concat.js"/>
+		</java>
+		
+		<!-- Minimize Desktop JS -->
+		<java jar="${yuicompressor-jar}" fork="true">
+			<arg line="--charset UTF-8"/>
+			<arg line="--preserve-semi"/>
+			<arg line="-o ${js.src-dir}/desktop-min.js"/>
+			<arg line="${js.src-dir}/desktop-concat.js"/>
+		</java>
+		
+		<!-- Minimize Mobile JS -->
+		<java jar="${yuicompressor-jar}" fork="true">
+			<arg line="--charset UTF-8"/>
+			<arg line="--preserve-semi"/>
+			<arg line="-o ${js.src-dir}/mobile-min.js"/>
+			<arg line="${js.src-dir}/mobile-concat.js"/>
+		</java>
+		
+		<!-- Remove old file-->
+		<!--
+		<delete>
+			<fileset dir="${js.src-dir}">
+				<include name="concat.js"/>
+			</fileset>
+		</delete>
+		-->
+		
+	</target>
+	
+</project>

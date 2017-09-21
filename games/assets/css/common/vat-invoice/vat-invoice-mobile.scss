@@ -1,0 +1,145 @@
+/*******************************************
+*	VAT invoice module - Mobile
+*******************************************/
+
+.vat-invoice-items {    
+    .delivery-item-holder {        
+        .price {
+            .section-heading {
+                display: block;
+            }
+        }
+    }
+    
+    .delivery-item {
+        &:first-child {
+            margin-top: 0;
+            border-top: none;
+        }
+    }
+    
+    .supplied-by {        
+        .icon {
+            margin-right: 0;
+        }
+    }
+}
+
+#order-summary .delivery-group-block {
+    &.vat-invoice-items > h2,
+    &#vat-invoice-details > h2 {
+        padding-bottom: 16px;
+    }
+}
+
+#vat-invoice-details .vat-name-section .edit-vat-name {
+    width: 100%;
+    margin-left: 0;
+    
+    fieldset {
+    	width: auto;
+    }
+    
+    input,
+    select,
+    .customDropdown {
+        float: none;
+        width: auto;
+        margin-left: 0;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+    }
+    
+    input[type="submit"] {
+        margin-top: 0;
+    }
+}
+
+#vat-invoice-details {
+    .vat-address-section {        
+        
+        label {
+            display: block;
+            line-height: normal;
+            float: none;
+            width: auto; // large-desktop
+            padding: 0 0 8px;
+            margin: 0;
+            text-align: left;
+        }
+        
+        .vat-address-field {
+            float: none;
+            width: 100%;
+            
+            .customDropdown {
+                margin-left: 0;
+                float: none;
+                width: auto;
+            }
+        }
+    }
+    
+    .vat-email-section {        
+        
+        label {
+            display: block;
+            line-height: normal;
+            float: none;
+            width: auto; // large-desktop
+            padding: 0 0 8px;
+            margin: 0;
+            text-align: left;
+            &.error {
+                display: inline;
+            }
+        }
+        
+        .vat-email-field {
+            float: none;
+            width: 100%;
+            
+            input {
+                float: none;
+                width: auto;
+                margin-left: 0;
+            }
+            
+            input[type="email"] {
+                width: 100%;
+            }
+        }
+    }
+    
+    .vat-submission-footer {
+        padding-left: 0;
+        
+        .label {
+            float: none;
+            width: 100%;
+            padding-right: 0; // large-desktop
+            padding-left: 0;
+        }
+        
+        .form-group-buttons {
+            float: none;
+            width: 100%;
+            margin: 0;
+            input {
+                width: auto;
+                &[type=submit] {
+                    float: none;
+                    width: 100%;
+                    margin-top: 0;
+                    margin-left: 0;
+                }
+            }
+            a.tertiary-button {
+                float: none;
+                width: 100%;
+            }
+        }
+    }
+}

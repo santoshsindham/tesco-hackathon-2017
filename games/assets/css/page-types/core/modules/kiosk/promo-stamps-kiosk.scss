@@ -1,0 +1,4 @@
+//promo-stamps module - kiosk
+@import "../../components/breakpoints";
+@include breakpoint(kiosk);
+@import "../mixins/promo-stamps-mixins";

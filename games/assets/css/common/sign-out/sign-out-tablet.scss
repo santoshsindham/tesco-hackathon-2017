@@ -1,0 +1,14 @@
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "sign-out-mixins";
+
+
+.sign-out {
+	@include side-by-side-buttons-reversed;
+	fieldset {
+		width: auto;
+	}
+	.buttons {
+		max-width: 452px;
+	}
+}

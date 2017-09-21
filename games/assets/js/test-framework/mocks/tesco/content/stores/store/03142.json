@@ -1,0 +1,48 @@
+{
+    "id" : "03142",
+    "postalCode" : "AL71TW",
+    "country" : "GB",
+    "satClose" : "2359",
+    "thuClose" : "2359",
+    "longitude" : "-0.3125",
+    "storeName" : "HAMMERSMITH LOCKERS",
+    "sunClose" : "1600",
+    "wedOpen" : "1",
+    "wedClose" : "2359",
+    "latitude" : "51.7520084634915",
+    "monOpen" : "0600",
+    "gridReference" : "546001660",
+    "addressTwo" : "9 AUGUSTUS LANE",
+    "facilities" : [ {
+      "id" : "CAFE",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/CAFE"
+    }, {
+      "id" : "LOCKERS",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/LOCKERS"
+    } ],
+    "thuOpen" : "1",
+    "storeTypes" : [ {
+      "id" : "Superstore",
+      "type" : "storeType",
+      "href" : "/direct/rest/content/stores/storeType/Superstore"
+    } ],
+    "friOpen" : "1",
+    "county" : "KENT",
+    "tueOpen" : "1",
+    "storeId" : "3142",
+    "satOpen" : "1",
+    "friClose" : "2359",
+    "monClose" : "2359",
+    "tueClose" : "2359",
+    "sunOpen" : "1001",
+    "addressOne" : "Tesco Stores",
+    "townCity" : "ORPINGTON",
+    "links" : [ {
+      "id" : "03142",
+      "type" : "store",
+      "rel" : "self",
+      "href" : "/direct/rest/content/stores/store/03142"
+    } ]
+  }

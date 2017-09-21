@@ -1,0 +1,35 @@
+//dialog-box module - mobile
+
+#lightbox.dialogBox {
+    width: 95%;
+    max-width: 300px;
+    &.verticallyBottom {
+        margin-left: -150px;
+        bottom:15px;
+    }
+}
+
+#dialogBox {
+    $paddingVertical:   15px;
+    $paddingHorizontal: 10px;
+
+    margin: $paddingVertical $paddingHorizontal $paddingVertical 0;
+
+    > * {
+        margin-left: $paddingHorizontal;
+    }
+
+    ul {
+        margin: $paddingVertical 0 0 0;
+
+        li {
+            width: 100%;
+            padding-left: $paddingHorizontal;
+            margin-top: 10px;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}

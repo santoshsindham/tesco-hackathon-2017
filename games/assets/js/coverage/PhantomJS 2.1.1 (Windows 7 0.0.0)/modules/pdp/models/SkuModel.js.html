@@ -1,0 +1,1961 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\models\SkuModel.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/models/</a> SkuModel.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.68% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>149/205</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.01% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>92/146</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.53% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>25/34</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">72.68% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>149/205</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">58×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">58×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">57×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18×</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">22×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23×</span>
+<span class="cline-any cline-yes">19×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">36×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">27×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">30×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/models/SkuModel', [
+  'modules/mvc/fn',
+  'modules/pdp/data-stores/Sku',
+  'modules/pdp/models/BaseModel'
+], function (fn, Sku, BaseModel) {
+  'use strict';
+&nbsp;
+  /**
+   *
+   * @param {Object} config
+   * @return {void}
+   */
+  function SkuModel(config) {
+    this.DataStoreClass = Sku;
+    this.sNamespace = 'sku';
+    this.sParentNamespace = 'products';
+    this.parent.constructor.call(this, config);
+  }
+&nbsp;
+  fn.inherit(SkuModel, BaseModel);
+&nbsp;
+  SkuModel.prototype.sellerInformationCallback = <span class="fstat-no" title="function not covered" >function (oParams) {</span>
+<span class="cstat-no" title="statement not covered" >    var target = '';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.update({</span>
+      sSearchKey: 'id',
+      mSearchValue: oParams.skuID,
+      sUpdateKey: 'sellers',
+      mUpdateValue: oParams.sellers
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setEvent({</span>
+      sName: 'dataFetched',
+      mfetchedData: {
+        sellers: oParams.sellers
+      }
+    }, false, true);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (oParams.targetSelector !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      target = oParams.targetSelector;</span>
+    } else <span class="cstat-no" title="statement not covered" >if ($('.buybox-view').length) {</span>
+<span class="cstat-no" title="statement not covered" >      target = '.buybox-view';</span>
+    } else {
+<span class="cstat-no" title="statement not covered" >      target = '.buybox-wrapper';</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setEvent({</span>
+      sName: 'render',
+      sKeyId: oParams.skuID,
+      sNamespace: 'sku',
+      sTag: 'buybox',
+      sViewName: 'BuyboxView',
+      elTarget: target,
+      /**
+       * View data needs to be passed as value of 'products' property in order for the View
+       * to use its namespace to pick up the right data being passed into it. The data is
+       * prefixed in the mvc property to allow backwards compatibility with the legacy way
+       * of passing data between views.
+       */
+      mParamData: {
+        mvc: {
+          sku: this.get({
+            sSearchKey: 'id',
+            mSearchValue: oParams.skuID
+          })
+        }
+      }
+    }, false, true);
+  };
+&nbsp;
+&nbsp;
+  SkuModel.prototype.createEndpoint = function (args) {
+    var values = args.values,
+      aEndpoints = [],
+      oEndpoint = null,
+      sProductID = null,
+      sSKUID = null,
+      sURL = '',
+      i = 0,
+      sSchoolId = '',
+      sSchoolName = '',
+      sLogoRef = '';
+&nbsp;
+    oEndpoint = this.oDataEndpointMap.getEndpoint(this.sNamespace);
+&nbsp;
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (oEndpoint) {
+      sURL = oEndpoint.action.fetch.href;
+&nbsp;
+      if (args.modelMethod) {
+        sURL = oEndpoint.action[args.modelMethod].href;
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (args.modelMethod === 'buybox') {
+<span class="cstat-no" title="statement not covered" >          sProductID = values[0];</span>
+<span class="cstat-no" title="statement not covered" >          sSKUID = values[1];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (window.oAppController.oPageController.ues.schoolId !== '') {</span>
+<span class="cstat-no" title="statement not covered" >            sSchoolId = '&amp;schoolId=' + window.oAppController.oPageController.ues.schoolId;</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (window.oAppController.oPageController.ues.schoolName !== '') {</span>
+<span class="cstat-no" title="statement not covered" >            sSchoolName = '&amp;schoolName=' + window.oAppController.oPageController.ues.schoolName;</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (window.oAppController.oPageController.ues.slogoRef !== '') {</span>
+<span class="cstat-no" title="statement not covered" >            sLogoRef = '&amp;slogoRef=' + window.oAppController.oPageController.ues.slogoRef;</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          sURL = sURL.replace(/(%SKUID%)/, sSKUID)</span>
+            .replace(/(%PRODUCTID%)/, sProductID)
+            .replace(/(%SCHOOLID%)/, sSchoolId)
+            .replace(/(%SCHOOLNAME%)/, sSchoolName)
+            .replace(/(%SLOGOREF%)/, sLogoRef);
+<span class="cstat-no" title="statement not covered" >          aEndpoints.push(sURL);</span>
+        } else <span class="missing-if-branch" title="else path not taken" >E</span>if (args.modelMethod === 'ndo' || args.modelMethod === 'price'
+            || <span class="branch-2 cbranch-no" title="branch not covered" >args.modelMethod === 'competitors')</span> {
+          sURL += values[0];
+&nbsp;
+          <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof args.createEndpointCallback === 'function') {
+            sURL = args.createEndpointCallback(sURL);
+          }
+&nbsp;
+          aEndpoints.push(sURL);
+        }
+      } else {
+        for (i = 0; i &lt; values.length; i += 1) {
+          aEndpoints.push(sURL + values[i]);
+        }
+      }
+    }
+&nbsp;
+    return aEndpoints;
+  };
+&nbsp;
+  SkuModel.prototype.dataHandler = function (oResponse, oParams) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (oParams.sModelMethod === 'buybox') {
+<span class="cstat-no" title="statement not covered" >      if (oResponse.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        this.update({</span>
+          sSearchKey: 'id',
+          mSearchValue: oParams.mSearchValue[1],
+          sUpdateKey: 'sellers',
+          mUpdateValue: oResponse
+        });
+      }
+<span class="cstat-no" title="statement not covered" >      this.triggerDataFetched(oResponse);</span>
+    } else {
+      this.parent.dataHandler.apply(this, arguments);
+    }
+  };
+&nbsp;
+&nbsp;
+  /**
+   * NOTE: Legacy method to be deprecated in favour of getPrimaryListing.
+   *
+   * @param {Object|String} data
+   * @return {String}
+   */
+  SkuModel.prototype.getPrimarySeller = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var skuData = this.resolveDataArg(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isObject(skuData, { notEmpty: true })</span>
+        || !fn.isArray(skuData.sellers, { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return skuData.sellers[0];</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   * NOTE: Legacy method to be deprecated in favour of getSecondaryListings.
+   *
+   * @param {Object|String} data
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getSecondarySellers = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var skuData = this.resolveDataArg(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isObject(skuData, { notEmpty: true })</span>
+        || !fn.isArray(skuData.sellers, { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return skuData.sellers.slice(1);</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Object}
+   */
+  SkuModel.prototype.getBookDetails = function (data) {
+    var skuData = this.resolveDataArg(data);
+&nbsp;
+    if (!fn.isObject(skuData, { notEmpty: true })
+        || !fn.isObject(skuData.bookDetails, { notEmpty: true })) {
+      return {};
+    }
+&nbsp;
+    return skuData.bookDetails;
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Object}
+   */
+  SkuModel.prototype.getMediaAssets = function (data) {
+    var skuData = this.resolveDataArg(data);
+&nbsp;
+    if (!fn.isObject(skuData, { notEmpty: true })
+        || !fn.isObject(skuData.mediaAssets, { notEmpty: true })) {
+      return {};
+    }
+&nbsp;
+    return skuData.mediaAssets;
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Object}
+   */
+  SkuModel.prototype.getDefaultImage = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var mediaAssets = this.getMediaAssets(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isObject(mediaAssets, { notEmpty: true })</span>
+        || !fn.isObject(mediaAssets.defaultImage, { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >      return {};</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return mediaAssets.defaultImage;</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @param {String} key optional
+   * @param {String} value optional
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getSkuMedia = function (data, key, value) {
+    var mediaAssets = this.getMediaAssets(data),
+      skuMedia = [],
+      skuMediaAssets = [];
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!fn.isObject(mediaAssets, { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+&nbsp;
+    if (!fn.isArray(mediaAssets.skuMedia)) {
+      mediaAssets.skuMedia = [];
+      return mediaAssets.skuMedia;
+    }
+&nbsp;
+    skuMedia = mediaAssets.skuMedia;
+&nbsp;
+    if (typeof key !== 'string' || typeof value !== 'string') {
+      return skuMedia;
+    }
+&nbsp;
+    fn.loopArray(skuMedia, function loopSkuMedia(i) {
+      if (fn.isObject(skuMedia[i]) &amp;&amp; skuMedia[i][key] === value) {
+        skuMediaAssets.push(skuMedia[i]);
+      }
+    });
+&nbsp;
+    return skuMediaAssets;
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @param {Object} mediaAsset
+   * @return {void}
+   */
+  SkuModel.prototype.setSkuMedia = function (data, mediaAsset) {
+    var skuData = this.resolveDataArg(data),
+      skuMedia = [];
+&nbsp;
+    if (!fn.isObject(skuData, { notEmpty: true }) || !fn.isObject(mediaAsset, { notEmpty: true })) {
+      return;
+    }
+&nbsp;
+    skuMedia = this.getSkuMedia(skuData);
+&nbsp;
+    skuMedia.push(mediaAsset);
+    this.setDataStores(skuData);
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @param {String} key optional
+   * @param {String} value optional
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.unsetSkuMedia = function (data, key, value) {
+    var skuData = this.resolveDataArg(data),
+      skuMedia = this.getSkuMedia(skuData);
+&nbsp;
+    if (!fn.isArray(skuMedia, { notEmpty: true })) {
+      return;
+    }
+&nbsp;
+    if (!key &amp;&amp; !value) {
+      skuMedia.splice(0, skuMedia.length);
+    } else {
+      fn.loopArray(skuMedia, function loopSkuMedia(i) {
+        if (skuMedia[i][key] === value) {
+          skuMedia.splice(i, 1);
+        }
+      }, { backward: true });
+    }
+&nbsp;
+    this.setDataStores(skuData);
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @param {String} key optional
+   * @param {String} value optional
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getPings = function (data, key, value) {
+    var mediaAssets = this.getMediaAssets(data),
+      pings = [],
+      pingAssets = [];
+&nbsp;
+    if (!fn.isObject(mediaAssets, { notEmpty: true })) {
+      return [];
+    }
+&nbsp;
+    if (!fn.isArray(mediaAssets.pings)) {
+      mediaAssets.pings = [];
+      return mediaAssets.pings;
+    }
+&nbsp;
+    pings = mediaAssets.pings;
+&nbsp;
+    if (typeof key !== 'string' || typeof value !== 'string') {
+      return pings;
+    }
+&nbsp;
+    fn.loopArray(pings, function loopSkuMedia(i) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (fn.isObject(pings[i]) &amp;&amp; pings[i][key] === value) {
+        pingAssets.push(pings[i]);
+      }
+    });
+&nbsp;
+    return pingAssets;
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @param {Object} pingAsset
+   * @return {void}
+   */
+  SkuModel.prototype.setPing = function (data, pingAsset) {
+    var skuData = this.resolveDataArg(data),
+      pings = [];
+&nbsp;
+    if (!fn.isObject(skuData, { notEmpty: true }) || !fn.isObject(pingAsset, { notEmpty: true })) {
+      return;
+    }
+&nbsp;
+    pings = this.getPings(skuData);
+&nbsp;
+    pings.push(pingAsset);
+    this.setDataStores(skuData);
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @param {String} key optional
+   * @param {String} value optional
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.unsetPings = function (data, key, value) {
+    var skuData = this.resolveDataArg(data),
+      pings = this.getPings(skuData);
+&nbsp;
+    if (!fn.isArray(pings, { notEmpty: true })) {
+      return;
+    }
+&nbsp;
+    if (!key &amp;&amp; !value) {
+      pings.splice(0, pings.length);
+    } else {
+      fn.loopArray(pings, function loopSkuMedia(i) {
+        if (pings[i][key] === value) {
+          pings.splice(i, 1);
+        }
+      }, { backward: true });
+    }
+&nbsp;
+    this.setDataStores(skuData);
+  };
+&nbsp;
+&nbsp;
+  /**
+   * @param {Object|String} data
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getAttributes = function (data) {
+    var skuData = this.resolveDataArg(data);
+&nbsp;
+    if (!fn.isObject(skuData, { notEmpty: true })) {
+      return {};
+    }
+&nbsp;
+    return skuData.attributes || {};
+  };
+&nbsp;
+&nbsp;
+  /**
+   * @param {Object|String} data
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getColour = function (data) {
+    var skuAttributes = this.getAttributes(data);
+&nbsp;
+    if (!this.isObject(skuAttributes, true) || typeof skuAttributes.colour !== 'string') {
+      return '';
+    }
+&nbsp;
+    return skuAttributes.colour || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Object}
+   */
+  SkuModel.prototype.getPrices = function (data) {
+    var skuData = this.resolveDataArg(data);
+&nbsp;
+    if (!fn.isObject(skuData, { notEmpty: true })
+        || !fn.isObject(skuData.prices, { notEmpty: true })) {
+      return {};
+    }
+&nbsp;
+    return skuData.prices;
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {String}
+   */
+  SkuModel.prototype.getPrice = function (data) {
+    var prices = this.getPrices(data);
+&nbsp;
+    if (!fn.isObject(prices, { notEmpty: true })) {
+      return '';
+    }
+&nbsp;
+    return prices.fromPrice || prices.price || <span class="branch-2 cbranch-no" title="branch not covered" >'';</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {String}
+   */
+  SkuModel.prototype.getPublicLink = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var skuData = this.resolveDataArg(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!this.isObject(skuData, true) || typeof skuData.publicLink !== 'string') {</span>
+<span class="cstat-no" title="statement not covered" >      return '';</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return skuData.publicLink || '';</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Object}
+   */
+  SkuModel.prototype.getParentProduct = function (data) {
+    var links = this.getLinks({ value: 'parent', data: data });
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!fn.isArray(links, { notEmpty: true }) || !fn.isObject(links[0], { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >      return {};</span>
+    }
+&nbsp;
+    return links[0];
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {String}
+   */
+  SkuModel.prototype.getParentProductId = function (data) {
+    var parent = this.getParentProduct(data);
+&nbsp;
+    return typeof parent.id === 'string' ? parent.id : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getListings = function (data) {
+    var links = this.getLinks({ value: 'listed', data: data });
+&nbsp;
+    if (!fn.isArray(links, { notEmpty: true })) {
+      return [];
+    }
+&nbsp;
+    return links;
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {String}
+   */
+  SkuModel.prototype.getPrimaryListing = function (data) {
+    var listingLinks = this.getListings(data);
+&nbsp;
+    if (!listingLinks.length) {
+      return {};
+    }
+&nbsp;
+    return listingLinks[0];
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Array&lt;String&gt;}
+   */
+  SkuModel.prototype.getSecondaryListings = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var listingLinks = this.getListings(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!listingLinks.length) {</span>
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return listingLinks.slice(1);</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|String} data
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getCompetitors = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var skuData = this.resolveDataArg(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isObject(skuData) || !fn.isArray(skuData.competitors)) {</span>
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return skuData.competitors;</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|string} data
+   * @return {Array&lt;Object&gt;}
+   */
+  SkuModel.prototype.getCategories = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var skuData = this.resolveDataArg(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isObject(skuData) || !fn.isArray(skuData.ancestorCategories)) {</span>
+<span class="cstat-no" title="statement not covered" >      return [];</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return skuData.ancestorCategories;</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object|string} data
+   * @return {Object}
+   */
+  SkuModel.prototype.getParentCategory = <span class="fstat-no" title="function not covered" >function (data) {</span>
+<span class="cstat-no" title="statement not covered" >    var categories = this.getCategories(data);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!categories.length) {</span>
+<span class="cstat-no" title="statement not covered" >      return {};</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return categories[0];</span>
+  };
+&nbsp;
+&nbsp;
+  /**
+   *
+   * @param {Object} data
+   * @return {?boolean}
+   */
+  SkuModel.prototype.getRangedInStore = function (data) {
+    var skuData = this.resolveDataArg(data);
+&nbsp;
+    if (!fn.isObject(skuData) || typeof skuData.rangedInStore !== 'boolean') {
+      return null;
+    }
+&nbsp;
+    return skuData.rangedInStore;
+  };
+&nbsp;
+&nbsp;
+  return SkuModel;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

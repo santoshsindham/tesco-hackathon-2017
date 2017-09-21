@@ -1,0 +1,2282 @@
+@import '../variables';
+@import '../breakpoints';
+
+$wrapperBdrColor: $paleGrey;
+$headingColor: $darkGrey;
+$textColor: $grey;
+$loaderUrl: '../images/Spinner-animated-Indeterminate.gif';
+$linkColor: $blue;
+$linkColorHover: $brightBlue;
+$linkColorActive: #008DC8;
+$linkColorFocus: $brightBlue;
+$linkColorVisited: #599BB7;
+$primaryBtnColor: $blue;
+$primaryBtnShadow: 0 0 0 4px rgba(0,83,159,0.4);
+$primaryDarkBtnShadow: 0 0 0 4px rgba(255,255,255,0.6);
+$specialBtnColor: $specialRed;
+$specialBtnShadow: 0 0 0 4px rgba(254,83,45,0.6);
+$promoBtnColor: $promoMaroon;
+$promoBtnShadow: 0 0 0 4px rgba(162,33,55,0.4);
+$disabledBtnColor: $paleGrey;
+$inputColor: $grey;
+$inputBkgColor: #fff;
+$inputBdrColor: #ccc;
+$inputBdrColorActive: $brightBlue;
+$inputActiveShadow: 0 0 0 4px rgba(0,141,200,.4);
+$inputTextColorDisabled: #999;
+$inputBdrColorDisabled: $paleGrey;
+$inputBkgColorDisabled: $disabledGrey;
+$checkboxCheckedDisabled: $grey;
+$inputBdrColorInvalid: $errorRed;
+$inputShadowInvalid: 0 0 0 4px rgba(204,51,51,.2);
+$selectedBkgClr: $brightBlue;
+$priceColor: $darkGrey;
+$enabledStar: #ffc600;
+$disabledStar: $paleGrey;
+$wasPriceColor: $red;
+$backgroundFill: #f8f8f8;
+$iconBdr: $paleGrey;
+$imageBdrClr: #eee;
+$activeMenuLinkBkg: $brightBlue;
+
+/**
+ * All comments are written by Dylan Aubrey (so24) unless otherwise stated.
+ */
+
+/*************************************************************************************
+ ** BASE STYLES **********************************************************************
+ ************************************************************************************/
+
+/**
+ * Wrap all text/html content within a
+ * sitebuilder block in a div with this class.
+ * This will center the content in the page
+ * across all viewports.
+ */
+@mixin blockWrapper {
+  clear: both;
+  float: none;
+  margin: 0 auto 80px;
+  width: 100%;
+
+  &.with-indents {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &.with-sm-margin-btm {
+    margin-bottom: 16px;
+  }
+
+  &.with-m-margin-btm {
+    margin-bottom: 30px;
+  }
+
+  &.with-bkg-color {
+    background-color: $naturalWhite;
+  }
+}
+
+/**
+ * Wrap all blocks (i.e. product-spec, recently viewed,
+ * get-the-look) in a div with this class or add this
+ * class to the block's existing outer wrapper.
+ */
+@mixin block {
+  float: none;
+  margin: auto;
+  position: relative;
+  width: 100%;
+
+  &:after {
+    @include clear-fix;
+  }
+
+  &.with-divider {
+    padding-top: 30px;
+    border-top: 1px solid $wrapperBdrColor;
+  }
+
+  &.with-sm-margin-btm {
+    margin-bottom: 10px;
+  }
+}
+
+/**
+ * Wrap elements in a container with this class to give spacing below.
+ */
+@mixin element-wrapper {
+  float: none;
+  margin: 0 0 10px;
+  width: 100%;
+
+  &:after {
+    @include clear-fix;
+  }
+}
+
+/**
+ * Add to elements for tablet/mobile viewport to support 10px gutter between
+ * element and edge of device screen.
+ */
+@mixin withDeviceIndents {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+/**
+ * Reduce text size
+ */
+@mixin smallerText {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin smallestText {
+  font-size: 12px;
+  line-height: 18px;
+}
+
+/**
+ * Use h1 tags for page titles.
+ */
+@mixin h1Heading {
+  color: $headingColor;
+  font-family: $tescoFont;
+  font-size: 30px;
+  font-weight: normal;
+  line-height: 36px;
+  margin: 0 0 50px;
+  max-height: none;
+  width: auto;
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+
+  .author-artist-pipeline{
+    color:#666666;
+  }
+
+  .author-artist-name {
+    color:#666666;
+    margin-left:17px;
+  }
+}
+
+/**
+ * Use h2 tags for block titles and add this class.
+ */
+@mixin h2Heading {
+  margin: 0 0 30px;
+  font-family: $tescoFont;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: normal;
+  color: $headingColor;
+
+  &.uppercase {
+    text-transform: uppercase;
+  }
+}
+
+/**
+ * h3 tags
+ */
+@mixin h3Heading {
+  margin: 0;
+  font-family: $tescoFont;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: normal;
+  color: $headingColor;
+}
+
+/**
+ * h4 tags
+ */
+@mixin h4Heading {
+  margin: 0;
+  font-family: $tescoFont;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: normal;
+  color: $headingColor;
+}
+
+/**
+ * h5 tags
+ */
+@mixin h5Heading {
+  margin: 0;
+  font-family: $tescoFont;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: normal;
+  color: $headingColor;
+
+  &.smaller,
+  small {
+    @include smallerText;
+  }
+
+  &.with-margin-btm {
+    margin-bottom: 1em;
+  }
+}
+
+/**
+ * Ellipse content on one line
+ */
+@mixin ellipsed {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/**
+ * p tags
+ */
+@mixin text {
+  margin: 0;
+  font-family: $tescoFont;
+  font-size: 16px;
+  line-height: 22px;
+  color: $textColor;
+
+  &.larger {
+    font-size: 18px;
+    line-height: 22px;
+
+    > p {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  &.smaller {
+    @include smallerText;
+
+    > p {
+      @include smallerText;
+    }
+  }
+
+  &.smallest {
+    @include smallestText;
+
+    > p {
+      @include smallestText;
+    }
+  }
+
+  &.line-height-reset {
+    line-height: normal;
+
+    > p {
+      line-height: normal;
+    }
+  }
+
+  &.with-margin-btm {
+    margin-bottom: 1em;
+  }
+}
+@mixin textBlock {
+  > p {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+@mixin highlight {
+  color: $linkColor;
+
+  .no-touch & {
+    &:hover {
+      color: $linkColorHover;
+      cursor: pointer;
+    }
+  }
+}
+@mixin saving {
+  color: $red;
+}
+
+/**
+ * icons
+ */
+@mixin icon {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: $tescoIconFont;
+  color: inherit;
+
+  &.large {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  &.larger {
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  &.largest {
+    font-size: 50px;
+    line-height: 1;
+  }
+
+  &.with-round-outline {
+    border: 1px solid $iconBdr;
+    border-radius: 50%;
+    box-sizing: content-box;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    width: 50px;
+  }
+}
+@mixin withIcon($icon, $pos, $lineHeight: inherit, $fontSize: 95%, $spacing: 22px) {
+  @if $pos == before {
+    margin-left: $spacing;
+  }
+  position: relative;
+
+  &:#{$pos} {
+    @include icon;
+    @if $pos == before {
+      left: -$spacing;
+    } @else if $pos == after {
+      right: -$spacing;
+    }
+    content: $icon;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    position: absolute;
+    top: 0;
+  }
+}
+/**
+ * a tags
+ */
+@mixin hyperlink {
+  font-family: $tescoFont;
+  font-size: inherit;
+  line-height: inherit;
+  color: $linkColor;
+  cursor: pointer;
+  text-decoration: none;
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .no-touch & {
+    &:hover {
+      color: $linkColorHover;
+      text-decoration: underline;
+    }
+  }
+
+  &.button {
+    text-decoration: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.icon {
+    color: inherit;
+    font-family: $tescoIconFont;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &:active,
+  &:focus {
+    color: $linkColorActive;
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: $linkColorVisited;
+    text-decoration: none;
+  }
+
+  &.disabled {
+    color: $lightGrey;
+    cursor: default;
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: $lightGrey;
+      text-decoration: none;
+    }
+  }
+
+  &.loading {
+    position: relative;
+
+    &:after {
+      background-image: url($loaderUrl);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 15px;
+      content: ' ';
+      display: inline-block;
+      height: 100%;
+      margin-left: 10px;
+      position: absolute;
+      width: 15px;
+    }
+  }
+
+  &.with-arrow {
+    position: relative;
+    @include withIcon('r', after);
+  }
+
+  &.with-question-mark {
+    @include withIcon('h', before);
+    position: relative;
+  }
+
+  &.with-geolocation {
+    font-weight: bold;
+    @include withIcon('\e90a', before, inherit, 22px, 30px);
+    &:before {
+      font-weight: normal;
+    }
+  }
+}
+@mixin blockLink {
+  display: block;
+  text-decoration: none !important;
+
+  &:hover {
+    text-decoration: none !important;
+  }
+}
+@mixin dropdownLink {
+  display: block;
+  background: $inputBkgColor;
+  color: $inputColor;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:active {
+    background: $activeMenuLinkBkg;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .no-touch & {
+    &:hover {
+      background: $activeMenuLinkBkg;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+/**
+ * unordered lists
+ */
+@mixin listWithBullets {
+  padding-left: 20px;
+  list-style-type: disc;
+
+  li {
+    padding-bottom: 12px;
+    font-size: 16px;
+    line-height: 22px;
+    font-family: $tescoFont;
+    color: $textColor;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+@mixin dropdownList {
+  border: 1px solid $lightGrey;
+
+  li {
+    &.alt-heading {
+      @include textInputStyles;
+      border: 0;
+      border-radius: 0;
+      font-style: italic;
+    }
+
+    .option {
+      @include textInputStyles;
+      border: 0;
+      border-radius: 0;
+      @include dropdownLink;
+    }
+  }
+}
+
+/**
+ * Button styling. Use the classes below for any buttons
+ * or inputs that require a button styling.
+ */
+@mixin buttonStyles {
+  -webkit-appearance: none;
+  border-radius: 100px;
+  border-style: solid;
+  border-width: 2px;
+  cursor: pointer;
+  font-family: $tescoFont;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+  height: 44px;
+  letter-spacing: 0;
+  margin: 0;
+  outline: none;
+  padding: 0 18px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  white-space: nowrap;
+  @include multipleTransitions(box-shadow .3s);
+
+  > span {
+    border: 1px solid transparent;
+    display: inline-block;
+    line-height: 16px;
+    padding: 0;
+    position: relative;
+    @include multipleTransitions(border .1s);
+  }
+
+  .no-touch & {
+    &:hover {
+      border-style: solid;
+      border-width: 2px;
+    }
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    border-style: solid;
+    border-width: 2px;
+  }
+
+  &.active,
+  &:active {
+    > span {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &.with-icon {
+    > * {
+      position: relative;
+      margin-left: 6px;
+
+      &:before {
+        font-family: 'Tesco Icons';
+        left: 0;
+      }
+    }
+  }
+
+  &.primary {
+    @include primaryButtonStyles;
+  }
+
+  &.secondary {
+    @include secondaryButtonStyles;
+  }
+
+  &.promo {
+    @include promoButtonStyles;
+  }
+
+  &.disabled,
+  &:disabled {
+    @include disabledButtonStyles;
+  }
+
+  &.submitting {
+    font-size: 0;
+
+    span {
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin primaryButtonStyles {
+  color: #fff;
+  background-color: $primaryBtnColor;
+  border-color: $primaryBtnColor;
+
+  .no-touch & {
+    &:hover {
+      box-shadow: $primaryBtnShadow;
+      color: #fff;
+
+      > span {
+        border-bottom-color: #fff;
+      }
+    }
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    color: #fff;
+  }
+
+  &.active,
+  &:active {
+    box-shadow: $primaryBtnShadow;
+
+    > span {
+      border-bottom-color: #fff;
+    }
+  }
+
+  &.submitting {
+    background-image: url($loaderUrl);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 26px;
+  }
+
+  &.special {
+    @include specialButtonStyle;
+  }
+
+  &.dark {
+    @include darkButtonStyle;
+  }
+}
+
+@mixin specialButtonStyle {
+  color: #fff;
+  background-color: $specialBtnColor;
+  border-color: $specialBtnColor;
+
+  .no-touch & {
+    &:hover {
+      box-shadow: $specialBtnShadow;
+      color: #fff;
+
+      > span {
+        border-bottom-color: #fff;
+      }
+    }
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    color: #fff;
+  }
+
+  &.active,
+  &:active {
+    box-shadow: $specialBtnShadow;
+
+    > span {
+      border-bottom-color: #fff;
+    }
+  }
+
+  &.submitting {
+    background-image: none;
+  }
+}
+
+@mixin darkButtonStyle {
+  color: $primaryBtnColor;
+  background-color: #fff;
+  border-color: $primaryBtnColor;
+
+  .no-touch & {
+    &:hover {
+      box-shadow: $primaryDarkBtnShadow;
+      color: $primaryBtnColor;
+
+      > span {
+        border-bottom-color: $primaryBtnColor;
+      }
+    }
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    color: $primaryBtnColor;
+  }
+
+  &.active,
+  &:active {
+    box-shadow: $primaryDarkBtnShadow;
+
+    > span {
+      border-bottom-color: $primaryBtnColor;
+    }
+  }
+}
+
+@mixin secondaryButtonStyles {
+  color: $primaryBtnColor;
+  background-color: #fff;
+  border-color: $primaryBtnColor;
+
+  .no-touch & {
+    &:hover {
+      box-shadow: $primaryBtnShadow;
+      color: $primaryBtnColor;
+
+      > span {
+        border-bottom-color: $primaryBtnColor;
+      }
+    }
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    color: $primaryBtnColor;
+  }
+
+  &.active,
+  &:active {
+    box-shadow: $primaryBtnShadow;
+
+    > span {
+      border-bottom-color: $primaryBtnColor;
+    }
+  }
+
+  &.submitting {
+    background-image: url($loaderUrl);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 26px;
+  }
+}
+
+@mixin promoButtonStyles {
+  color: #fff;
+  background-color: $promoBtnColor;
+  border-color: $promoBtnColor;
+
+  .no-touch & {
+    &:hover {
+      box-shadow: $promoBtnShadow;
+      color: #fff;
+
+      > span {
+        border-bottom-color: #fff;
+      }
+    }
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    color: #fff;
+  }
+
+  &.active,
+  &:active {
+    box-shadow: $promoBtnShadow;
+
+    > span {
+      border-bottom-color: #fff;
+    }
+  }
+
+  &.submitting {
+    background-image: none;
+  }
+}
+
+@mixin disabledButtonStyles {
+  border-color: $disabledBtnColor;
+  color: $disabledBtnColor;
+  cursor: default;
+  pointer-events: none;
+
+  .no-touch & {
+    &:hover {
+      box-shadow: none;
+
+      > span {
+        border-bottom-color: transparent;
+      }
+    }
+  }
+
+  &.active,
+  &:active {
+    box-shadow: none;
+
+    > span {
+      border-bottom-color: transparent;
+    }
+  }
+}
+
+/**
+ * Input styling. Use the classes below
+ * for any type of input.
+ */
+@mixin baseInputStyles {
+  -webkit-appearance: none; // removes the default input button style on Chrome/Safari touch devices
+  background-color: $inputBkgColor;
+  border: 1px solid $inputBdrColor;
+  border-radius: 0;
+  color: $inputColor;
+  font-family: $tescoFont;
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0;
+  outline: none;
+  text-align: left;
+  vertical-align: middle;
+  @include multipleTransitions(box-shadow .3s);
+
+  &:hover {
+    color: $inputColor;
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    border-color: $inputBdrColorActive;
+    box-shadow: $inputActiveShadow;
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: $inputBkgColorDisabled;
+    border-color: $inputBdrColorDisabled;
+    color: $inputTextColorDisabled;
+    cursor: default;
+
+    &.active,
+    &:active,
+    &:focus {
+      border-color: $inputBdrColorDisabled;
+      box-shadow: none;
+    }
+  }
+
+  &.invalid,
+  &:invalid {
+    border-color: $inputBdrColorInvalid;
+
+    &.active,
+    &:active,
+    &:focus {
+      border-color: $inputBdrColorInvalid;
+      box-shadow: $inputShadowInvalid;
+    }
+  }
+}
+@mixin textInputStyles {
+  height: 44px;
+  padding: 10px;
+  width: 100%;
+
+  &.product-quantity {
+    width: 50px;
+    text-align: center;
+  }
+}
+
+/**
+ * Native checkbox is hidden and we use a fake checkbox so we can style consistently across
+ * browsers, but we still hook into the native :checked pseudo selector so we don't have to use
+ * any javascript.
+ */
+@mixin checkboxInputStyles {
+  -webkit-appearance: none;
+  cursor: pointer;
+  height: 32px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+
+  /**
+   * label always needs to be adjacent sibling selector and
+   */
+  ~ .check-box {
+    @include baseInputStyles;
+    background-color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 22px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    width: 32px;
+  }
+
+  ~ .label {
+    cursor: pointer;
+    display: inline-block;
+    line-height: 32px;
+    padding-left: 15px;
+
+    &.smaller {
+      @include smallerText;
+      line-height: 32px;
+    }
+  }
+
+  .no-touch & {
+    &:hover {
+      ~ .check-box {
+        border-color: $inputBdrColorActive;
+        box-shadow: $inputActiveShadow;
+      }
+
+      &.disabled,
+      &:disabled {
+        ~ .check-box {
+          background-color: $inputBkgColorDisabled;
+          border-color: $inputBdrColorDisabled;
+          box-shadow: none;
+          cursor: default;
+        }
+
+        &.is-checked,
+        &:checked {
+          ~ .check-box {
+            background-color: $checkboxCheckedDisabled;
+            border-color: $checkboxCheckedDisabled;
+          }
+        }
+      }
+
+      &.invalid,
+      &:invalid {
+        ~ .check-box {
+          border-color: $inputBdrColorInvalid;
+          box-shadow: $inputShadowInvalid;
+        }
+      }
+    }
+  }
+
+  &.active,
+  &:focus {
+    ~ .check-box {
+      border-color: $inputBdrColorActive;
+      box-shadow: $inputActiveShadow;
+    }
+  }
+
+  &.disabled,
+  &:disabled {
+    ~ .check-box {
+      background-color: $inputBkgColorDisabled;
+      border-color: $inputBdrColorDisabled;
+      cursor: default;
+    }
+
+    ~ .label {
+      color: $inputTextColorDisabled;
+      cursor: default;
+    }
+
+    &.is-checked,
+    &:checked {
+      ~ .check-box {
+        background-color: $checkboxCheckedDisabled;
+        border-color: $checkboxCheckedDisabled;
+      }
+    }
+  }
+
+  &.is-checked,
+  &:checked {
+    ~ .check-box {
+      background-color: $selectedBkgClr;
+      border-color: $inputBdrColorActive;
+
+      &:before {
+        color: #fff;
+        content: '5';
+        font-family: 'Tesco Icons';
+      }
+    }
+  }
+
+  &.invalid,
+  &:invalid {
+    ~ .check-box {
+      border-color: $inputBdrColorInvalid;
+    }
+
+    &.active,
+    &:focus {
+      ~ .check-box {
+        border-color: $inputBdrColorInvalid;
+        box-shadow: $inputShadowInvalid;
+      }
+    }
+  }
+}
+
+/*************************************************************************************
+ ** COMPONENT STYLES *****************************************************************
+ ************************************************************************************/
+
+/**
+ * Add the class to style the product price. Add
+ * the extended classes to make the price larger, i.e. for
+ * when displaying price in the primary buybox.
+ */
+@mixin productPrice {
+  font-family: $tescoFont;
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  color: $priceColor;
+
+  &.larger {
+    font-size: 40px;
+    line-height: 40px;
+  }
+}
+
+@mixin productPriceView {
+  &.with-large-price {
+    .product-price {
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
+
+  &.has-was-was {
+    .was-price {
+      .from-prefix,
+      .was-prefix {
+        display: none;
+      }
+    }
+  }
+
+  &.with-saving-inline {
+    .saving {
+      display: inline;
+    }
+  }
+
+  .product-price-from-prefix {
+    color: $headingColor;
+  }
+
+  .savings-wrapper {
+    line-height: normal;
+  }
+
+  .was-was-price-divider {
+    &:after {
+      content: '|';
+    }
+  }
+
+  .saving {
+    display: block;
+  }
+
+  .clubcard-points {
+    margin-top: 5px;
+  }
+}
+
+@mixin productRatings {
+  &:after {
+    @include clear-fix;
+  }
+
+  .rating {
+    margin-bottom: 0;
+    margin-top: 3px;
+  }
+}
+
+@mixin productTileTitle {
+  h3 {
+    color: $textColor;
+    font-size: 16px;
+    height: 48px;
+    line-height: 22px;
+    margin-bottom: 5px;
+    overflow: hidden;
+
+    .no-touch & {
+      &:hover {
+        color: $linkColorHover;
+        text-decoration: underline;
+      }
+    }
+
+    &:active,
+    &:focus {
+      color: $linkColorActive;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $linkColorVisited;
+      text-decoration: none;
+    }
+  }
+}
+
+@mixin productTileImage {
+  border: 1px solid $imageBdrClr;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+
+  .thumbnail {
+    height: 100%;
+    width: 100%;
+  }
+
+  .thumbnail-alts {
+    height: 100%;
+    text-align: center;
+    width: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@mixin itemsActions {
+  .personalise-view {
+    margin-bottom: 20px;
+  }
+  .edit-personalise-link {
+    margin-top: -5px;
+  }
+  .size-guide {
+    margin-bottom: 10px;
+  }
+}
+
+@mixin personaliseView {
+  .edit-personalise-link {
+    display: block;
+    @include withIcon('d', before);
+  }
+}
+
+@mixin productTile {
+  .product-tile-title {
+    margin-top: 10px;
+  }
+
+  .product-ratings {
+    margin-top: 5px;
+  }
+}
+
+@mixin carouselItems {
+  overflow: hidden;
+
+  @include breakpoint(largeDesktop) {
+    position: relative;
+    z-index: 0;
+  }
+
+  @include breakpoint(mobile) {
+    margin-bottom: 55px;
+  }
+
+  .carousel-items-list {
+    font-size: 0;
+    -webkit-transition: -webkit-transform 0.5s ease;
+    -moz-transition: -moz-transform 0.5s ease;
+    -ms-transition: -ms-transform 0.5s ease;
+    -o-transition: -o-transform 0.5s ease;
+    transition: transform 0.5s ease;
+    width: 100%;
+    white-space: nowrap;
+
+    > li {
+      display: inline-block;
+      padding: 0 10px;
+      vertical-align: top;
+      width: 33.3333333%;
+      white-space: normal;
+      @include breakpoint(mobile) {
+        width: 236px;
+      }
+    }
+  }
+
+  .product-tile-image {
+    height: 306px;
+    @include breakpoint(largeDesktop) {
+      padding: 20px;
+    }
+    @include breakpoint(desktop) {
+      padding: 20px;
+    }
+    @include breakpoint(allTablet) {
+      height: 234px;
+    }
+    @include breakpoint(mobile) {
+      height: 214px;
+    }
+  }
+}
+
+@mixin addOnItem {
+  background: url(../images/add-on-item.png);
+  background-repeat: no-repeat;
+  background-size: 121px 22px;
+  font-size: 1px;
+  height: auto;
+  position: absolute;
+  right: 20px;
+  top: 104px;
+  width: 121px;
+}
+
+@mixin outfitItems {
+  .outfit-items-list {
+    margin-bottom: -30px;
+
+    &:after {
+      @include clear-fix;
+    }
+
+    > li {
+      margin-bottom: 40px;
+      width: 48%;
+
+      &.odd {
+        float: left;
+      }
+
+      &.even {
+        float: right;
+      }
+    }
+  }
+
+  .outfit-product-tile {
+    display: table;
+    position: relative;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .product-tile-section-one {
+    display: table-cell;
+    vertical-align: top;
+    width: 180px;
+  }
+
+  .product-tile-image {
+    height: 240px;
+    width: 180px;
+  }
+
+  .outfit-product-tile-range {
+    .product-tile-image {
+      height: 190px;
+      width: 180px;
+    }
+  }
+
+  .product-tile-section-two {
+    display: table-cell;
+    padding-left: 15px;
+    vertical-align: top;
+  }
+
+  .product-price-view {
+    margin-bottom: 15px;
+  }
+
+  .product-ratings {
+    margin-bottom: 15px;
+  }
+
+  .variants-view {
+    margin-bottom: 15px;
+  }
+
+  .item-actions-view {
+    button {
+      max-width: none;
+    }
+  }
+
+  @include breakpoint(hTablet) {
+    .outfit-items-list {
+      > li {
+        width: 48%;
+      }
+    }
+
+    .outfit-product-tile {
+      padding-bottom: 60px;
+    }
+
+    .product-tile-section-one {
+      width: 170px;
+    }
+
+    .product-tile-image {
+      height: 220px;
+      width: 170px;
+    }
+
+    .outfit-product-tile-range {
+      .product-tile-image {
+        height: 180px;
+        width: 170px;
+      }
+    }
+
+    .add-to-basket-view {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+
+  @include breakpoint(vTablet) {
+    .outfit-items-list {
+      margin-bottom: -20px;
+
+      > li {
+        margin-bottom: 20px;
+        width: 100%;
+      }
+    }
+  }
+
+  @include breakpoint(mobile) {
+    .outfit-items-list {
+      > li {
+        width: 100%;
+      }
+    }
+
+    .outfit-product-tile {
+      padding-bottom: 120px;
+
+      &.outfit-product-tile-range {
+        padding-bottom: 60px;
+      }
+    }
+
+    .product-tile-section-one {
+      width: 120px;
+    }
+
+    .product-tile-image {
+      height: 170px;
+      width: 120px;
+    }
+
+    .outfit-product-tile-range {
+      .product-tile-image {
+        height: 125px;
+        width: 120px;
+      }
+
+      .product-ratings {
+        margin-bottom: 0;
+      }
+    }
+
+    .variants-view {
+      bottom: 35px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    .add-to-basket-view {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+  }
+}
+
+/*************************************************************************************
+ ** HELPER STYLES ********************************************************************
+ ************************************************************************************/
+
+$widthList: 8.33333333%, 16.66666667%, 25%, 33.33333333%, 41.66666667%, 50%, 58.33333333%, 66.66666667%, 75%, 83.33333333%, 91.66666667%, 100%;
+
+/**
+ * Mixin generates a set of hide classes for each viewport.
+ * Each class will display:none an element.
+ *
+ * @param $viewport <all, largeDesktop, desktop, tablet, tabletH, tabletV, mobile>
+ */
+@mixin viewportHideGenerator($viewport) {
+  .hidden-#{$viewport} {
+    display: none !important;
+  }
+}
+
+/**
+ * Mixin generates a set of float classes for each viewport.
+ * Each class will float an element to the left/right.
+ *
+ * @param $viewport <all, largeDesktop, desktop, tablet, tabletH, tabletV, mobile>
+ */
+@mixin viewportFloatGenerator($viewport) {
+  $directionsList: left, right;
+  @each $direction in $directionsList {
+    .pull-#{$direction}-#{$viewport} {
+      float: $direction;
+      clear: none;
+    }
+  }
+}
+
+/**
+ * Mixin for grid wrapper. Wrap all sibling elements in a wrapper with
+ * this class on it if you need padding between to grid elements.
+ *
+ * @param $spacing | the padding in px that you want each element to have.
+ */
+@mixin gridWrapperGenerator($spacing) {
+  margin-left: -$spacing;
+  margin-right: -$spacing;
+
+  > * {
+    padding-left: $spacing;
+    padding-right: $spacing;
+  }
+}
+
+/**
+ * Mixin generates a set of grid classes for each viewport.
+ * Each class will float an element left and give it a width
+ * based on the number suffix on the class name. The suffixes go
+ * from 1 to 12, with 1 being 1/12 of the width of the parent and
+ * 12/12 being 100% of the width of the parent. For
+ * example, 'col-largeDesktop-6' will make an element
+ * float left and take up 50% of the parent element.
+ *
+ * @param $viewport <all, kiosk, largeDesktop, desktop, tablet, tabletH, tabletV, mobile>
+ */
+@mixin viewportGridGenerator($viewport) {
+   @each $currentWidth in $widthList{
+    $i: index($widthList, $currentWidth);
+
+    .col-#{$viewport}-#{$i} {
+      position: relative;
+      min-height: 1px;
+      float: left;
+      display: block;
+      /**
+             * Added !important to override any inherited width. This is an interim measure
+             * until we can remove the litany of inherited styles across the codebase.
+             * It's acceptable because in order to use one of these classes, a developer
+             * has to add the class into the markup, which means they want to override any
+             * inherited width.
+             */
+      width: $currentWidth !important;
+    }
+  }
+}
+
+/**
+ * Mixin generates a width based on the number of grid columns to span across.
+ * Use this mixin on any class that requires a width to be set to stretch
+ * across a set number of columns.
+ *
+ * @param $colspan <1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12>
+ */
+@mixin colspanGenerator($colspan) {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  display: block;
+  width: nth($widthList, $colspan);
+}
+
+/**
+ * Mixin generates a set of offets to use in conjuction with
+ * the grid classes above for each viewport. Each class will
+ * add a percentage margin-left based on the number suffix on
+ * the class name. For example, 'col-largeDesktop-offet-6' will
+ * give the element an offet of 50% of the parent element.
+ *
+ * @param $viewport <all, largeDesktop, desktop, tablet, tabletH, tabletV, mobile>
+ */
+@mixin viewportGridOffsetGenerator($viewport) {
+   @each $currentWidth in $widthList{
+    $i: index($widthList, $currentWidth);
+
+    .col-#{$viewport}-offset-#{$i} {
+      /**
+             * Added !important to override any inherited margin. This is an interim measure
+             * until we can remove the litany of inherited styles across the codebase.
+             * It's acceptable because in order to use one of these classes, a developer
+             * has to add the class into the markup, which means they want to override any
+             * inherited margin.
+             */
+      margin-left: $currentWidth !important;
+    }
+  }
+}
+
+/**
+ * Add class to any element you want to vertically
+ * center in another element. The parent must have
+ * 'position: relative' to use this class.
+ */
+@mixin centerVertically($direction: "", $amount: "", $marginTop: -50%) {
+  position: absolute;
+  top: 0;
+
+  @if $direction != "" and $amount != "" {
+    #{$direction}: $amount;
+  }
+  height: 100%;
+  display: block;
+
+  > * {
+    position: relative;
+    top: 50%;
+    display: block;
+    margin-top: $marginTop;
+  }
+}
+
+/**
+ * Add class to any element you want to vertically
+ * center the children off.
+ */
+@mixin centerChildrenVertically {
+  display: table;
+  width: 100%;
+
+  > * {
+    display: table-cell;
+    float: none;
+    vertical-align: middle;
+  }
+}
+
+@mixin centerImage($wrapperHeight, $maxWidth, $maxHeight) {
+  font-size: 0;
+  height: $wrapperHeight;
+  line-height: 0;
+  position: relative;
+  text-align: center;
+
+  &:before {
+    content: ' ';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+
+  img {
+    display: inline-block;
+    height: auto;
+    max-height: $maxHeight;
+    max-width: $maxWidth;
+    vertical-align: middle;
+    width: auto;
+  }
+}
+
+@mixin backgroundLoader {
+  background-color: transparent;
+  background-image: url($loaderUrl);
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  > * {
+    @include opacity(.2);
+  }
+
+}
+
+/**
+ * Add class to any element you do not want to
+ * be visible to a user, but you still want to
+ * be picked up by bots and screen readers.
+ */
+@mixin screenReader {
+  left: -9999em;
+  position: absolute;
+}
+
+/*************************************************************************************
+ ** PDPV2 STYLES *********************************************************************
+ ************************************************************************************/
+@mixin productDetailsStylesAll {
+  /**
+     * For styles that need to be limited to the PDP in the short-term,
+     * but need to work on version 2 of the page and not version 1.
+     */
+  .PDP-Version2__page {
+    z-index: 0;
+  }
+
+  .ddl,
+  .PDP-Version2__component,
+  .PDP-Version2__page {
+    // removes the default active background state on Chrome/Safari touch devices
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: $tescoFont;
+    font-size: 16px;
+    line-height: 22px;
+    width: 100%;
+
+    small {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    h1 {
+      @include h1Heading;
+    }
+
+    .block-title,
+    h2 {
+      @include h2Heading;
+    }
+
+    h3 {
+      @include h3Heading;
+    }
+
+    h4 {
+      @include h4Heading;
+    }
+
+    h5 {
+      @include h5Heading;
+    }
+
+    .ellipsed {
+      @include ellipsed;
+    }
+
+    .text,
+    p {
+      @include text;
+    }
+
+    .text-block {
+      @include textBlock;
+    }
+
+    .icon {
+      @include icon;
+    }
+
+    .link,
+    a {
+      @include hyperlink;
+    }
+
+    .highlight {
+      @include highlight;
+    }
+
+    .saving {
+      @include saving;
+    }
+
+    .add-on-item {
+      @include addOnItem;
+    }
+
+    .block-link {
+      @include blockLink;
+    }
+
+    .list-with-bullets {
+      @include listWithBullets;
+    }
+
+    .block-wrapper {
+      @include blockWrapper;
+    }
+
+    .block {
+      @include block;
+    }
+
+    .dropdown-list {
+      @include dropdownList;
+    }
+
+    .product-price {
+      @include productPrice;
+    }
+
+    .product-price-view {
+      @include productPriceView;
+    }
+
+    .product-ratings {
+      @include productRatings;
+    }
+
+    .product-tile-title {
+      @include productTileTitle;
+    }
+
+    .product-tile-image {
+      @include productTileImage;
+    }
+
+    .item-actions-view {
+      @include itemsActions;
+    }
+
+    .personalise-view {
+      @include personaliseView;
+    }
+
+    .product-tile {
+      @include productTile;
+    }
+
+    .carousel-items {
+      @include carouselItems;
+    }
+
+    .outfit-items {
+      @include outfitItems;
+    }
+
+    .screen-reader {
+      @include screenReader;
+    }
+
+    .style-ref {
+      display: block;
+      margin-bottom: 30px;
+    }
+
+    .button,
+    button,
+    input[type="button"] {
+      @include buttonStyles;
+    }
+
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="url"] .text-box {
+      @include baseInputStyles;
+      @include textInputStyles;
+    }
+
+    input[type="checkbox"] {
+      @include baseInputStyles;
+      @include checkboxInputStyles;
+    }
+
+    select {
+      @include baseInputStyles;
+      @include textInputStyles;
+    }
+
+    legend {
+      margin: 0;
+      padding: 0;
+    }
+
+    fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    .element-wrapper,
+    .input-wrapper {
+      @include element-wrapper;
+    }
+
+    .center-vertically {
+      @include centerVertically;
+    }
+
+    .center-vertically-left {
+      @include centerVertically(left, 0px);
+    }
+
+    .center-vertically-right {
+      @include centerVertically(right, 0px);
+    }
+
+    .center-children-vertically {
+      @include centerChildrenVertically;
+    }
+
+    .with-bkg-loader {
+      @include backgroundLoader;
+    }
+
+    .with-full-width {
+      .add-on-item {
+        top: 0;
+      }
+    }
+
+    /**
+     * Variants component and custom dropdown
+     */
+    .select-wrapper {
+      position: relative;
+    }
+
+    select {
+      @include baseInputStyles;
+      @include textInputStyles;
+
+      &.been-customised {
+        position: absolute;
+        left: -9999em;
+      }
+
+      &.native-select-trigger {
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        opacity: 0;
+      }
+
+      option[data-option-index='-1'] {
+        display: none;
+        text-transform: uppercase;
+      }
+    }
+
+    a.control {
+      position: relative;
+      @include baseInputStyles;
+      @include textInputStyles;
+
+      &:after {
+        @include icon;
+        content: '2';
+        position: absolute;
+        top: 15px;
+        right: 10px;
+      }
+
+      &.active {
+        &:after {
+          content: '1';
+        }
+      }
+
+      .innerText {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        vertical-align: top;
+        white-space: nowrap;
+        width: 90%;
+      }
+    }
+
+    .dropdown-customised {
+      position: relative;
+      z-index: 0;
+
+      ul {
+        display: none;
+        @include dropdownList;
+
+        li {
+          a[data-disabled='disabled'] {
+            &:link,
+            &:visited {
+              background-color: #fff;
+              color: $lightGrey;
+            }
+
+            &:focus,
+            &:active {
+              background-color: #fff;
+              color: $lightGrey;
+            }
+          }
+        }
+      }
+
+      &.open {
+        z-index: 1;
+
+        ul {
+          display: block;
+          position: absolute;
+          right: 0;
+          left: 0;
+          overflow: auto;
+          max-height: 176px; // max height eq to 4 items
+          @include customScrollBar(8px, $paleGrey, $background, 5px);
+        }
+      }
+    }
+
+    .swatch-variant-mobile,
+    .wishlists-wrapper,
+    .dropdown-variant-view {
+      .dropdown-customised {
+        ul {
+          li {
+            &.alt-heading {
+              display: none;
+            }
+
+            a[data-disabled='disabled'] {
+              color: $inactive;
+              text-decoration: none;
+            }
+
+            a[data-option-index='-1'] {
+              display: none;
+            }
+
+            a {
+              &.current {
+                display: none;
+              }
+
+              &.option {
+                height: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .swatch-variant-mobile {
+      display: none;
+
+      .dropdown-customised {
+        .control {
+          line-height: 30px;
+          box-shadow: none;
+
+          &[data-available='false'] {
+            &:before {
+              font-family: 'Tesco Icons';
+              content: 'y';
+              position: absolute;
+              top: 10px;
+              font-size: 21px;
+              color: #fff;
+              left: 10px;
+              z-index: 1;
+            }
+          }
+
+          &:after {
+            content: 'a';
+            top: 19px;
+          }
+        }
+
+        ul {
+          border: none;
+          display: block;
+          max-height: 0;
+          overflow: hidden;
+          @include multipleTransitions(max-height .2s);
+        }
+
+        &.open {
+          .control {
+            &:after {
+              content: 'c';
+              top: 19px;
+            }
+          }
+
+          ul {
+            border-top: 5px solid #fff;
+            border-bottom: 5px solid #fff;
+            box-shadow: 0px 2px 0px -1px $lightGrey;
+            -webkit-box-shadow: 0px 2px 0px -1px $lightGrey;
+            max-height: 196px;
+            overflow-y: scroll;
+          }
+        }
+
+        li {
+          a {
+            &:link,
+            &:visited {
+              display: block;
+              background: transparent;
+              color: $inputColor;
+            }
+
+            &:focus,
+            &:active {
+              background: transparent;
+              color: $inputColor;
+              text-decoration: none;
+            }
+
+            .no-touch & {
+              &:hover {
+                background: transparent;
+                color: $inputColor;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .swatch-variant {
+      margin-bottom: 10px;
+
+      li {
+        position: relative;
+        display: inline-block;
+        border: 1px solid #fff;
+        width: 40px;
+        height: 40px;
+        margin: 0 1px 0 0;
+        @include border-radius(4px);
+        padding: 2px;
+
+        img {
+          width: 34px;
+          height: 34px;
+          @include border-radius(4px);
+        }
+
+        &.swatch-variant-selected {
+          border: 1px solid $linkColorActive;
+        }
+
+        a {
+          text-decoration: none;
+
+          &.swatch-variant-unavailable {
+            &:hover {
+              text-decoration: none;
+            }
+
+            &:before {
+              font-family: 'Tesco Icons';
+              content: 'y';
+              position: absolute;
+              top: 8px;
+              font-size: 21px;
+              color: #fff;
+              left: 8px;
+            }
+          }
+        }
+
+        .swatch-variant-label {
+          display: none;
+        }
+      }
+    }
+
+    .swatch-variant-information {
+      margin: 0 0 10px;
+
+      strong {
+        text-transform: capitalize;
+      }
+    }
+
+    .single-variant-type {
+      text-transform: capitalize;
+    }
+
+    /**
+	     * Helper styles
+	     */
+    .float-wrapper {
+      &:after {
+        @include clear-fix;
+      }
+    }
+
+    .grid-row {
+      @include gridWrapperGenerator(10px);
+    }
+    /**
+       * END Helper styles
+       */
+  }
+
+  /**
+     * For styles that need to be limited to the PDP in the short-term,
+     * but need to work across both version 1 and version 2 of the page.
+     */
+  .product {
+    /**
+         * Styles the product ratings
+         */
+    .ratings-wrapper {
+      position: relative;
+      width: 90px;
+      height: 20px;
+      float: left;
+
+      a {
+        text-decoration: none;
+      }
+
+      .ratings-stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 18px;
+        line-height: 19px;
+
+        &.enabled {
+          z-index: 1;
+          color: $enabledStar;
+        }
+
+        &.disabled {
+          color: $disabledStar;
+        }
+      }
+    }
+
+    .average-rating {
+      margin-left: 8px;
+      color: $linkColor;
+    }
+
+    .ratings-count {
+      margin-left: 8px;
+    }
+  }
+}
+@mixin productDetailsStylesLargeDesktop {
+  .PDP-Version2__component,
+  .PDP-Version2__page {
+    .main-content-wrapper {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .block {
+      max-width: 964px;
+
+      &.with-full-width {
+        max-width: 1200px;
+      }
+    }
+  }
+}
+@mixin productDetailsStylesDesktop {
+  .PDP-Version2__component,
+  .PDP-Version2__page {
+    .main-content-wrapper {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .block {
+      max-width: 960px;
+    }
+  }
+}
+@mixin productDetailsStylesTablet {
+  .PDP-Version2__component,
+  .PDP-Version2__page {
+    .main-content-wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .with-device-indents {
+      @include withDeviceIndents;
+    }
+  }
+}
+@mixin productDetailsStylesMobile {
+  .PDP-Version2__component,
+  .PDP-Version2__page {
+    .main-content-wrapper {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .block-wrapper {
+      margin-bottom: 60px;
+    }
+
+    .with-device-indents {
+      @include withDeviceIndents;
+    }
+
+    .button,
+    button,
+    input[type="button"] {
+      &.without-max-width-on-mobile {
+        max-width: none;
+      }
+    }
+  }
+}

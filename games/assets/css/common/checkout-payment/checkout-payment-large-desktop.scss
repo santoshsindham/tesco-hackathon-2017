@@ -1,0 +1,18 @@
+//checkout-payment module - large desktop
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "checkout-payment-mixins";
+
+@include threeCol;
+@include notMobile;
+
+.payment-group-block {
+    @include hint-messaging-ll-l-m(15px, 100%, 14px, 5px 10px, 10px 5px);
+}
+
+.coupons-group.last, .coupons-group.ecoupon-group{
+	margin-left: 402px;
+}
+.js .payment-group-block {
+	overflow: visible;
+}

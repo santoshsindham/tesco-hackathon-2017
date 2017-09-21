@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "module": "amd",
+    "target": "ES5"
+  },
+  "include": ["modules/mvc/**/*", "modules/pdp/**/*"]
+}

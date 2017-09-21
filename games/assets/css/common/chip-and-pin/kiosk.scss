@@ -1,0 +1,1359 @@
+/*******************************************
+*	Single Page Application
+*******************************************/
+
+@import "../variables";
+
+.clearfix:after {
+    @include clear-fix;
+}
+
+@mixin breadcrumbArrowsCommon {
+	position: absolute;
+	width: 26px;
+	height: 57px;
+	z-index: 100;
+	content: '';
+	border: 0;
+}
+
+.debug-bar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    background:#990000;
+    transition: all 0.15s ease;
+    
+    ul {
+    	display:none;
+    }
+    
+    li {
+    	margin:10px 0;
+    }
+    
+    h2 {
+    	margin:0;
+    }
+     
+    &.is-open {
+    	width:250px;
+    	min-height:175px;
+    	height:auto;
+    	background:#ddd;
+    	
+    	.expand-collapse {
+    		span {
+    			background-position:-25px 0;
+    		}
+    	}
+    	
+    	header {
+    		visibility:visible;
+    }
+    }
+    
+    &[data-section='unknown'] {
+    	display:none;
+    }
+    
+    &[data-section='login'] {
+    	ul.login-actions {
+    		display:block;
+    	}
+    }
+    
+    &[data-section='delivery'] {
+    	ul.delivery-actions {
+    		display:block;
+    	}
+    }
+ 
+    &[data-section='payment'] {
+    	ul.payment-actions {
+    		display:block;
+    	}
+    }
+ 
+ 	button {
+ 		border:none;
+ 		width:100%;
+ 		height:40px;
+ 		color:#fff;
+ 		background:$darkPutty;
+ 		font-size:14px;
+ 		font-family: "Tesco", sans-serif;
+ 	}
+ 	   
+    .expand-collapse {
+		float:right;
+		
+		span {
+			display:block;
+			width:25px;
+			height:25px;
+			margin:5px;
+			overflow:hidden;
+			text-indent:-9999px;
+			background:transparent url("../img/arrow.png") no-repeat 0 0;
+		}
+    }
+    
+    header {
+    	margin:20px;
+    	visibility:hidden;
+    }
+    
+    .content {
+    	width:250px;
+    	margin:20px 0;
+    	padding:0 20px;
+    }
+}
+
+.spiLoader {
+    width: 100%;
+    height: 100%;
+    min-width: 30px;
+    min-height: 30px;
+    margin: 10px auto;
+    background: transparent url('../images/ajax-loader30x30.gif') no-repeat center center;
+}
+
+#wrapper {
+    height: 100%;
+    max-height: 1080px;
+    overflow: hidden;
+
+	&.spi {
+		clear: both;
+		.pageHeader {
+		    width: 100%;
+		    height: 80px;
+		    overflow: hidden;
+		    &.hideBreadcrumb {
+		    	display: none;
+		    }
+		    #header {
+		    
+		    	/* BREADCRUMB */
+		    	
+		   	    #progress-bar {
+					border: 0;
+					ul {
+						background: $inactivePutty;
+						&.position-2 {
+							li {
+								&:nth-child(1) {
+									&.done {
+										&:after {
+											display: none;
+										}
+									}
+								}
+							}
+						}
+						&.position-3 {
+							li {
+								&:nth-child(2) {
+									&.done {
+										&:after {
+											display: none;
+										}
+									}
+								}
+							}
+						}
+						li {
+							width: 25%;
+							font-family: 'Tesco';
+							border-top: 1px solid #fff;
+							border-bottom: 1px solid #fff;
+							line-height: 57px;
+							font-size: 2.2em;
+
+							/* ACTIVE */
+
+							&.active {
+								color: $contentLink;
+								background-color: #fff;
+								border-color: $contentLink !important;
+								right: 0px;
+								left: 0px;
+								border-right: 0px !important;
+								&:before {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_active_before.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									left: -1px;
+								}
+								&:after {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_active_after.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									right: -25px;
+								}
+							}					
+							&:nth-child(4).active:after, &:nth-child(1).active:before {
+								display: none;
+							}
+							&:nth-child(2).active {
+								&:before {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_active_light_before.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									left: -1px;
+								}
+							}
+							&:nth-child(3).active {
+								&:before {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_active_dark_before.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									left: -1px;
+								}
+							}
+							&:nth-child(4).active {
+								border-right: 1px solid $contentLink !important;
+								&:before {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_active_darkest_before.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									left: -1px;
+								}
+							}
+
+							/* DONE */
+
+							&.done {
+								color: #fff;
+								background: none $inactivePutty;
+								padding-right: 0;
+								border-color: $inactivePutty;			
+								right: 0px;
+								left: 0px;
+								padding-right: 25px;
+								&:before {
+									display: none;
+								}
+							}
+							&:nth-child(1).done {
+								&:after {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_done_dark_after.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									right: 0px;
+								}
+							}
+							&:nth-child(2).done {
+								background-color: #d8d5cc;
+								&:after {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_done_darkest_after.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									right: 0px;
+								}
+							}
+							&:nth-child(3).done {
+								background-color: #c4c1b8;
+								&:after {
+									display: none;
+								}
+							}
+
+							/* DISABLED */
+
+							&.disabled {
+								color: $color-title;
+								background-color: #fff;
+								border-color: #e7e7e7;			
+								right: 0px;
+								left: 0px;
+								padding-left: 0;
+								padding-right: 26px;
+								&:before {
+									display: none;
+								}
+								&:after {
+									background: url('../images/kiosk_checkout/kiosk_progressbar_disabled_after.png') no-repeat left top;
+									@include breadcrumbArrowsCommon;
+									right: 0px;
+								}
+							}
+							&:nth-child(4).disabled {
+								border-right: 1px solid #e7e7e7;
+								&:after {
+									display: none;
+								}
+							}
+						}				
+					}
+				}
+		    }
+		}
+
+        .message {                        
+            color: #333;
+            margin: 0 12px;
+            min-height: 57px;
+            
+            span {
+                display: block;
+                padding: 0 20px 0 80px;
+                line-height: 55px;
+                border-style: solid;
+                border-width: 1px;
+                font-size: 25px;
+                background: transparent url('../images/messages_icons.png') no-repeat 18px 8px;
+            }
+
+            .info {
+                background-color: #a9e6fc;
+                border-color: #00a3de;
+            }
+
+            .error {
+            	color:#000;
+                background-color: #fcd4d7;
+                border-color: #fc9fa7;
+            }
+	    }
+
+	}
+}
+
+.pageFooter {
+    width: 1810px;
+    height: 60px;
+    overflow: hidden;
+    position: absolute;
+    bottom: 60px;
+
+    #footer {
+    	margin:0;
+    	padding:20px 32px;
+        background-color: transparent;
+        
+        &.logo {
+            margin-left: 12px;
+        }
+
+        .footerCopy {
+            float: right;
+            position: relative;
+            bottom: 0;
+            font-size: 15px;
+        }
+    }
+}
+
+/* COMMON */
+.page {
+    font-family: 'Tesco', Helvetica Neue, Arial, sans-serif;
+
+    h1 {
+        font-size: 40px;
+        padding-left: 12px;
+        margin: 0;
+        padding-right: 0px;		
+    }
+}
+
+.spiNav {
+	display: none;
+}
+
+/* DELIVERY */
+
+.delivery {
+    background: white;
+    height: 780px;
+    overflow: hidden;
+    margin: 13px 13px 0 13px;
+
+    * {
+        box-sizing: content-box;
+    }
+
+    p {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .items {
+        float: left;
+        position: relative;
+        width: 505px;
+        height: 780px;
+        overflow: hidden;
+        
+        .productSchoolName {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 200px;
+        }
+
+        .numberOfItemsBox {
+            font-weight: bold;
+            line-height: 80px;
+            padding: 0 20px;
+            font-size: 30px;
+         }
+
+        .itemsListContainer {
+            height: 581px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .itemsList {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 1px;
+
+            li {
+                display: block;
+                padding: 8px 0 0 0;
+                height: 106px;
+                border-top: solid 1px #fff;
+                border-bottom: solid 1px #f2f1ed;
+                font-size: 25px;
+                line-height: 1.2em;
+
+                   .quantity {
+                       float: left;
+                       width: 35px;
+                       text-align: right;
+                       margin-right: 10px;
+                       font-weight: bold;
+                    }
+
+                    .details {
+                        float: left;
+                        width: 460px;
+                        height: 98px;
+                        position: relative;
+
+                       .price {
+                           position: absolute;
+                           bottom: 0;
+                           right: 20px;
+            }
+                    }
+
+            }
+            
+            li:first-child {
+                border-color: #f2f1ed;
+        }
+
+        }
+
+        .itemsNav {
+            position: absolute;
+            width: 470px;
+            height: 70px;
+            overflow: hidden;
+            left: 20px;
+            bottom: 24px;
+            display: none;
+
+            a {
+                float: right;
+                width: 115px;
+                height: 70px;
+                background: #e3e0d8;
+                position: relative;
+                z-index: 1;
+
+                span {
+                    display: block;
+                    width: 25px;
+                    height: 25px;
+                    margin: 23px 0 0 45px;
+                    overflow: hidden;
+                    text-indent: -9999px;
+                    background: transparent url('../img/arrow.png') no-repeat 0 0;
+            }
+            }
+
+            a:first-child {
+                float: left;
+            }
+
+            a.up span {
+                background-position: 0 0;
+            }
+            a.down span {
+                background-position: -25px 0;
+            }
+
+            a.enabled {
+                background-color: $putty;
+            }
+
+            a.enabled:active, a.enabled.active {
+                background: $tescoBrightBlue;
+            }
+
+            .pages {
+                position: absolute;
+                z-index: 0;
+                width: 100%;
+                font-size: 25px;
+                line-height: 70px;
+                text-align: center;
+
+                li {
+                       width: 30px;
+                       height: 70px;
+                       display: inline-block;
+
+                       &.active {
+                           color: $tescoBrightBlue;
+                           font-size: 30px;
+                       }
+                }
+            }
+        }
+    }
+
+    .deliveryOptionsArea {
+        float: right;
+        width: 1145px;
+        overflow: hidden;
+        margin: 80px 53px 0 0;
+
+        h5 {
+            font-size: 2.66em;
+            margin: 25px 0;
+        }
+
+        .deliveryOptions {
+            display: block;
+            overflow: auto;
+            margin-bottom: 40px;
+
+            li {
+                display: inline-block;
+                border: solid 3px #f7392f;
+                margin-left: 45px;
+                
+                a {
+                    float: left;
+                    width: 545px;
+                    height: 205px;
+                    overflow: hidden;
+
+                    .icon {
+                        float: left;
+                        width: 70px;
+                        height: 205px;
+                        margin: 0 24px;
+                        background: transparent url('../img/ico_delivery_options.png') no-repeat 0 32px;
+                    }
+
+                    .icon.store {
+                        background-position: 0 32px;
+                    }
+                    .icon.expressDelivery {
+                        background-position: -70px 32px;
+                    }
+                    .icon.standardDelivery {
+                        background-position: -140px 32px;
+                    }
+                    .icon.express {
+                        background-position: -70px 32px;
+                    }
+                    .icon.standard {
+                        background-position: -140px 32px;
+                    }
+
+                    .details {
+                        width: 370px;
+                        height: 180px;
+                        padding: 0;
+                        margin: 25px 0 0 0;
+                        overflow: hidden;
+                        float: left;
+                        position: relative;
+                        font-size: 40px; 
+
+                        p {
+                            line-height: 1em;
+                        }
+
+                        b {
+                            color: #F7392F;
+                            font-weight: normal;
+                            display: block;
+                        }
+
+                        .deliveryOptionMessage {
+                            font-style: normal;
+                            display: block;
+                            position: absolute;
+                            right: 20px;
+                            bottom: 25px;
+                            font-size: 20px;
+                            text-align: right;
+                        }
+                        
+                     }
+
+                    .arrow {
+                        width: 57px;
+                        height: 100%;
+                        overflow: hidden;
+                        float: right;
+                        background: #f7392f;
+
+                        b {
+                            display: block;
+                            width: 25px;
+                            height: 25px;
+                            background: transparent url('../img/arrow.png') no-repeat -25px -25px;
+                            margin: 90px 0 0 17px;
+                        }
+                    }
+                }
+            }
+
+            li:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .deliveryOptions.red {
+            li {
+                border-color: #f7392f;
+               }
+            .details {
+                b {
+                    color: #f7392F;
+                }
+            }
+            .arrow {
+                background-color: #f7392f;
+            }
+        }
+
+        .deliveryOptions.orange {
+            li {
+                border-color: #fe502d;
+            }
+            .details {
+                b {
+                    color: #fe502d;
+                }
+            }
+            .arrow {
+                background-color: #fe502d;
+            }
+        }
+
+        .deliveryOptions li:active, .deliveryOptions li.active {
+            border-color: $tescoBrightBlue;
+
+            .arrow {
+                background-color: $tescoBrightBlue;
+            }
+        }
+
+        .deliveryNotes {
+            p {
+                font-size: 20px;
+                font-family: Arial, sans-serif;
+                border-top: 1px solid #F2F1ED;
+                padding: 10px 0;
+
+                &:first-child {
+                    border: none;
+                }
+
+              }
+        }
+    }
+}
+
+/* KIOSK CLUBCARD LOGIN */
+
+#wrapper.spi {
+	.login {
+		margin-top:15px;
+		margin-left:32px;
+		padding-top:32px;
+	}
+	
+	.login-options {
+		ul {
+			list-style:none;
+		}
+		
+		> li {
+			display:block;
+			float:left;
+			width:560px;
+			margin-right:30px;
+			
+			.description {
+				position:relative;
+				display:block;
+				padding:0 35px;
+				color:#fff;
+				background:#383838;
+				font-size:23px;
+				font-family:'Tesco', sans-serif;
+				p {
+					margin:0;
+					padding:15px 0 20px;
+					color:#fff;
+				}
+				
+				b {
+					display:block;
+					padding-bottom:5px;
+					font-size:69px;
+					font-weight:normal;
+				}
+				
+				.option-image {
+					position:absolute;
+					top:-32px;
+					right:20px;
+				}
+				
+				.helper-image {
+					margin-top:20px;
+				}
+			}
+		}
+	}
+	
+	.login-alternatives {
+        &:before {
+            @include clear-fix;
+        }
+
+		padding-top:10px;
+		
+		.manual-login {
+			float:left;
+			width:560px;
+			height:95px;
+			margin-right:30px;
+			padding-top:7px;
+			border:1px solid $lightPutty;
+			color:$darkPutty;
+			background:#fff;
+			font-size:28px;
+			font-family:'Tesco', sans-serif;
+		}
+		
+		.skip-login {
+			float:left;
+			width:1150px;
+			height:95px;
+			border:1px solid $putty;
+			color:#fff;
+			background:$putty;
+			font:56px normal;
+			font-family:'Tesco', sans-serif;
+			
+		}
+	}
+}
+
+
+/* Start - Review Section */
+.review {    
+    overflow: hidden;
+    height: 780px;
+    margin: 13px 13px 0 13px;
+    .clubcardPointsSummary li,
+    .itemHolder {
+        clear: both;
+        overflow: hidden;
+        font-size: 25px;
+        .itemLabel {
+            float: left;
+        }
+        .itemValue {
+            float: right;
+            text-align: right;
+            font-weight: bold;
+        }
+    }
+    .deliverySummary {
+        float: left;
+        width: 1352px;
+        height: 780px;
+        padding: 0 25px 25px;
+        background: #fff;
+        overflow: auto;
+    }
+    .deliveryGroup {
+        clear: both;
+        overflow: hidden;
+        padding: 25px 0;
+        h2 {
+            font-size: 30px;
+        }
+    }
+    .deliveryGroupSupplierName {
+        font-weight: bold;
+    }
+    .deliveryGroupContent {
+        float: left;
+        width: 430px;
+        border-left: 1px solid $pagePutty;
+        padding: 16px;
+        h3 {
+            font-size: 30px;
+        }
+    }
+    .deliveryItemsContainer {
+        border-left-color: #fff;
+        padding-left: 0;
+    }
+    .deliveryItems {
+        li {
+            clear: both;
+            overflow: hidden;
+            padding-bottom: 1em;
+            font-size: 25px;
+            img {
+                float: left;
+                width: 80px;
+                height: 80px;
+            }
+            .productSchoolName {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                width: 200px;
+            }
+            .itemQty {
+                float: left;
+                padding: 0 8px 0 16px;
+                font-weight: bold;
+            }
+            .itemDesc {
+                float: left;
+                width: 274px;
+            }
+        }
+    }
+    .deliveryType {
+        .deliveryGroupContentInner {
+            min-height: 273px;
+        }
+        p {
+            font-size: 25px;
+            span {
+                display: block;
+                font-size: 25px;
+                font-weight: bold;
+            }
+        }
+        .tertiary-button {
+            @include tertiaryButtonColoringWhite;
+            font-size: 25px;
+        }
+        .deliveryTypeOption {
+            font-size: 25px;
+            font-weight: bold;
+            .icon {
+                display: inline;
+                vertical-align: middle;
+                font-size: 3em;
+                color: $putty;
+            }
+        }
+    }
+    .customerDetails {
+        .deliveryGroupContentInner {
+            min-height: 217px;
+        }
+        .tertiary-button {
+            @include tertiaryButtonColoringWhite;
+            font-size: 25px;
+        }
+    }
+    .smallPrint {
+        font-size: 16px;
+        font-style: italic;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .vouchersContainer {
+        float: right;
+        width: 405px;
+        .secondary-button {
+            font-size: 25px;
+            margin-bottom: 25px;
+        }
+    }
+    .paymentSummary {
+        clear: right;
+        float: right;
+        width: 405px;
+        height: 520px;
+        padding: 8px;
+        background: #fff;
+        .clubcardPointsSummary li,
+        .itemHolder {
+            border-bottom: 1px solid $pagePutty;
+            padding: 16px 8px;
+        }
+        .discounts {
+            border-bottom: 1px solid $pagePutty;
+            .itemHolder {
+                border-bottom: none;
+            }
+            &.hideDiscounts {
+                display: none;
+            }
+        }
+        #discountCount {
+            color: $tescoRed;
+        }
+        .viewDiscounts {
+            display: none;
+            @include tertiaryButtonColoringWhite;
+            font-size: 25px;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .total {
+            border-bottom-color: #fff;
+            .itemLabel {
+                font-size: 30px;
+                line-height: 40px;
+                font-weight: bold;
+            }
+            .itemValue {
+                font-size: 40px;
+            }
+        }
+        .primary-button {
+            font-size: 25px;
+        }
+    }
+}
+/* End - Review Section */
+
+
+/* PAYMENT */
+
+body.paymentSuccess {
+	overflow-y: hidden;
+	height: 974px;
+	.spiNav {
+		display: block;
+	}
+	#wrapper.spi {
+		top: -17px;
+		.pageHeader {
+			display: none;
+		}
+		.payment {
+			height: 974px;
+			.instructions {
+				background: url('../images/chip_and_pin/tick.png') 772px 44px no-repeat $positiveGreen;
+				h1 {
+					top: 65px;
+					left: 136px;
+				}
+			}
+			.paymentMessage {
+				height: 697px;
+				padding-top: 35px;
+				.mainGraphic {
+					width: 485px;
+					height: 473px;
+					background: url('../images/chip_and_pin/receipt.jpg') top left no-repeat;
+				}
+				.paymentCardsMessage {
+					font-size: 2em;
+					h2 {
+						margin: -20px 0 15px;
+						font-size: 2.7em;	
+					}
+					p {
+						line-height: 1.6em;
+						padding-top: 0px;
+						margin-top: 0px;
+					}
+				}
+				.instructionHighlight span {
+					background: url('../images/chip_and_pin/highlight_receipt.png') left top no-repeat;
+					width: 275px;
+					height: 149px;
+					top: 241px;
+					right: -501px;
+				}
+				.orderNumber {
+					position: absolute;
+					top: 234px;
+					font-size: 5em;
+					font-weight: bold;
+					left: 275px;
+					color: #5b5b5b;
+					display: block;
+					width: 383px;
+					overflow: hidden;			
+				}
+			}
+		}
+	}
+}
+
+.payment {
+	height: 1000px;
+	background: url('../images/chip_and_pin/kiosk.jpg') 1016px bottom no-repeat;	
+	span {
+		display: block;
+	}
+	.instructions {
+		width: 935px;
+		height: 193px;
+		background: $basketOrange;
+		text-align: center;
+		position: relative;
+		left: 32px;
+		h1 {
+			position: absolute;
+			top: 28px;
+			width: 67%;
+			left: 163px;
+			color: #fff;
+			font-family: 'Tesco';
+			font-size: 5.7em;
+			line-height: 1.2em;
+			padding: 0;
+			height: auto;
+		}
+	}
+	.paymentMessage  {
+		width: 935px;
+		height: 723px;
+		background: #fff;
+		position: relative;
+		top: 21px;
+		left: 32px;
+		padding-top: 48px;
+		.mainGraphic {
+			width: 849px;
+			height: 498px;
+			margin: 0 auto;
+			background: url('../images/chip_and_pin/chip_pin_mac.jpg') top left no-repeat;
+		}
+		.paymentCardsMessage {
+			font-size: 2em;
+			display: block;
+			text-align: center;
+			margin: 1em auto 0 auto;
+			color: $color-title;
+		}
+		.paymentCards {
+			width: 718px;
+			height: 75px;
+			margin: auto auto;
+			background: url('../images/chip_and_pin/credit_card_icn.png') top left no-repeat;			
+		}
+	}
+	.instructionHighlight span {
+		text-indent: -9999px;
+		position: absolute;
+		background: url('../images/chip_and_pin/highlight_chip_pin.png') right bottom no-repeat;
+		width: 223px;
+		height: 248px;
+		top: 54px;
+		right: -770px;
+	}
+}
+
+/* OVERLAY */
+
+#lightbox {
+    overflow: hidden;
+    
+    a.close {
+        line-height: 30px;
+		right: 38px;
+		top: 30px;
+
+        background: #fff;
+        color: $darkPutty;
+        .icon {
+            color: $darkPutty;
+      }
+	}
+}
+.kiosk-lightbox {
+    min-height: 10px;
+    max-height: 540px;
+    padding: 40px;
+
+    .dialog-header {
+        h2 {
+            font-size: 38px;
+        }
+    }
+
+    .dialog-content {
+        //TODO: Refactor this into a scss file for status messages
+        .message {
+            color: #333;
+            margin: 0 12px;
+            min-height: 57px;
+
+            span {
+                display: block;
+                padding: 0 20px 0 80px;
+                line-height: 55px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: transparent;
+                font-size: 25px;
+                background: transparent url('../images/messages_icons.png') no-repeat 18px 8px;
+            }
+
+            .error {
+                color: #000;
+                background-color: #fcd4d7;
+                border-color: #fc9fa7;
+            }
+        }
+
+        .clubcardImage {
+            width: 362px;
+            height: 225px;
+            margin-right: 47px;
+            float: left;
+            background: url(../images/kiosk_checkout/clubcard-stage.jpg) no-repeat 0 0;
+        }
+        
+        .clubcard-verification .clubcardImage {
+            background-position: 0 bottom;
+        }
+
+        #clubcardPromptMessage {
+            color: $darkGrey;
+            font-size: 23px;
+        }
+
+        input[type=text].txt-clubcard {
+            padding-left: 28px;
+            padding-right: 28px;
+            margin: 0 0 0 0;
+            width: 634px;
+            height: 84px;
+            border: solid 1px $tescoBrightBlue;
+            color: $putty;
+            border-right: none;
+            font-size: 25px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        button#submitButton {
+            height: 86px;
+            width: 170px;
+            background: $putty;
+            color: #fff;
+            font-size: 30px;
+            border: none;
+            margin: 0 0 0 0;
+            position: relative;
+            left: -3px;
+            top: 3px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .dialog-footer {
+        text-align: right;
+        padding-top: 32px;
+
+        button {
+            text-align: center;
+            display: inline-block;
+            width: auto;
+            font-size: 25px;
+        }
+    }
+}
+
+/* USER DETAILS FORM */
+
+#user-detail-form-wrapper {
+	width: 99%;
+	.disabledField {
+                border: none;
+                color: #7C765F;
+   }	
+	fieldset {
+		border:0;
+		&.lightPuttyLine {
+			border-top: 1px solid #D6D2C4;
+		}
+		.salutation-wrapper {
+			margin-bottom: 25px;
+			width: 100%;
+			clear: both;
+			&:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+		}
+		.field-wrapper {
+			position: relative;
+			margin: 0 0 20px;
+			float:left;
+			&:after {
+				content: ".";
+				display: block;
+				height: 0;
+				clear: both;
+				visibility: hidden;
+			}
+			input {
+				height: 45px;
+				width: 400px;
+				padding: 0 16px;
+				-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+				margin-left:10px;
+				font-size: 1.6em;
+				font-family: "Tesco", "Helvetica Neue", arial;
+				color: $color-title;
+				border: 1px solid #a9a9a9;
+			}	
+			select {
+				padding: 12px 0;
+				left: -9999em;
+				position: absolute;
+			}
+			label {
+				margin: 0 0 4px;
+				font-size: 1.6em;
+				font-family: "Tesco", "Helvetica Neue", arial;
+				font-weight: bold;
+			}
+			&.reg-title {
+				width: 150px;
+				height: 45px;
+				overflow: visible;
+				.customDropdown {
+					position: absolute;
+					top: 0;
+					left: 52px;
+					a.control {
+						padding: 9px 12px;
+						width: 100px;
+						border-color: #a9a9a9;
+					}
+					a {
+					    font-size: 1.4em;
+					    line-height: 34px;
+					    padding: 0 12px;
+					    border: 1px solid transparent;
+					    text-decoration: none;
+					    cursor: pointer;
+					    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+					    -webkit-appearance: none;
+					    border-radius: 0px;
+					    display: inline-block;
+					    line-height: 23px;
+					    margin: 0 0 8px 0;
+					    padding: 10px 12px;
+					    border: 1px solid #a9a9a9;
+					    &:hover {
+					        background: $tescoBrightBlue;
+					        border: 1px solid $tescoBrightBlue;
+					        color: #fff;
+					        text-decoration: none;
+					    }
+					    .innerText {
+							font-weight: normal;
+						}
+						.icon {
+							right: 9px;
+							position: absolute;
+						}
+					}					
+					&.open {
+						ul {
+							li {
+								a.sort {
+									display: block;
+									margin-bottom: 0;
+									font-size: 14px;
+									text-align: left;
+									border: 1px solid #fff;
+									background: #fff;
+									&:hover {
+				                        margin-bottom: 0;
+				                        filter: none;
+				                        -ms-filter: none;
+										color: #fff;
+				                        background-color: $tescoBrightBlue;
+				                        border: 1px solid $tescoBrightBlue;
+									}
+								}
+							}
+						}
+					}
+				}
+				label {
+					position: absolute;
+					top: 15px;
+				}
+			}			
+			&.register-firstname {
+				margin-left: 70px;
+				input {
+					width: 305px;
+				}
+			}			
+			&.register-lastname {
+				float: right;
+			}
+			&.reg-email {
+				input {
+					width: 513px
+				}
+			}
+			&#contact-number {
+				float: right;
+			}
+			&#continue {
+				width: 100%;
+				margin: 20px 0 0 0;
+				input {
+					position: absolute;
+					top: 11px;
+					right: 0px;
+					width: 235px;
+					color: #fff;
+					&:hover {
+						border-color: $tescoBrightBlue;
+					}
+				}
+				p {
+					float : left;
+					font-size: 1.6em;
+					line-height: 1.7em;
+					margin: 10px 0 0 0;
+					font-family: "Tesco", "Helvetica Neue", arial;
+					color: $color-title;
+				}
+			}
+		}
+	}
+}

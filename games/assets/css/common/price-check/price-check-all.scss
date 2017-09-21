@@ -1,0 +1,101 @@
+/*******************************************
+*	Price Comparator module
+*******************************************/
+@import "../variables";
+/*@import "price-check-mixins";*/
+/*******************************************
+*	DEFAULT STYLES
+*******************************************/
+$prussianBlue: #00294F;
+$ecruWhite: #D6D2C3;
+$warmYellow: #7D775F;
+$parrotGreen: #80AC02;
+#pc-container {
+	font-family: $tescoFont;
+	margin: 0 0 16px;
+	width: 100%;
+	float: left;
+	#pc-header {
+		line-height: 1.3em;
+		padding: 16px;
+		font-size: 16px;
+		color: $offBlack;
+		width: 100%;
+		span {
+			display: block;
+			font-size: 14px;
+			&:first-child {
+				font-weight: bold;
+				padding-bottom: 10px;
+				font-size: 20px;
+			}
+		}
+		li {
+			width: 33.33%;
+		}
+	}
+	.pc-seller-container {
+		float: left;
+		width: 100%;
+		li {
+			float: left;
+			width: 100%;
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+		#pc-seller-header {
+			font-size: 16px;
+			font-weight: bold;
+			list-style: none;
+			margin: 0;
+			padding: 10px 16px;
+			background: $backgroundPutty;
+			ul {
+				list-style: none;
+				margin: 0;
+				li {
+					line-height: 1.3em;
+					color: $offBlack;
+					font-weight: bold;
+					width: 50%;
+					float: left;
+					padding: 0;
+				}
+			}
+		}
+		li.pc-seller-data {
+			list-style: none;
+			margin: 0;
+			font-size: 16px;
+			padding: 11px 16px;
+			&:last-child{
+				padding-bottom: 0;
+			}
+			ul {
+				list-style: none;
+				margin: 0;
+				li {
+					line-height: 1em;
+					color: $asphalt;
+					width: 50%;
+					float: left;
+				}
+			}
+			.pc-lastcomp {
+				clear: left;
+				line-height: 1.4em;
+				padding: 11px 0;
+				color: $parrotGreen;
+				border-bottom: 1px solid $lightGrey;
+				font-size: 12px;
+			}
+		}
+		#pc-comparison-note {
+             	 padding: 0 16px 16px 16px;
+	         font-size: 12px;
+	         line-height: 20px;
+	         font-family: Tesco,Helvetica Neue,Arial,sans-serif;
+		}
+	}
+}

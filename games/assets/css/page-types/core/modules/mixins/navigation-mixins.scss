@@ -1,0 +1,83 @@
+$color-bg: #eaeaea; // Not sure we need this
+$color-title: #585859;
+$color-list-item-background: white;
+$color-list-item-border: #bfbdbd;
+$color-list-item-text: #3e3e3f;
+$color-fotter-bg: #135d9f;
+$color-fotter-text: white;
+
+@mixin menu-header {
+	margin-bottom: 0;
+	background: $color-list-item-background;
+	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	font-weight: normal;
+	border-top: 2px solid $primaryBorderColor;
+	border-right: 1px solid $primaryBorderColor;
+	border-left: 1px solid $primaryBorderColor;
+}
+
+@mixin menu-styles {
+	width: 100%;
+	overflow: hidden;
+	overflow-y: auto;
+	position: relative;
+	background: $color-list-item-background;
+	font-family: "Helvetica Neue", arial;
+	@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+	border-top: 1px solid $primaryBorderColor;
+	border-right: 1px solid transparent;
+	border-left: 1px solid transparent;
+	li {
+		border-bottom: 1px solid $primaryBorderColor;
+		border-right: 1px solid $primaryBorderColor;
+		width: 50%;
+		float: left;
+		&:hover {
+			background: $linkHoverColor;
+			color: #ffffff;
+			cursor: pointer;
+		}
+		a {
+			display: block;
+			width: 100%;
+			padding-left: 8px;
+			padding-right: 30px;
+			text-decoration: none;
+			font-size: 1.4em;
+			height: 50px;
+			position: relative;
+			> span {
+  				height: 50px;
+  				display: table-cell;
+				vertical-align: middle;
+			}
+			&:hover {
+				background: $linkHoverColor;
+				color: #ffffff;
+			}
+		}
+	}
+}
+
+@mixin overlay-button-round-kiosk {
+	@include box-shadow(none);
+	@include border-radius(100%);
+	width: 48px;
+	height: 48px;
+	display: block;
+	line-height: 48px;
+	color: $contentLink;
+	font-size: 1.8em;
+	text-align: center;
+	border: 2px solid $contentLink;
+	background: none;
+	background-color: #fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); // move to ie css
+	&.disabled {
+		color: #e6e6e6;
+		border-color: #e6e6e6;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}

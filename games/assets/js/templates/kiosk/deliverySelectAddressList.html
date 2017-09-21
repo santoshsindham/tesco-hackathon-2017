@@ -1,0 +1,14 @@
+
+<div class="deliveryList tescoBrightBlue"  >
+    <ul class="addressList"></ul>
+</div>
+<% if (listType == 'getSavedAddress') { %> 
+<div class="delivery-navigation getSavedAddress"  >
+    <a class="tertiary-button findDifferentAddress findAddressBtn" href="#">Find a different address</a>
+</div>
+<% } else if (listType == 'getPostcodeAddress') { %> 
+<div class="delivery-navigation getPostcodeAddress">
+    <span class="cantFindAddress">Can't find your address? </span>
+    <a class="tertiary-button findAddressBtn" href="#">Try  another postcode</a>
+</div>
+<% } %> 

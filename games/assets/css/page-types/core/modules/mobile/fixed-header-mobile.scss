@@ -1,0 +1,124 @@
+@import "../mixins/fixed-header-mixins";
+
+@include headerDeviceStyles(50px, 50px, 100%);
+
+#masthead-wrapper {
+    &.headerOutOfView,
+    &.textInputInFocus {
+        top: -50px;
+    }
+}
+
+#wrapper {
+    &.checkout,
+    &.order-confirmation {
+        #masthead-wrapper {
+            height: 50px;
+        }
+    }
+}
+
+// ***********************************************
+
+#tesco-direct-logo {
+    width: 126px;
+    height: 50px;
+    margin: -4px 0 -2px -63px;
+    font-size: 50px;
+    top: 0;
+    left: 50%;
+
+    &:after,
+    &:before {
+        top: 4px;
+    }
+
+    &:after {
+        width: 78px;
+        height: 30px;
+    }
+
+    .pageScrolling & {
+        margin-top: -4px;
+    }
+}
+
+// ***********************************************
+
+@include headerbarDeviceStyles;
+
+#masthead-wrapper {
+    padding: 2px 5px 0px;
+
+    .parent-header-link {
+        padding-bottom: 8px;
+    }
+
+    #header-links {
+        #ssb-header-links {
+            display: none;
+        }
+    }
+
+    #basket-header-link {
+        &.badge-visible {
+            margin-right: 5px;
+        }
+    }
+}
+
+// ***********************************************
+
+@include searchDeviceStyles;
+
+#search-wrapper {
+    top: 49px;
+
+    a.search-close-link {
+        top: 18px;
+    }
+
+    .search {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+
+    &.dropdownOpen {
+        height: 52px;
+    }
+}
+
+// ***********************************************
+
+@include flyoutDeviceStyles;
+
+#account-header-list-item {
+    position: static;
+}
+
+#account-flyout-menu {
+    &.dropdownOpen {
+        height: 550px;
+    }
+}
+
+#basket-flyout-menu,
+.flyout-menu {
+    top: 49px;
+    left: 0px;
+    width: 100%;
+    border-left: none;
+    border-right: none;
+
+    &.basketContentScrollable {
+        .basket-flyout-footer-wrapper {
+            width: 100%;
+        }
+    }
+}
+
+// ***********************************************
+
+#page-background-mask {
+    top: 50px;
+}

@@ -1,0 +1,457 @@
+//checkout module - all
+@import "../variables";
+@import "checkout-mixins";
+/* Make all custom dropdowns yellow in the checkout and integrated reg */
+.checkout,
+.signin-register {
+  select {
+    &.require + .customDropdown,
+    &.required + .customDropdown {
+      background: $inputYellow;
+
+      a {
+        margin-bottom: 0;
+      }
+    }
+
+    &#address-nickname-1,
+    &.require.valid + .customDropdown,
+    &.required.valid + .customDropdown {
+      background: $white;
+    }
+
+    &#address-nickname-1 {
+      background: $white;
+    }
+  }
+}
+
+.checkout {
+  .checkoutTitles {
+    background-color: $tescoBlue;
+    line-height: 2em;
+    margin: 35px 0 0;
+    padding: 7px 0;
+
+    //bg-color added for e-gaming title
+    &.e-gaming-digital-title {
+      background-color: $tescoBlue;
+
+      span {
+        color: $tescoBlue;
+      }
+    }
+
+    h3 {
+      color: $white;
+      font-family: $tescoFont;
+      font-weight: bold;
+      font-size: 18px;
+      display: inline-block;
+      margin: 0;
+      padding-left: 12px;
+      span.seller-info {
+        font-weight: normal;
+        padding: 0 2px;
+      }
+    }
+
+    span.order {
+      position: absolute;
+      background-color: $white;
+      border: 1px solid $tescoBlue;
+      border-radius: 50%;
+      color: $tescoBlue;
+      display: inline-block;
+      font-size: medium;
+      margin-left: 12px;
+      padding: 0 6px 0 5.5px;
+    }
+  }
+
+  .wrapperForDeliveryBlock:first-child {
+    .checkoutTitles {
+      clear: both;
+      margin: 0;
+    }
+  }
+
+  .paymentTitle {
+    background-color: $tescoBlue;
+    line-height: 2em;
+
+    h3 {
+      color: $white;
+      font-family: $tescoFont;
+      font-weight: bold;
+      font-size: 18px;
+      padding: 5px 0 7px 12px;
+    }
+  }
+
+  .placeholder {
+    overflow: visible;
+
+    .error {
+      top: -29px;
+    }
+  }
+
+  #page-container {
+    .page-title-container {
+      background-color: $white;
+      margin: 0 8px 16px;
+      padding: 16px;
+
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+
+  #branding {
+    padding-left: 10px;
+    padding-top: 6px;
+    }
+
+  .checkout-info {
+    margin-top: 0;
+  }
+
+  #main-content {
+    margin: 0 8px;
+  }
+
+  #page-container {
+    margin-top: 0;
+  }
+
+  span#gds-error {
+    position: relative;
+  }
+
+  #progress-bar {
+    background: $white;
+    border-color: $lightPutty;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0 8px 16px;
+
+    ul {
+      overflow: hidden;
+      width: 100%;
+
+      li {
+        display: block;
+        float: left;
+        font-size: 1.4em;
+        line-height: 46px;
+        position: relative;
+        text-align: center;
+
+        &.done {
+          padding-right: 15px;
+          width: 37.5%;
+
+          @include inverseLightGreyGradient;
+
+          a {
+            @include underlineLink;
+            border-bottom: none;
+            display: inline;
+            float: none;
+            line-height: inherit;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          &:before {
+            border-bottom: 23px solid transparent;
+            border-right: 15px solid $putty;
+            content: '';
+            height: 0;
+            position: absolute;
+            right: -1px;
+            width: 0;
+            z-index: 100;
+          }
+
+          &:after {
+            border-right: 15px solid $putty;
+            border-top: 23px solid transparent;
+            bottom: 0;
+            content: '';
+            height: 0;
+            position: absolute;
+            right: -1px;
+            width: 0;
+            z-index: 100;
+          }
+        }
+
+        &.active {
+          background: $putty;
+          border-left: 1px solid $putty !important;
+          border-right: 1px solid $putty !important;
+          color: $white;
+          font-weight: bold;
+          left: 1px;
+          right: -1px;
+          width: 25%;
+        }
+
+        &.disabled {
+          color: $inactiveTextColor;
+          padding-left: 15px;
+          width: 37.5%;
+
+          &:before {
+            border-bottom: 23px solid transparent;
+            border-left: 15px solid $putty;
+            border-top: 23px solid transparent;
+            content: '';
+            height: 0;
+            left: 0;
+            position: absolute;
+            width: 0;
+            z-index: 100;
+          }
+        }
+      }
+    }
+  }
+
+  .displayNone {
+    display: none;
+  }
+
+  .bottom {
+    display: none;
+  }
+
+  .gift-card-description {
+    font-size: 1.2em;
+  }
+
+  a.remove-gift-card {
+    font-size: 1em;
+    padding-left: 15px;
+  }
+
+  #dg-checkout-block-main-error,
+  #dg-pageerror {
+    label.invalid2 {
+      color: #DD2D28;
+      font-size: 14px;
+    }
+  }
+
+  #integrated-registration {
+    margin-bottom: 20px;
+  }
+
+  //e-gaming terms and conditions block css start
+  #egaming-tc-container {
+    background-color: $white;
+    float: left;
+    font-family: $tescoFont;
+    margin-bottom: 16px;
+    padding: 24px 20px;
+
+    h2 {
+      color: $xDarkPutty;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .egaming-tc-content {
+      color: $xDarkPutty;
+      font-size: 16px;
+      line-height: 20px;
+      margin: 20px 0;
+      width: 78%;
+     }
+
+    .checkbox-wrapper {
+      .checkbox {
+        border-color: $lightPutty;
+        float: left;
+        margin: 0 10px 0 0;
+        width: 24px;
+
+        &.required {
+          border: 1px solid $tescoRed;
+        }
+
+        &.selected {
+          &:after {
+            background: $positiveGreen;
+            color: $inputValidBackground;
+            display: block;
+            font-weight: bold;
+            padding-top: 1px;
+          }
+        }
+      }
+
+      .egaming-tc-checkbox {
+        display: none;
+       }
+
+      .egaming-tc-check-label {
+        color: $tescoBlue;
+        float: left;
+        font-size: 14px;
+        margin-top: -2px;
+        padding: 5px 0 0;
+
+        &.required {
+          color: $tescoRed;
+        }
+       }
+    }
+  }
+  //e-gaming terms and conditions block css end
+}
+
+.temp-spinny {
+  display: none;
+}
+
+.irSPC.checkout {
+  .delivery-block {
+    .delivery-options {
+      border-right: 0 solid #000;
+      margin-bottom: 0;
+      padding-bottom: 16px;
+    }
+  }
+
+  .coupons-group {
+    display: none;
+  }
+}
+
+.loader .loaderMsg {
+  left: 0;
+  min-width: 300px;
+  position: relative;
+  text-align: center;
+  top: 55%;
+  z-index: 9999;
+}
+
+.checkout {
+  #headerbar {
+    #nav-bar {
+      .navigation ul li.sign-in,
+      .sign-in {
+        display: none;
+      }
+    }
+  }
+
+  #ecoupon-voucher,
+  #ecoupon-voucher-container {
+    span.error {
+      top: 31px;
+    }
+  }
+
+  #ecoupon-voucher,
+  #ecoupon-voucher-container,
+  .add-new-address {
+    .placeholder {
+      span.error {
+        top: -28px;
+      }
+    }
+  }
+
+  #ecoupon-voucher {
+    .vouchers {
+      position: relative;
+    }
+
+    &.hide {
+      .vouchers {
+        .error {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.page-error.cps-error {
+  color: #000;
+  padding-bottom: 15px;
+
+  .error-title {
+    color: #f00;
+    display: block;
+    padding-bottom: 15px;
+  }
+  
+  &.cookiesDisabled {
+  	margin-bottom: 0px;
+  	clear: both;
+  }
+}
+
+.full-page-form .footnotes {
+  display: none;
+}
+
+.footnotes-new {
+  background: $white;
+  border: 1px solid $pagePutty;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 8px 20px;
+  margin-bottom: 15px;
+  padding: 2px 16px;
+  padding-top: 12px;
+
+  .footnotes-new p {
+    color: $darkPutty;
+    margin: 0 0 8px;
+  }
+
+  .footnotes-list li {
+    clear: both;
+    display: block;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    h4 img {
+      float: left;
+      margin: 3px 12px 12px 0;
+    }
+  }
+}
+
+.checkout,
+.checkout ~ #virtual-page {
+  .field-wrapper {
+    label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+  }
+  .pin span.error {
+    top: -15px;
+  }
+}
+
+.pin span.error {
+  top: -14px;
+  padding: 4px;
+}

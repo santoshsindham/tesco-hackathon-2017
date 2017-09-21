@@ -1,0 +1,7 @@
+/*******************************************
+*	Kiosk Example module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "example-mixins";

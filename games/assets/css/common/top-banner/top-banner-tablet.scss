@@ -1,0 +1,16 @@
+//top-banner module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "top-banner-mixins";
+
+.top-banner {
+
+	.offer {
+		font-size: 1em;
+	}
+
+	.message {
+		font-size: 0.75em;
+		padding-left: 8px;
+	}
+}

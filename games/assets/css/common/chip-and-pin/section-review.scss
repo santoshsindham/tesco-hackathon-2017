@@ -1,0 +1,347 @@
+//chip-and-pin module - review section
+
+@import "modal-clubcard-voucher";
+@import "modal-clubcard-giftcards";
+
+#wrapper.spi {
+	.review {
+	    height: 810px;
+	    margin: 13px 13px 0 13px;
+	    &.giftMessageWarningActive {
+	       .deliverySummary {
+	           margin-top: 86px;
+	           height: 750px;
+            }
+            .content-mask {
+                height: 745px;
+            }
+            #reviewItemsScrollbar {
+                height: 795px;
+                .pagination-bar {
+                    height: 705px;
+                }
+            }
+	    }
+	    .giftMessageWarning {
+            width: 1352px;
+            position: absolute;
+            
+            span {
+               display: block;
+                padding: 0 20px 0 20px;
+                line-height: 55px;
+                font-size: 25px;
+	            border-style: solid;
+	            border-width: 1px;
+	            background-color: #a9e6fc;
+                border-color: #00a3de;
+	        }
+	    }
+	    .clubcardPointsSummary li,
+	    .itemHolder {
+	        clear: both;
+	        overflow: hidden;
+	        font-size: 25px;
+	        .itemLabel {
+	            float: left;
+	        }
+	        .itemValue {
+	            float: right;
+	            text-align: right;
+	            font-weight: bold;
+	        }
+	    }
+	    .deliverySummary {
+	        float: left;
+	        width: 1352px;
+	        height: 780px;
+	        padding: 0 25px 25px;
+	        background: #fff;
+	        //overflow: auto;
+	    }
+	    .deliveryGroupHeading {
+            border-top: 1px solid $lightPutty;
+            padding-top: 25px;
+            font-size: 30px;
+        }
+        .deliverySummary {
+        	li:first-of-type {
+            	.deliveryGroupHeading {
+            		border-top: none;
+            	}
+            }
+        }
+	    .deliveryGroup {
+	        clear: both;
+	        overflow: hidden;
+	        margin-bottom: 25px;
+	        background: url('../images/kiosk_checkout/delivery_group_wrapper_border.gif') repeat-y -25px 0;
+	        .message {
+	           min-height: 0;
+	           border-bottom: 25px solid #fff;
+	        }
+	    }
+	    .deliveryGroupSupplierName {
+	        font-weight: bold;
+	    }
+	    
+	    .deliveryTypeCustomerDetailsWrapper {
+	    	float: left;
+	    	width: 860px;
+	    }
+	    
+	    .deliveryTypeCustomerDetailsFooter {
+	    	float: left;
+	    	clear: left;
+	    	width: 100%;
+	    	
+	    	.tertiary-button {
+	            @include tertiaryButtonColoringWhite;
+	            font-size: 25px;
+	            margin: 0;
+	        }
+	        
+	        .deliveryGroupContent {
+	        	padding-top: 0;
+	        	padding-bottom: 0;
+	        }
+	        
+	        .smallPrint {
+	        	margin-top: -52px;
+	        	margin-bottom: 16px;
+	        }
+	    }
+	    
+	    .deliveryGroupContent {
+	        float: left;
+	        width: 430px;
+	        padding: 16px;
+	        h3 {
+	            font-size: 30px;
+	        }
+	    }
+	    .deliveryItemsContainer {
+	        border-left-color: #fff;
+	        padding-left: 0;
+	    }
+	    .deliveryItems {
+	        li {
+                clear: both;	            	            
+	            font-size: 25px;
+
+                &:last-child {                    
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                }	            
+
+                .item {
+                    border-top: solid 1px $lightPutty;
+                    padding-top: .5em;
+                    margin-bottom: .5em;
+                    height: 134px;
+                    position: relative;
+                    overflow: hidden;
+                    
+                    img {
+	                    float: left;
+	                    width: 80px;
+	                    height: 80px;
+	                }
+
+                    .price {
+	                    display: block;
+                        text-align: right;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+	                }
+	                .productDetail {
+	                    margin-top: 0;
+                        font-size: 25px;
+	                }
+                  .productSchoolName {
+	                    margin-top: 5px;
+                        font-size: 20px;
+	                }
+	                .quantity {
+	                    float: left;
+	                    padding: 0 8px 0 16px;
+	                    font-weight: bold;
+	                }
+	                .details {
+	                    float: left;
+	                    width: 274px;
+                        p {
+                            font-size: 25px;
+                        }
+	                 }
+                }
+
+                .item.service {
+                    margin-left: 130px;
+                    height: auto;
+                    min-height: 105px;
+                    img {
+                        display: none;
+                    }
+                                        
+                    .details {
+                 		width: 225px;
+                 	}
+                }		            
+	        }
+	    }        
+        .uiGiftMessage {
+            width: 100%;            
+            
+            .header {
+                border-top: solid 1px $lightPutty;
+                padding-top: 1.5em;
+                
+                .count {
+                    padding-top: 14px;  
+                    color: $xDarkPutty;                  
+                }
+            }
+            
+            .personalGiftMessage {
+                font-family: 'Tesco', Helvetica Neue, Arial, sans-serif;
+                font-size: 20px;
+            } 
+        }
+	    .deliveryType {
+	    	 .kioskWhatsThisCharge{
+				  text-align: right;
+				  margin-top: 4px;
+				  font-size: 20px;
+				  clear: both;
+				  width: 100%;
+			  }
+	        p {
+	            font-size: 25px;
+	            span {
+	                display: block;
+	                font-size: 25px;
+	                font-weight: bold;
+	            }
+	        }
+	        .deliveryTypeOption {
+	            font-size: 25px;
+	            font-weight: bold;
+	            margin-bottom: 0px;
+	            .icon {
+	                display: inline;
+	                vertical-align: middle;
+	                font-size: 3em;
+	                color: $putty;
+	            }
+                .deliveryCost {
+                    float: right;
+                    color: $putty;
+                }
+	        }
+	        .deliveryMessage,
+	        .collectionMessage {
+	        	font-style: italic;
+	        	font-size: 16px;
+	        }
+	    }
+	    .customerDetails {
+	        .itemHolder {
+                .itemLabel {
+                    margin-right: 20px;
+                }
+                .itemValue {
+                    float: none;
+                    display: block;
+                    word-break: break-word;
+                }
+            }
+	    }
+	    .smallPrint {
+	        font-size: 16px;
+	        font-style: italic;
+	    }
+	    .vouchersContainer {
+	        float: right;
+	        width: 405px;
+	        .secondary-button {
+	            font-size: 25px;
+	            font-weight: normal;
+	            margin-bottom: 25px;
+	            padding: 12px 8px;
+                text-align: left;
+
+	            .voucherBtnLabel {
+	            	float: left;
+	            }
+	            .voucherBtnTotal {
+	            	float: right;
+	            	font-weight: bold;
+	            }
+	        }
+	    }
+	    .paymentSummary {
+	        clear: right;
+	        float: right;
+	        width: 405px;
+	        height: 520px;
+	        padding: 8px;
+	        background: #fff;
+	        .clubcardPointsSummary li,
+	        .itemHolder {
+	            border-bottom: 1px solid $pagePutty;
+	            padding: 16px 8px;
+	        }
+	        .discounts {
+	            border-bottom: 1px solid $pagePutty;
+	            li {
+	                border-bottom: 1px solid $pagePutty;
+                    padding: 16px 8px;
+	            }
+	            &.hideDiscounts {
+	                display: none;
+	            }
+	        }
+	        #discountCount {
+	            color: $tescoRed;
+	        }
+	        .discountsTotal {
+	           display: none;
+	            .viewDiscounts {
+	                @include tertiaryButtonColoringWhite;
+	                font-size: 25px;
+	                margin-top: 0;
+	                margin-bottom: 0;
+	            }
+	        }
+	        .total {
+	            border-bottom-color: #fff;
+	            .itemLabel {
+	                font-size: 30px;
+	                line-height: 40px;
+	                font-weight: bold;
+	            }
+	            .itemValue {
+	                font-size: 40px;
+	            }
+	        }
+	        .primary-button {
+	            font-size: 25px;
+	        }
+            .termsAndConditionsMessage {
+                border-bottom: 1px solid $pagePutty;
+                padding: 10px 8px 16px;
+                p {
+                    margin: 0;
+                    font-style: italic;
+                    font-size: 16px;
+                    a {
+                        display: block;
+                        color: $tescoBrightBlue;
+                    }
+                }
+            }
+	    }
+	}
+}

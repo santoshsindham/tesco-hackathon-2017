@@ -1,0 +1,134 @@
+// Variables.less
+// Variables to customize the look and feel of Bootstrap
+// -----------------------------------------------------
+
+// Updated for SASS:
+//  - replace @ with $
+//  - replace `spin` with `adjust-hue`
+//  - add !default to variable definitions
+
+// GLOBAL VALUES
+// --------------------------------------------------
+
+
+// Grays
+// -------------------------
+$black:                 #000 !default;
+$greyDark:              #606060;
+$greyMid:               #aaa;
+$greyLight:             #d9d9d9;
+$greyLighter:           #f7f7f7;
+$white:                 #fff !default;
+
+// Accent colors
+// -------------------------
+$blueDark:              #145899;
+$blueMid:               #0770b8;
+$blueLight:             #539adf;
+$yellowLight:           #ffffd0;
+$red:                   #d92121;
+$orangeDark:            #fe8500;
+$orangeMid:             #fea100;
+$brown:                 #c46907;
+$blueLightprogress:		#0870b9;
+
+
+// Scaffolding
+// -------------------------
+$bodyBackground:        $greyLight !default;
+$textColor:             $greyDark !default;
+
+
+// Links
+// -------------------------
+$linkColor:             $blueMid !default;
+$linkColorHover:        $blueDark !default;
+
+
+// Typography
+// -------------------------
+$sansFontFamily:        Arial, sans-serif !default;
+$serifFontFamily:       Georgia, "Times New Roman", Times, serif !default;
+$monoFontFamily:        Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+$baseFontSize:          1em !default;
+$baseFontFamily:        $sansFontFamily !default;
+$baseLineHeight:        1.25 !default;
+$altFontFamily:         $serifFontFamily !default;
+
+$headingsFontFamily:    inherit !default; // empty to use BS default, $baseFontFamily
+$headingsFontWeight:    normal !default;    // instead of browser default, bold
+$headingsColor:         inherit !default; // empty to use BS default, $textColor
+
+$headingsLineHeight:    1.2 !default;
+$baseMarginBottom:      1.25em;
+$headingsMarginBottom:  0.3em;
+
+
+// Tables
+// -------------------------
+$tableBackground:                   transparent !default; // overall background-color
+$tableBackgroundAccent:             #f9f9f9 !default; // for striping
+$tableBackgroundHover:              #f5f5f5 !default; // for hover
+$tableBorder:                       #ddd !default; // table and cell border
+
+
+// Buttons
+// -------------------------
+$btnBackground:                     $white !default;
+$btnBackgroundHighlight:            darken($white, 10%) !default;
+$btnBorder:                         #ccc !default;
+
+$btnPrimaryBackground:              $linkColor !default;
+$btnPrimaryBackgroundHighlight:     adjust-hue($btnPrimaryBackground, 15%) !default;
+
+
+// Forms
+// -------------------------
+$inputBackground:               $white !default;
+$inputBorder:                   #ccc !default;
+$inputBorderRadius:             3px !default;
+$inputDisabledBackground:       $greyLight !default;
+$formActionsBackground:         #f5f5f5 !default;
+
+// Dropdowns
+// -------------------------
+$dropdownBackground:            $white !default;
+$dropdownBorder:                rgba(0,0,0,.2) !default;
+$dropdownLinkColor:             $greyDark !default;
+$dropdownLinkColorHover:        $white !default;
+$dropdownLinkBackgroundHover:   $linkColor !default;
+
+
+
+
+// COMPONENT VARIABLES
+// --------------------------------------------------
+
+// Z-index master list
+// -------------------------
+// Used for a bird's eye view of components dependent on the z-axis
+// Try to avoid customizing these :)
+$zindexDropdown:          1000 !default;
+$zindexPopover:           1010 !default;
+$zindexTooltip:           1020 !default;
+$zindexFixedNavbar:       1030 !default;
+$zindexModalBackdrop:     1040 !default;
+$zindexModal:             1050 !default;
+
+
+// Sprite icons path
+// -------------------------
+$iconSpritePath:          "../img/glyphicons-halflings.png" !default;
+$iconWhiteSpritePath:     "../img/glyphicons-halflings-white.png" !default;
+
+
+// Input placeholder text color
+// -------------------------
+$placeholderText:         $greyLight !default;
+
+
+// Hr border color
+// -------------------------
+$hrBorder:                $greyLight !default;
+

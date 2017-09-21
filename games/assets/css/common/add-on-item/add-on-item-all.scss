@@ -1,0 +1,27 @@
+@import 'add-on-item-mixins';
+
+#basket-flyout-menu {
+  .basket-flyout-contents {
+    .basket-item-details {
+      @include addOnItemImage;
+     }
+   }
+
+  .basket-flyout-footer-wrapper {
+    .basket-submit {
+      #headerBasketCheckout {
+         #flyout-basket-add-on.button.disabled,
+         #flyout-basket-add-on.button.disabled:hover,
+         #flyout-basket-add-on.button.disabled:active,
+         #flyout-basket-add-on.button.disabled:focus,
+         #flyout-basket-add-on.button.disabled:visited {
+          background: $midDarkGrey;
+          border: solid 1px $midDarkGrey;
+          color: $white;
+       }
+     }
+      @include addOnBasketTooltip;
+    }
+    @include addOnInfoMessage;
+  }
+}

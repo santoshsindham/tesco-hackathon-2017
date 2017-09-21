@@ -1,0 +1,675 @@
+@import "common/variables";
+@import "common/grid";
+
+/** Part of Tesco reset! **/
+
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+	@include tescoFont;
+	font-size: 62.5%;
+	background: #F3F1ED;
+	margin: 0;
+	padding: 0;
+	color: $xDarkPutty;
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+a, a:link, a:active {
+	color: $tescoBrightBlue;
+	text-decoration: none;
+}
+a:hover, a:link:hover {
+	color: $tescoBrightBlue;
+	text-decoration: underline;
+}
+a[href^="tel"] {
+	color: $xDarkPutty;
+}
+input[type="text"]:focus, textarea:focus {
+	outline:0;
+	border:0;
+}
+input[type="submit"]:focus {
+ 	outline:0;
+}
+.no-touch {
+	a:hover {
+		color: $tescoBrightBlue;
+	  	text-decoration: underline;
+  	}
+}
+
+.touch {
+	&:hover {
+	   color: $tescoBrightBlue;
+	   .tertiary-button {
+	      color:#fff;
+	   }
+	}
+}
+
+.imageContainer a {
+	color: #0265C3;
+	text-decoration: none;
+}
+
+.imageContainer a:hover {
+	text-decoration: underline;
+}
+
+img {
+  border: none;
+}
+
+h1 {
+	font-size: 2.3em;
+	color: $headingColor;
+	margin: 0 0 5px;
+}
+
+h2 {
+	margin: 0 0 20px;
+	font-size: 2.0em;
+	font-weight:bold;
+	color:$headingColor;
+}
+
+h3 {
+	margin: 0 0 10px;
+	font-size:1.8em;
+	font-weight:bold;
+	color: $headingColor;
+}
+
+p {
+	font-size: 1.2em;
+	color: $xDarkPutty;
+}
+
+ol,
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+/**
+ * 	LBi Rules
+**/
+
+/** ICONS **/
+@font-face {
+	font-family: 'Tesco Icons';
+	src: url('../fonts/tescoicons.eot?v=' + $randomasset);
+	src: url('../fonts/tescoicons.eot?v=' + $randomasset + '#iefix') format('embedded-opentype'),
+	  url('../fonts/tescoicons.woff?v=' + $randomasset) format('woff'),
+		url('../fonts/tescoicons.ttf?v=' + $randomasset) format('opentype'),
+		url('../fonts/tescoicons.svg?v=' + $randomasset) format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+}
+
+/** FONTS **/
+@font-face{
+	  font-family:"DidotW01-Roman";
+	  src: url('../fonts/DidotW01-Roman.eot?v=' + $randomasset + "#iefix");
+	  src: url('../fonts/DidotW01-Roman.eot?v=' + $randomasset + '#iefix') format("eot"),
+	       url('../fonts/DidotW01-Roman.woff?v=' + $randomasset) format("woff"),
+	       url('../fonts/DidotW01-Roman.ttf?v=' + $randomasset) format("truetype"),
+	       url('../fonts/DidotW01-Roman.svg?v=' + $randomasset + '#972bb961-7f13-4e8d-8c1f-034e3f4e7517') format("svg");
+		   font-weight: normal;
+		   font-style: normal;
+		   font-variant: normal;
+	}
+
+@font-face {
+    font-family: 'Tesco';
+    src: url('../fonts/tesco.eot?v=' + $randomasset);
+    src: url('../fonts/tesco.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/tesco.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/tesco.svg?v=' + $randomasset + '#tescoregular') format('svg'),
+         url('../fonts/tesco.ttf?v=' + $randomasset) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family: 'Tesco';
+    src: url('../fonts/tescob.eot?v=' + $randomasset);
+    src: url('../fonts/tescob.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/tescob.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/tescob.svg?v=' + $randomasset + '#tescobold') format('svg'),
+         url('../fonts/tescob.ttf?v=' + $randomasset) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family: 'Tesco';
+    src: url('../fonts/tescoi.eot?v=' + $randomasset);
+    src: url('../fonts/tescoi.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/tescoi.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/tescoi.svg?v=' + $randomasset + '#tescoitalic') format('svg'),
+         url('../fonts/tescoi.ttf?v=' + $randomasset) format('opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-variant: normal;
+}
+@font-face {
+    font-family: 'Hudl';
+    src: url('../fonts/hudlasap-regular.eot?v=' + $randomasset);
+    src: url('../fonts/hudlasap-regular.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/hudlasap-regular.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/hudlasap-regular.svg?v=' + $randomasset + '#tescoitalic') format('svg'),
+         url('../fonts/hudlasap-regular.ttf?v=' + $randomasset) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family: 'Hudl';
+    src: url('../fonts/hudlasap-bold.eot?v=' + $randomasset);
+    src: url('../fonts/hudlasap-bold.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/hudlasap-bold.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/hudlasap-bold.svg?v=' + $randomasset + '#tescoitalic') format('svg'),
+         url('../fonts/hudlasap-bold.ttf?v=' + $randomasset) format('opentype');
+    font-weight: bold;
+    font-style: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto-medium-webfont.eot?v=' + $randomasset);
+    src: url('../fonts/roboto-medium-webfont.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/roboto-medium-webfont.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/roboto-medium-webfont.svg?v=' + $randomasset + '#tescoitalic') format('svg'),
+         url('../fonts/roboto-medium-webfont.ttf?v=' + $randomasset) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/roboto-bold-webfont.eot?v=' + $randomasset);
+    src: url('../fonts/roboto-bold-webfont.eot?v=' + $randomasset + '#iefix') format('eot'),
+				 url('../fonts/roboto-bold-webfont.woff?v=' + $randomasset) format('woff'),
+				 url('../fonts/roboto-bold-webfont.svg?v=' + $randomasset + '#tescoitalic') format('svg'),
+         url('../fonts/roboto-bold-webfont.ttf?v=' + $randomasset) format('opentype');
+    font-weight: normal;
+    font-style: bold;
+    font-variant: normal;
+}
+
+
+.icon {
+	font-family: 'Tesco Icons';
+	font-size: 3em;
+}
+
+a.icon {
+	text-decoration: none;
+}
+
+[data-icon]:before {
+	font-family: 'Tesco Icons';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	-webkit-font-smoothing: antialiased;
+}
+
+.page {
+	position: relative;
+}
+
+.kiosk .page {
+	position: static;
+}
+
+.page:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.icon {
+	position: relative;
+}
+
+.icon-dropdown, .icon-arrow {
+	position: absolute;
+	overflow: hidden;
+	display: block;
+	right: 6px;
+	font-size: 0.62em!important;
+	color: #A4A4A4;
+}
+
+.tap-area {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+}
+
+#page-container {
+	&:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+/** FORM ELEMENTS **/
+.button {
+	display: block;
+	-webkit-appearance: none;
+	line-height: 1;
+	padding: 0;
+	font-size: 1.4em;
+	font-weight: 400;
+	@include border-radius(0);
+	border: 1px solid $primaryBorderColor;
+	font-weight: bold;
+	color: #3e3e3f;
+}
+.primary-button,
+a.primary-button {
+	@include newButton;
+	@include primaryButtonColoring;
+
+	.kiosk & {
+		@include kioskPrimaryButtonColoring;
+	}
+}
+.secondary-button,
+a.secondary-button {
+	@include newButton;
+	@include secondaryButtonColoring;
+
+	.kiosk & {
+		@include kioskSecondaryButtonColoring;
+	}
+}
+.tertiary-button {
+	@include newButton;
+	@include tertiaryButtonColoring;
+	font-weight: normal;
+}
+span.error {
+	display: block;
+	clear: both;
+	padding: 2px 0 0;
+	color: $error;
+	font-size: 1.4em;
+}
+.error {
+	input {
+		border-color: $error;
+	}
+	.checkbox {
+		border-color: $error;
+	}
+
+	.icon {
+		color: $error;
+		font-size: 1.4em;
+	}
+
+}
+.footnote-reference {
+	color: $tescoRed;
+}
+/** TOOLTIPS **/
+.tooltip-overlay {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background: #FFFFFF;
+	opacity: 0;
+	left: 0;
+	top: 0;
+}
+.page .tooltip {
+
+	position: absolute;
+	/*MAY WANT TO CHANGE THIS TO 100% OR SOMETHING ELSE BASED ON OTHER DESIGNS*/
+	width: 265px;
+	z-index: 300;
+	opacity: 0;
+	-webkit-transition: opacity 500ms linear;
+	-moz-transition: opacity 500ms linear;
+	-ms-transition: opacity 500ms linear;
+	-o-transition: opacity 500ms linear;
+	transition: opacity 500ms linear;
+	left: 50%;
+	margin-left: -132.5px;
+	top: $tooltipArrowHeight;
+
+	&.show {
+		opacity: 1;
+	}
+
+	.body {
+		border: 1px solid $tescoBrightBlue;
+		background: #fff;
+		/* @include box-shadow(0 2px 2px 1px rgba(0, 0, 0, 0.2)); */
+		padding: 11px;
+		position: relative;
+
+		&:before, &:after  {
+			content:"";
+			border: $tooltipArrowHeight solid $tescoBrightBlue;
+			border-color: transparent transparent $tescoBrightBlue transparent;
+			height: 0;
+			width: 0;
+			position: absolute;
+			top: -54px;
+			left: 50%;
+			margin-left: -$tooltipArrowHeight;
+		}
+		&:after {
+			border-color: transparent transparent #fff transparent;
+			border-width: $tooltipArrowHeight - 2px;
+			top: -50px;
+			margin-left: - ($tooltipArrowHeight - 2px);
+
+		}
+
+        .close {
+            color: #ccc;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.4em;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+                color: $contentLink;
+            }
+        }
+
+        p {
+        	float: none;
+        }
+	}
+
+	// for when the tooltip goes off the screen
+	// force the arrow to the left
+	&.arrow-left {
+		margin-left: 0;
+		.body {
+			&:before, &:after  {
+				left: 0;
+				margin-left: 0;
+			}
+			&:after {
+				margin-left: 2px;
+			}
+		}
+	}
+	@include genericOverlayContents;
+
+
+}
+.page .error-tooltip {
+	.body {
+		border-color: $error;
+		&:before {
+			border-bottom: 27px solid $error;
+		}
+	}
+}
+#lightbox.error-overlay {
+	width: 280px;
+	border-color: $error;
+}
+.error-overlay,
+.page .error-tooltip {
+	.error {
+		color: $error;
+		padding-left: 1.5em;
+		.icon {
+			position: absolute;
+			left: 8px;
+		}
+
+	}
+}
+
+/*GENERIC OVERLAY STYLING - TO MATCH TOOLTIPS*/
+#lightbox .generic {
+	padding: 11px;
+	position: relative;
+	@include genericOverlayContents;
+}
+
+#lightbox {
+	.close {
+		position: absolute;
+		display: block;
+		cursor: pointer;
+		width: 30px;
+		height: 30px;
+		right: -15px;
+		top: -15px;
+        z-index: 999;
+
+		overflow: hidden;
+        background: #7c765f;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        text-decoration: none;
+        .icon {
+            top: 9px;
+            left: 9px;
+            font-size: 12px;
+            color: #fff;
+            &:before{
+                content: "y";
+                font-family:'Tesco Icons';
+            }
+      }
+
+		.label {
+			@include screen-reader;
+		}
+
+	}
+}
+
+.kiosk *:not(input) {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.visually-hidden-select {
+  position: absolute;
+  left: -9999em;
+}
+
+.visually-hidden-select.native-select-trigger {
+  left: 0;
+  padding: 8px 0;
+  z-index: $nativeSelectZIndex;
+  opacity: 0;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  overflow: hidden;
+  // use for debugging to show position of the select element over the .control element
+  /*
+  background: red;
+  opacity: 1;
+  */
+}
+
+
+.customDropdown {
+
+	display: block;
+	font-size: 10px;
+	letter-spacing: auto;
+	word-spacing: auto;
+	position: relative;
+	z-index: 11;
+	ul {
+		height: 0;
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+		top: 44px;
+		&:hover {
+			ul {
+				height: auto;
+				overflow: visible;
+			}
+		}
+    	&::-webkit-scrollbar {
+    		-webkit-appearance: none;
+		    width: 7px;
+			background-color: rgba(243,241,237,1);
+    	}
+
+    	&::-webkit-scrollbar-thumb {
+		    border-radius: 4px;
+		    background-color: rgba(0,0,0,.5);
+		    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.8);
+		}
+	}
+	li {
+		position: relative;
+	}
+
+	a {
+		@include button;
+		display: inline-block;
+		line-height: 23px;
+		margin: 0 0 8px 0;
+		padding: 10px 12px;
+		border:1px solid $putty;
+		color: $xDarkPutty;
+		.innerText {
+			font-weight:bold;
+		}
+		.icon {
+			font-size: 14px;
+			padding-left: 8px;
+		}
+		&:hover {
+			background: $tescoBrightBlue;
+			border: 1px solid $tescoBrightBlue;
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+	&.refine a,
+	&.close a {
+		@include secondaryButton;
+		color: #fff;
+		border-color: #014b8f;
+	}
+	&.compare a {
+		@include tertiaryButton;
+	}
+	&.open {
+		// change to a class
+		.control {
+			/*@include secondaryButton;*/
+
+			border-color: $lightPutty;
+		}
+		ul {
+			height: auto;
+			overflow: auto;
+			max-height: 211px;
+			border: 1px solid $lightPutty;
+			@include box-shadow(0 2px 4px rgba(0,0,0,0.1));
+			li {
+				display: block;
+				margin: 0;
+				width: 100%;
+				&.alt-heading {
+					display: none;
+				}
+				&:nth-child(2) { // can't do first child as it's the hidden .alt-heading list item
+					a.sort {
+						border-top: none;
+					}
+				}
+				a.sort {
+					border-width: 1px 0 0;
+					border-style: solid;
+					border-color: #bfbdbd;
+					display: block;
+					margin-bottom: 0;
+					font-size: 14px;
+					text-align: left;
+					background: #fff;
+					&:hover {
+						filter: none;
+						-ms-filter: none;
+						background-color: $tescoBrightBlue;
+						color: #fff;
+					}
+				}
+			}
+		}
+		&.menu-on-top {
+			ul {
+				li {
+					a.sort {
+						border-width: 0 0 1px;
+					}
+					&:last-child {
+						a.sort {
+							border-bottom: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+.address-update {
+  margin-top: 16px;
+}
+
+.address-details {
+  font-size: 1.4em;
+}

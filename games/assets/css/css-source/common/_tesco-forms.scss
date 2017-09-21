@@ -1,0 +1,460 @@
+
+/* 4.6 Forms */
+.sign-out .form-intro,
+.account .form-footer,
+.account .form-intro,
+.required-fields {
+    font-size: 1.2em;
+    color: #4F5050;
+    margin: 0 10px 10px 0;
+}
+.required-fields .form-required {
+    position: relative;
+    top:-3px;
+    right: 0px;
+    right: 0;
+}
+.form-container {
+    padding: 0 0 20px;
+    position:relative;
+/*    overflow: hidden;*/
+}
+.form-container-padded {
+    padding: 35px 0 50px;
+	float: left;
+}
+.form-container h2 {
+	margin-bottom: 20px;
+}
+.form-container fieldset {
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+}
+.form-field .checkbox {
+    margin-left: 0;
+    margin-right: 10px;
+    margin-top: 7px;
+    float: left;
+}
+.form-container .form-group {
+    margin-bottom: 40px;
+}
+.form-container .form-group-divider {
+    border-bottom: 1px dashed #DDD7D7;
+    padding-bottom:10px;
+    margin-bottom:20px;
+}
+.form-container h2.form-group-divider{
+	padding-bottom:0px;
+}
+.form-container .form-group-divider.register-full-form{
+	padding:15px 13px 10px;
+}
+.login .register-full-form-intro{
+	margin:0 10px 10px;
+}
+.form-container .form-group-divider-last {
+    padding-bottom:0;
+    border-bottom:0;
+    border-image: none;
+    -moz-border-image: none;
+	-webkit-border-image: none;
+}
+.form-container .form-group-terms {
+    margin: 20px -10px;
+    padding:10px 10px 10px 12px;
+    background: #D9D9D9;
+	overflow: auto;
+}
+.form-container .form-group-terms .form-field{
+    margin-bottom:0;
+}
+.form-container .form-group-buttons {
+    margin-top:30px;
+}
+.form-container .form-group-buttons.form-group-buttons-short {
+    padding-right:10px;
+}
+.form-group-terms .agreement {
+    font-size: 1.1em;
+    margin: 0;
+    color: #4F5050;
+	clear: both;
+	padding:5px 0 0 0;
+}
+.form-group-terms .explanation {
+    font-size: 1.1em;
+    margin: 0 0 3px;
+    padding: 0;
+}
+#existing-customer{
+	float: left;
+}
+#new-customer{
+	float: left;
+}
+.form-section-existing-user,
+.form-section-new-user {
+    width: 397px;
+    padding: 0 55px 0 0;
+    overflow: hidden;
+}
+.form-section-existing-user a{
+   font-size: 1.1em;
+}
+.form-section-existing-user .form-field-secondary{
+	font-size: 1.1em;
+	margin: 0px 0px 0px 160px;
+	float: left;
+}
+.form-section-existing-user .form-group .input-standard{
+	float: right;
+	margin: 20px 8px 0 0;
+}
+.form-section-new-user{
+    padding: 0 0 0 49px;
+    width: 397px;
+    border-left: 1px solid #DDD7D7;
+}
+.form-section-new-user .input-standard{
+	float: right;
+    position: relative;
+    right: 8px;
+}
+.form-section-existing-user .form-field label,
+.form-section-new-user .form-field label {
+    width:138px;
+}
+.form-section-existing-user input.form-textinput,
+.form-section-new-user input.form-textinput {
+    width:223px;
+    margin-right:0;
+}
+
+.form-section-existing-user .form-field label.invalid,
+.form-section-new-user .form-field label.invalid {
+    margin-left: 118px;
+}
+
+.form-group-terms .form-field label.invalid {
+    margin-left:0;
+}
+#email-recover .form-field label{
+	width:130px;
+}
+#email-recover{
+	height:300px;
+}
+.form-container .form-field .input-tip {
+    position: relative;
+    float:none;
+    margin:2px 0 0 2px;
+    display: inline;
+    width:auto;
+    top:3px;
+    font-style:italic;
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #6e6e6e;
+}
+.form-container .form-group-terms a {
+    display: inline;
+    font-size: 1em;
+    font-weight: bold;
+}
+.form-container .form-field {
+	float: left;
+	clear: both;
+    margin-bottom:10px;
+}
+.form-container .form-field.form-field-address {
+	margin-bottom:30px;
+}
+.form-container .shortlabel {
+    margin:0 0 0 1px;
+}
+.form-container .form-field p {
+	margin: 4px 0px 4px 0px;
+	float: left;
+    color: #4F5050;
+    display: inline;
+    font-size: 1.1em;
+}
+.form-container .form-field .field-extended {
+	margin: 7px 0px 0px 220px;
+	clear: both;
+}
+.form-container .edit-control a.generic-standard{
+    margin: 4px 25px 10px 220px;
+    /*width:12em;*/
+}
+.form-group-divider.access-preferences p{
+	font-size:1.1em;
+    color: #4F5050;
+}
+.form-container .access-preferences-toggle{
+	margin: 10px 0 0 0;
+}
+select.form-select,
+input.form-textinput {
+    float: left;
+    font-size: 1.1em;
+    color: #4F5050;
+    font-family: Arial, sans-serif;
+    width: 221px;
+}
+select.form-select {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	line-height:20px;
+	width: 230px;
+}
+
+.inline-field {
+	float: left;
+	overflow: hidden;
+	margin-right: 10px;
+}
+.form-container .inline-field label,
+.form-container .inline-field select,
+.form-container .inline-field input {
+	float: none;
+    vertical-align: middle;
+}
+.textinput-short {
+    width: 90px;
+}
+.form-disabled {
+    border: 0 none;
+    background: transparent;
+}
+.form-container #clubcard{
+	float: left;
+    margin-left: 158px;
+}
+.form-container #clubcard input{
+    margin:0;
+}
+.form-container .form-field .key,
+.form-container .form-field .value,
+.form-field label {
+	font-size: 1.4em;
+    color: #6e6e6e;
+    font-weight: bold;
+    float: left;
+    width: 200px;
+    position: relative;
+    padding-right: 20px;
+}
+.form-container .form-field .key,
+.form-container .form-field .value{
+	margin-right:10px;
+	white-space:nowrap;
+	min-width:210px;
+	padding-right:0;
+}
+.form-container .form-field .value{
+	color:#00539f;
+}
+.form-field .value {
+	font-size: 1.4em;
+    font-weight:bold;
+	color: #00539f;
+	float: left;
+}
+.form-field .minor {
+    font-size:1.1em;
+    font-weight:normal;
+    margin-top:2px;
+    width:auto;
+    color: #4F5050;
+}
+.form-container a {
+    margin: 10px 0 0 0;
+    clear: both;
+}
+.form-container .forgot-password{
+	margin: 0 0 0 150px;
+}
+.form-container .button {
+    margin:0;
+	width: auto;
+}
+#reg-conf .button{
+	float: left;
+}
+.form-container .form-group-buttons .button{
+	float: right;
+	clear: none;
+}
+.form-container .form-group-buttons .generic-standard{
+	float: left;
+}
+.form-container p {
+    font-size: 1.2em;
+	margin: 0 0 14px 1px;
+}
+.form-container p.manage-payment-button{
+	margin:0px;
+}
+.explanation {
+    display:block;
+    margin-left: 160px;
+    font-size: 1.1em;
+    color: #4F5050;
+    padding: 8px 0px 10px 0px;
+}
+.explanation span {
+    color: #ec1b2c;
+}
+.form-field-secondary .explanation {
+    margin-left: 0;
+}
+.form-field label.explanation {
+    width:auto;
+    margin-top: 4px;
+    font-size:1.2em;
+    font-weight:normal;
+    font-style:italic;
+}
+.explain-label .explanation {
+    display: block;
+}
+.delivery-details .form-field-secondary {
+	padding: 0 0 24px 0px;
+
+}
+#spclInstruction0,#spclInstruction1,#spclInstruction2,#spclInstruction4{
+	width:255px;
+	margin-top:5px;
+}
+.deliveryInstr_label{
+	padding-top:8px;
+}
+#new-customer .no-clubcard{
+	margin: 0 0 0 160px;
+}
+#reg-conf label.invalid,
+#email-friend label.invalid,
+#contact-details label.invalid,
+#clubcard-details label.invalid,
+#change-password label.invalid,
+#card-payment label.invalid,
+#select-address label.invalid,
+#search-address label.invalid,
+#add-address label.invalid,
+#select-store label.invalid,
+#your-details label.invalid,
+#edit-address label.invalid,
+#delivery-addresses label.invalid{
+	float: left;
+	clear: both;
+}
+#card-payment .form-group {
+	margin-bottom:10px;
+}
+#card-payment .address-card label.invalid{
+	position:absolute;
+	font-size:12px;
+	left:150px;
+	top:550px;
+	margin:0;
+}
+#deliveryOptionsForm .deliver-group-info label.invalid{
+	position:relative;
+	font-size:12px;
+	left:260px;
+	top:14px;
+	margin:0;
+	width:310px;
+}
+.address-list .address-card input.invalid {
+	 border:1px solid #FFF;
+}
+.address-list .input-standard {
+	margin-right: 10px;
+}
+.option-1 .address-list .input-standard,.option-2 .address-list .input-standard{
+	margin-right: 25px;
+}
+#card-payment .form-group-buttons{
+	padding: 0;
+	margin-top:0;
+}
+#card-payment .form-group-buttons .button{
+	margin: 0 20px 0 0;
+
+  &.primary-button {
+    height: 40px;
+    width: 90px;
+    float: left;
+    font-size: 1.4em;
+  }
+}
+#card-payment .form-disabled {
+    margin-left:0;
+}
+#marketing-pref .form-field{
+    margin-bottom:15px;
+}
+#marketing-pref .checkbox{
+	margin: 0 8px 2px 2px;
+}
+#marketing-pref label{
+	float:none;
+    font-weight:normal;
+    font-size:1.1em;
+    color: #848282;
+}
+.form-required {
+    color: #ec1b2c;
+    font-size: 1.1em;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+}
+.footnote-reference {
+    color: #ec1b2c;
+}
+.form-container .left-button {
+	float: left;
+	margin: 0;
+}
+
+
+.search-again h2{
+	clear: both;
+}
+.form-container .header-explain {
+    font-weight: normal;
+}
+.product-compare-options,
+.address-card,
+.payment-option,
+#accessibility-opt .form-field {
+    padding: 10px 15px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 2px rgba( 0, 0, 0, 0.75 );
+    -webkit-box-shadow: 0 0 2px rgba( 0, 0, 0, 0.75 );
+    box-shadow: 0 0 2px rgba( 0, 0, 0, 0.75 );
+	/*
+	Using rgba values to make the border transparent in modern browsers,
+	IE won't understand it so will fall back to the hex color, saves replicating
+	a border across all the IE specific style sheets
+	*/
+	border: 1px solid #DDD7D7;
+	border-color: rgba( 0, 0, 0, 0 );
+    overflow: hidden;
+    margin: 20px 10px 0 0;
+}
+div.sponsored-link {
+	border: 1px solid #DDD7D7;
+    overflow: hidden;
+    margin: 0px 0px 13px 0px;
+    padding: 1px;
+    line-height:0px;
+}

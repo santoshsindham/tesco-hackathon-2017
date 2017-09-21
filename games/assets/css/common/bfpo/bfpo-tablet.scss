@@ -1,0 +1,22 @@
+@import "bfpo-mixins";
+
+.bfpo-container {
+    @include bfpo-container-position(342px);
+
+    .new-address & {
+        @include bfpo-container-position(48%);
+        margin-left: 22px;
+        width: 48%;
+    }
+}
+
+.bfpo-content {
+
+    .new-address & {
+        li {
+            strong {
+                display: inline;
+            }
+        }
+    }
+}

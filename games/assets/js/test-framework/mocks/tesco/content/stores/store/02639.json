@@ -1,0 +1,49 @@
+{
+    "id" : "02639",
+    "postalCode" : "CM202TG",
+    "facilitiesTiming" : {
+      "CAFE" : "{\"facilityTime\":{\"friClose\":\"1900\",\"friOpen\":\"0800\",\"monClose\":\"1800\",\"monOpen\":\"0800\",\"satClose\":\"1800\",\"satOpen\":\"0800\",\"sunClose\":\"1630&amp;amp;amp;#xD;\",\"sunOpen\":\"1030\",\"thursClose\":\"1900\",\"thursOpen\":\"0800\",\"tueClose\":\"1800\",\"tueOpen\":\"0800\",\"wedClose\":\"1800\",\"wedOpen\":\"0800\"}}",
+      "DIRECT_DESK" : "{\"facilityTime\":{\"friClose\":\"1800\",\"friOpen\":\"1200\",\"monClose\":\"1800\",\"monOpen\":\"1200\",\"satClose\":\"1800\",\"satOpen\":\"1200\",\"sunClose\":\"1700\",\"sunOpen\":\"1100\",\"thursClose\":\"1800\",\"thursOpen\":\"1200\",\"tueClose\":\"1800\",\"tueOpen\":\"1200\",\"wedClose\":\"1800\",\"wedOpen\":\"1200\"}}"
+    },
+    "country" : "GB",
+    "satClose" : "1800",
+    "thuClose" : "1800",
+    "longitude" : "0.125123",
+    "storeName" : "HARLOW EDINBURGH WAY",
+    "sunClose" : "1700",
+    "wedOpen" : "1200",
+    "wedClose" : "1800",
+    "latitude" : "51.785602",
+    "monOpen" : "1200",
+    "gridReference" : "5466021170",
+    "addressTwo" : "0",
+    "facilities" : [ {
+      "id" : "DIRECT_DESK",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/DIRECT_DESK"
+    } ],
+    "thuOpen" : "1200",
+    "storeTypes" : [ {
+      "id" : "Superstore",
+      "type" : "storeType",
+      "href" : "/direct/rest/content/stores/storeType/Superstore"
+    } ],
+    "friOpen" : "1200",
+    "county" : "ESSEX",
+    "tueOpen" : "1200",
+    "storeId" : "2639",
+    "satOpen" : "1200",
+    "friClose" : "1800",
+    "monClose" : "1800",
+    "tueClose" : "1800",
+    "sunOpen" : "1100",
+    "addressOne" : "EAST ROAD",
+    "storeTimings" : "{\"facilityTime\":{\"friClose\":\"1800\",\"friOpen\":\"1200\",\"monClose\":\"1800\",\"monOpen\":\"1200\",\"satClose\":\"1800\",\"satOpen\":\"1200\",\"sunClose\":\"1700\",\"sunOpen\":\"1100\",\"thursClose\":\"1800\",\"thursOpen\":\"1200\",\"tueClose\":\"1800\",\"tueOpen\":\"1200\",\"wedClose\":\"1800\",\"wedOpen\":\"1200\"}}",
+    "townCity" : "HARLOW",
+    "links" : [ {
+      "id" : "02639",
+      "type" : "store",
+      "rel" : "self",
+      "href" : "/direct/rest/content/stores/store/02639"
+    } ]
+  }

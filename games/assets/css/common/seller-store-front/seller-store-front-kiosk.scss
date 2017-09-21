@@ -1,0 +1,6 @@
+//seller-store-front module - kiosk
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "seller-store-front-mixins";
+
+@include sellerStore;

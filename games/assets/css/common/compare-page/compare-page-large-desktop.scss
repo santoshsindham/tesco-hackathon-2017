@@ -1,0 +1,4 @@
+//compare-page module - large desktop
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "compare-page-mixins";

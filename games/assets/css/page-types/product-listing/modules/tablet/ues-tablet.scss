@@ -1,0 +1,277 @@
+/*******************************************
+*	Uniform Embroidery Service
+*******************************************/
+@import "../mixins/ues-mixins";
+.PDP-Version2  #ues-container{
+	.schoolDonationContainer{
+		padding-bottom: 17px;
+		.schoolDonation{
+			P{
+				padding-top: 26px;
+			}
+			.value{
+				padding: 0 20px 0 0;
+			}
+		}
+	}
+	.schoolInfoSection h2{
+		margin-bottom: 4px;
+	}
+}
+#ues-container{
+	.contentWrapper{
+		padding-top: 29px;
+		.descriptionSection{
+			width: 42%;
+			margin: -12px 24px 10px 32px;
+		}
+		.registerSection{
+			a{
+				font-size: 16px;
+				line-height: 20px;
+			}
+		}
+		.donationSection{
+			padding:23px 11px;
+			.donationCounter{
+				float:left;
+				width:295px;
+				margin-left: 26px;
+				.donationAmt{
+					font-size: 48px;
+					line-height: 53px;
+				}
+			}
+			span{
+				padding: 6px 0;
+				font-size: 16px;
+			}
+		}
+		.imgHolder{
+		    float:left;
+		   	width: 92%;
+		   	img{
+				width: auto;
+				height: 100px;
+			}
+		}
+		.info{
+			width: 92%;
+		}
+	}
+}
+@include breakpoint(hTablet){
+	#ues-container{
+		.commsHolder{
+			width: 699px;
+			height: 83.5px;
+			margin: 30px 35px 19px 33px;
+		}
+		.uesBanner{
+			.fullWidth{
+	    		margin: 0 32px;
+				height: 458px;
+				width: 699px;
+				.pageTitle{
+					font-size: 44px;
+					line-height: 44px;
+				    width: 357px;
+				    height: 157px;
+					margin-left: 0px;
+					padding-top: 55px;
+				}
+				.titleImage{
+				    float: right;
+				    width: 274px;
+				    height: 278px;
+				    background: black url("../images/ues/M2_headerimage.jpg") no-repeat top center;
+				}
+	    		.searchHolder{
+					width: 366px;
+					height: 44px;
+					margin-top: 77px;
+					.schoolIndicator{
+						width: 366px;
+						padding: 10px 21px 10px 13px;
+					}
+	    			.schoolInfo{
+	    				display: none;
+	    			}
+	    		}
+	    		.descriptionSection{
+	    			width: 710px;
+	    			float: left;
+	    		}
+	    		.registerSection{
+	    			width: 445px;
+	    		}
+			}
+		}
+		.contentWrapper{
+			.donationSection{
+				width: 92%;
+				margin: 0px 32px;
+				donationCounter{
+					.donationAmt{
+						padding-top: 6px;
+					}
+				}
+				.donationText{
+					padding-left: 105px;
+				}
+			}
+			.info{
+				margin: 32px;
+			}
+		}
+		.schoolInfoSection{
+	    	height: 70px;
+			h2{
+				margin-bottom: 2px;
+				img {
+					width: 70px;
+					height: 70px;
+				}
+				span {
+					padding-left: 80px;
+				}
+			}
+			.schoolAddress {
+				padding-left: 80px;
+			}
+		}
+	}
+}
+@include breakpoint(vTablet){
+	#breadcrumb.uesBreadcrumb li.last{
+		border-bottom: none;
+		a::before {
+			content: '';
+			padding: 0px;
+		}
+	}
+
+	#breadcrumb.uesBreadcrumb li.first {
+		padding-right: 0px;
+		a{
+			padding-right: 3px;
+		}
+	}
+
+	#breadcrumb.uesBreadcrumb li.last a{
+		padding-right: 3px;
+	}
+
+	#ues-container{
+		.commsHolder{
+			width: 534px;
+			height: 83.5px;
+			margin: 25px 32px 14px 33px;
+		}
+		.uesBanner{
+			.fullWidth{
+				margin: 0 32px;
+				height: 384px;
+				width: 534px;
+				.pageTitle{
+					font-size: 44px;
+					line-height: 44px;
+				    width: 349px;
+				    height: 112px;
+					max-height: 112px;
+					margin-left: 0px;
+				}
+				.titleImage{
+				    float: right;
+				    width: 185px;
+				    height: 190px;
+				    background: #fff url("../images/ues/M1_headerimage.jpg") no-repeat top center;
+				}
+	    		.searchHolder{
+					width: 366px;
+					height: 44px;
+					margin-top: 50px;
+	    			.searchSec{
+	    				top: -53px;
+						.schoolIndicator{
+							width: 366px;
+							padding: 10px 21px 10px 13px;
+						}
+	    			}
+
+	    			.schoolInfo{
+	    				display: none;
+	    			}
+	    		}
+	    		.descriptionSection{
+	    			width: 535px;
+	    			float: left;
+	    		}
+	    		.registerSection{
+	    			width: 535px;
+	    		}
+	    		.userMessage{
+	    			top: -53px;
+	    			position: relative;
+	    	    	padding: 8px 14px 8px 34px;
+	    		}
+	    		.ssTable{
+	    			.schoolResultsSection{
+	    				top: -53px;
+	    			}
+	    		}
+	    		.userMessage{
+	    		    padding: 8px 14px 8px 34px;
+	    		}
+			}
+		}
+		.contentWrapper{
+			.registerSection{
+				width: 46%;
+				padding: 0 12px;
+			}
+			.donationSection{
+				width: 94%;
+				margin: 0px 16px;
+				.donationText{
+					padding-left: 26px;
+					float: left;
+				}
+			}
+			.imgHolder{
+			   	margin: 20px 16px 0px 16px;;
+			}
+			.info{
+				width: 92%;
+				margin: 16px;
+			}
+		}
+		.schoolInfoSection{
+	    	height: auto;
+			h2{
+				margin-bottom: 8px;
+				img {
+					width: 50px;
+					height: 50px;
+				}
+				span {
+					padding-left: 60px;
+					display: inline-block;
+				}
+			}
+			.schoolAddress {
+				padding-left: 60px;
+				display: inline-block;
+			}
+		}
+		.schoolDonation{
+			.value{
+				font-size: 48px;
+				line-height: 53px;
+			}
+			p{
+				font-size: 18px;
+			}
+		}
+	}
+}

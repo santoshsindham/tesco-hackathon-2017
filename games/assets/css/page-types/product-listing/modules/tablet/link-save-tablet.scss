@@ -1,0 +1,31 @@
+/*******************************************
+*	Tablet header module
+*******************************************/
+
+@import "../../../core/components/breakpoints";
+@include breakpoint(tablet);
+
+#tab-module {
+	width: 100%;
+}
+
+.link-save {
+	#filter-controls {
+		border-left: 0;
+		border-right: 0;
+		padding: 15px 10px 37px 10px;
+	}
+	
+	#product-categories {
+		border-top: 1px solid #bfbdbd;
+		border-left: none;
+		border-right: none;
+		border-bottom: none;
+		margin: 0;
+		width: 100%;
+	}
+	
+	#active-product-filters #filtered-products-count {
+		line-height: 38px;
+	}
+}

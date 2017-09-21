@@ -1,0 +1,731 @@
+@import "../variables";
+@import "basket-mixins";
+
+// main basket wrapper
+// -----------------------------------------------------
+
+#basket-wrapper {
+    position: relative;
+    &:after {
+        @include clear-fix;
+    }
+}
+
+// basket messages
+// -----------------------------------------------------
+
+.basket-messages {
+    margin-bottom: 16px;
+}
+
+// mini basket summary (top)
+// -----------------------------------------------------
+
+#basket-summary-mini {
+    &:after {
+        @include clear-fix;
+    }
+    h2:first-child {
+        margin-top: 29px;
+        margin-left: 16px;
+        font-size: 1.6em;
+        float: left;
+        span.hidden {
+        }
+        span.items {
+            font-weight: bold;
+        }
+    }
+    .total-wrapper {
+        float: right;
+        margin-right: 16px;
+        h3.amount {
+            margin-bottom: 12px;
+        }
+        .amount,
+        .delivery-costs,
+        .clubcard-points {
+            display: none;
+        }
+        form {
+            float: right;
+        }
+        .continue-shopping {
+            @include underlineLink;
+            float: right;
+            font-size: 14px;
+            margin: 31px 16px 0 0;
+            display: none;
+            font-weight: bold;
+            border-bottom: none;
+            color: $tescoBlue;
+
+            &:hover, &:link:hover {
+            	color: $tescoBlue;
+        		text-decoration: underline;
+            }
+        }
+    }
+    .total-wrapper {
+        input[type=submit] {
+            margin: 16px 0;
+            padding-right: 16px;
+            padding-left: 16px;
+        }
+        .delivery-options {
+            font-size: 1.4em;
+        }
+    }
+}
+
+// primary column
+// -----------------------------------------------------
+
+#basket-primary {
+    float: left;
+    .basket-item{
+	    .click-collect{
+		    ul{
+		    	margin-left: 1.6em;
+		    	li{
+		    		font-size: 1.0em;
+		    	}
+			}
+		    ul > :first-child{
+		    	margin-top: 0.3em;
+		    }
+	    }
+	}
+}
+
+.basket-empty #basket-primary {
+    @include box-shadow(none);
+    float: none;
+    margin-top: -12px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: transparent;
+    h2 {
+        float: none;
+        margin: 0 0 12px 0;
+    }
+    a.continue-shopping {
+        width: auto;
+        display: inline-block;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+#lightbox{
+	#preorderPricing{
+		.back{
+			display:none;
+		}
+		p{
+			padding: 0 16px;
+		}
+	}
+}
+#basket-primary .basket-item {
+    // hide kiosk heading
+    .remove-product {
+        display:none;
+
+    }
+    &:after {
+        @include clear-fix;
+    }
+
+    p,
+    ul li {
+        margin: 0 0 4px;
+        font-size: 1.4em;
+    }
+    h3.section-heading {
+        font-size: 1.4em;
+    }
+    .restrictions {
+        margin-bottom: 8px;
+        p {
+            font-size: 1.2em;
+        }
+    }
+
+    // product information
+    .description {
+        padding-left: 60px;
+        h2 {
+            position: relative;
+            margin: 0 0 8px;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.4em;
+            line-height: 1.4em;
+            img.product-image, div.static-product-image img {
+                position: absolute;
+                top: 4px;
+                left: -60px;
+                width: 40px;
+                height: 40px;
+                overflow: hidden;
+            }
+            @include word-break;
+        }
+        .price-promise {
+            margin: 8px 0 0;
+            p {
+                margin-bottom: 0;
+            }
+        }
+        .supplier {
+            position: relative;
+            display: inline-block;
+        }
+    }
+    .quantity {
+        input[type=number] {
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    }
+    .price,
+    .subtotal {
+        .current,
+        .total {
+            @include subtotal-value;
+        }
+        .previous {
+            color: #848282;
+            text-decoration: line-through;
+        }
+        .discount {
+            color: $savings-color;
+        }
+    }
+    .product-extras {
+        clear: both;
+        &:after {
+            @include clear-fix;
+        }
+        .supplier > a {
+            font-weight: bold;
+        }
+    }
+    .eventMessaging {
+        p {
+            margin-bottom: 0px;
+            div {
+                p {
+                    font-size: 1em;
+                }
+            }
+        }
+    }
+
+    .delivery-options {
+        margin-bottom: 16px;
+        .loader{min-height:40px;}
+        .section-heading {
+            font-size: 1.6em;
+        }
+        .eventMessaging {
+            margin: 20px 0 20px 0;
+        }
+        ul {
+            margin-bottom: 8px;
+            li {
+                list-style-type: none;
+                .icon {
+                  font-size: 18px;
+                  line-height: 4px;
+                  position: relative;
+                  top: 4px;
+
+                }
+                &.resiliency {
+                    padding : 0px;
+                }
+            }
+        }
+        .restrictions p {
+            font-size: 1.4em;
+            font-weight: bold;
+        }
+    }
+
+    // product options
+    .selected-product-options {
+        &:after {
+            @include clear-fix;
+        }
+        .product-option {
+            @include separator-top;
+            padding-top: 16px;
+            &:after {
+                @include clear-fix;
+            }
+        }
+    }
+    .available-product-options {
+        clear: both;
+        margin: 0 0 26px 56px;
+        padding: 0 16px;
+        border: 1px solid $primaryBorderColor;
+        background-color: #f3f1ed;
+        width:80%;
+        h3.section-heading {
+            margin: 16px 0;
+            display: block;
+            font-size:20px;
+            border-bottom:1px solid #fff;
+            padding:0 0 6px;
+        }
+        form:after {
+            @include clear-fix;
+        }
+        .tooltipPopup{
+            .close{
+                font-size: 1.4em;
+            }
+        }
+        label {
+
+            display:table;
+            position:relative;
+            margin: 0 0 15px;
+            width:98%;
+            padding: 0px 0 0 34px;
+            font-size: 1.4em;
+            -webkit-tap-highlight-color: transparent;
+            min-height:24px;
+
+            &:after {
+                background: url("../img/question.png") no-repeat;
+                width: 13px;
+                height:13px;
+                content: 'Question';
+                text-indent: -999em;
+                position: absolute;
+                top:-2px;
+                bottom:0;
+                margin-top:auto;
+                margin-bottom:auto;
+                right:-19px;
+            }
+
+
+            .checkbox {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: auto 0;
+
+                display: none; // if js enabled, will be shown and input checkbox hidden
+            }
+            input[type=checkbox] {
+                position: absolute;
+                left: 0;
+            }
+            .value {
+                font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                font-weight: bold;
+                width:10%;
+                display:inline-block;
+                display: table-cell;
+                text-align:right;
+                vertical-align: middle;
+                .price {
+                    float:none;
+                    padding-left:0px;
+                    font-size:14px;
+                }
+            }
+
+            .key {
+                width:90%;
+                padding-right: 10px;
+                display:inline-block;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+        }
+        input[type=submit],input.secondary-button {
+            clear: both;
+            display: inline-block;
+            float:right;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            -webkit-appearance: none;
+            width:auto;
+            padding:0 51px;
+        }
+    }
+}
+
+// js enabled, shown custom checkbox and hide input checkbox
+.js #basket-primary .basket-item {
+    .available-product-options {
+        label {
+            .checkbox {
+                display: block;
+            }
+            input[type=checkbox] {
+                display: none;
+            }
+        }
+    }
+}
+
+#basket-primary .basket-item.removed {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    padding: 16px 16px 0;
+    border: 1px solid $primaryBorderColor;
+    background-color: #fff8da;
+    p {
+        margin-bottom: 16px;
+    }
+}
+
+.notification {
+    margin: 0 0 24px;
+    padding: 0 16px;
+    border: 1px solid $primaryBorderColor;
+    background-color: #fff8da;
+    p {
+        font-size: 1.4em;
+    }
+}
+
+#basket-empty {
+     margin: 28px 16px;
+ &:after {
+        @include clear-fix;
+    }
+    input[type=submit] {
+        @include secondaryButton;
+        line-height: 0px;
+    }
+}
+
+// secondary column
+// -----------------------------------------------------
+
+$secondary-box-padding: 16px 16px 0;
+
+#basket-summary {
+    @include basket-summary-amounts;
+
+    h2 {
+        margin-right: 16px;
+        margin-left: 16px;
+        margin-bottom: 16px;
+        font-size: 2.4em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+    p {
+        font-size: 1.4em;
+    }
+    ul li {
+        margin: 0 0 12px;
+        font-size: 1.4em;
+    }
+
+    // subtotal wrapper
+    .subtotal-wrapper {
+        @include separator-top;
+        padding: $secondary-box-padding;
+        .total {
+            margin-top: 0;
+            padding-top: 0;
+            border: none;
+            span.value {
+                @include subtotal-value;
+                top: -3px;
+            }
+        }
+    }
+
+    // promotional savings wrapper
+    .savings-wrapper {
+        @include separator-top;
+        padding: $secondary-box-padding;
+        span.value {
+            color: $savings-color;
+        }
+        ul {
+            li.amount {
+                margin-left: 16px;
+                list-style-type: disc;
+            }
+        }
+    }
+
+    // basket total (with clubcard) wrapper
+    .total-wrapper {
+        @include separator-top;
+        padding: $secondary-box-padding;
+        h3.amount {
+            padding-top: 10px;
+            font-size: 14px;
+            span.value {
+                font-family: "Tesco", Helvetica, Arial, sans-serif;
+                font-size: 24px;
+            }
+        }
+        p {
+            margin: 16px 0 12px;
+        }
+        ul.clubcard-points {
+            @include separator-bottom;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            li.amount:first-child {
+                @include separator-top;
+                padding-top: 12px;
+                margin-top: 12px;
+                span.value {
+                    top: 12px;
+                }
+            }
+        }
+        input[type=submit] {
+            margin: 16px 0;
+        }
+        a.delivery-options{
+            font-size:1.4em;
+        }
+    }
+}
+
+#basket-redeem,
+#basket-continue-shopping {
+    @include basket-box-bordered;
+    padding: $secondary-box-padding;
+    h2 {
+        margin-bottom: 8px;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+    p {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 1.4em;
+    }
+    a {
+        margin: 8px 0 16px;
+    }
+}
+#basket-continue-shopping {
+    margin-bottom: 0;
+    p {
+        margin-bottom: 8px;
+    }
+
+    a {
+      color: $tescoBlue;
+      font-weight: bold;
+      font-size: 14px;
+      &:hover {
+        color: $tescoBlue;
+      }
+    }
+}
+
+// supplemental
+// -----------------------------------------------------
+
+#basket-wrapper + #supplemental {
+    .products-header {
+        margin-top: 0;
+        border: none;
+    }
+    .product-carousel {
+        .products {
+            padding-bottom: 0;
+        }
+    }
+}
+
+.basket-empty #basket-supplemental {
+    margin-right: 0;
+}
+
+#basket-primary .basket-item {
+    .bcve-basket-details {
+        margin-bottom: 8px;
+        position: relative;
+        .bcve_ping {
+            float: left;
+            margin-right: 8px;
+        }
+        .bcve-description {
+            margin-left: 61px;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        .bcve-show-more {
+            font-size: 1.2em;
+        }
+    }
+    .bcve-tooltip {
+        display: none;
+        background: #fff;
+        @include box-shadow(0 0 6px rgba(0,0,0,0.2));
+        border: 1px solid #848282;
+        position: absolute;
+        top: 54px;
+        left: -25px;
+        width: 280px;
+        padding: 16px 8px;
+        z-index: 20;
+        a {
+            display: none;
+        }
+        p {
+            margin: 0;
+        }
+        .close {
+            display: none;
+        }
+        &:after,
+        &:before {
+            content: "";
+            border: 27px solid #848282;
+            border-color: transparent transparent #848282 transparent;
+            height: 0;
+            width: 0;
+            position: absolute;
+            top: -54px;
+            left: 50%;
+            margin-left: -27px;
+        }
+        &:after {
+            border-color: transparent transparent white transparent;
+            border-width: 25px;
+            top: -50px;
+            margin-left: -25px;
+        }
+    }
+
+    /* personalised product basket message */
+    .personalised-basket-message {
+        position: relative;
+        p {
+            &:before {
+                position: absolute;
+                font-size: 28px;
+                top: 3px;
+                left: -54px;
+                color: #00539f;
+                content: 'i';
+                font-family: 'Tesco Icons';
+            }
+        }
+    }
+}
+
+.js {
+    #bcve-tooltip {
+        display: none;
+    }
+    .bcve-tooltip-content {
+        padding: 8px 16px 8px 8px;
+    }
+}
+#basket-wrapper {
+    .personalised-message-indicative {
+        display: block;
+        clear: both;
+        padding-left: 60px;
+        width: 60%;
+    }
+}
+
+
+#interceptContent{
+  display:none;
+}
+
+.intercept-overlay{
+  padding:40px;
+  background-color: $white;
+  box-shadow: 0px 2px 4px 0px rgba(102,102,102,0.50);
+  border-radius: 3px;
+  border: none;
+    h2{
+      font-size: 28px;
+      line-height: 28px;
+      font-weight: bold;
+      color: $offBlack;
+      }
+    p{
+      font-family: $tescoFont;
+      font-size: 20px;
+      line-height:24px;
+      span{
+        font-weight: bold;
+      }
+     }
+     #basket-continue-shopping{
+       display: inline;
+       padding: 0;
+       .tertiary-button{
+         display: inline-block;
+         width: 282px;
+         margin-bottom: 10px;
+         font-size: 16px;
+       }
+     }
+     #continueCheckout{
+       display: inline-block;
+       width: 282px;
+       margin-left: 10px;
+       #basket-checkout{
+         font-family: $tescoFont;
+         font-size: 16px;
+         font-weight:normal;
+       }
+     }
+     a{
+       font-family: $tescoFont;
+       font-size: 14px;
+       color: $tescoBlue;
+     }
+     .basket-contents-list{
+       margin:10px 0;
+       li{
+         border-top: 1px solid #FFE5E5;
+         border-bottom: 1px solid #FFE5E5;
+         padding: 10px 0;
+         .add-on-image-container {
+            margin: 8px 0;
+            img {
+              height: 21px;
+              width: 112px;
+            }
+          }
+       }
+       .basket-item-details{
+         vertical-align: top;
+         margin-left: 10px;
+         display:inline-block;
+         a{
+           font-size: 20px;
+         }
+         span{
+           font-weight:bold;
+           font-size:20px;
+         }
+       }
+       .basket-item-visual{
+         display:inline-block;
+       }
+     }
+ }

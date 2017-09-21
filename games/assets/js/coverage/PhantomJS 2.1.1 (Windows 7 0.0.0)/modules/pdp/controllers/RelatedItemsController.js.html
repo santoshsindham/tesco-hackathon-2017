@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\controllers\RelatedItemsController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/controllers/</a> RelatedItemsController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>15/105</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">14.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>15/105</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/controllers/RelatedItemsController', [
+  'modules/mvc/fn',
+  'modules/pdp/controllers/BaseController',
+  'modules/pdp/controllers/CarouselController',
+  'modules/pdp/models/RelatedItemsModel'
+], function (fn, BaseController, CarouselController, RelatedItemsModel) {
+  var RelatedItemsController = null,
+    addRelationshipToModel = null,
+    proxyRenderView = null;
+&nbsp;
+  addRelationshipToModel = <span class="fstat-no" title="function not covered" >function (sID, oResponse) {</span>
+<span class="cstat-no" title="statement not covered" >    var oEvent = new $.Event('addData'),</span>
+      oUpdatedResponse = oResponse;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oUpdatedResponse.id = sID;</span>
+<span class="cstat-no" title="statement not covered" >    oEvent.namespace = 'products';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oEvent.oData = {</span>
+      mAddData: oUpdatedResponse
+    };
+<span class="cstat-no" title="statement not covered" >    $(window).trigger(oEvent);</span>
+  };
+&nbsp;
+  proxyRenderView = <span class="fstat-no" title="function not covered" >function (args) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      view = {};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!fn.isArray(args.mParamData.items, { notEmpty: true })) {</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    view = this.createView(args);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!view) {</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >function proxyRenderViewInt() {</span></span>
+<span class="cstat-no" title="statement not covered" >      view.render();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (fn.getValue(args.mParamData, 'carousel', 'show')) {</span>
+<span class="cstat-no" title="statement not covered" >        _this.initCarousel(view);</span>
+      }
+    }, 4);
+  };
+&nbsp;
+  RelatedItemsController = <span class="fstat-no" title="function not covered" >function (oModel, oView) {</span>
+<span class="cstat-no" title="statement not covered" >    this.parent.parent.constructor.call(this, oModel, oView);</span>
+<span class="cstat-no" title="statement not covered" >    this.oRelatedItemsModel = new RelatedItemsModel();</span>
+<span class="cstat-no" title="statement not covered" >    this.relationshipType = '';</span>
+  };
+&nbsp;
+  fn.inherit(RelatedItemsController, BaseController);
+&nbsp;
+  RelatedItemsController.prototype.renderView = <span class="fstat-no" title="function not covered" >function (oParams) {</span>
+<span class="cstat-no" title="statement not covered" >    var aRequestedDataItems = [],</span>
+      bRelationshipLookup = true;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (oParams.mParamData.relationshipLookup !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      bRelationshipLookup = oParams.mParamData.relationshipLookup;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (oParams.mParamData.items) {</span>
+<span class="cstat-no" title="statement not covered" >      proxyRenderView.call(this, oParams);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (oParams.mParamData.lookupIDs) {</span>
+<span class="cstat-no" title="statement not covered" >      aRequestedDataItems = this.processIDs(oParams.mParamData.lookupIDs);</span>
+<span class="cstat-no" title="statement not covered" >      this.initFromIDs(aRequestedDataItems, oParams);</span>
+    } else <span class="cstat-no" title="statement not covered" >if (oParams.mParamData.id &amp;&amp; oParams.mParamData.relationshipType) {</span>
+<span class="cstat-no" title="statement not covered" >      aRequestedDataItems = this.oModel.getLinks(</span>
+        oParams.mParamData.relationshipType,
+        oParams.mParamData.id
+      );
+<span class="cstat-no" title="statement not covered" >      aRequestedDataItems = this.processIDs(aRequestedDataItems);</span>
+<span class="cstat-no" title="statement not covered" >      if (aRequestedDataItems.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >        this.initFromIDs(aRequestedDataItems, oParams);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (bRelationshipLookup) {</span>
+<span class="cstat-no" title="statement not covered" >        this.initFromRelationshipLookup(oParams);</span>
+      }
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  };
+&nbsp;
+  RelatedItemsController.prototype.processIDs = <span class="fstat-no" title="function not covered" >function processIDs(oData) {</span>
+<span class="cstat-no" title="statement not covered" >    var i = 0,</span>
+      aDataItems = [];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (oData.links) {</span>
+<span class="cstat-no" title="statement not covered" >      for (i = 0; i &lt; oData.links.length; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >        aDataItems.push(oData.links[i].id);</span>
+      }
+    } else <span class="cstat-no" title="statement not covered" >if (Array.isArray(oData)) {</span>
+<span class="cstat-no" title="statement not covered" >      for (i = 0; i &lt; oData.length; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >        if (oData[i].id !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >          aDataItems.push(oData[i].id);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >          aDataItems.push(oData[i]);</span>
+        }
+      }
+    }
+<span class="cstat-no" title="statement not covered" >    return aDataItems;</span>
+  };
+&nbsp;
+  RelatedItemsController.prototype.initFromIDs = <span class="fstat-no" title="function not covered" >function initFromIDs(aDataItems, oParams) {</span>
+<span class="cstat-no" title="statement not covered" >    var oData = {},</span>
+      _this = this,
+      oUpdateParams = oParams,
+      listLength = 0,
+      carouselArray = [],
+      i = 0;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oData.sNamespace = oParams.sNamespace;</span>
+<span class="cstat-no" title="statement not covered" >    oData.oGetParams = {</span>
+      sSearchKey: 'id',
+      mSearchValue: aDataItems
+    };
+<span class="cstat-no" title="statement not covered" >    this._getDataFromModel(oData, <span class="fstat-no" title="function not covered" >function renderMyView(oReturnedParams) {</span></span>
+<span class="cstat-no" title="statement not covered" >      if (oParams.mParamData.relationshipType !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >        listLength = oReturnedParams.mPromiseData.length;</span>
+<span class="cstat-no" title="statement not covered" >        if (oParams.mParamData.relationshipType.toLowerCase() === 'completethelook'</span>
+            || oParams.mParamData.relationshipType.toLowerCase() === 'outfit') {
+<span class="cstat-no" title="statement not covered" >          for (i = 0; i &lt; listLength; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >            if (oReturnedParams.mPromiseData[i].userActionable) {</span>
+<span class="cstat-no" title="statement not covered" >              carouselArray.push(oReturnedParams.mPromiseData[i]);</span>
+            }
+          }
+        } else {
+<span class="cstat-no" title="statement not covered" >          carouselArray = oReturnedParams.mPromiseData;</span>
+        }
+      } else {
+<span class="cstat-no" title="statement not covered" >        carouselArray = oReturnedParams.mPromiseData;</span>
+      }
+<span class="cstat-no" title="statement not covered" >      oUpdateParams.mParamData.items = carouselArray;</span>
+<span class="cstat-no" title="statement not covered" >      proxyRenderView.call(_this, oUpdateParams);</span>
+    });
+  };
+&nbsp;
+  RelatedItemsController.prototype.initFromDataItems = <span class="fstat-no" title="function not covered" >function (aDataItems) {</span>
+<span class="cstat-no" title="statement not covered" >    var i = 0;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (aDataItems) {</span>
+<span class="cstat-no" title="statement not covered" >      for (i = 0; i &lt; aDataItems.length; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >        if (aDataItems[i] instanceof this.Model) {</span>
+<span class="cstat-no" title="statement not covered" >          this._aDataItems.push(aDataItems[i]);</span>
+        }
+      }
+<span class="cstat-no" title="statement not covered" >      this.renderDataItems();</span>
+    }
+  };
+&nbsp;
+  RelatedItemsController.prototype.initFromRelationshipType = <span class="fstat-no" title="function not covered" >function (id, rel) {</span>
+<span class="cstat-no" title="statement not covered" >    this.initFromLinksObject(this.Model.getLinks(rel, id));</span>
+  };
+&nbsp;
+  RelatedItemsController.prototype.initFromRelationshipLookup = <span class="fstat-no" title="function not covered" >function (oParams) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      oDataParams = {},
+      oRelatedItemsPromise = {},
+      bRelatedItemAddedToModel = false;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oRelatedItemsModel.sNamespace = oParams.sNamespace;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oDataParams = {</span>
+      sSearchKey: 'id',
+      mSearchValue: oParams.mParamData.id,
+      sModelMethod: 'relationships',
+      hrefData: { relationship: oParams.mParamData.relationshipType },
+      processHyperMedia: oParams.mParamData.processHyperMedia,
+      processHyperMediaType: oParams.mParamData.processHyperMediaType,
+      doneCallback: <span class="fstat-no" title="function not covered" >function (oResponse) {</span>
+<span class="cstat-no" title="statement not covered" >        var aDataItems = [];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        aDataItems = _this.processIDs(oResponse);</span>
+<span class="cstat-no" title="statement not covered" >        _this.initFromIDs(aDataItems, oParams);</span>
+      },
+      progressCallback: <span class="fstat-no" title="function not covered" >function (sLookupID, oData) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!bRelatedItemAddedToModel) {</span>
+<span class="cstat-no" title="statement not covered" >          addRelationshipToModel(sLookupID, oData);</span>
+<span class="cstat-no" title="statement not covered" >          bRelatedItemAddedToModel = true;</span>
+        }
+      }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oRelatedItemsPromise = this.oRelatedItemsModel.promise(oDataParams);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $.when.call($, oRelatedItemsPromise)</span>
+      .fail(<span class="fstat-no" title="function not covered" >function (sError) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error(sError);</span>
+      });
+  };
+&nbsp;
+  RelatedItemsController.prototype.requestDataFromModelAndProcess = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var oRequestEvent = {},</span>
+      _this = this,
+      sEPOC = new Date().getTime().toString(),
+      sEventNamespace = this.relationshipType + this.ModelType + sEPOC;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oRequestEvent = new $.Event('dataRequest');</span>
+<span class="cstat-no" title="statement not covered" >    oRequestEvent.namespace = this.ModelType;</span>
+<span class="cstat-no" title="statement not covered" >    oRequestEvent.sRespNamespace = sEventNamespace;</span>
+<span class="cstat-no" title="statement not covered" >    oRequestEvent.oData = {</span>
+      oGetParams: {
+        sSearchKey: 'id',
+        mSearchValue: this._aRequestedDataItems
+      }
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(window).one('dataResponse.' + sEventNamespace, <span class="fstat-no" title="function not covered" >function handleDataResponse(oEvent) {</span></span>
+<span class="cstat-no" title="statement not covered" >      _this._aDataItems = _this._aDataItems.concat(oEvent.oData.mRespData);</span>
+<span class="cstat-no" title="statement not covered" >      if (_this.hasSuccessfullyReturnedRequestedSkuList()) {</span>
+<span class="cstat-no" title="statement not covered" >        _this.renderDataItems();</span>
+      }
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(window).trigger(oRequestEvent);</span>
+  };
+&nbsp;
+  RelatedItemsController.prototype.initCarousel = <span class="fstat-no" title="function not covered" >function (oView) {</span>
+<span class="cstat-no" title="statement not covered" >    var $container = $(oView.sSelector);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $container.removeClass('displayNone');</span>
+<span class="cstat-no" title="statement not covered" >    this.carouselController = new CarouselController($container);</span>
+  };
+&nbsp;
+  return RelatedItemsController;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

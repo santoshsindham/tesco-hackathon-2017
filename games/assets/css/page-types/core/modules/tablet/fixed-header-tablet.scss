@@ -1,0 +1,46 @@
+@import "../mixins/fixed-header-mixins";
+
+@include headerDeviceStyles(67px, 67px, 100%);
+
+#masthead-wrapper {
+    &.headerOutOfView,
+    &.textInputInFocus {
+        top: -67px;
+    }
+}
+
+// ***********************************************
+
+#tesco-direct-logo {
+    @include tescoDirectLogoCentredStyle;
+    top: 16px;
+    font-size: 50px;
+
+    &:after {
+        width: 78px;
+        height: 31px;
+        margin-left: -43%;
+    }
+
+    &:before {
+        margin-left: -43%;
+    }
+}
+
+// ***********************************************
+
+@include headerbarDeviceStyles;
+
+// ***********************************************
+
+@include searchDeviceStyles;
+
+// ***********************************************
+
+@include flyoutDeviceStyles;
+
+// ***********************************************
+
+#page-background-mask {
+    top: 66px;
+}

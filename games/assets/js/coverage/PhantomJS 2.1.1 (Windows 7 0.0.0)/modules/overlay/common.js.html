@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\overlay\common.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/overlay/</a> common.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.82% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/165</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/110</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">3.85% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.82% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/165</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Common Module : Utility/common functions to be used across modules
+ */
+define(['domlib', 'modules/breakpoint', 'modules/common', 'modules/inline-scrollbar/common'], function ($, breakpoint, common, inlineScrollbar) {
+&nbsp;
+    var overlay = {
+&nbsp;
+        defaultOptions: {
+            content: '',
+            callback: '',
+            fixedWidth: '',
+            customClass: '',
+            isError: false,
+            isSubsequentOverlay: false,
+            defaultBreakPointBehavior: true,
+            enablePagination: false,
+            preserveContent: false,
+            paginationHeader: '',
+            hideOnOverlayClick: false,
+            showCloseButton: true,
+            additionalCloseButtonClassNames: '',
+            lightboxPosition: null,
+            hideOnEsc: false
+        },
+&nbsp;
+        eventTransitionEnd: 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd',
+        closeBtnHTML: '&lt;a href="#" class="close"&gt;&lt;span class="icon" aria-hidden="true"&gt;&lt;/span&gt;&lt;span class="label"&gt;Close overlay and continue shopping&lt;/span&gt;&lt;/a&gt;',
+&nbsp;
+        pageScroll: {
+            wrapper: '#wrapper',
+            isEnabled: true,
+            scrollTop: 0,
+&nbsp;
+            height: <span class="fstat-no" title="function not covered" >function (isOrientationChange) {</span>
+<span class="cstat-no" title="statement not covered" >                var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >                var boxHeight = $('#lightbox').height();</span>
+<span class="cstat-no" title="statement not covered" >                var winHeight = window.innerHeight || document.documentElement.clientHeight;</span>
+<span class="cstat-no" title="statement not covered" >                var wrapper = $(self.pageScroll.wrapper);</span>
+<span class="cstat-no" title="statement not covered" >                boxHeight = (boxHeight &gt; winHeight) ? boxHeight + 40 : winHeight;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                wrapper.height(boxHeight);</span>
+&nbsp;
+                // reset the scrollTop on orientation change as the original position has changed
+                // TODO - look into extending the show options to include the overlay.show() trigger element so
+                // the scrolltop can be reset to it's position
+<span class="cstat-no" title="statement not covered" >                if (isOrientationChange) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.pageScroll.scrollTop = 0;</span>
+                }
+            },
+&nbsp;
+            disable: <span class="fstat-no" title="function not covered" >function (gotoTop) {</span>
+<span class="cstat-no" title="statement not covered" >                var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >                var wrapper = $(self.pageScroll.wrapper);</span>
+<span class="cstat-no" title="statement not covered" >                if (self.pageScroll.isEnabled) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (gotoTop) {</span>
+<span class="cstat-no" title="statement not covered" >                        self.pageScroll.scrollTop = $(window).scrollTop();</span>
+<span class="cstat-no" title="statement not covered" >                        window.scrollTo(0, 1);</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    self.pageScroll.height();</span>
+<span class="cstat-no" title="statement not covered" >                    wrapper.addClass('no-scroll');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    self.pageScroll.isEnabled = false;</span>
+                }
+            },
+&nbsp;
+            enable: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >                var wrapper = $(self.pageScroll.wrapper);</span>
+<span class="cstat-no" title="statement not covered" >                if (!self.pageScroll.isEnabled) {</span>
+<span class="cstat-no" title="statement not covered" >                    wrapper</span>
+                        .height('auto')
+                        .removeClass('no-scroll');
+                    
+<span class="cstat-no" title="statement not covered" >                    if (breakpoint.kiosk &amp;&amp; wrapper.hasClass('spi')) {</span>
+<span class="cstat-no" title="statement not covered" >                        wrapper.removeAttr('style');</span>
+                    }
+                    
+<span class="cstat-no" title="statement not covered" >                    $(window).scrollTop(self.pageScroll.scrollTop);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    self.pageScroll.isEnabled = true;</span>
+                }
+            },
+        },
+        pagination: {
+            setup: <span class="fstat-no" title="function not covered" >function () {</span>}
+        },
+        createOverlay: <span class="fstat-no" title="function not covered" >function (opts) {</span>
+<span class="cstat-no" title="statement not covered" >            $('#overlay').remove();</span>
+<span class="cstat-no" title="statement not covered" >            var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >            var $overlay = $('#overlay');</span>
+&nbsp;
+            // prepare to catch and prevent attempts to scroll the background page on touch devices
+<span class="cstat-no" title="statement not covered" >            var touchEvents = common.isAndroid() ? 'touchmove touchstart' : 'touchmove';</span>
+&nbsp;
+            // create the overlay if one doesn't already exist
+<span class="cstat-no" title="statement not covered" >            if (!$overlay.length) {</span>
+<span class="cstat-no" title="statement not covered" >                $overlay = $('&lt;div id="overlay" class="hidden" /&gt;');</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $overlay.css('height', '100%');</span>
+<span class="cstat-no" title="statement not covered" >            $overlay.appendTo('body');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return $overlay;</span>
+        },
+&nbsp;
+        createLightbox: <span class="fstat-no" title="function not covered" >function (opts) {</span>
+<span class="cstat-no" title="statement not covered" >            $('#lightbox').remove();</span>
+<span class="cstat-no" title="statement not covered" >            var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >            var $lightbox = $('&lt;div id="lightbox" /&gt;').html(opts.content);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var beforeOverlayHide = <span class="fstat-no" title="function not covered" >function (e) {</span></span>
+<span class="cstat-no" title="statement not covered" >                e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >                e.stopPropagation();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (opts.preserveContent === true) {</span>
+<span class="cstat-no" title="statement not covered" >                    var tempStoreContent = opts.content.detach();</span>
+                    // This creates a tempary hidden div so that if the user clicks/opens the preserved
+                    // content the height can be calculated as it is not display none.
+<span class="cstat-no" title="statement not covered" >                    if (!$('.tmpPreserveContentContainer').length) {</span>
+<span class="cstat-no" title="statement not covered" >                        $('body').append('&lt;div class="tmpPreserveContentContainer"&gt;&lt;/div&gt;');</span>
+                    };
+<span class="cstat-no" title="statement not covered" >                    $('body .tmpPreserveContentContainer').append(tempStoreContent);</span>
+<span class="cstat-no" title="statement not covered" >                    $('.tmpPreserveContentContainer').hide();</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.hide();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (opts.onHideCallback) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    opts.onHideCallback();</span>
+                }
+            };
+&nbsp;
+            // if a previous lightbox was opened before creating this one, then add the 'subsequent'
+            // don't add the 'subsequent' class if it's the kiosk - reason?
+<span class="cstat-no" title="statement not covered" >            if (opts.isSubsequentOverlay &amp;&amp; !breakpoint.kiosk) {</span>
+<span class="cstat-no" title="statement not covered" >                $lightbox.addClass('subsequent');</span>
+            }
+&nbsp;
+            // add any custom classes to the main lightbox wrapper only
+<span class="cstat-no" title="statement not covered" >            if (opts.customClass) {</span>
+<span class="cstat-no" title="statement not covered" >                $lightbox.addClass(opts.customClass);</span>
+            }
+&nbsp;
+            // update the lightbox to display in an error state
+<span class="cstat-no" title="statement not covered" >            if (opts.isError) {</span>
+<span class="cstat-no" title="statement not covered" >                $lightbox.addClass('error-overlay').wrapInner('&lt;div class="generic" /&gt;');</span>
+            }
+&nbsp;
+            // fixed width lightbox - widths will be set in pixels so if the fixedWidth is not a number then exit
+<span class="cstat-no" title="statement not covered" >            if (opts.fixedWidth) {</span>
+<span class="cstat-no" title="statement not covered" >                opts.fixedWidth = parseInt(opts.fixedWidth, 10);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (isNaN(opts.fixedWidth)) {</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                $lightbox.css({</span>
+                    width: opts.fixedWidth + 'px',
+                    left: '50%',
+                    marginLeft: '-' + (opts.fixedWidth / 2) + 'px',
+                    marginRight: 0
+                });
+            }
+&nbsp;
+            // lightbox needs to be added to the dom for the following as we need to obtain dimensions
+<span class="cstat-no" title="statement not covered" >            $lightbox.appendTo('body');</span>
+&nbsp;
+            // if it's not the kiosk, then don't add the hidden class as the
+            // kiosk lightboxes slide in/out from the top of the screen
+<span class="cstat-no" title="statement not covered" >            if (!breakpoint.kiosk) {</span>
+<span class="cstat-no" title="statement not covered" >                $lightbox.addClass('hidden');</span>
+            }
+&nbsp;
+            // check if the overlay does actually require scrolling as it's content may not exceed the wrapper
+            // height, if so, no point adding the pagination controls as they'll do nothing.
+<span class="cstat-no" title="statement not covered" >            if (opts.enablePagination) {</span>
+<span class="cstat-no" title="statement not covered" >                inlineScrollbar.init($lightbox, opts);</span>
+            }
+&nbsp;
+            // add a close button to the lightbox if one doesn't exist and bind click to close
+            // on all '.close' elements (can be multiple close buttons - top right, cancel etc)
+<span class="cstat-no" title="statement not covered" >            if (opts.showCloseButton &amp;&amp; !$lightbox.find('a.close').not('.tooltipPopup a.close').length) {</span>
+<span class="cstat-no" title="statement not covered" >                $lightbox.prepend(self.closeBtnHTML);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var event = (common.isTouch()) ? 'tap click' : 'click';</span>
+&nbsp;
+            // click too slow on windows phone
+<span class="cstat-no" title="statement not covered" >            if (common.isWindowsPhone()) {</span>
+<span class="cstat-no" title="statement not covered" >                event = 'MSPointerDown';</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $lightbox.on(event, 'a.close', <span class="fstat-no" title="function not covered" >function (e) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if ($(this).not('.tooltipPopup a.close').length) {</span>
+<span class="cstat-no" title="statement not covered" >                    beforeOverlayHide(e);</span>
+                }
+            });
+<span class="cstat-no" title="statement not covered" >            if (opts.hideOnOverlayClick === true) {</span>
+<span class="cstat-no" title="statement not covered" >                $("#overlay").click(beforeOverlayHide);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (opts.hideOnEsc === true) {</span>
+<span class="cstat-no" title="statement not covered" >                document.onkeydown = <span class="fstat-no" title="function not covered" >function(e) {</span></span>
+<span class="cstat-no" title="statement not covered" >					if (e.which == 27){</span>
+<span class="cstat-no" title="statement not covered" >                        beforeOverlayHide(e);</span>
+					}
+				}
+            }
+&nbsp;
+            // enable the default breakpoint behaviours
+<span class="cstat-no" title="statement not covered" >            if (opts.defaultBreakPointBehavior) {</span>
+<span class="cstat-no" title="statement not covered" >                if (breakpoint.mobile) {</span>
+&nbsp;
+                    // qc defect 52204 &amp; 52205 fix - this is in place to support as yet undeveloped functionality
+                    // (show more button). this is now causing scrolling issues and should be commented out until
+                    // that functionality is added
+                    /*$lightbox.on('touchmove', function(e) {
+                        if ($lightbox.outerHeight() &lt; window.innerHeight) {
+                            e.preventDefault();
+                        }
+                    }, false);*/
+                } else <span class="cstat-no" title="statement not covered" >if (breakpoint.largeDesktop || breakpoint.desktop) {</span>
+<span class="cstat-no" title="statement not covered" >                    $lightbox.css({</span>
+                        'float': 'none'
+                    });
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            return $lightbox;</span>
+        },
+&nbsp;
+        // update the top position of the lightbox for touch devices as it can shift on orientation change,
+        // or when the lightboxPosition option is specified
+        position: <span class="fstat-no" title="function not covered" >function ($lightbox, lightboxPosition, isOrientationChange) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >            var delay = isOrientationChange ? 300 : 1;</span>
+&nbsp;
+            // RETEST - timeout may not be needed
+<span class="cstat-no" title="statement not covered" >            window.setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (lightboxPosition) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (typeof lightboxPosition === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >                        lightboxPosition();</span>
+                    } else <span class="cstat-no" title="statement not covered" >if (lightboxPosition === 'verticallyCentre') {</span>
+<span class="cstat-no" title="statement not covered" >                        $lightbox.verticallyCentre();</span>
+                    } else <span class="cstat-no" title="statement not covered" >if (lightboxPosition === 'verticallyBottom') {</span>
+<span class="cstat-no" title="statement not covered" >                        $lightbox.addClass('verticallyBottom');</span>
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" >                    $lightbox.css('top', 20);</span>
+                }
+&nbsp;
+                // if the orientation has changed, the update the page scroll height as the lightbox dimensions
+                // have now changed and reset the scrollTop on orientation change as the original position has changed
+<span class="cstat-no" title="statement not covered" >                if (isOrientationChange) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.pageScroll.height(true);</span>
+                }
+            }, delay);
+        },
+&nbsp;
+        show: <span class="fstat-no" title="function not covered" >function (extendOptions) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >            var $overlay = $('#overlay');</span>
+<span class="cstat-no" title="statement not covered" >            var $lightbox = $('#lightbox');</span>
+<span class="cstat-no" title="statement not covered" >            var defaults = self.defaultOptions;</span>
+<span class="cstat-no" title="statement not covered" >            var opts = $.extend({}, defaults, extendOptions);</span>
+<span class="cstat-no" title="statement not covered" >            var lightboxPosition = opts.lightboxPosition;</span>
+<span class="cstat-no" title="statement not covered" >            var isMobileDevice = common.isTouch() &amp;&amp; !breakpoint.kiosk;</span>
+&nbsp;
+            // if a lightbox is already opened, hide it - can only have one on screen at a time
+            // assume that the new one to be opened in the second/sub view for the current lightbox
+<span class="cstat-no" title="statement not covered" >            opts.isSubsequentOverlay = $lightbox.length;</span>
+&nbsp;
+            // create and add to dom
+<span class="cstat-no" title="statement not covered" >            $overlay = self.createOverlay(opts);</span>
+<span class="cstat-no" title="statement not covered" >            $lightbox = self.createLightbox(opts);</span>
+&nbsp;
+            // stop the page from scrolling and set the goToTop flag to true
+<span class="cstat-no" title="statement not covered" >            self.pageScroll.disable(true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var callback = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (typeof (opts.callback) === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >                    opts.callback($lightbox);</span>
+                }
+            };
+&nbsp;
+            // update the top position of the lightbox for touch devices as it can
+            // shift on orientation change, or when the lightboxPosition option is specified
+<span class="cstat-no" title="statement not covered" >            if (isMobileDevice || lightboxPosition) {</span>
+<span class="cstat-no" title="statement not covered" >                if (typeof lightboxPosition === 'function') {</span>
+<span class="cstat-no" title="statement not covered" >                    lightboxPosition = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        opts.lightboxPosition($lightbox);</span>
+                    };
+                }
+<span class="cstat-no" title="statement not covered" >                self.position($lightbox, lightboxPosition);</span>
+&nbsp;
+                // windows phone, no orientationchange event
+<span class="cstat-no" title="statement not covered" >                if (typeof window.orientation !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >                    $(window).bind('orientationchange.overlay', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        self.position($lightbox, lightboxPosition, isMobileDevice);</span>
+                    });
+                } else {
+<span class="cstat-no" title="statement not covered" >                    $(window).bind('resize.overlay', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                        self.position($lightbox, lightboxPosition, isMobileDevice);</span>
+                    });
+                }
+            }
+&nbsp;
+            // kiosk slide lightbox in from the top of the screen
+<span class="cstat-no" title="statement not covered" >            if (breakpoint.kiosk) {</span>
+                // store the original height of the lightbox then set height to 0
+<span class="cstat-no" title="statement not covered" >                var height = $lightbox.outerHeight();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                $lightbox.css('height', 0);</span>
+&nbsp;
+                // remove the hidden class from the overlay to fade in
+<span class="cstat-no" title="statement not covered" >                $overlay.removeClass('hidden');</span>
+&nbsp;
+                // TO INVESTIGATE - timer used and the css animation doesn't trigger
+<span class="cstat-no" title="statement not covered" >                window.setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+                    // add the 'slide-out' class so we can animate the slide in and restore the
+                    // original height of the lightbox - 'slide-out' css animation is triggered
+<span class="cstat-no" title="statement not covered" >                    $lightbox</span>
+                        .addClass('slide-out')
+                        .css('height', height)
+                        .one(self.eventTransitionEnd, <span class="fstat-no" title="function not covered" >function () {</span>
+                            // animation done:
+                            // * remove the transition end event to stop being retriggered if a css property changes (annoying!!!)
+                            // * remove the 'slide-out' class to stop the css animation from being retriggered if the lightbox height changes
+                            // * clear the inline style height also as some scripts will update the height of the
+                            //   inner content container so the lightbox height will need to auto adjust accordingly
+<span class="cstat-no" title="statement not covered" >                            $lightbox</span>
+                                .off(self.eventTransitionEnd)
+                                .removeClass('slide-out')
+                                .css('height', '');
+                        });
+<span class="cstat-no" title="statement not covered" >                    callback();</span>
+                }, 10);
+            } else {
+&nbsp;
+                // TO INVESTIGATE - timer used and the css animation doesn't trigger
+<span class="cstat-no" title="statement not covered" >                window.setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+&nbsp;
+                    // remove the hidden class from elements to do initial fade in
+<span class="cstat-no" title="statement not covered" >                    $overlay.removeClass('hidden');</span>
+<span class="cstat-no" title="statement not covered" >                    $lightbox.removeClass('hidden');</span>
+&nbsp;
+                    // apply the transitionend event to the lightbox element, no need to trigger the event on the overlay mask
+<span class="cstat-no" title="statement not covered" >                    if (common.cssTransitionsSupported()) {</span>
+<span class="cstat-no" title="statement not covered" >                        $lightbox.one(self.eventTransitionEnd, <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                            callback();</span>
+                        });
+                    }
+&nbsp;
+                    // fallback
+                    else {
+<span class="cstat-no" title="statement not covered" >                        callback();</span>
+                    }
+&nbsp;
+                }, 10);
+            }
+        },
+&nbsp;
+        hide: <span class="fstat-no" title="function not covered" >function ($lightbox, isSubsequentOverlay) {</span>
+<span class="cstat-no" title="statement not covered" >            var self = overlay;</span>
+<span class="cstat-no" title="statement not covered" >            var $overlay = $('#overlay');</span>
+&nbsp;
+            // if no lightbox passed, then grab the first one (reason for first?)
+<span class="cstat-no" title="statement not covered" >            $lightbox = $lightbox || $('#lightbox').first();</span>
+&nbsp;
+            // if it's the kiosk, force the isSubsequentOverlay to be false
+<span class="cstat-no" title="statement not covered" >            if (breakpoint.kiosk) {</span>
+<span class="cstat-no" title="statement not covered" >                isSubsequentOverlay = false;</span>
+            }
+&nbsp;
+            // only hide the overlay mask if we dont have a subsequent overlay
+<span class="cstat-no" title="statement not covered" >            var $hide = $lightbox;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (!isSubsequentOverlay) {</span>
+<span class="cstat-no" title="statement not covered" >                $hide = $hide.add($overlay);</span>
+            }
+&nbsp;
+            // only remove the defined hide elements and enable page scroll if we dont have a subsequent overlay
+<span class="cstat-no" title="statement not covered" >            var callback = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                $hide.remove();</span>
+<span class="cstat-no" title="statement not covered" >                if (!isSubsequentOverlay) {</span>
+<span class="cstat-no" title="statement not covered" >                    overlay.pageScroll.enable();</span>
+                }
+            };
+&nbsp;
+            // remove the orientation/resize events to stop firing when the overlay is closed
+<span class="cstat-no" title="statement not covered" >            if (common.isTouch() &amp;&amp; !breakpoint.kiosk) {</span>
+<span class="cstat-no" title="statement not covered" >                if (typeof window.orientation !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >                    $(window).unbind('orientationchange.overlay');</span>
+                } else {
+<span class="cstat-no" title="statement not covered" >                    $(window).unbind('resize.overlay');</span>
+                }
+            }
+&nbsp;
+            // kiosk slide lightbox out to the top of the screen
+<span class="cstat-no" title="statement not covered" >            if (breakpoint.kiosk) {</span>
+&nbsp;
+                // fade out the overlay
+<span class="cstat-no" title="statement not covered" >                $overlay.addClass('hidden');</span>
+&nbsp;
+                // set the current height of the overlay so we can slide out
+<span class="cstat-no" title="statement not covered" >                $lightbox.css('height', $lightbox.outerHeight());</span>
+&nbsp;
+                // TO INVESTIGATE - timer used and the css animation doesn't trigger
+<span class="cstat-no" title="statement not covered" >                window.setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+                    // add the 'slide-out' css animation and set the height to 0 to trigger animation of the lightbox
+<span class="cstat-no" title="statement not covered" >                    $lightbox</span>
+                        .addClass('slide-out')
+                        .css('height', 0)
+                        .one(self.eventTransitionEnd, <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                            callback();</span>
+                        });
+                }, 10);
+            } else {
+                // TO INVESTIGATE - timer used and the css animation doesn't trigger
+<span class="cstat-no" title="statement not covered" >                window.setTimeout(<span class="fstat-no" title="function not covered" >function () {</span></span>
+                    // fade out the overlay and lightbox
+<span class="cstat-no" title="statement not covered" >                    $hide.addClass('hidden');</span>
+<span class="cstat-no" title="statement not covered" >                    callback();</span>
+                }, 300);
+            }
+<span class="cstat-no" title="statement not covered" >            $(document).trigger('kioskModalHidden');</span>
+        }
+    };
+&nbsp;
+    return overlay;
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

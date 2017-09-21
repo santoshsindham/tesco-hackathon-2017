@@ -1,0 +1,65 @@
+{
+    "id" : "02547",
+    "postalCode" : "MK451LX",
+    "country" : "GB",
+    "satClose" : "0000",
+    "thuClose" : "2359",
+    "longitude" : "-0.498333",
+    "storeName" : "FLITWICK SUPERSTORE",
+    "sunClose" : "1600",
+    "wedOpen" : "0001",
+    "wedClose" : "2359",
+    "latitude" : "52.002726",
+    "monOpen" : "0600",
+    "gridReference" : "5031023480",
+    "addressTwo" : "FLITWICK",
+    "facilities" : [ {
+      "id" : "HOUR_24",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/HOUR_24"
+    }, {
+      "id" : "DIRECT_DESK",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/DIRECT_DESK"
+    }, {
+      "id" : "FISH",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/FISH"
+    }, {
+      "id" : "RECYCLING",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/RECYCLING"
+    }, {
+      "id" : "CLOTHES",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/CLOTHES"
+    }, {
+      "id" : "PHARMACY",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/PHARMACY"
+    } ],
+    "thuOpen" : "0001",
+    "storeTypes" : [ {
+      "id" : "Superstore",
+      "type" : "storeType",
+      "href" : "/direct/rest/content/stores/storeType/Superstore"
+    } ],
+    "friOpen" : "0001",
+    "county" : "CENTRAL BEDFORDSHIRE",
+    "tueOpen" : "0001",
+    "storeId" : "2547",
+    "satOpen" : "0001",
+    "friClose" : "2359",
+    "monClose" : "2359",
+    "telephone" : "8456779279",
+    "tueClose" : "2359",
+    "sunOpen" : "1000",
+    "addressOne" : "CONISTON ROAD",
+    "townCity" : "BEDFORD",
+    "links" : [ {
+      "id" : "02547",
+      "type" : "store",
+      "rel" : "self",
+      "href" : "/direct/rest/content/stores/store/02547"
+    } ]
+  }

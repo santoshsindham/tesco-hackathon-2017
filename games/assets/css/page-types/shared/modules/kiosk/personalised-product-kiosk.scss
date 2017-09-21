@@ -1,0 +1,91 @@
+@import "../../../core/components/variables";
+@import "../mixins/personalised-product-mixins";
+
+#lightbox.personalise-product {    // level 0
+    border-bottom: 11px solid #ffffff;
+
+    #personalise-heading {
+        position: absolute;
+        top: 20px;
+        left: 0;
+    }
+
+    #personaliseProductContainer {
+        height: 753px;
+        padding-top: 111px;
+        margin: 0 11px;
+
+        #EmaginationJS-Controls {
+            #EmaginationJS-ControlsPlaceholder {
+                p {
+                    font-size: 1.9em;
+                }
+            }
+            .EmaginationJS-ControlsTitle {
+                font-size: 1.9em;
+            }
+            #EmaginationJS-CharacterCounter {
+                font-size: 1.5em;
+            }
+            #EmaginationJS-TextContent {
+                font-size: 1.7em;
+            }
+            #EmaginationJS-ImageControls #EmaginationJS-Dropzone {
+                display: none;
+            }
+        }
+
+        #EmaginationJS-Save #accept-personalisation-button {
+            font-size: 2.2em;
+            padding: 25px 15px;
+            cursor: pointer;
+        }
+    }
+
+    #EmaginationJS-HelpOverlay {
+        visibility: hidden;
+    }
+
+    .EmaginationJS-ToolTip {
+        font-size: 1.3em;
+    }
+
+    .EmaginationErrorOverlay {
+        div {
+            padding: 20px;
+            p {
+                font-size: 1.5em;
+            }
+            button {
+                margin-top: 20px;
+                padding: 17px;
+            }
+        }
+    }
+}
+
+.buy-from.buy-from-kiosk-cp {
+    .seller{
+        .content{
+            .buy {
+                .buttons.noQuantityBox {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+#lightbox .personalise-messages {
+    display: none;
+}
+
+.product-description #main-content .main-details .product-carousel-s7.personalised-product-image {
+    float: left;
+    width: 40%;
+    position: relative;
+    margin-right: 40px;
+    height: 615px;
+    clear: left;
+    border-bottom: 1px solid $primaryBorderColor;
+}

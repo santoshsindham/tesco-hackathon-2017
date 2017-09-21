@@ -1,0 +1,32 @@
+@import "../../../core/components/variables";
+
+.warranties-view {
+  .fieldset-wrapper {
+    margin-bottom: 10px;
+  }
+
+  .price-wrapper {
+    line-height: 32px;
+  }
+
+  .warranties-supplier-footnote {
+    margin-bottom: 20px;
+    text-align: right;
+  }
+}
+
+.info-panel-warranties-overlay {
+  .st-learn-more {
+    font-size: 14px;
+    position: absolute;
+    top: 223px;
+    left: 303px;
+  }
+
+  .st-terms-conditions {
+    font-size: 14px;
+    position: absolute;
+    top: 276px;
+    right: 40px;
+  }
+}

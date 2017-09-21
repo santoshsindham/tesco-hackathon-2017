@@ -1,0 +1,684 @@
+/*******************************************
+*	Kiosk Example module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(kiosk);
+@import "../mixins/common-mixins";
+
+@mixin overlay-button-round-kiosk {
+	@include border-radius(100%);
+	width: 48px;
+	height: 48px;
+	display: block;
+	color: $btnSecondaryColor;
+	font-size: 18px;
+	line-height: 48px;
+	text-align: center;
+	border: 2px solid $btnSecondaryColor;
+	background: none;
+	background-color: #fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); // move to ie css
+	&.disabled {
+		color: $inactivePutty;
+		border-color: $inactivePutty;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+@mixin overlay-tag-filters-kiosk {
+	@include border-radius(18px);
+	height: 36px;
+	line-height: 35px;
+}
+
+a:active,
+a:focus {
+	outline: none;
+	ie-dummy: unquote("expression(this.hideFocus=true)");
+}
+
+$lightbox-width: 1296px;
+$lightbox-scroll-height: 342px; // max-height: 665px;
+$item-line-height: 55px;
+$button-line-height: 50px;
+
+// stop amends to the wrapper element causing the layout to move in kiosk
+#wrapper.no-scroll {
+	left: auto;
+	width: auto;
+}
+
+#overlay {
+	background: rgba(0,0,0, 0.7);
+}
+
+#lightbox {
+	position: relative;
+	width: $lightbox-width;
+	float: none;
+	margin: 0 auto;
+	overflow: hidden;
+	border: none;
+	@include transition('none');
+	a.close {
+		@include overlay-button-round-kiosk;
+		position: absolute;
+		top: 38px;
+		right: 36px;
+		z-index: 1;
+		background: #7c765f;
+        border: 0;
+        color: #ffffff;
+		&:before {
+			display: block;
+			content: 'y';
+			font-family: 'Tesco Icons';
+
+		}
+        &.icon:before{
+            content: '';
+        }
+	}
+	&.no-transition {
+        @include transition('none');
+    }
+	&.slide-out {
+		// keep the speed the same as what's defined in the .hidden transition (see /common/common-all.scss)
+        @include transition('height 300ms ease-in-out');
+        // @include transition('all 300ms ease-in-out');
+        height: 0;
+	}
+
+	a.back {
+		@include overlay-button-round-kiosk;
+		position: absolute;
+		top: 38px;
+		left: 48px;
+	}
+	.lightbox-actions {
+	    overflow: hidden;
+	    padding: 30px 36px;
+	    .apply {
+	    	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+			font-size: 2.2em;
+			width: 160px;
+			padding-top: 0;
+			padding-bottom: 0;
+			line-height: $button-line-height;
+			.icon {
+				float: right;
+				font-size: 24px;
+				line-height: $button-line-height;
+			}
+	    }
+	}
+	#lightbox-content {
+		overflow: hidden;
+		&:after {
+			@include clear-fix;
+		}
+		.anchor {
+			display: none;
+		}
+		h2 {
+			margin: 0 0 40px;
+			padding: 45px 88px 60px 48px;
+			font-size: 3.2em;
+		}
+		a:hover {
+			text-decoration: none;
+		}
+		ul {
+			position: relative;
+			width: $lightbox-width;
+			padding: 0 48px 72px;
+			float: none;
+			clear: none;
+			&:after {
+				@include clear-fix;
+			}
+			li {
+				width: 560px;
+				margin: 0;
+				color: $linkColor;
+				font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+				font-size: 1.8em;
+				font-weight: normal;
+				&:nth-child(odd) {
+					float: left;
+					clear: both;
+				}
+				&:nth-child(even) {
+					float: right;
+				}
+				a {
+					display: block;
+					line-height: $item-line-height;
+					border-bottom: 1px solid $primaryBorderColor;
+					&:active {
+						background-color: $tescoBrightBlue;
+						color: #ffffff;
+					}
+					span {
+						span {
+							color: $putty;
+						}
+					}
+				}
+			}
+		}
+
+		// categories
+		ul.categories > li {
+			display: block !important; // overide the inline display none from JS
+			> a > span {
+			    color: $secondaryTextColor;
+			    &:before {
+				    content: '(';
+			    }
+			    &:after {
+				    content: ')';
+			    }
+			}
+	    }
+
+	    ul.categories li a {
+	    	border-top: none;
+	    	display: block;
+	    	font-weight: normal;
+	    	position: relative;
+	    	font-size: 1em;
+	    	padding:0;
+	    	&:hover{
+	    		background-color: transparent;
+	    	}
+		}
+
+		#main-menu ul:first-of-type > li > a:after {
+			content: 'r';
+			font-size: 0.8em;
+			font-family: 'Tesco Icons';
+			color: $lightPutty;
+			float: right;
+		}
+		.sub-menu {
+			.view-all {
+				position: relative;
+				margin: 0 48px;
+				padding: 0;
+				font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+				font-size: 1.8em;
+				border-bottom: 1px solid #DDDDDD;
+				> span {
+					display: table-cell;
+					height: $item-line-height;
+					vertical-align: middle;
+					color: $contentLink;
+					span {
+					    color: #3E3E3F;
+				    }
+				}
+			}
+			h2 {
+				padding-left: 120px;
+			}
+			ul li a {
+				&:after {
+					display: none;
+				}
+				> span span {
+				    color: #3E3E3F;
+			    }
+			}
+		}
+
+		// plp refine by filters list
+		.filters {
+			padding-bottom: 0;
+			li {
+				h3 {
+					display: block;
+					height: $item-line-height;
+					margin: 0;
+					padding: 0;
+					font-size: 1em;
+					font-weight: normal;
+					line-height: $item-line-height;
+					vertical-align: middle;
+					border-bottom: 1px solid $primaryBorderColor;
+					&:after {
+						content: 'r';
+						font-size: 0.8em;
+						font-family: 'Tesco Icons';
+						float: right;
+					}
+				}
+				.filter-options {
+					display: none;
+				}
+				&.open {
+					.filter-options {
+						position: absolute;
+						top: 0;
+						left: $lightbox-width;
+						width: $lightbox-width;
+						display: block;
+						margin: 0;
+						&:after {
+							@include clear-fix;
+						}
+						h4 {
+							display: none;
+						}
+						ul {
+							max-height: none;
+							overflow-x: visible;
+							overflow-y: visible;
+							li {
+								a {
+									display: block;
+									height: $item-line-height;
+									margin: 0;
+									padding: 0;
+									font-size: 18px;
+									font-weight: normal;
+									line-height: $item-line-height;
+									vertical-align: middle;
+									border-top: none;
+									border-bottom: 1px solid $primaryBorderColor;
+									&:after {
+										display: none;
+									}
+									&:hover {
+									    text-decoration: none;
+									    border-top: none;
+									    background: none;
+									    .checkbox {
+											&:after {
+												display: none;
+											}
+										}
+									}
+									&.selected .checkbox:after {
+										display: block;
+									}
+									.checkbox {
+										margin-top: 15px;
+									}
+								    span {
+									    line-height: $item-line-height;
+									    color: $secondaryTextColor;
+								    }
+								    .facet-str-name {
+								    	color: $darkPutty;
+								    }
+								}
+							}
+						}
+						&.pagination {
+							height: $lightbox-scroll-height;
+							overflow: hidden;
+							ul {
+								width: $lightbox-width - 96px;
+								li {
+									width: 476px;
+									&:nth-child(2n+1) {
+									    clear: none;
+									}
+								}
+							}
+
+
+						}
+					}
+				}
+			}
+		}
+
+		// plp selected filters list
+		#active-product-filters {
+			float: none;
+			overflow: hidden;
+			padding: 0 48px 42px;
+			#filtered-products-count {
+				display: block;
+				float: none;
+				margin: 45px 0 10px;
+				padding: 0;
+				font-size: 3.2em;
+			}
+			#refined-by-count {
+				display: block;
+				margin: 0 0 60px;
+				padding: 0 0 40px;
+				color: #848282;
+				font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+				font-size: 2.4em;
+				margin: 0 0 40px;
+				background: #fff url('../img/kiosk-divider-overlay.png') no-repeat center bottom;
+			}
+			ul {
+				width: auto;
+				float: none;
+				margin: 0;
+				padding: 0;
+				&:after {
+					display: none;
+				}
+				li {
+					@include overlay-tag-filters-kiosk;
+					width: auto;
+					float: left;
+					clear: none;
+					margin: 0 16px 16px 0;
+					padding: 0 0 0 16px;
+					a {
+						position: relative;
+						top: -3px;
+						display: inline-block;
+						padding: 0;
+						border: none;
+						padding: 0 16px;
+						margin-left: 10px;
+						font-size: 10px;
+						line-height: 35px;
+						&:after {
+							display: none;
+						}
+					}
+				}
+			}
+			a#clear-all-filters {
+				@include tertiaryButton;
+				@include border-radius(4px);
+				clear: left;
+				float: left;
+				padding: 8px 12px;
+				width: auto;
+				line-height: 34px;
+				font-weight: normal;
+				font-size: 22px;
+				color: #01539D;
+			}
+		}
+	}
+}
+
+.homepage {
+	#main-content {
+		padding-top: 440px;
+		position: relative;
+	}
+}
+
+#lightbox #pagination-nav {
+	position: relative;
+	float:right;
+	margin: 0 36px 0 -36px;
+	width: 48px;
+	height: $lightbox-scroll-height;
+	.pagination-bar {
+		@include border-radius(4px);
+		position: relative;
+		width: 8px;
+		height: $lightbox-scroll-height - 128px;
+		margin: 64px 20px;
+		background-color: $inactivePutty;
+		span {
+			@include border-radius(4px);
+			position: absolute;
+			top: 0;
+			width: 8px;
+			background-color: $btnSecondaryColor;
+		}
+	}
+	a {
+		@include overlay-button-round-kiosk;
+		position: absolute;
+		padding: 0;
+		&.pagination-top {
+			top: 0;
+		}
+		&.pagination-down {
+			bottom: 0;
+		}
+		&:after {
+			display: none;
+		}
+	}
+	#pagination-end {
+		position: absolute;
+		bottom: 0;
+		width: $lightbox-width - 96px;
+		left: 48px;
+		height: 5px;
+		//background: url('../img/kiosk-divider-overlay-pagination.png') no-repeat center bottom;
+	}
+}
+
+// variant for plp kiosk filters
+#lightbox #lightbox-content #pagination-nav {
+	a {
+		line-height: 48px;
+		border-bottom: 2px solid $putty;
+		&.disabled {
+			border-bottom: 2px solid $inactivePutty;
+		}
+		&:active {
+			background-color: $putty;
+		}
+	}
+}
+
+/*Scrolling Overlay*/
+#lightbox.scrolling-overlay {
+	.overlay-header {
+		padding: 45px 48px;
+		//background: url("../img/kiosk-divider-overlay.png") no-repeat scroll center bottom;
+	}
+	.overlay-header h1 {
+		background: none;
+		padding: 0;
+		margin: 0;
+		height: auto;
+		font-family: "Helvetica Neue", Arial , sans-serif;
+		font-size: 2.8em;
+		letter-spacing: 0;
+	}
+	#lightbox-content {
+		position: relative; // added so the pagination end wrapper can be positioned
+		width: 1515px;
+		float: left;
+		overflow: hidden;
+		margin-bottom: 72px;
+		padding: 0 48px 0px 100px;
+		height: 600px;
+
+		.overlay-wrapper {
+			position: relative;
+			top: 0;
+		}
+	}
+	#pagination-nav,
+    .pagination-nav-container {
+		height: 600px;
+		margin-top: 12px;
+
+		.pagination-bar {
+			height: 472px;
+		}
+	}
+
+	#pagination-end,
+    .pagination-end {
+		position: absolute;
+		bottom: 0;
+		width: $lightbox-width - 96px;
+		left: 48px;
+		height: 5px;
+		//background: url('../img/kiosk-divider-overlay-pagination.png') no-repeat center bottom;
+	}
+}
+
+$nav-item-width: 17 * $onecol;
+$nav-item-height: 136px;
+
+#lightbox.shop-by {
+	&.scrolling-overlay {
+		#lightbox-content {
+			width: 1235px;
+			.products-wrapper {
+				margin-left: 5 * $onecol;
+			}
+			.products {
+				padding: (4 * $onecol) 0 0 0;
+			}
+		}
+	}
+	#lightbox-content {
+		padding: 0;
+		.products-wrapper:after {
+			@include clear-fix;
+		}
+		.view-all {
+			display: none !important;
+		}
+		.products {
+			width: auto;
+			display: block;
+			float: left;
+			padding-left: 5 * $onecol;
+			// override the inline transform css (inserted from JS)
+			-webkit-transform: none !important;
+			-moz-transform: none !important;
+			transform: none !important;
+			left: 0 !important;
+			&:after {
+				display: none;
+			}
+			& > li {
+				@include box-shadow(none);
+				padding: 0;
+				border: none;
+				// width: (2 * $nav-item-width) + $onecol;
+                width: $nav-item-width;
+				float: left;
+				margin: 0 $onecol $onecol 0;
+				font-size: 1em;
+				overflow: visible;
+				&:nth-child(2n+1) {
+					clear: none;
+				}
+				.product {
+					height: auto;
+					float: left;
+					padding: 0;
+					border: 1px solid $pagePutty;
+					&:first-child {
+						margin-right: $onecol;
+					}
+					a {
+						display: block;
+						text-align: center;
+						min-height: $nav-item-height;
+						line-height: $nav-item-height;
+						border: none;
+						font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+						font-size: 34px;
+						font-weight: bold;
+						img {
+							vertical-align: middle;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+#lightbox.no-fixed-height {
+	#lightbox-content {
+		height: auto;
+	}
+}
+
+.truncated {
+	position: relative;
+}
+h1 .ellipsis,
+h2 .ellipsis {
+	@include tertiaryButton;
+	line-height: 24px;
+	padding: 5px 19px;
+	margin-top: -15px;
+	font-size: 1em;
+	color: #ffffff;
+	height: 32px;
+	padding: 4px 0 0;
+	margin-left: 15px;
+	display: inline-block;
+	width: 54px;
+	text-align: center;
+	.icon {
+		font-size: 20px;
+	}
+}
+
+span.facet-str-name{
+	height: 55px;
+	max-width: 81%;
+	overflow: hidden;
+	float: left;
+	margin-right: 10px;
+}
+
+#main-content {
+	padding-top: 23px;
+}
+
+.listing,
+.category {
+	#main-content {
+		background: none;
+		padding-top: 0;
+	}
+}
+
+.homepage {
+	#main-content {
+		background: none;
+	}
+}
+
+.backToTopLink {
+	display: none;
+}
+
+.dark-full-bleed {
+    background: none;
+}
+
+/*this code is part of save-for-later-kiosk.scss added here
+ for css-split gfo-13066 as the recently-viewed block was getting displayed */
+#recently-viewed {
+  display: none;
+}
+
+/*this code is part of product-details-kiosk.scss added here
+ for css-split gfo-13066 as the back-to-top-scroll was getting displayed */
+#back-to-top-scroll {
+  display: none;
+}
+
+/*this code is part of basket-kiosk.scss added here
+ for css-split gfo-13066 as the rr-block was getting displayed */
+#supplemental {
+  display: none;
+}
+
+.kiosk-hide {
+  display: none;
+}

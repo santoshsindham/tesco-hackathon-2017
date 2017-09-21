@@ -1,0 +1,118 @@
+{
+  "id" : "420-1034",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "http://tesco.scene7.com/is/image/tesco/180-0845_PI_66786MN?$[preset]$",
+        "secureSrc" : "https://tesco.scene7.com/is/image/tesco/180-0845_PI_66786MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Mens",
+    "styleRef" : "et525043",
+    "supplier" : "FF"
+  },
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size",
+    "sorted" : true
+  } ],
+  "publicLink" : "/direct/ff-made-in-britain-classic-mac/420-1034.prd",
+  "longDescription" : "Give your outfit the protection it deserves with this sleek, classic mac from our premium Made In Britain collection. Cut in the iconic shape complete with collar and concealed buttons, the mac features a luxe satin lining complete with two inside pockets. Finished with military style cuff and shoulder straps, two front pockets and an exposed top button, it's a stylish and practical option.Button fastenings through the centreFrom our Made In Britain collection. Thigh length",
+  "userActionable" : true,
+  "brand" : "F&F",
+  "prices" : {
+    "id" : "420-1034",
+    "price" : "50.00",
+    "clubcardPoints" : 50
+  },
+  "links" : [ {
+    "id" : "420-1034",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/420-1034",
+    "options" : {
+      "primary" : "Stone",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/180/180-0845/Swatches/180-0845_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "512-2161",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/512-2161",
+    "options" : {
+      "primary" : "Navy",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/257/257-1433/Swatches/257-1433_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "383-8875",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/383-8875",
+    "options" : {
+      "primary" : "Stone",
+      "secondary" : "S",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/383/383-8875/Swatches/383-8875_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "688-6339",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/688-6339",
+    "options" : {
+      "primary" : "Stone",
+      "secondary" : "M",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/688/688-6339/Swatches/688-6339_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "180-0845",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/180-0845",
+    "options" : {
+      "primary" : "Stone",
+      "secondary" : "L",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/180/180-0845/Swatches/180-0845_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "589-9005",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/589-9005",
+    "options" : {
+      "primary" : "Stone",
+      "secondary" : "XL",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/589/589-9005/Swatches/589-9005_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "431-7707",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/431-7707",
+    "options" : {
+      "primary" : "Stone",
+      "secondary" : "XXL",
+      "swatch" : "http://direct.tescoassets.com/directuiassets/ProductAssets/431/431-7707/Swatches/431-7707_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  } ],
+  "giftMessagingEnabled" : false,
+  "displayName" : "F&F Made In Britain Classic Mac"
+}

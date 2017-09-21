@@ -1,0 +1,77 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} {{#state.hasWasWasPrice}}has-was-was{{/state.hasWasWasPrice}}">
+
+  {{#state.hasFromPrice}}
+    <strong><small class="from-prefix product-price-from-prefix">From </small></strong>
+    <span class="product-price" itemprop="priceCurrency" content="GBP">&pound;</span><span class="product-price" itemprop="price">{{props.fromPrice}}</span>
+  {{/state.hasFromPrice}}
+
+  {{#state.hasPrice}}
+    <span class="product-price" itemprop="priceCurrency" content="GBP">&pound;</span><span class="product-price" itemprop="price">{{props.price}}</span>
+  {{/state.hasPrice}}
+
+  {{#state.showSavings}}
+    <div class="savings-wrapper text smaller">
+
+      {{#state.hasRrpPrice}}
+        <del class="rrp-price">
+          <span class="rrp-prefix">RRP </span>
+          &pound;{{props.rrpPrice}}
+        </del>
+      {{/state.hasRrpPrice}}
+
+      {{#state.hasWasPrice}}
+        {{#state.hasWasWasPrice}}
+          <del class="was-was-price">
+            <span class="was-prefix">Was </span>
+
+            {{#state.hasFromPrice}}
+              <span class="from-prefix">from </span>
+            {{/state.hasFromPrice}}
+
+            &pound;{{props.wasWasPrice}}
+          </del>
+
+          <span class="was-was-price-divider"></span>
+        {{/state.hasWasWasPrice}}
+        <del class="was-price">
+          <span class="was-prefix">Was </span>
+
+          {{#state.hasFromPrice}}
+            <span class="from-prefix">from </span>
+          {{/state.hasFromPrice}}
+
+          &pound;{{props.wasPrice}}
+        </del>
+      {{/state.hasWasPrice}}
+      {{#state.hasSavings}}
+        <span class="saving">
+          <span class="save-prefix">Save </span>
+
+          {{#state.hasFromPrice}}
+            <span class="from-prefix">from </span>
+          {{/state.hasFromPrice}}
+
+          &pound;{{props.savings}}</span>
+        </span>
+      {{/state.hasSavings}}
+    </div>
+  {{/state.showSavings}}
+
+  {{#state.showPoints}}
+    {{^state.isBoost}}
+      {{#state.hasClubcardPoints}}
+        <p class="clubcard-points">
+          Earn
+          {{#state.hasFromPrice}}
+            <span class="from-prefix">from </span>
+          {{/state.hasFromPrice}}
+          <strong>
+            {{props.clubcardPoints}} Clubcard points
+          </strong>
+        </p>
+      {{/state.hasClubcardPoints}}
+    {{/state.isBoost}}
+  {{/state.showPoints}}
+
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

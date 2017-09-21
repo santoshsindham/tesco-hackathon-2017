@@ -1,0 +1,29 @@
+/*******************************************
+*	Large Desktop Example module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "common-mixins";
+
+@include hint-messaging-ll-l-m(20px, 315px, 0, 15px, 0 0 5px 0);
+
+#lightbox {
+	float: left;
+	width: 84%;
+    position: absolute;
+    margin: 20px 8%;
+}
+
+.homepage {
+	#main-content {
+		width: 100%;
+	}
+}
+
+// server returned errors for forms
+.page-error {
+	margin-right: 4px;
+	margin-left: 4px;
+	width: 959px;
+}

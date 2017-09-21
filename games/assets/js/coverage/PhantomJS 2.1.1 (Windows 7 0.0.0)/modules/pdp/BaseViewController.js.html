@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\BaseViewController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/pdp/</a> BaseViewController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.76% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>12/102</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/128</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">5.56% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.76% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>12/102</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/BaseViewController', [
+  'domlib',
+  'modules/mvc/fn',
+  'modules/pdp/BaseClass'
+], function ($, fn, BaseClass) {
+  'use strict';
+&nbsp;
+  /**
+   * The base class that the base view and controller inherit from.
+   * @return {void}
+   */
+<span class="fstat-no" title="function not covered" >  function BaseViewController() {</span>}
+&nbsp;
+  fn.inherit(BaseViewController, BaseClass);
+&nbsp;
+  BaseViewController.prototype._bindDestroyPanelRefs = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    $(window).on(</span>
+      'destroyPanel.' + this.id,
+      this._onDestroyPanel.bind(this)
+    );
+  };
+&nbsp;
+  BaseViewController.prototype._unbindDestroyPanelRefs = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    $(window).off('destroyPanel.' + this.id);</span>
+  };
+&nbsp;
+  /**
+   * When a panel is destroyed, we need to remove references to it held by other controllers.
+   * @param {Object} oEvent The event object.
+   * @return {void}
+   */
+  BaseViewController.prototype._onDestroyPanel = <span class="fstat-no" title="function not covered" >function (oEvent) {</span>
+<span class="cstat-no" title="statement not covered" >    var oPanel = oEvent.oData.oView;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._activePanel[oPanel.sTag]</span>
+        &amp;&amp; this._activePanel[oPanel.sTag].id === oEvent.oData.oView.id) {
+<span class="cstat-no" title="statement not covered" >      this._activePanel[oPanel.sTag] = null;</span>
+<span class="cstat-no" title="statement not covered" >      this._unbindDestroyPanelRefs();</span>
+    }
+  };
+&nbsp;
+  /**
+   * Renders a error lightbox with a generic message that can be overwriten in the args.
+   * @param {Object} args The configurations for the lightbox.
+   * @return {void}
+   */
+  BaseViewController.prototype.renderNotification = <span class="fstat-no" title="function not covered" >function (args) {</span>
+<span class="cstat-no" title="statement not covered" >    var _args = args || {},</span>
+      classList = '',
+      ERROR_MESSAGE = 'Oops! Something went wrong. Please try again.';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (typeof _args.classList === 'string') {</span>
+<span class="cstat-no" title="statement not covered" >      classList += _args.classList;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.renderOverlay({</span>
+      sTag: 'notification',
+      sClassNames: classList,
+      oStyles: {
+        allDesktops: ['notification', 'fullScreen'],
+        allDevices: ['notification', 'fullScreen']
+      },
+      sOverlayContent: _args.message || ERROR_MESSAGE,
+      toDestroyOnClose: true,
+      callback: _args.callback
+    });
+  };
+&nbsp;
+  /**
+   * Creates a tooltip and optionally renders and triggers it. This should be used on controllers
+   *   and views, but not models (obviously).
+   * @param {Object} oParamData The data and config to be passed to tooltip.
+   * @return {Object} The tooltip view object.
+   */
+  BaseViewController.prototype.createTooltip = <span class="fstat-no" title="function not covered" >function (oParamData) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this._activePanel.tooltip</span>
+        &amp;&amp; this._activePanel.tooltip.oElms.elTrigger === oParamData.elTrigger) {
+<span class="cstat-no" title="statement not covered" >      if (this._activePanel.tooltip.sTooltopMessage !== oParamData.sTooltopMessage) {</span>
+<span class="cstat-no" title="statement not covered" >        this._activePanel.tooltip.updateContent(oParamData.sTooltopMessage);</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    }
+&nbsp;
+    /**
+     * TooltipPanelView requires the BaseView, which requires the BaseClass so this needs to be
+     * wrapped in a require otherwise requirejs gets into an infinite loop of requiring.
+     */
+<span class="cstat-no" title="statement not covered" >    return require(['modules/pdp/views/TooltipPanelView'], <span class="fstat-no" title="function not covered" >function (TooltipPanelView) {</span></span>
+<span class="cstat-no" title="statement not covered" >      var ERROR_MESSAGE = 'Oops! Something went wrong. Please try again.',</span>
+        sClassNames = '',
+        toRender = oParamData.toRender || true,
+        toOpen = oParamData.toOpen || true,
+        oTooltip = {},
+        tooltipMessage = oParamData.sTooltopMessage
+            || (oParamData.sType === 'error' &amp;&amp; ERROR_MESSAGE);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (oParamData.sType === 'error') {</span>
+<span class="cstat-no" title="statement not covered" >        sClassNames = 'info-panel-tooltip-error';</span>
+      } else <span class="cstat-no" title="statement not covered" >if (oParamData.sType === 'hover') {</span>
+<span class="cstat-no" title="statement not covered" >        sClassNames = 'info-panel-tooltip-hover';</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      oTooltip = new TooltipPanelView({</span>
+        oStyles: _this.oTooltipStyles || {
+          kiosk: ['tooltip-bottom'],
+          allDesktops: ['tooltip-bottom'],
+          allDevices: ['tooltip-bottom']
+        },
+        sTooltipType: oParamData.sType,
+        sTooltopMessage: tooltipMessage,
+        elTarget: oParamData.elTarget || $('body')[0],
+        elTrigger: oParamData.elTrigger,
+        oData: {
+          sClassNames: sClassNames,
+          aSubViews: [
+            { render: tooltipMessage }
+          ]
+        },
+        iSubViewCount: 1
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (toRender) {</span>
+<span class="cstat-no" title="statement not covered" >        oTooltip.render();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (toOpen) {</span>
+<span class="cstat-no" title="statement not covered" >          oTooltip.open();</span>
+<span class="cstat-no" title="statement not covered" >          _this._activePanel.tooltip = oTooltip;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (oParamData.sType === 'error') {</span>
+<span class="cstat-no" title="statement not covered" >            _this._bindDestroyPanelRefs();</span>
+          }
+        }
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      return oTooltip;</span>
+    });
+  };
+&nbsp;
+  /**
+   * Gets the data required to add to the overlay and calls the createOverlay method.
+   * @param {Object} params The data required to get the overlay data and configure the overlay.
+   * @param {Object} eventData The jQuery event object that triggered the overlay method.
+   * @return {void}
+   */
+  BaseViewController.prototype.compileAndRenderOverlay = <span class="fstat-no" title="function not covered" >function (params, eventData) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      _params = params,
+      modelName = _params.modelName || $(eventData.currentTarget).data('mvc-model'),
+      searchKey = _params.searchKey || $(eventData.currentTarget).data('mvc-key'),
+      searchValue = _params.searchValue || $(eventData.currentTarget).data('mvc-value'),
+      dataObject = null;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!modelName) {</span>
+<span class="cstat-no" title="statement not covered" >      if (this.oModel) {</span>
+<span class="cstat-no" title="statement not covered" >        dataObject = this.oModel.get({</span>
+          sSearchKey: searchKey || 'id',
+          mSearchValue: searchValue
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (this.isObject(dataObject, true)</span>
+            &amp;&amp; dataObject.hasOwnProperty(_params.sProp)
+            &amp;&amp; dataObject[_params.sProp]) {
+<span class="cstat-no" title="statement not covered" >          _params.elTrigger = eventData.currentTarget;</span>
+<span class="cstat-no" title="statement not covered" >          _params.sOverlayContent = _params.editContent</span>
+              ? _params.editContent(dataObject[_params.sProp])
+              : dataObject[_params.sProp];
+<span class="cstat-no" title="statement not covered" >          this.renderOverlay(_params);</span>
+        }
+      }
+    } else {
+<span class="cstat-no" title="statement not covered" >      this.queryModel({</span>
+        sNamespace: modelName,
+        sCommand: 'get',
+        oQueryParams: {
+          sSearchKey: searchKey || 'id',
+          mSearchValue: searchValue
+        }
+      }).done(<span class="fstat-no" title="function not covered" >function (queryData) {</span>
+<span class="cstat-no" title="statement not covered" >        if (_this.isObject(queryData, true)</span>
+            &amp;&amp; queryData.hasOwnProperty(_params.sProp)
+            &amp;&amp; queryData[_params.sProp]) {
+<span class="cstat-no" title="statement not covered" >          _params.elTrigger = eventData.currentTarget;</span>
+<span class="cstat-no" title="statement not covered" >          _params.sOverlayContent = _params.editContent</span>
+              ? _params.editContent(queryData[_params.sProp])
+              : queryData[_params.sProp];
+<span class="cstat-no" title="statement not covered" >          _this.renderOverlay(_params);</span>
+        }
+      });
+    }
+  };
+&nbsp;
+  /**
+   * Creates a overlay and optionally renders and triggers it. This should be used on controllers
+   *   and views, but not models (obviously).
+   * @param {Object} params The data and config to be passed to overlay.
+   * @return {Object} The overlay group view object.
+   */
+  BaseViewController.prototype.renderOverlay = <span class="fstat-no" title="function not covered" >function (params) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      activePanel = this._activePanel[params.sTag];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (activePanel) {</span>
+<span class="cstat-no" title="statement not covered" >      if (activePanel.oElms.elTrigger === params.elTrigger || params.forceUpdateActive) {</span>
+<span class="cstat-no" title="statement not covered" >        if (params.forceUpdateActive || (params.updateActive</span>
+            &amp;&amp; activePanel.contentHash !== this.hashCode(params.sOverlayContent))) {
+<span class="cstat-no" title="statement not covered" >          activePanel.updateContent(params.sOverlayContent);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (params.sTitle) {</span>
+<span class="cstat-no" title="statement not covered" >            activePanel.oElms.elTitle.innerHTML = params.sTitle;</span>
+<span class="cstat-no" title="statement not covered" >            activePanel.oElms.elContentTitle.innerHTML = params.sTitle;</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (params.callback) {</span>
+<span class="cstat-no" title="statement not covered" >            params.callback(activePanel.sSelector);</span>
+          }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      }
+    }
+&nbsp;
+    /**
+     * Views require the BaseView, which requires the BaseClass so this needs to be
+     * wrapped in a require otherwise requirejs gets into an infinite loop of requiring.
+     */
+<span class="cstat-no" title="statement not covered" >    return require([</span>
+      'modules/pdp/views/OverlayPanelGroupView',
+      'modules/pdp/views/OverlayPanelView'
+    ], <span class="fstat-no" title="function not covered" >function (OverlayPanelGroupView, OverlayPanelView) {</span>
+<span class="cstat-no" title="statement not covered" >      var toRender = params.toRender || true,</span>
+        toOpen = params.toOpen || true,
+        toDestroyOnClose = params.toDestroyOnClose || false,
+        _getPanelGroup = null,
+        _createPanelGroup = null,
+        _addPanel = null;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      _getPanelGroup = <span class="fstat-no" title="function not covered" >function (_params) {</span></span>
+<span class="cstat-no" title="statement not covered" >        _this.setEvent({</span>
+          sName: 'getPanelGroup',
+          tag: _params.sTag,
+          callback: <span class="fstat-no" title="function not covered" >function (panelGroup) {</span>
+<span class="cstat-no" title="statement not covered" >            if (!panelGroup) {</span>
+<span class="cstat-no" title="statement not covered" >              _createPanelGroup(_params);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >              _addPanel(panelGroup, _params, {</span>
+                output: 'prepend',
+                target: panelGroup.oElms.elWrapper,
+                render: true
+              });
+            }
+          }
+        }, false, true);
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      _createPanelGroup = <span class="fstat-no" title="function not covered" >function (_params) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var panel = null,</span>
+          panelGroup = new OverlayPanelGroupView({
+            oStyles: _params.oStyles || {
+              kiosk: ['lightbox', 'fullScreen'],
+              allDesktops: ['lightbox', 'fullScreen'],
+              allDevices: ['lightbox', 'fullScreen']
+            },
+            sTag: _params.sTag || null,
+            sViewName: _params.sTag
+                ? 'OverlayPanelGroupView-' + _params.sTag
+                : 'OverlayPanelGroupView',
+            oData: {
+              sClassNames: _params.sClassNames
+            },
+            elTarget: _params.elTarget || $('body')[0]
+          });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (toDestroyOnClose) {</span>
+<span class="cstat-no" title="statement not covered" >          panelGroup._panelGroupClosedHook = <span class="fstat-no" title="function not covered" >function (eventData) {</span></span>
+<span class="cstat-no" title="statement not covered" >            this.destroy(eventData);</span>
+          };
+<span class="cstat-no" title="statement not covered" >          _this._bindDestroyPanelRefs();</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        panel = _addPanel(panelGroup, _params);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (toRender) {</span>
+<span class="cstat-no" title="statement not covered" >          panelGroup.render();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (_params.callback) {</span>
+<span class="cstat-no" title="statement not covered" >            _params.callback(panel.sSelector);</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (toOpen) {</span>
+<span class="cstat-no" title="statement not covered" >            panel.open();</span>
+<span class="cstat-no" title="statement not covered" >            _this._activePanel[_params.sTag] = panel;</span>
+          }
+        }
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      _addPanel = <span class="fstat-no" title="function not covered" >function (panelGroup, _params, options) {</span></span>
+<span class="cstat-no" title="statement not covered" >        var _options = options || {},</span>
+          panel = {};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        panel = panelGroup.createSubView({</span>
+          ViewClass: OverlayPanelView,
+          mParamData: {
+            sTag: _params.sTag || null,
+            sViewName: _params.sTag
+                ? 'OverlayPanelView-' + _params.sTag
+                : 'OverlayPanelView',
+            oStyles: _params.oStyles || {
+              kiosk: ['lightbox', 'fullScreen'],
+              allDesktops: ['lightbox', 'fullScreen'],
+              allDevices: ['lightbox', 'fullScreen']
+            },
+            sOutput: _options.output,
+            elTarget: _options.target,
+            elTrigger: _params.elTrigger || null,
+            sOverlayContent: _params.sOverlayContent || '',
+            oData: {
+              sTitle: _params.sTitle || null,
+              sContentClasses: _params.sContentClasses,
+              aSubViews: [
+                { render: _params.sOverlayContent }
+              ]
+            },
+            iSubViewCount: 1
+          }
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_options.render) {</span>
+<span class="cstat-no" title="statement not covered" >          panel.render();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (_params.callback) {</span>
+<span class="cstat-no" title="statement not covered" >            _params.callback(panel.sSelector);</span>
+          }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          if (toOpen) {</span>
+<span class="cstat-no" title="statement not covered" >            panel.open();</span>
+<span class="cstat-no" title="statement not covered" >            _this._activePanel[_params.sTag] = panel;</span>
+          }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return panel;</span>
+      };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      _getPanelGroup(params);</span>
+    });
+  };
+&nbsp;
+  /**
+   * Method allows a view/controller to query a model without having scope of the model and
+   * get the model to run a method and return the result back to the view/controller.
+   * @param {Object} oParams The parameters to pass to the event and onto the model.
+   * @return {Object} The deferred promise.
+   */
+  BaseViewController.prototype.queryModel = <span class="fstat-no" title="function not covered" >function (oParams) {</span>
+<span class="cstat-no" title="statement not covered" >    var oDeferred = new $.Deferred();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.setEvent({</span>
+      sName: 'queryModel',
+      sCommand: oParams.sCommand || null,
+      sNamespace: oParams.sNamespace || null,
+      oQueryParams: oParams.oQueryParams,
+      oDeferred: oDeferred
+    }, false, true);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return oDeferred.promise();</span>
+  };
+&nbsp;
+  return BaseViewController;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

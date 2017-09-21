@@ -1,0 +1,423 @@
+@import '../variables';
+@import '../pdp/product-details-mixins';
+@import '../pdp/info-panel/info-panel-mixins';
+
+$brightBlue: #00a1e0;
+
+@mixin emaginationV2All {
+  .emagination-wrapper {
+    height: 600px !important;
+
+    #EmaginationJS-Personalisation {
+      background-color: $naturalWhite;
+      padding: 30px;
+
+      .EmaginationJS-Next,
+      .EmaginationJS-Previous {
+        color: $grey;
+
+        .fa {
+          font-size: 40px;
+        }
+      }
+    }
+
+    #EmaginationJS-CanvasContainer {
+      .EmaginationJS-ImageLayer {
+        border-color: #fff;
+        border-radius: 5px;
+
+        &.active {
+          border-color: $brightBlue;
+        }
+      }
+
+      .EmaginationJS-TextLayer {
+        border-color: #fff;
+        border-radius: 5px;
+
+        &.active {
+          background-color: rgba(0,161,224,.2);
+          border-color: $brightBlue;
+        }
+      }
+
+      .EmaginationJS-Inner {
+        border: 0;
+      }
+    }
+
+    .EmaginationJS-ToolTip {
+      background-color: $tipBkg;
+      border: 1px solid $tipBdr;
+      border-radius: 4px;
+      color: #666;
+      font-size: 12px;
+
+      &:after {
+        background: $tipBkg;
+        border-color: $tipBdr;
+      }
+
+      .EmaginationJS-CloseToolTip {
+        color: #666;
+      }
+    }
+
+    #EmaginationJS-ButtonPanel,
+    #EmaginationJS-Controls,
+    #EmaginationJS-Save {
+      background: none;
+      border: 0;
+      padding: 0;
+      padding-left: 20px;
+
+      * {
+        box-sizing: border-box;
+      }
+    }
+
+    #EmaginationJS-ButtonPanel,
+    #EmaginationJS-ControlsPlaceholder,
+    #EmaginationJS-TextControls,
+    #EmaginationJS-Save {
+      padding-right: 15px;
+    }
+
+    #EmaginationJS-TextControls {
+      padding-left: 4px;
+    }
+
+    #EmaginationJS-ButtonPanel {
+      margin-bottom: 30px;
+
+      .EmaginationJS-Button {
+        border-left: 0;
+        color: $grey;
+        padding: 0;
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        &.disabled {
+          background-color: transparent;
+          cursor: default;
+        }
+
+        .label {
+          @include smallerText;
+        }
+      }
+    }
+
+    #EmaginationJS-Controls {
+      padding-bottom: 60px;
+    }
+
+    #EmaginationJS-ControlsPlaceholder {
+      @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+      h4 {
+        @include h4Heading;
+        color: $grey;
+        font-weight: bold;
+      }
+      p {
+        @include text;
+        margin-bottom: 1em;
+      }
+    }
+
+    .EmaginationJS-ControlsTitle {
+      @include h3Heading;
+      padding-top: 0;
+      margin-bottom: 1em;
+      width: 75%;
+    }
+
+    .EmaginationJS-ControlsBack {
+      font-size: 16px;
+      line-height: 24px;
+      padding: 0 !important;
+
+      &:active {
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    #EmaginationJS-LayerButtons {
+      margin-left: 4px;
+      margin-right: 4px;
+
+      a {
+        @include buttonStyles;
+        @include secondaryButtonStyles;
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    #EmaginationJS-TextContent {
+      border-radius: 0;
+      padding: 10px;
+    }
+
+    #EmaginationJS-ImageControls {
+      .EmaginationJS-ControlsBack {
+        padding-right: 15px !important;
+      }
+    }
+
+    #EmaginationJS-Dropzone {
+      @include buttonStyles;
+      @include secondaryButtonStyles;
+      margin-bottom: 15px;
+      margin-right: 15px;
+      width: auto;
+
+      .dz-preview {
+        top: -5px;
+
+        .dz-progress {
+          .dz-upload {
+            background-color: $brightBlue;
+          }
+        }
+      }
+    }
+
+    #EmaginationJS-LibraryImagesContainer {
+      @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+      .EmaginationJS-LibraryImage {
+        &.active {
+          border-color: $brightBlue;
+        }
+      }
+    }
+
+    #EmaginationJS-Save {
+      bottom: 4px;
+      position: absolute;
+      right: 0;
+      width: 30%;
+    }
+
+    #accept-personalisation-button {
+      @include buttonStyles;
+      @include primaryButtonStyles;
+    }
+  }
+
+  .emagination-preview-wrapper {
+    @include centerImage(100%, 100%, none);
+  }
+
+  .emagination-cropper-wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+
+    #EmaginationJS-PhotoEditor {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 960px;
+      padding-bottom: 20px;
+      position: static;
+      width: 100% !important;
+
+      .EmaginationJS-CropWarning {
+        background-color: $naturalWhite;
+        color: $grey;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 10px;
+        padding: 24px 24px 24px 75px;
+        position: relative;
+
+        .fa.pull-left {
+          margin-right: 0;
+          position: absolute;
+          top: 24px;
+          left: 24px;
+        }
+      }
+
+      .EmaginationJS-CropButton {
+        &.EmaginationJS-Btn {
+          @include buttonStyles;
+          position: static;
+          width: 150px;
+
+          &:not(.saveCropBtn) {
+            @include secondaryButtonStyles;
+          }
+
+          &.saveCropBtn {
+            @include primaryButtonStyles;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    #EmaginationJS-CropContainer {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@mixin emaginationV2Devices {
+  .emagination-wrapper {
+    height: auto !important;
+    overflow: visible !important;
+
+    #EmaginationJS-Personalisation {
+      width: 100%;
+    }
+
+    #EmaginationJS-ButtonPanel,
+    #EmaginationJS-ControlsPlaceholder,
+    #EmaginationJS-Save {
+      padding-right: 0;
+    }
+
+    #EmaginationJS-TextControls {
+      padding-right: 4px;
+    }
+
+    #EmaginationJS-ButtonPanel,
+    #EmaginationJS-Controls,
+    #EmaginationJS-Save {
+      padding-left: 0;
+      width: 100%;
+    }
+
+    #EmaginationJS-ButtonPanel {
+      background-color: rgba(248,247,245,.5);
+      margin: 0;
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      width: 150px;
+      z-index: 1;
+
+      .EmaginationJS-Button {
+        font-size: 24px;
+        padding: 10px;
+
+        .label {
+          display: none;
+        }
+      }
+    }
+
+    #EmaginationJS-Controls {
+      height: auto !important;
+      padding-bottom: 0;
+      padding-top: 90px;
+    }
+
+    #EmaginationJS-ImageControls {
+      .EmaginationJS-ControlsBack {
+        padding-right: 0 !important;
+      }
+    }
+
+    #EmaginationJS-Dropzone {
+      margin-bottom: 20px;
+      margin-right: 0;
+      width: 100%;
+    }
+
+    #EmaginationJS-LibraryImagesContainer {
+      height: auto !important;
+      max-height: none !important;
+      overflow-y: visible !important;
+
+      .EmaginationJS-LibraryImage {
+        margin-bottom: 2% !important;
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+        width: 31% !important;
+      }
+    }
+
+    #EmaginationJS-Save {
+      top: 340px;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+@mixin emaginationTablet {
+  .emagination-wrapper {
+    #EmaginationJS-Personalisation {
+      height: 600px !important;
+    }
+
+    #EmaginationJS-LibraryImagesContainer {
+      .EmaginationJS-LibraryImage {
+        width: 23% !important;
+      }
+    }
+
+    #EmaginationJS-Save {
+      top: 620px;
+    }
+  }
+}
+
+@mixin emaginationMobile {
+  .emagination-wrapper {
+    #EmaginationJS-Personalisation {
+      height: 320px !important;
+      padding: 15px;
+    }
+
+    #EmaginationJS-LibraryImagesContainer {
+      .EmaginationJS-LibraryImage {
+        width: 31% !important;
+      }
+    }
+
+    #EmaginationJS-Save {
+      top: 340px;
+    }
+  }
+
+  .emagination-cropper-wrapper {
+    #EmaginationJS-PhotoEditor {
+      .EmaginationJS-CropWarning {
+        padding: 16px 16px 16px 65px;
+        position: relative;
+
+        .fa.pull-left {
+          top: 16px;
+          left: 16px;
+        }
+      }
+
+      .EmaginationJS-CropButton {
+        display: block;
+        float: none;
+        margin-left: 0;
+
+        &.EmaginationJS-Btn {
+          width: 100%;
+
+          &.saveCropBtn {
+            margin-bottom: 10px !important;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}

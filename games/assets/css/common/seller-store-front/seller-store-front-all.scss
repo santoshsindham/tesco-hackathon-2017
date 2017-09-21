@@ -1,0 +1,17 @@
+//seller-store-front module - all
+@import "../variables";
+@import "seller-store-front-mixins";
+
+
+.seller-store-front {
+  
+  .featured {
+    
+    .products {
+      
+      li {
+        display: none;
+      }
+    }
+  }
+}

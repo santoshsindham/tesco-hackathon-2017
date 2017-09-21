@@ -1,0 +1,44 @@
+//ui-components module - mobile @import "../variables";
+
+.uiOverlay {
+    background: transparent;
+    height: auto;
+    top: 50px;
+    z-index: 1023;
+}
+
+.uiDropdown {
+    width: 100%;
+
+    &.mobileWidth {
+        width: 100%;
+    }
+
+    .uiContainer {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.uiGiftMessage {
+    min-width: 270px;
+    .header, .new-flowers-msg-header {
+        .label {
+            display: block;
+        }
+
+        &.disableflowersPhase2 {
+            .label {
+                display: inline-block;
+            }
+            .lineCount {
+                display: none;
+            }
+        }
+    }
+    textarea, .personalGiftMessage {
+        font-size: 12px;
+        padding: 5px 16px 5px 10px;
+        width: 287px;
+    }
+}

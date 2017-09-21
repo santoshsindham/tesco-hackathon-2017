@@ -1,0 +1,82 @@
+@import "../../variables";
+
+@mixin swatch-variant-dropdown {
+  .variants-view {
+    .swatch-variant-information {
+      display: none;
+    }
+    .swatch-variant {
+      display: none;
+    }
+    .swatch-variant-mobile {
+      display: block;
+      margin: 0 0 10px 0;
+      img {
+        border-radius: 4px;
+        position: relative;
+        top: 3px;
+        left: -5px;
+        width: 32px;
+        height: 32px;
+      }
+      .dropdown-customised {
+        ul {
+          position: relative;
+          li {
+            position: relative;
+            a {
+              &.option {
+                padding: 5px 10px;
+              }
+              &[data-available='false'] {
+                &:before {
+                  font-family: 'Tesco Icons';
+                  content: 'y';
+                  position: absolute;
+                  font-size: 21px;
+                  color: #fff;
+                  left: 10px;
+                  z-index: 1;
+                  top: 13px;
+                }
+              }
+              span {
+                position: relative;
+                top: -7px;
+                display: inline-block;
+                margin-left: 4px;
+              }
+            }
+          }
+        }
+        .control {
+          border-radius: 0px;
+          border: none;
+          border-top: 1px solid #ccc;
+          border-bottom: 1px solid #ccc;
+          height: 52px;
+          line-height: 30px;
+          &.single-swatch-only {
+            border: none;
+            &:after {
+              display: none;
+            }
+          }
+          .innerText {
+            margin-left: 4px;
+            position: relative;
+            width: 75%;
+          }
+          .additionalText {
+            display: none;
+            float: right;
+            margin: 0 30px;
+          }
+          img {
+            top: -1px;
+          }
+        }
+      }
+    }
+  }
+}

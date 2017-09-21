@@ -1,0 +1,145 @@
+#catalogue-nav-wrapper {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+    display: none;
+    background-color: $white;
+}
+
+#catalogue-nav {
+    font-family: $tescoFont;
+
+    a {
+        display: block;
+        font-family: $tescoFont;
+        color: $darkGrey;
+        text-decoration: none;
+	outline: none;
+        cursor: pointer;
+    }
+
+    ul.categories {
+        > li {
+            > a {
+                position: relative;
+                font-size: 15px;
+                line-height: 30px;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                padding: 5px 30px;
+                background-color: $white;
+
+                &:active {
+                    color: $white;
+                    background-color: $brightBlue;
+                }
+            }
+        }
+    }
+
+    ul.categories-l1 {
+        position: absolute;
+        visibility: hidden;
+        background-color: $white;
+
+        &.categoriesVisible {
+            visibility: visible;
+        }
+
+        > li {
+            div.flyout-promo {
+                position: absolute;
+                bottom: 2px;
+                left: 0px;
+                width: 100%;
+                padding: 10px 30px;
+                background-color: $blue;
+
+                p {
+                    position: relative;
+                    margin: 0px;
+                    font-size: 16px;
+                    line-height: 21px;
+                    color: $white;
+                    padding-right: 25px;
+
+                    span {
+                        position: absolute;
+                        top: 50%;
+                        right: 0px;
+                        display: block;
+
+                        &:after {
+                            font-size: 16px;
+                            content: 'r';
+                            display: inline-block;
+                            margin-top: -53%;
+                        }
+                    }
+                }
+            }
+
+            > a {
+                padding: 5px 50px 5px 30px;
+                margin-right: 1px;
+
+                &:after {
+                    font-family: 'Tesco Icons';
+                    content: 'r';
+                    position: absolute;
+                    right: 20px;
+                }
+            }
+
+            &.has-no-category {
+                > a {
+                    &:after {
+                        content: none;
+                    }
+                }
+            }
+
+            &.catNavCategoryOpen {
+                > a {
+                    color: $white;
+                    background-color: $brightBlue;
+                }
+            }
+
+            .categories-l1-background-mask {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                float: none;
+                z-index: -1;
+                background-color: #fff;
+                border-right: 1px solid $paleGrey;
+            }
+        }
+    }
+
+    ul.categories-l2 {
+        position: absolute;
+        top: 0px;
+        visibility: hidden;
+        background-color: $white;
+        @include multipleTransitions(left 0.3s);
+
+        &.subCategoriesVisible {
+            visibility: visible;
+        }
+
+        > li {
+            > a {
+                .no-touch & {
+                    &:hover {
+                        color: $white;
+                        background-color: $brightBlue;
+                    }
+                }
+            }
+        }
+    }
+}

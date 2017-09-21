@@ -1,0 +1,226 @@
+{
+  "id" : "204-7271",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "204-7271",
+    "fromPrice" : "30.00",
+    "toPrice" : "44.99",
+    "was" : "60.00",
+    "savings" : "30.00",
+    "clubcardPoints" : 30
+  },
+  "displayName" : "Trespass Mens Rame Softshell Jacket",
+  "publicLink" : "/direct/trespass-mens-rame-softshell-jacket/204-7271.prd",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat3375746",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375746"
+  }, {
+    "id" : "cat3375936",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375936"
+  }, {
+    "id" : "cat3376549",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376549"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38420004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420004"
+  }, {
+    "id" : "cat38420005",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420005"
+  }, {
+    "id" : "cat38420008",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420008"
+  }, {
+    "id" : "cat38420020",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420020"
+  }, {
+    "id" : "cat38420088",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420088"
+  }, {
+    "id" : "cat38470010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38470010"
+  }, {
+    "id" : "cat38510015",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38510015"
+  }, {
+    "id" : "cat38670087",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670087"
+  }, {
+    "id" : "cat38690065",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38690065"
+  }, {
+    "id" : "cat38710074",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710074"
+  }, {
+    "id" : "cat38890077",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38890077"
+  }, {
+    "id" : "cat39370006",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39370006"
+  } ],
+  "brand" : "Trespass",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_1000449MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Mens",
+    "styleRef" : "ez621410",
+    "supplier" : "FF",
+    "onlineExclusive" : "Y"
+  },
+  "links" : [ {
+    "id" : "760-0526",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/760-0526",
+    "options" : {
+      "primary" : "Flint",
+      "secondary" : "S",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/760/760-0526/Swatches/760-0526_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "360-9922",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/360-9922",
+    "options" : {
+      "primary" : "Flint",
+      "secondary" : "M",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/360/360-9922/Swatches/360-9922_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "727-0941",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/727-0941",
+    "options" : {
+      "primary" : "Flint",
+      "secondary" : "L",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/727/727-0941/Swatches/727-0941_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "472-5136",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/472-5136",
+    "options" : {
+      "primary" : "Flint",
+      "secondary" : "XL",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/472/472-5136/Swatches/472-5136_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "279-2020",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/279-2020",
+    "options" : {
+      "primary" : "Grey",
+      "secondary" : "XXL",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/279/279-2020/Swatches/279-2020_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "497-1402",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/497-1402",
+    "options" : {
+      "primary" : "Black",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/162/162-4728/Swatches/162-4728_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "154-1779",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/154-1779",
+    "options" : {
+      "primary" : "Electric blue",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/371/371-6601/Swatches/371-6601_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "204-7271",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/204-7271",
+    "options" : {
+      "primary" : "Grey",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/279/279-2020/Swatches/279-2020_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "466-3370",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/466-3370",
+    "options" : {
+      "primary" : "Navy",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/186/186-4018/Swatches/186-4018_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "321-7150",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/321-7150",
+    "options" : {
+      "primary" : "Navy",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/126/126-3616/Swatches/126-3616_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "360-9922",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/360-9922",
+    "options" : {
+      "primary" : "Flint",
+      "secondary" : "M",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/360/360-9922/Swatches/360-9922_SW_1000025SW01_pdp.jpg"
+    }
+  } ]
+}

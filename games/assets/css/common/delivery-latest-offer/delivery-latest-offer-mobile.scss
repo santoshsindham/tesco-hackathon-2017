@@ -1,0 +1,21 @@
+//delivery-latest-offer module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "delivery-latest-offer-mixins";
+
+.delivery-latest-offers {
+	margin: 0 $onecol 20px $onecol;
+
+	li {
+		width: 100%;
+		&:first-child {
+			margin-bottom: 8px;
+			font-size: 1.2em;
+		}
+
+		h3 {
+			font-size: 1.5em;
+		}
+	}
+
+}

@@ -1,0 +1,89 @@
+@import "../../variables";
+@import "../pdp-configurator-mixins";
+
+$configuratorHeight: 540px;
+$overlayContentHeight: 410px;
+$panelWidth: 640px;
+
+$fbWidth: 500px;
+$fbHeight: 307px;
+
+.pdp-configurator {
+    
+    .info-overlay {
+        height: $configuratorHeight;
+    }
+
+    .product-carousel-s7 {
+        width: $panelWidth;
+    }
+
+    #pdpScene7Container {
+        width: $panelWidth;
+        height: $overlayContentHeight;
+    }
+
+    #product-carousel-info {
+        width: $panelWidth;
+
+        &.carousel.horizontal {
+            .carousel-slider {
+                width: $panelWidth;
+                height: $overlayContentHeight;
+            }
+
+            .carousel-items-container li {
+                width: $panelWidth;
+                height: $overlayContentHeight;
+            }
+
+            .carousel-indicators {
+                top: $overlayContentHeight + 10;
+                width: $panelWidth;
+            }
+
+        }
+
+    }
+
+    .prodInfoVisible {
+        #product-carousel-info {
+            height: $overlayContentHeight;
+        }
+    }
+    
+    .product-carousel-s7 {
+        #s7container {
+            width: $panelWidth;
+        }
+        
+        &.spinVisible {
+            .s7pagescrubber {
+                width: $panelWidth;
+
+                .s7track {
+                    width: $panelWidth;
+                }
+            }
+        }
+
+        .videoContainer {
+            height: $overlayContentHeight;
+            .videoPosition {
+                height: $overlayContentHeight;
+            }
+        }
+    }
+
+    .product-front-back {
+        width: $fbWidth;
+        height: $fbHeight;
+
+        .carousel .carousel-slider,
+        .carousel .carousel-slider li {
+            width: $fbWidth;
+            height: $fbHeight;
+        }
+    }
+
+}

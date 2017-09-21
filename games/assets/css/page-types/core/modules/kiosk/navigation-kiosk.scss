@@ -1,0 +1,34 @@
+/*******************************************
+*	Kiosk navigation module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(kiosk);
+@import "../mixins/navigation-mixins";
+
+$lightboxWidth: 1296px;
+
+#navigation {
+    width: auto;
+    float: none;
+    padding: 0;
+    display: none;
+    .menu {
+    	h2 {
+    		border: none;
+    	}
+    	ul {
+    		@include box-shadow(none);
+	    	border: none;
+	    	li {
+	    		border: none;
+	    		a:after {
+	    			display: block;
+	    			right: 0;
+	    			padding-top: 18px;
+	    			font-size: 14px;
+	    		}
+	    	}
+    	}
+    }
+}

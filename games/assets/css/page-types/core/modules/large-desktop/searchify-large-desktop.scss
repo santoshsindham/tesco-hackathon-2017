@@ -1,0 +1,29 @@
+/*******************************************
+* searchify - large desktop
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(largeDesktop);
+@import "../mixins/searchify-mixins";
+
+#spf-seeAllResults {
+    clear: both;
+    text-align: center;
+    min-height: 8px !important;
+
+    span {
+        float: none !important;
+    }
+}
+
+
+body {
+
+    &.isScrolling {
+
+        .m-searchify {
+            position: fixed;
+            top: 50px !important;
+        }
+    }
+}

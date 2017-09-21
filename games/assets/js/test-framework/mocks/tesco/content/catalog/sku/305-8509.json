@@ -1,0 +1,276 @@
+{
+  "id" : "305-8509",
+  "prices" : {
+    "id" : "305-8509",
+    "price" : "2.47",
+    "clubcardPoints" : 2
+  },
+  "displayName" : "iPad Mini  with Wi-Fi 32GB Black -Test Data Please do not Modify",
+  "publicLink" : "/direct/ipad-mini-with-wi-fi-32gb-black/305-8509.prd?skuId=305-8509",
+  "avgRating" : 4.0,
+  "specification" : {
+    "Storage" : [ {
+      "title" : "Hard Drive/Storage Capacity",
+      "description" : "32GB",
+      "attr" : "hard_drive/storage_capacity"
+    } ],
+    "Built-in Devices" : [ {
+      "title" : "Optical Drive Type",
+      "description" : "None",
+      "attr" : "optical_drive_type"
+    } ],
+    "Memory" : [ {
+      "title" : "Hard Drive Capacity",
+      "description" : "32GB",
+      "attr" : "hard_drive_capacity"
+    } ],
+    "Dimensions" : [ {
+      "title" : "Product Height",
+      "description" : "1.0 Centimetre",
+      "attr" : "product_height"
+    }, {
+      "title" : "Product Width",
+      "description" : "1.0 Centimetre",
+      "attr" : "product_width"
+    }, {
+      "title" : "Product Depth",
+      "description" : "1.0 Centimetre",
+      "attr" : "product_depth"
+    }, {
+      "title" : "Product Weight",
+      "description" : "1.0 Gram",
+      "attr" : "product_weight"
+    } ],
+    "Display & Graphics" : [ {
+      "title" : "Screen Size",
+      "description" : "7.9",
+      "attr" : "screen_size"
+    }, {
+      "title" : "Screen Type",
+      "description" : "LED",
+      "attr" : "screen_type"
+    }, {
+      "title" : "Graphics Chipset",
+      "description" : "Dual-core A5",
+      "attr" : "graphics_chipset"
+    } ],
+    "Key Information" : [ {
+      "title" : "Type",
+      "description" : "Tablet",
+      "attr" : "type"
+    }, {
+      "title" : "Customer Benefits",
+      "description" : "32GB",
+      "attr" : "customer_benefits"
+    }, {
+      "title" : "Manufacturer Warranty Period",
+      "description" : "Not Known",
+      "attr" : "manufacturer_warranty_period"
+    }, {
+      "title" : "Colour",
+      "description" : "Black",
+      "attr" : "colour"
+    }, {
+      "title" : "Operating System",
+      "description" : "Apple iOS 6",
+      "attr" : "operating_system"
+    }, {
+      "title" : "Battery Life",
+      "description" : "Up to 10 hours",
+      "attr" : "battery_life"
+    }, {
+      "title" : "Colour",
+      "description" : "Black",
+      "attr" : "colour"
+    } ],
+    "Connectivity" : [ {
+      "title" : "Wi-Fi Type",
+      "description" : "802.11a/b/g/n Wi-Fi (802.11n 2.4GHz and 5GHz)",
+      "attr" : "wi-fi_type"
+    }, {
+      "title" : "Bluetooth",
+      "description" : "Y",
+      "attr" : "bluetooth"
+    } ],
+    "Variant" : [ {
+      "title" : "Hard Drive/Storage Capacity",
+      "description" : "32GB",
+      "attr" : "hard_drive/storage_capacity"
+    } ],
+    "Processor" : [ {
+      "title" : "Processor",
+      "description" : "Apple A5 1GHz Dual-Core",
+      "attr" : "processor"
+    }, {
+      "title" : "Processor Model Number",
+      "description" : "Apple A5 1GHz Dual-Core",
+      "attr" : "processor_model_number"
+    }, {
+      "title" : "Processor Speed (GHz)",
+      "description" : "1",
+      "attr" : "processor_speed_(ghz)"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Black",
+    "shortSalesText" : "Idris Ipad Vipul- an iOS-based line of tablet computers designed and marketed by Apple Inc.",
+    "mediaType" : "Tablet"
+  },
+  "longDescription" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet, sem id vestibulum finibus, lectus est bibendum felis, eget tincidunt diam augue ut dolor. Duis eleifend et quam vel suscipit. Cras rutrum eleifend hendrerit. Donec libero elit, congue nec mi et, euismod commodo metus. Duis velit erat, tempus et aliquet at, hendrerit gravida ex. Duis luctus at ligula eget vestibulum. Sed sit amet nibh libero. Nulla sit amet lorem non tellus dapibus vulputate et quis tellus. Fusce euismod dui eget erat pulvinar molestie. Donec sollicitudin vestibulum nisl, non vehicula augue lobortis vitae.\nPellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse potenti. Sed molestie nibh eget lectus pulvinar, id hendrerit libero euismod. Donec facilisis gravida magna. Mauris posuere turpis neque, viverra aliquet tellus pellentesque nec. In ultricies ipsum et ipsum porta scelerisque. Phasellus tempor aliquam ultrices. Nulla aliquet volutpat arcu non tristique. Donec aliquet ornare dolor, ac pretium ligula pellentesque sed. Praesent luctus vulputate lectus, vitae finibus arcu porta eget. Pellentesque in orci et odio aliquet pharetra.\nDonec sed scelerisque justo. Ut lobortis nisi quis vestibulum eleifend. Nulla ultrices hendrerit urna, sed semper ex luctus et. Sed ac posuere felis. Etiam eget mollis mi, ac maximus sapien. Maecenas sodales neque augue, luctus scelerisque ex interdum a. Ut dictum at ante ut sodales. Nunc ac nibh efficitur libero commodo tincidunt ac eget mi. Etiam nunc ante, auctor ac laoreet ut, lacinia eget lacus. Phasellus vestibulum nisl sed porttitor tristique. Proin fringilla, mauris ultrices semper placerat, dui nulla mattis felis, ut interdum ante augue in justo. Aliquam a tincidunt lectus, ac sagittis ante. Proin congue consectetur velit eu lacinia. Maecenas magna libero, semper at nibh non, feugiat viverra ipsum.",
+  "isDigitalSku" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat10150003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat10150003"
+  }, {
+    "id" : "cat10160010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat10160010"
+  }, {
+    "id" : "cat1150013",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat1150013"
+  }, {
+    "id" : "cat1170041",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat1170041"
+  }, {
+    "id" : "cat1820006",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat1820006"
+  }, {
+    "id" : "cat1820032",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat1820032"
+  }, {
+    "id" : "cat2190020",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat2190020"
+  }, {
+    "id" : "cat4380009",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat4380009"
+  }, {
+    "id" : "cat61490005",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat61490005"
+  }, {
+    "id" : "cat61490011",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat61490011"
+  }, {
+    "id" : "cat61490015",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat61490015"
+  }, {
+    "id" : "cat61490018",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat61490018"
+  }, {
+    "id" : "cat6490010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat6490010"
+  }, {
+    "id" : "cat680178",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680178"
+  }, {
+    "id" : "cat680184",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680184"
+  }, {
+    "id" : "cat680205",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680205"
+  }, {
+    "id" : "cat680207",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680207"
+  }, {
+    "id" : "cat680209",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680209"
+  }, {
+    "id" : "cat680210",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat680210"
+  }, {
+    "id" : "cat8620003",
+    "type" : "buylist",
+    "href" : "/direct/rest/content/catalog/buylist/cat8620003"
+  }, {
+    "id" : "cat9570043",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat9570043"
+  }, {
+    "id" : "cat9620004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat9620004"
+  } ],
+  "rangedInStore" : true,
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "https://tesco.scene7.com/is/image/tescoist/305-8509_PI_1000005MN01?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "https://tesco.scene7.com/is/image/tescoist/305-8509_PI_1000005MN01?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    }, {
+      "mediaType" : "Swatches",
+      "src" : "http://dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/305/305-8509/Swatches/305-8509_SW_1000005SW01.jpg",
+      "renderSource" : "CMS"
+    } ],
+    "pings" : [ {
+      "mediaType" : "MarketingPings",
+      "src" : "http://dvgmofeweb001uk.dev.global.tesco.org/directuiassets/Merchandising/NonSeasonal/en_GB/banners/Ping_Images/ping_new_$[preset]$.png"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 1" : "Idris Vipul - A beautiful display, powerful A5 chip, FaceTime HD camera, iSight camera with 1080p HD video recording, ultra-fast wireless, 32GB of storage and access to over 275,000 apps through the Apple Store",
+    "Bullet 2" : "Idris - iPad mini is an iPad in every way, shape and slightly smaller form. Up to 10 hours of battery whilst surfing the web on Wi-Fi, watching video or listening to music",
+    "Bullet 3" : "Idris Vipul- 1st Generation iPad mini, released Nov 2nd 2012"
+  },
+  "noofRatingsProduced" : 1,
+  "links" : [ {
+    "id" : "305-8509",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/305-8509",
+    "options" : {
+      "primary" : "32GB",
+      "swatch" : "//dvgmofeweb001uk.dev.global.tesco.org/directuiassets/ProductAssets/305/305-8509/Swatches/305-8509_SW_1000005SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "305-8509",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/305-8509"
+  }, {
+    "id" : "T0000a64e6",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/T0000a64e6"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

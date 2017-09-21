@@ -1,0 +1,45 @@
+{
+    "id" : "02425",
+    "postalCode" : "LU54JU",
+    "country" : "GB",
+    "satClose" : "2200",
+    "thuClose" : "2359",
+    "longitude" : "-0.484917",
+    "storeName" : "DUNSTABLE SUPERSTORE",
+    "sunClose" : "1600",
+    "wedOpen" : "0001",
+    "wedClose" : "2359",
+    "latitude" : "51.889540",
+    "monOpen" : "0000",
+    "gridReference" : "5043022220",
+    "addressTwo" : "0",
+    "facilities" : [ {
+      "id" : "DIRECT_DESK",
+      "type" : "facility",
+      "href" : "/direct/rest/content/stores/facility/DIRECT_DESK"
+    } ],
+    "thuOpen" : "0001",
+    "storeTypes" : [ {
+      "id" : "Superstore",
+      "type" : "storeType",
+      "href" : "/direct/rest/content/stores/storeType/Superstore"
+    } ],
+    "friOpen" : "0001",
+    "county" : "LUTON",
+    "tueOpen" : "0001",
+    "storeId" : "2425",
+    "satOpen" : "0001",
+    "friClose" : "2359",
+    "monClose" : "2359",
+    "telephone" : "8456779226",
+    "tueClose" : "2359",
+    "sunOpen" : "1000",
+    "addressOne" : "SKIMPOT ROAD",
+    "townCity" : "DUNSTABLE",
+    "links" : [ {
+      "id" : "02425",
+      "type" : "store",
+      "rel" : "self",
+      "href" : "/direct/rest/content/stores/store/02425"
+    } ]
+  }

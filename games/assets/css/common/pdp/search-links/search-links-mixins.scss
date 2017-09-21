@@ -1,0 +1,46 @@
+@import "../product-details-mixins";
+
+$titleBkgColor: $naturalWhite;
+
+/**
+ *
+ */
+
+@mixin searchLinksProductDetailsAll {
+    .search-links-block {
+        li {
+            &:first-child {
+                margin-bottom: 15px;
+            }
+        }
+
+        a {
+          display: inline-block;
+        }
+    }
+}
+
+@mixin searchLinksProductDetailsLarge {
+    .search-links-block {
+        @include centerChildrenVertically;
+        .block-title-wrapper {
+            padding: 20px;
+            background-color: $titleBkgColor;
+            .block-title {
+                margin-bottom: 0px;
+            }
+        }
+
+        ul {
+            padding: 20px;
+        }
+    }
+}
+
+@mixin searchLinksProductDetailsSmall {
+    .search-links-block {
+        ul {
+            padding: 0px;
+        }
+    }
+}

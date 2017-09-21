@@ -1,0 +1,82 @@
+/*******************************************
+*	Tablet header module
+*******************************************/
+
+@import "../../../core/components/breakpoints";
+@include breakpoint(tablet);
+
+@include breakpoint(vTablet) {
+	#linksave-block-container {
+		padding: 15px;
+		#icon-module {
+			ul.icon-link-save {
+				width: 100%;
+
+				li {
+					width: 35.8%;
+					&:first-child {
+						margin-left: 28%;
+					}
+					&:first-child:nth-last-child(3),
+					&:first-child:nth-last-child(3) ~ li{
+						width: 31.5%;
+						.block-title {
+							width: 154px;
+							margin: 30px 0 0 -55px;
+						}
+						&:first-child {
+							margin-left: 14%;
+
+							.block-title {
+								padding-left: 15px;
+							}
+						}
+						&:last-child {
+							width: 20%;
+							.block-title {
+								margin-top: 32px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@include breakpoint(hTablet) {
+	#linksave-block-container {
+		#icon-module {
+			ul.icon-link-save {
+				width: 60%;
+
+				li {
+					width: 50%;
+					margin-left: 20%;
+
+					.icon1.block-title {
+						width: 100%;
+						margin: 30px 0 0 -40%;
+					}
+					&:last-child {
+						width: 12%;
+				    margin: 0 15% 0 0;
+
+						.block-title {
+							width: 151px;
+							margin: 32px 0 0 -55px;
+						}
+					}
+					&:first-child:nth-last-child(3),
+					&:first-child:nth-last-child(3) ~ li{
+						width: 44%;
+						margin-left: 0;
+						&:last-child {
+							width: 15%;
+							margin: 0 -20% 0 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

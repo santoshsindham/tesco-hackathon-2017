@@ -1,0 +1,22 @@
+/*******************************************
+*	Manage Stock Alerts : Mixins
+*******************************************/
+
+@mixin tescoRegular{
+	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	font-weight: normal;
+}
+
+@mixin tescoBold{
+	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	font-weight: bold;
+}
+
+@mixin positionBreadCrumb {
+	#breadcrumb {
+		margin-bottom: 0;
+	}
+	#page-container & h1.page-title {
+		margin-top: 0;
+	}
+}

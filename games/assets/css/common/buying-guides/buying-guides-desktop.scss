@@ -1,0 +1,23 @@
+//buying-guides module - desktop
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "buying-guides-mixins";
+
+@include buying-guides-desktop;
+
+.buying-guides {
+	#main-content {
+		width: 704px;
+		.content-block {
+			@include annotation-list-columns(2);
+			.topic-content {
+				.topic-image {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+	#secondary-content {
+		width: 224px;
+	}
+}

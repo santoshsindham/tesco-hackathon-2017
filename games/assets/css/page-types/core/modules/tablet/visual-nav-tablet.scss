@@ -1,0 +1,57 @@
+/*******************************************
+* Tablet visual nav module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(allTablet);
+@import "../mixins/visual-nav-mixins";
+
+$color-list-item-border: #bfbdbd;
+
+#visual-nav, .visual-nav {
+	float: none;
+	@include breakpoint(vTablet) {
+		padding: 0 $onecol;
+	}
+	@include breakpoint(hTablet) {
+		padding: 0 $onecol;
+	}
+	ul li {
+		width: 49%;
+		margin-bottom: 8px;
+		&:nth-child(odd){
+			float: left;
+		}
+		&:nth-child(even){
+			float: right;
+		}
+		a {
+			line-height: 52px;
+			height: auto;
+			min-height: 74px;
+			padding: 10px 22px 10px 7px;
+			width: 100%;
+			&:after {
+				line-height: 72px;
+			}
+		}
+		.wrapper-img {
+			width: 87px;
+			height: 52px;
+			background-size: 87px 52px;
+			float: left;
+			margin-right: 7px;
+			img {
+				margin-top: 0;
+			}
+		}
+		span {
+			line-height: 52px;
+			height: 52px;
+			padding-left: 9px;
+		}
+		.stamp-title-above span {
+			display: inline;
+		}
+	}
+}

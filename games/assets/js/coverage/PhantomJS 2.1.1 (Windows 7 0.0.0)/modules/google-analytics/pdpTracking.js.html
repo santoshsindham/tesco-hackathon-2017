@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\google-analytics\pdpTracking.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/google-analytics/</a> pdpTracking.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.81% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>47/62</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">57.14% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>20/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">88.89% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75.81% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>47/62</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">34×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">33×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">37×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">35×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define(function (require, exports, module) {
+  'use strict';
+&nbsp;
+  var breakPoint = require('modules/breakpoint'),
+    fn = require('modules/mvc/fn'),
+    common = require('modules/common'),
+    pdpTracking = {},
+    pageController = {},
+    skuModel = {},
+    productModel = {},
+    oOmnitureData = {},
+    sAction = '';
+&nbsp;
+&nbsp;
+  /**
+   * Starts the PDP analytics tracking for the add to basket action or page load
+   * @param {Object} itemData either the Sku in scope or the basket response
+   * @param {String|Object} action to carry out addToBasket|pageLoad
+   * @return {void}
+   */
+  pdpTracking.setAnalytics = function (itemData, action) {
+    pageController = fn.getValue(window, 'oAppController', 'oPageController');
+    skuModel = pageController.getModule('model', 'sku');
+    productModel = pageController.getModule('model', 'products');
+&nbsp;
+    if (fn.isObject(action)) {
+      sAction = action.isVariantChange ? 'variantChange' : 'pageLoad';
+    } else {
+      sAction = action;
+    }
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!fn.isObject(pageController) &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!fn.isObject(itemData))</span> {
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+    if (sAction === 'addToBasket') {
+      pdpTracking.setAddToBasketAnalytics(itemData);
+    } else {
+      pdpTracking.setPageLoadAnalytics(itemData);
+    }
+    return itemData;
+  };
+&nbsp;
+&nbsp;
+  /**
+   * Tracking for page load gathering productid and skuid for collateProductData
+   * @param {Object} skuData PDP primary product skuData from page load or variant change
+   * @return {void}
+   */
+  pdpTracking.setPageLoadAnalytics = function (skuData) {
+    var pageLoadDimensions = {},
+      productTrackingData = {},
+      productData = {};
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (productModel === undefined) {
+<span class="cstat-no" title="statement not covered" >      return false;</span>
+    }
+&nbsp;
+    productData = productModel.getDataStores({ value: skuModel.getParentProductId(skuData) });
+&nbsp;
+    if (window.s) {
+      oOmnitureData = window.s;
+      pageLoadDimensions = {
+        dimension1: fn.getValue(oOmnitureData, 'eVar24'),
+        dimension2: oOmnitureData.prop7 === String(!(oOmnitureData.prop7 === 'repeat customer')),
+        dimension3: this.getViewport(),
+        dimension4: 'GMO'
+      };
+    }
+    productTrackingData = this.collateProductData(skuData, productData);
+    this.submitAnalytics(productTrackingData, pageLoadDimensions);
+&nbsp;
+    return { skuData: skuData, productData: productData, pageLoadDimensions: pageLoadDimensions };
+  };
+&nbsp;
+&nbsp;
+  /**
+   * Tracking for page load gathering productid and skuid for collateProductData
+   * @param {Object} items basket add response array of items
+   * @return {void}
+   */
+  pdpTracking.setAddToBasketAnalytics = function (items) {
+    var productTrackingData = {},
+      skuData = {},
+      productData = {},
+      aTrackingData = [];
+&nbsp;
+    fn.loopArray.call(this, items, function loopItemData(i) {
+      skuData = skuModel.getDataStores({ value: items[i].skuId });
+      productData = productModel.getDataStores({ value: items[i].productId });
+      productTrackingData = this.collateProductData(skuData, productData, items[i]);
+      this.submitAnalytics(productTrackingData);
+      aTrackingData.push({ skuData: skuData, productData: productData, basketData: items[i] });
+    });
+&nbsp;
+    return aTrackingData;
+  };
+&nbsp;
+&nbsp;
+  /**
+   * @return {string} BIGWEB|MWEB
+   */
+  pdpTracking.getViewport = function () {
+    return (breakPoint.mobile || breakPoint.vTablet || breakPoint.hTablet) ? <span class="branch-0 cbranch-no" title="branch not covered" >'MWEB' </span>: 'BIGWEB';
+  };
+&nbsp;
+&nbsp;
+  /**
+   * collates the data from the sku and product models in a format for GA enhanced product data
+   * @param {Object} skuData
+   * @param {Object} productData
+   * @param {Object} basketResponse {Optional}
+   * @return {object} Tracking data collated for GA product
+   */
+  pdpTracking.collateProductData = function (skuData, productData, basketResponse) {
+    var collateTrackingData = {},
+      $breadcrumb = $('#breadcrumbCategoryOnly'),
+      breadcrumbCategoryOnly = $breadcrumb.length ? <span class="branch-0 cbranch-no" title="branch not covered" >$breadcrumb.val().replace(/\s*&gt;\s*/g, '/') </span>: null;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (fn.getValue(pageController, 'ues', 'schoolId')) {
+<span class="cstat-no" title="statement not covered" >      breadcrumbCategoryOnly = 'Embroidered Uniforms/' + breadcrumbCategoryOnly;</span>
+    }
+&nbsp;
+    collateTrackingData = {
+      id: skuData.id,
+      name: skuData.displayName,
+      price: skuModel.getPrice(skuData),
+      brand: productModel.getBrand(productData),
+      dimension9: productModel.getGender(productData),
+      dimension24: String(productModel.isFF(productData)),
+      variant: skuModel.getColour(skuData),
+      category: breadcrumbCategoryOnly
+    };
+&nbsp;
+    if (basketResponse) {
+      collateTrackingData.quantity = basketResponse.quantity;
+      collateTrackingData.dimension17 = basketResponse.listingId;
+    }
+&nbsp;
+    return collateTrackingData;
+  };
+&nbsp;
+  /**
+   * collates the data from the sku and product models in a format for GA
+   * @param {Object} productTrackingData the collated data from the sku and product models
+   * @param {Object} pageLoadDimensions {Optional} dimensions that are only used for page views
+   * @return {void}
+   */
+  pdpTracking.submitAnalytics = function (productTrackingData, pageLoadDimensions) {
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (window.ga) {
+<span class="cstat-no" title="statement not covered" >      window.ga('require', 'ec');</span>
+<span class="cstat-no" title="statement not covered" >      window.ga('ec:addProduct', productTrackingData);</span>
+<span class="cstat-no" title="statement not covered" >      if (sAction === 'addToBasket') {</span>
+<span class="cstat-no" title="statement not covered" >        window.ga('ec:setAction', 'add');</span>
+<span class="cstat-no" title="statement not covered" >        window.ga('send', 'event', 'basket action', 'add', productTrackingData.id);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (sAction === 'pageLoad' || sAction === 'variantChange') {</span>
+<span class="cstat-no" title="statement not covered" >        window.ga('ec:setAction', 'detail');</span>
+<span class="cstat-no" title="statement not covered" >        window.ga('send', 'pageview', pageLoadDimensions);</span>
+      } else <span class="cstat-no" title="statement not covered" >if (sAction === 'matchingItemsLoad') {</span>
+<span class="cstat-no" title="statement not covered" >        window.ga('ec:setAction', 'detail');</span>
+<span class="cstat-no" title="statement not covered" >        window.ga('send', 'event', 'PDP', 'matching item clicks', productTrackingData.id);</span>
+      }
+    } else {
+      common.init.push(<span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >        pdpTracking.submitAnalytics(productTrackingData, pageLoadDimensions);</span>
+      });
+    }
+  };
+&nbsp;
+  module.exports = pdpTracking;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

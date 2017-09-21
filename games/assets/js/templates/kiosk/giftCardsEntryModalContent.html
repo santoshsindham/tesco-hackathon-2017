@@ -1,0 +1,21 @@
+<div class="fnModal message">
+    <span class="<%= statusMessageClass %>"><%= statusMessageText %></span>
+</div>
+<div class="clearfix">
+    <div class="giftcard-image-wrapper">
+        <p class="giftcard-instruction-text">Enter your Gift Card code and PIN</p>
+        <div class="giftcard-image">
+        </div>
+    </div>
+    <form id="frmGiftCardsEntry" action='#' method='post' novalidate='novalidate'>
+        <div class="giftcard-input-wrapper giftcard-input-wrapper--code">
+            <label class="giftcard-label">Code:<sup>*</sup></label>
+            <input type="text" id='txt-giftCardCode' style="width:100%" class="txt-giftCardCode required" name='<%= formName_giftCardCode %>' placeholder="<%= giftCardsPlaceholderText %>" />
+        </div>
+        <div class="giftcard-input-wrapper giftcard-input-wrapper--pin">
+            <label class="giftcard-label">PIN:<sup>*</sup></label>
+            <input type="text" id='txt-giftCardPin' class="txt-giftCardPin required" name='<%= formName_giftCardPin %>' placeholder="<%= giftCardsPINPlaceholderText %>" />
+            <button type="submit" class='txt-giftCardPin secondary-button' id="btn-add-giftCards">Add</button>
+        </div>
+    </form>
+</div>

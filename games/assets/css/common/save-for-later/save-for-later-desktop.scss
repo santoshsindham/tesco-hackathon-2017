@@ -1,0 +1,14 @@
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "save-for-later-mixins";
+
+@include save-for-later-layout-desktop;
+
+
+/* Temporary fix to display the blinkbox image on the save for later block in the bottom right of the tile */
+/* It was previously overlapping product image */
+
+#save-for-later .product h3 a img.blinkbox{
+	left: 320px;
+	top: 52px;
+}

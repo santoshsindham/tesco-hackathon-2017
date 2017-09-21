@@ -1,0 +1,4 @@
+//checkout-product module - kiosk
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "checkout-product-mixins";

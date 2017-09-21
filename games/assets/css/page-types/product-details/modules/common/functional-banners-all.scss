@@ -1,0 +1,57 @@
+$functBannerBkgColor: $naturalWhite;
+$functBannerIcnBkgColor: #fcfbfa;
+$functBannerIcnBdrColor: $paleGrey;
+$functBannerIcnColor: $grey;
+
+.functional-banner {
+  overflow: hidden;
+  padding-bottom: 15px;
+  padding-top: 15px;
+
+  .block-link {
+    cursor: default;
+
+    &.with-tooltip {
+      cursor: pointer;
+    }
+  }
+
+  h4,
+  h5 {
+    padding-right: 10px;
+  }
+
+  .banner-name {
+    margin-right: 3px;
+  }
+
+  .banner-price {
+    color: $darkGrey;
+    font-weight: bold;
+    margin-right: 3px;
+  }
+
+  small {
+    display: block;
+  }
+
+  .icon-wrapper {
+    color: $functBannerIcnColor;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 50px;
+  }
+
+  .with-round-outline {
+    background-color: $functBannerIcnBkgColor;
+    border-color: $functBannerIcnBdrColor;
+  }
+
+  &.functional-banner-double {
+    > div {
+      &:first-child {
+        border-right: 1px solid $paleGrey;
+      }
+    }
+  }
+}

@@ -1,0 +1,1017 @@
+@import "../breakpoints";
+@import "../variables";
+@import "../forms/forms-mixins";
+
+.my-account {
+
+  #manageAddressForm {
+    .btn-edit, .btn-delete {
+      width: 46%;
+      float: none;
+      display: inline-block;
+      font-size: 0.8em;
+    }
+  }
+
+  #manageAddressForm,#change-password {
+    .input-standard.primary-button {
+      height: 40px;
+      padding: 10px 12px;
+    }
+  }
+/* forms */
+    .field-wrapper {
+        input {
+            max-width: 400px;
+        }
+    }
+    .page-error {
+        margin: 0 8px 16px;
+        width: auto;
+    }
+    #main-content {
+        .my-account-content {
+            input[type=text] {
+                height:48px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 14px;
+            }
+            input[type=submit], .button, .secondary-button {
+                height:48px;
+                padding:0 24px;
+
+                &.delete-card {
+                  height: 40px;
+                  line-height: 1.3em;
+                }
+            }
+        }
+    }
+	.pca-container {
+		z-index:12;
+	}
+	.form-intro {
+		margin-left: 10px;
+	}
+
+	> div.form-group-buttons {
+		clear: both;
+	}
+
+	.form-group-buttons {
+		.save {
+			float:right;
+			width: 220px;
+		}
+		.cancel {
+			float: left;
+			width: 160px;
+			margin-bottom:30px;
+		}
+		.cancel1 {
+            float: left;
+            width: 160px;
+            margin-bottom:30px;
+        }
+	}
+	.pcaCapturePlusTable .pcaAutoComplete .pcaContent,
+	.pcaCapturePlusTable .pcaAutoCompleteSmall .pcaContent {
+		overflow-y: scroll !important;
+		max-height: 132px !important;
+	}
+}
+
+.no_results { display:none !important}
+.form-group-buttons,
+.action-wrapper {
+	margin: 0 8px 30px 8px;
+	button.cancel {
+		border-radius: 3px;
+		position:absolute;
+		left: 0;
+		min-width: 100px;
+		background:#ccc;
+		border: 1px solid #b9b9b9;
+		color:#0265C3;
+
+		&:hover {
+			color:white;
+		}
+	}
+}
+.my-account #page-container .layout-b .primary-content {
+	min-height:500px;
+}
+
+.delivery-details,
+#ir-register1-mod {
+
+	.message,
+	.form-actions {
+		clear:both;
+	}
+	.message {
+		padding: 0.25em 0.5em;
+		font-size: 1.2em;
+		background: white;
+		border: 1px solid rgb(229, 229, 229);
+		z-index: 12;
+		position: relative;
+	}
+	.please-complete {
+		clear:both;
+		padding:10px 0 0 0;
+	}
+	.manually-add-address,
+	.hide {
+		display:none;
+	}
+	.manually-add-address.my-account-edit-show {
+		display:block
+	}
+	.manually-add-address {
+		clear: both;
+		.field-wrapper {
+			clear:both;
+		}
+		.locality-city {
+			font-weight: bold;
+			float: left;
+			font-size: 1.4em;
+			padding-left: 11.5em;
+			margin: -.5em 0 1.2em 0;
+		}
+	}
+
+	.pcaAutoComplete .pnlResults, .pcaAutoCompleteSmall .pnlResultsSmall {
+		width:75% !important;
+	}
+	#yy12ct58ge14mc885176 > div.pnlResultsSmall {
+		width: 100% !important;
+	}
+
+	.post-code {
+		.pca-container {
+			position: relative;
+			display: inline-block;
+			margin-bottom: 40px;
+		}
+		button {
+			right: 0;
+			position: absolute;
+			width:20%;
+			margin-top: 0;
+			height: 45px;
+		}
+
+		.postal-code-pca {
+			float:left !important;
+			margin-left:0 !important;
+		}
+		table.pcaCapturePlusTable {
+			position: absolute;
+			float: left;
+			width: 75% !important;
+
+			.postal-code-pca,
+			td {
+				width:100%;
+			}
+			table.pcaCapturePlusTable {
+				left: 0;
+				width: 100% !important;
+
+				.message {
+					width:100%;
+				}
+			}
+			.error-text {
+				color:red;
+				margin-top:0;
+			}
+		}
+
+	}
+	.form-actions {
+		display: inline-block;
+		width: 100%;
+		margin: 10px 0 0 0;
+	}
+}
+
+.action-wrapper {
+	position:absolute;
+	margin-top:10px;
+}
+
+#my-account-landing-header {
+	padding: 0 8px;
+
+    p {
+        font-size: 14px;
+        line-height: 1.4;
+        &:first-child {
+            font-size: 16px;
+        }
+    }
+}
+
+.my-account {
+
+	.example {
+		clear: both;
+		padding: 2px 0 0 0;
+		font-size: 1.2em !important;
+		color: #868686;
+		margin-bottom: 0;
+	}
+
+	.full-page-form {
+		form {
+			overflow-x: visible;
+		}
+	}
+	.no-orders-placed {
+		margin-right: 8px;
+		margin-left: 8px;
+	}
+
+	#page-container {
+		h1.stock-alert {
+			margin-bottom: 16px;
+			margin-top: -9px;
+		}
+	}
+
+    .last-row {
+        margin:0px;
+    }
+
+	.orders-sorting {
+		&:after {
+			@include clear-fix;
+		}
+		label, p{
+			font-size: 1.2em;
+			line-height: 1;
+			margin: 0 0 8px;
+			display: block;
+		}
+		.pagination {
+			float: right;
+			text-align: right;
+			.product-carousel, .orders-pagination {
+		  		padding-right: 0;
+		  		padding-left: 0;
+		  		.product-carousel-nav {
+					margin-right: 0;
+				}
+		  		.product-carousel-nav li a,
+		  		.product-carousel-nav li a .icon::after {
+					width: 37px;
+					height: 37px;
+				}
+				.product-carousel-nav li a .icon::after {
+					line-height: 35px;
+				}
+		  	}
+		  	.orders-pagination {
+		  	   margin-bottom: 0;
+		  	}
+		}
+		.sort {
+			float: left;
+			.customDropdown{
+				a.sort	{
+					width: 100%;
+					white-space:nowrap;
+				}
+				&.open ul{
+					overflow-x:hidden;
+				}
+			}
+			label {
+				text-align: left;
+			}
+		}
+	}
+
+	#order-summary {
+		.orders-list-header {
+			overflow: hidden;
+			padding: 8px;
+			border-top: 0;
+			border-bottom: 1px solid #f3f1ed;
+
+			h2 {
+				font-size: 14px;
+				line-height: 20px;
+				@include tescoFont;
+				padding-bottom: 0;
+			}
+			p {
+				font-size: 14px;
+				line-height: 20px;
+				margin: 0;
+			}
+			.header-title-value {
+				display: block;
+				font-weight: bold;
+				font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+				font-size: 18px;
+				line-height: 24px;
+			}
+			.order-number-date-container,
+			.order-status-value-container {
+				> div {
+					float: left;
+					margin-right: 55px;
+					width: auto;
+				}
+				.order-value {
+					float: right;
+					margin: 0;
+					text-align: right;
+				}
+			}
+		}
+
+		.delivery-group-block {
+
+			.items-dispatched,
+			.items-to-dispatch {
+				padding: 0 16px;
+			}
+
+			.items-to-dispatch {
+				.dispatch-info-header {
+					border-top: 1px solid #848282;
+				}
+			}
+		 	.dispatch-info-header {
+				padding: 16px 0;
+				height: 50px;
+				border-bottom: 1px solid $primaryBorderColor;
+				&:after {
+					@include clear-fix;
+				}
+				h3,
+				.sold-block {
+					font-size: 14px;
+					line-height: 20px;
+					@include tescoFont;
+					font-weight: bold;
+					padding: 0;
+					margin: 0;
+				}
+				h3 {
+					float: left;
+				}
+				.sold-block {
+					float: right;
+				}
+			}
+
+			.delivery-group-items {
+				border-top: 0;
+			}
+
+			.product-block {
+				&:after {
+					@include clear-fix;
+				}
+				.thumbnail{
+					padding: 0;
+				}
+				padding-bottom: 16px;
+				// when product img fails to load,
+				// the height of the container isnt tall enough to contain the contact btn
+				min-height: 138px;
+
+				.product-details {
+					margin-left: 8px;
+					width: 44%;
+  		 			float: left;
+  		 			h3 {
+  		 				margin-bottom: 0px;
+  		 				width: 100%;
+  		 			}
+  		 			p.supplier {
+						position: relative;
+						display: inline-block;
+					}
+				}
+			}
+
+			.delivery-block {
+				&:after {
+					@include clear-fix;
+				}
+				padding: 16px 0;
+				margin-top: 0;
+				margin-bottom: 0; //override margin-bottom: 30px style added by selfservice.css
+				.view-order {
+					width: 112px;
+					float: right;
+					height: 34px;
+					line-height: 34px;
+					padding: 0;
+					margin-bottom: 0;
+				}
+				a {
+					font-size: 1.4em;
+					line-height: 1.4em;
+					margin-top: 8px;
+					display: inline-block;
+					float: left;
+				}
+			}
+			.orderDetails {
+				padding: 14px 10px 0px 2px;
+			    width: 100%;
+			    float: left;
+			    position: relative;
+
+				a {
+					width: 24%;
+				    margin: 0 12px 6px 0px;
+				    padding: 10px 0;
+				    &.view-track-button{
+						display:none;
+				    }
+				    &.view-button, &.track-button{
+						display: inline-block;
+			       }
+
+				}
+			}
+
+		}
+	}
+
+	.supplied-container {
+		.sold-block {
+			.supplier-label, .dg-items-ps{
+				display: none;
+			}
+		}
+		.contact {
+			float: right;
+			width: 112px;
+			clear: left;
+			height: 34px;
+			line-height: 34px;
+			padding: 0;
+			margin-bottom: 8px;
+			margin-left:10px;
+			font-size: 14px;
+		}
+	}
+
+}
+.cancel-orders-details{
+	margin-left:8px;
+	margin-right: 8px;
+	.order-details-header{
+		h2{
+			font-size: 14px;
+			line-height: 20px;
+			@include tescoFont;
+			padding-bottom: 0;
+			span{
+				font-weight: bold;
+				font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+				font-size: 18px;
+			}
+		}
+		.notification{
+			margin: 0 10px 24px 0px;
+			padding: 12px 16px;
+			border: 1px solid $primaryBorderColor;
+			background-color: #fff8da;
+			width:100%;
+			p{
+				font-size: 1.4em;
+				line-height: 1;
+				margin: 0;
+				display: block;
+			}
+		}
+		.cancel-info{
+			width:57.6%;
+		 }
+	}
+	.order-details-content{
+		.order-details-block{
+			&:after {
+				@include clear-fix;
+			}
+			background: #ffffff;
+			margin-bottom: 20px;
+			padding: 16px 16px 8px 8px;
+			.refund{
+				border-collapse: collapse;
+			    font-size: 1.4em;
+			    text-align: left;
+			    width: 100%;
+				td {
+				    width: 100%;
+					padding:12px 0px;
+					border-top:1px solid $primaryBorderColor;
+				}
+				div{
+					float:left;
+					width:50%;
+				}
+				.cancel-mail-info{
+					width:100%
+				}
+			}
+			&.grocery-info {
+				border: 5px solid #009cda;
+				border-radius: 20px;
+				position: relative;
+				margin: 20px;
+        		padding: 20px 20px 10px 20px;
+    			font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+				&:before{
+					width: 33px;
+					height: 20px;
+					content: " ";
+					background-image: url('../images/bubble_pointer.png');
+					position: absolute;
+					left: 90px;
+					top: -26px;
+					-ms-transform: rotate(90deg); /* IE 9 */
+    				-webkit-transform: rotate(90deg); /* Safari */
+    				transform: rotate(90deg);
+				}
+				h2{
+					 font-size: 2em;
+					 margin-bottom: 10px;
+				}
+				.refund {
+					td {
+						border-top: none;
+					}
+					div a.viewMyOrder {
+						color: #fff;
+						background-color: #00a1e0;
+						border: 1px solid transparent;
+					}
+				}
+				a.tertiary-button{
+					width:70%;
+					font-family:"Tesco", Helvetica Neue, Arial, sans-serif;
+				}
+			}
+		}
+		.viewOrderButton{
+			&:after {
+				@include clear-fix;
+			}
+			.view-order{
+				float: right;
+			    height: 34px;
+			    line-height: 34px;
+			   	padding:0px;
+			    width: 122px;
+				margin-bottom:12px;
+			}
+		}
+		a.go-to-top{
+			float: right;
+		    font-size: 1.6em;
+		   	margin-bottom:16px;
+			.icon {
+			    font-size: 0.7em;
+				margin-left: 5px;
+		    	position: relative;
+		    	top: -2px;
+			}
+		}
+	}
+	.cancel-order-form{
+		p{
+			font-size:1.4em;
+		}
+		.field-wrapper{
+			position: relative;
+			margin: 0 0 20px;
+			&:after {
+				@include clear-fix;
+			}
+			.customDropdown{
+				float:left;
+			}
+			label{
+				float:left;
+				text-align:right;
+				width:200px;
+				padding:0px 14px;
+				display:block;
+				font-size:1.4em;
+				span.field-required {
+					color: $colorRed;
+				}
+			}
+			#charTxt{
+				float: right;
+				margin: -21px 10px 0px 0px;
+			}
+			textarea{
+				float:left;
+				width:78%;
+				height:75px;
+				@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+				padding: 0 7px;
+				border: 1px solid $primaryBorderColor;
+				background-color: #fff;
+			}
+			.back-to-order, input[type='submit']{
+				float:right;
+				clear:left;
+				display:inline-block;
+				width:25%;
+				margin-left:10px;
+			}
+		}
+	}
+	.print-page{
+		padding-bottom:20px;
+		font-size: 1.4em;
+		a .icon{
+			font-size: 17px;
+		    margin-right: 8px;
+		    position: relative;
+		    top: 3px;
+		}
+	}
+}
+.data, .data-type{
+	display:block;
+	float:left;
+}
+.data-type{
+	margin-left:10px;
+}
+
+.no-touch {
+	.my-account {
+		#myOrdersForm {
+			//overflow hidden is set on main content
+			//so if page does not have enough content the custom dropdown is cropped when open
+			min-height: 253px;
+		}
+	}
+}
+
+/* css fix to redraw dropdown arrow on select boxes for android native browser */
+.primary-content select.form-select {
+    background-color : transparent;
+	background-image: url(data:image/png;base64,R0lGODlhDQAEAIAAAAAAAP8A/yH5BAEHAAEALAAAAAANAAQAAAILhA+hG5jMDpxvhgIAOw==);
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.signout-btn {
+	color: #7c765f;
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	text-align: left;
+	border: 0 none;
+	padding: 0 19px;
+	background: transparent;
+	cursor: pointer;
+	line-height: 44px;
+	&:hover {
+		background: #00a1e0;
+		color: white;
+		outline: 0;
+	}
+}
+
+.myAccountMessage {
+    margin: 0 8px 20px;
+    padding: 16px 8px;
+    background: #ffffff;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.my-account-heading {
+    background: #ffffff;
+    margin: 1px 8px 0px 8px;
+
+    h1 {
+        max-height: none;
+        width: 100%;
+        padding: 25px 14px;
+        font-size:28px;
+        margin: 0;
+        font-style:normal;
+        line-height: 29px;
+        border-bottom: 1px solid $pagePutty;
+    }
+
+    h2 {
+        width: 100%;
+        padding:14px 14px;
+        font-size:20px;
+        line-height: 20px;
+        margin-bottom: 0;
+        border-bottom: 1px solid $pagePutty;
+    }
+}
+
+.my-account-content {
+    background: #ffffff;
+    padding: 16px;
+    margin: 0px 8px 0px 8px;
+    &:last-child {
+        margin-bottom: 16px;
+    }
+    &:after {
+        @include clear-fix;
+    }
+
+    .add-card-button {
+        width: auto;
+        display: inline-block;
+        padding: 12px;
+    }
+
+    p {
+        margin: 0 0 1em;
+        font-size: 14px;
+        line-height: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style:normal;
+        max-width:500px;
+    }
+
+    .my-address, .my-card {
+        padding:40px 16px 16px 16px;
+        background:$white;
+        width:31.5%;
+        float:left;
+        border:1px solid $pagePutty;
+        color: $darkPutty;
+        position:relative;
+        margin-right:16px;
+        margin-bottom:16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size:14px;
+        font-style:normal;
+            &.active {
+                background:$veryLightBlue;
+                border-color:$tescoBrightBlue;
+                address {
+                    font-weight:bold;
+                }
+                a.delete-address {
+                    display:none;
+                }
+                p.current-address, p.main-card {
+                    font-size:16px;
+                    line-height:20px;
+                    font-weight:bold;
+                    text-align:center;
+                    width:100%;
+                    padding:14px 16px;
+                    margin:0px;
+                    display:block;
+                    color:$darkPutty;
+                }
+                aside {
+                    font-weight: bold;
+                    font-style: normal;
+                }
+                input[type=submit] {
+                    display:none;
+                    &.delete-card {
+                        display: block;
+                        width: 100%;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+            &.only-card {
+                padding-top: 16px;
+                p.main-card {
+                    padding:0px;
+                }
+            }
+            aside {
+                font-size:14px;
+                padding-bottom:16px;
+                font-style:normal;
+                line-height:20px;
+            }
+            section {
+                overflow:auto;
+                &.card-info {
+                    padding:16px 0;
+                    li {
+                        clear:both;
+                        strong {
+                            float:left;
+                        }
+                    }
+                    aside {
+                        margin-bottom:16px;
+                    }
+                }
+                li {
+                    font-size:14px;
+                    line-height:24px;
+                    span {
+                        float:right;
+                    }
+                    strong {
+                        float:left;
+                    }
+                }
+                a.edit-address {
+                   display:block;
+                   font-size:14px;
+                   line-height:20px;
+                   padding:16px 0;
+                }
+                input[type=submit] {
+                    font-size:16px;
+                    line-height:20px;
+                    font-weight:normal;
+                    padding:16px;
+                    border:none;
+                    margin:0px;
+                    width:100%;
+                    &:hover {
+                        background: $tescoBrightBlue;
+                        color: $white;
+                    }
+                }
+                a.delete-address {
+                    position:absolute;
+                    top:16px;
+                    right:16px;
+                    font-size:14px;
+                    font-weight:bold;
+                    &:after {
+                          content: 'y';
+                          font-family: 'Tesco Icons';
+                          position: relative;
+                          font-size: 10px;
+                          top: 3px;
+                          float: right;
+                          right: 0px;
+                          padding-left:5px;
+
+                    }
+                }
+                p.current-address {
+                    display:none;
+                }
+            }
+    }
+    .my-card {
+        width: 282px;
+        .tertiary-button {
+            width: 100%;
+        }
+    }
+}
+
+.my-account-form {
+    max-width: 400px;
+    fieldset {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+    .field-wrapper {
+        clear: both;
+        margin-bottom: 16px;
+        .current-email {
+            a {
+                padding-left:10px;
+            }
+        }
+        &.last-row {
+            margin-bottom:0px;
+            input[type=submit] {
+                margin-bottom:0px;
+            }
+        }
+    }
+    label {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .form-textinput {
+        width: 100%;
+        display: block;
+        clear: both;
+    }
+    p.required-msg {
+        float:right;
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        color:$requiredRed;
+        clear:left;
+    }
+    input[type=submit] {
+        width:auto;
+        height: 48px;
+    }
+    span.error {
+        @include errorMessages();
+    }
+    .customDropdown {
+        a {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.my-account-form-pca {
+    position: relative;
+
+    .manually-add-address {
+        display: none;
+    }
+
+    .locality-city {
+        font-weight: bold;
+        font-size: 14px;
+        padding: 10px 16px;
+        margin-top: -16px;
+        height: 48px;
+    }
+
+    .pcaAutoComplete .pnlResults, .pcaAutoCompleteSmall .pnlResultsSmall {
+        width:75% !important;
+    }
+    #yy12ct58ge14mc885176 > div.pnlResultsSmall {
+        width: 100% !important;
+    }
+
+    .post-code {
+        min-height: 68px;
+
+        .pca-container {
+            position: relative;
+        }
+        button {
+            right: 0;
+            position: absolute;
+            width:25%;
+            margin-top: 0;
+            height: 45px;
+        }
+
+        .postal-code-pca {
+            float:left !important;
+            margin-left:0 !important;
+        }
+        table.pcaCapturePlusTable {
+            position: absolute;
+            float: left;
+            width: 75% !important;
+
+            .postal-code-pca,
+            td {
+                width:100%;
+            }
+            table.pcaCapturePlusTable {
+                left: 0;
+                width: 95% !important;
+
+                .message {
+                    width:100%;
+                }
+            }
+            .error-text {
+                color:red;
+                margin-top:0;
+            }
+        }
+        span.error {
+            top: -27px;
+        }
+    }
+    .message {
+        clear: both;
+        padding: 0.25em 0.5em;
+        font-size: 1.2em;
+        background: white;
+        border: 1px solid rgb(229, 229, 229);
+        z-index: 12;
+        position: relative;
+    }
+}

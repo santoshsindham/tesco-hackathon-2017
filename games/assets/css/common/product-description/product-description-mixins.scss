@@ -1,0 +1,830 @@
+@mixin collectionGrid {
+	#main-content{
+		.bundle, .linksave {
+		      clear: both;
+		      section.collection {
+		        position:relative;
+		        overflow:visible;
+		        a.collectionTermsLink {
+		          cursor:pointer;
+		          width:auto;
+		          float:none;
+		          position:absolute;
+		          top:13px;
+		          margin:0;
+		          right:15px;
+		          border:0;
+		          padding:8px;
+		        }
+		      }
+
+			.collectionItems {
+				& > li {
+					border-left:1px dashed $putty;
+					float: left;
+					width:25%;
+					height: auto;
+					padding:0;
+					position:relative;
+					&:first-child {
+						border-left: none;
+					}
+				}
+			}
+
+			.collectionItemImageContainer {
+				height:112px;
+				position: relative;
+			 	width:100%;
+			}
+
+			.collectionItems > li:before {
+			    width: 18px;
+			    height: 18px;
+			    position: absolute;
+				left:0;
+			    margin: -9px 0px 0px -9px;
+			    top:50%;
+		  	}
+			.collectionItems > li:before {
+				content: '';
+		        background-image: url('../img/sprite1.png');
+		        width:20px;
+		        height:20px;
+		        background-position: -20px 0px;
+		    }
+		  	.collectionItems > li:first-child:before {
+				display: none;
+			}
+
+		  	.collectionItemDetail {
+		  		margin-bottom: 14px;
+		        padding:0 20px;
+		        .collectionItemDescription {
+		          height: 48px;
+		          margin-top:0;
+		          margin-right:0;
+		        }
+		  	}
+			li.collectionSummary {
+				-webkit-transform-style:preserve-3d;
+				-moz-transform-style:preserve-3d;
+				transform-style:preserve-3d;
+				display: table;
+		        z-index:2;
+		        .loader{
+		          margin-left:1px;
+		        }
+		        .collectionSummaryContent{
+		          height:auto;
+		          position:relative;
+		          padding:8px 0;
+		          width:100%;
+		          display: table-cell;
+		          vertical-align: middle;
+
+				}
+				&:before {
+					 content: '';
+			          background-image: url('../img/sprite1.png');
+			          width:20px;
+			          height:20px;
+			          background-position: -20px -20px;
+				}
+				del {
+					display: block;
+				}
+				> p {
+					font-size: 1.8em;
+					margin-top: 30px;
+				}
+				.collectionPrice {
+					margin-bottom: 15px;
+					font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+					font-weight:bold;
+					padding:0 20px;
+					.currentPrice{
+						margin:0;
+						font-size:3.6em;
+					}
+					.oldPrice{
+						font-size:1.8em;
+						margin:0;
+						margin-bottom:5px;
+					}
+				}
+				.buttons{
+		          padding:0 20px;
+		        }
+			}
+			.collectionItemContainer{
+		        width:100%;
+		        float:left;
+		        height:auto;
+		        display:block;
+		        overflow:hidden;
+		    }
+			.collectionItemContainer.selectable{
+		        .collectionItemDetail{
+		          padding-left:59px;
+		          p.collectionItemDescription{
+		            overflow:hidden;
+		          }
+		        }
+		        .checkboxContainer{
+		          width:auto;
+		          min-height:34px;
+		          display:block;
+		          position:absolute;
+		          height:auto;
+		          padding:0 15px 0 20px;
+		          z-index:90;
+		          .checkbox{
+		            margin:0;
+		            margin-top:115px;
+		            float:left;
+		            cursor:pointer;
+		          }
+		        }
+		    }
+			a.bundleLink{
+		        width:100%;
+		        text-align:center;
+		        display: inline-block;
+		        margin-top:4px;
+		        &:hover{
+		          text-decoration: none;
+		          &:after{
+		            color: $tescoBrightBlue;
+		          }
+		        }
+		        &:after{
+		          content: 'r';
+		          font-family: 'Tesco Icons';
+		          font-size: .8em;
+		          line-height: 1.6em;
+		          padding-left: 3px;
+		          width: 16px;
+		        }
+		        &:hover{
+		          span {
+		            text-decoration: underline;
+		          }
+		        }
+			}
+
+			@content;
+		}
+	}
+}
+
+@mixin collectionList {
+	section.collection{
+	    overflow:visible;
+	}
+	a.collectionTermsLink {
+	      cursor:pointer;
+	      width:auto;
+	      float:none;
+	      position:absolute;
+	      top:34px;
+	      left:20px;
+	      margin:0;
+	      border:0;
+	      z-index:10;
+	      padding:8px 8px 8px 0px;
+	 }
+	.collectionItems > li {
+			padding:10px 16px;
+			border-top: 1px solid $pagePutty;
+		&:after {
+			@include clear-fix;
+		}
+		&:first-child {
+  			border-top: none;
+			&:before{
+	        	display:none;
+			}
+  		}
+	}
+	/*.collectionItemImageContainer img {
+		max-width: 100%;
+		height: auto;
+	}*/
+	.collectionItemImageContainer {
+		overflow: hidden;
+		height:112px;
+		width: 110px;
+		float: left;
+		position: relative;
+		margin-right: 20px;
+	}
+	.collectionItemDetail {
+		float: left;
+		width:415px;
+		margin: 0 0 10px 0;
+	}
+	.buttons {
+		margin-top: 10px;
+	    margin-bottom:10px;
+	    input {
+	      margin-bottom:0px;
+	    }
+	}
+
+	.collectionItemPrice{
+		display:inline-block;
+		margin-bottom:8px;
+	}
+	.collectionQuantity {
+	    margin-right: 5%;
+	    display: inline-block;
+	    width: 20%;
+	    float:left;
+	    input[type="text"] {
+	    	text-align: center;
+	    	width:100%;
+	    }
+	}
+	.collectionItemSelection {
+		display: inline-block;
+	  	width: 75%;
+	  	float:left;
+	 }
+	.collectionActions {
+	   	float: right;
+	   	margin-top:25px;
+	   	width:264px;
+	   	position: relative;
+	  	overflow: visible;
+	}
+	.stock-alert{
+		width:100%;
+		float:left;
+
+	}
+	.collectionItemNext {
+	 	border-top:1px solid $pagePutty;
+	 	padding:10px;
+	 	text-align:center;
+	}
+	.rating-container {
+		margin:0 0 8px 0;
+		height:auto;
+	}
+}
+
+@mixin bundleList {
+	@include collectionList;
+	&.linksave section.collection .toggleDetailWrapper{
+		& > h3{
+			height:75px;
+			font-family: $tescoFont;
+			&:after{
+				top: 20px;
+				bottom: auto;
+				height: 12px;
+			}
+		}
+	}
+	section.collection {
+			position:relative;
+			overflow:visible;
+	}
+	.collectionItems > li {
+  		position:relative;
+  		padding:0;
+		&:after {
+			@include clear-fix;
+		}
+	}
+	.collectionItems > li{
+		border-top:1px dashed $putty;
+	}
+	.collectionItems > li:first-child{
+		border-top:none;
+
+	}
+	.collectionItems > li:before {
+		width: 18px;
+		height: 18px;
+		display: block;
+		position:absolute;
+	    left:50%;
+	    top:0;
+	    margin: -9px 0px 0px -9px;
+	}
+	/*.collectionItems > li:first-child:before {
+		display: none;
+	}*/
+
+	.collectionItems > li:before {
+		content: "";
+	    width: 18px;
+	    height: 18px;
+	    background: url('../img/sprite1.png') -20px 0 no-repeat;
+	}
+	.collectionItems > li.collectionShelf + li {
+		border-top:0;
+	}
+	.collectionItemImageContainer {
+		overflow: hidden;
+	    height:auto;
+	    width: 35%;
+	    float: left;
+	    position: relative;
+	    margin-left:0;
+	    margin-right:0;
+	    padding:10px;
+	    text-align:center;
+	    img{
+	      display:inline;
+	      position:relative;
+	    }
+	}
+
+	.collectionItemDetail {
+		float: left;
+		padding: 10px;
+	 	width: 65%;
+		margin:0;
+	}
+	.collectionStock{
+		display:block;
+		min-height:20px;
+		padding-top:12px;
+	}
+	li.collectionSummary {
+		width: 100%;
+	 	display: table;
+		&:before {
+		content: "";
+	    width:18px;
+	    height:18px;
+	    background: url('../img/sprite1.png') -20px -20px no-repeat;
+		}
+		.collectionSummaryContent{
+			 height:auto;
+		      position:relative;
+		      width:100%;
+		      padding-top:14px;
+		      padding-bottom: 8px;
+		      display: table-cell;
+		      vertical-align: middle;
+		}
+		.collectionPrice {
+			width:100%;
+			text-align:center;
+	      	height:auto;
+	      	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+			p.oldPrice {
+				font-size:1.8em;
+		        width:100%;
+		        margin:0;
+		        text-align:center;
+			}
+			.saving {
+				color: $tescoRed;
+				font-weight: 700;
+				display:inline-block;
+			}
+			.currentPrice {
+				font-size:3.6em;
+		        margin-top:0px;
+		        width:auto;
+		        margin-top:5px;
+		        margin-bottom:0;
+		        font-weight:bold;
+			}
+		}
+	}
+	.buttons{
+		padding:0 10px;
+		float:left;
+		width:100%;
+	}
+	.collectionItems
+	  .collectionItemContainer.selectable{
+	    width:100%;
+	    float:left;
+	    height:auto;
+	    display:block;
+	    position:relative;
+	    .checkboxContainer{
+	      width:50px;
+	      display:block;
+	      padding:0;
+	      position:absolute;
+	      left:0;
+	      top:0;
+	      bottom:0;
+	      z-index:90;
+	      .checkbox{
+	        margin:auto 0;
+	        position:absolute;
+	        top:0;
+	        left:15px;
+	        bottom:0;
+	      }
+	    }
+	  }
+	  a.bundleLink{
+	    width:100%;
+	    text-align:center;
+	    display: inline-block;
+	    margin-top:4px;
+	    &:hover{
+	      text-decoration: none;
+	      &:after{
+	        color: $tescoBrightBlue;
+	      }
+	    }
+	    &:after{
+	      content: 'r';
+	      font-family: 'Tesco Icons';
+	      font-size: .8em;
+	      line-height: 1.6em;
+	      padding-left: 3px;
+	      width: 16px;
+	    }
+	    &:hover{
+	      span {
+	        text-decoration: underline;
+	      }
+	    }
+	  }
+	  &.bundle{
+	    .collectionItemImageContainer {
+	      width: 45%;
+	      padding-left:50px;
+	    }
+	    .collectionItemDetail {
+	      float: left;
+	      padding: 10px;
+	      width: 55%;
+	      margin:0;
+
+	    }
+	 }
+}
+@mixin positionBreadCrumb {
+	#breadcrumb {
+		margin-bottom: 0;
+	}
+	#page-container & h1.page-title {
+		margin-top: 0;
+		width: 672px;
+		line-height: 30px;
+	}
+}
+
+@mixin twoColumnLayout {
+	.product-description #main-content {
+		width: 872px;
+		float: left;
+		overflow: visible;
+	}
+	.product-description .secondary-content {
+        float: right;
+        position: absolute;
+        top: 0;
+        right: -310px;
+        width: 295px;
+    }
+}
+
+@mixin verticalThumbnails {
+	.products-header {
+		display: block;
+		//position: absolute;
+		z-index: 20;
+	}
+	.products-wrapper {
+		margin-left: 88px;
+	}
+	.product-carousel-nav {
+		float: none;
+		margin-bottom: 0;
+		z-index:10000;
+		li {
+			position: absolute;
+			left: 3px;
+			bottom: 0px;
+			margin: 0;
+			&:first-child {
+				top: 0;
+			}
+			a {
+				width: 74px;
+				height: 33px;
+				.icon:after {
+					font-size: 17px;
+					left: 12px;
+					line-height: 33px;
+				}
+			}
+			a.previous {
+				.icon:after {
+					content: '1';
+				}
+			}
+			a.next {
+				.icon:after {
+					content: '2';
+				}
+			}
+		}
+	}
+	.product {
+		width: 100%;
+		height: 479px;
+		img {
+			width: 100%;
+		}
+	}
+	.thumbnails {
+		overflow: hidden;
+		li {
+			@include border-radius(2px);
+			margin: 3px 0;
+		}
+	}
+}
+
+@mixin featuredProductsDesktop {
+	.feature-products .products > li .product {
+		.title-author-format {
+			h3 {
+				max-height: 64px;
+				padding-bottom: 0;
+				&.cd,
+				&.dvd,
+				&.book,
+				&.media {
+					max-height: 46px;
+				}
+			}
+		}
+	}
+	.products > li .product  {
+    	min-height: 80px;
+    }
+}
+
+@mixin price-check-details-two-column {
+	table {
+		thead {
+			th {
+				width: 50%;
+				&.price,
+				&.date-checked {
+					display: none;
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:first-child {
+					display: none;
+				}
+				td {
+					&:first-child {
+						vertical-align: top;
+					}
+					&.price {
+						display: none;
+					}
+					&.saving,
+					&.date-checked {
+						width: 100%;
+						display: block;
+					}
+					&.saving {
+						border-bottom: none;
+						padding-bottom: 0;
+					}
+					&.date-checked {
+						color: #838181;
+						&:before {
+							content: 'Date checked ';
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin price-check-details-four-column {
+	table {
+		thead {
+			th {
+				width: 25%;
+				&.price,
+				&.date-checked {
+					display: table-cell;
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:first-child {
+					display: table-row;
+				}
+				td {
+					&:first-child {
+						vertical-align: top;
+					}
+					&.price,
+					&.saving,
+					&.date-checked {
+						width: 25%;
+						display: table-cell;
+					}
+					&.saving {
+						padding-bottom: 8px;
+					}
+					&.date-checked {
+						color: #4F5050;
+						&:before {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin mobile-dots-dimension-and-spacing ($dotMarginLeft, $dotMarginRight) {
+	@include mobile-dots-dimension;
+	@include mobile-dots-spacing ($dotMarginLeft, $dotMarginRight);
+}
+
+$dotDimension:9px;
+
+@mixin mobile-dots-dimension {
+	li {
+		width: $dotDimension !important;
+		height: $dotDimension;
+	}
+}
+
+@mixin mobile-dots-spacing ($dotMarginLeft, $dotMarginRight) {
+	li {
+		margin-left: $dotMarginLeft;
+		margin-right: $dotMarginRight;
+	}
+}
+
+@mixin dots12-to-dots29 {
+	&.dots12 {
+		@include mobile-dots-dimension;
+	}
+	&.dots13 {
+		@include mobile-dots-dimension;
+	}
+	&.dots14 {
+	    @include mobile-dots-dimension-and-spacing (3px, 3px !important);
+	}
+	&.dots15 {
+	     @include mobile-dots-dimension-and-spacing (2.5px, 1.5px !important);
+	}
+	&.dots16 {
+	    @include mobile-dots-dimension-and-spacing (2px, 2px !important);
+	}
+	&.dots17 {
+	    @include mobile-dots-dimension-and-spacing (1px, 1px);
+	}
+	&.dots18, &.dots19, &.dots20, &.dots21, &.dots22, &.dots23, &.dots24, &.dots25, &.dots26, &.dots27, &.dots28, &.dots29 {
+		@include mobile-dots-dimension-and-spacing (1px, 1px !important);
+	}
+}
+
+@mixin hide-elements {
+	display: none !important;
+	opacity: 0;
+}
+
+@mixin hide-carousel-indicators {
+	#s7setindicator, .genericCarouselPositionIndicator {
+	     @include hide-elements;
+    }
+}
+
+@mixin generic-carousel-indicator-dots-list {
+	li {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-left: 4px;
+		margin-right: 4px !important;
+		margin-top: 6px;
+		margin-bottom: 2px;
+		border-radius: 6px;
+		border: 1px solid #d5d3d3;
+		background: #ffffff;
+		&:hover {
+			border: 1px solid #d5d3d3 !important;
+		}
+		&.selected {
+			background-color: #00A1E0 !important;
+			border: 1px solid #00A1E0 !important;
+		}
+	}
+}
+
+@mixin button-s7-step {
+	.btn-s7-step {
+		border-color: $putty;
+		background: transparent;
+		color: $darkPutty;
+		border-radius: 2px;
+		width: 30px;
+		height: 25px;
+		line-height: 24px;
+		font-size: 1.3em;
+		display: block !important;
+
+		&:active {
+			background-color: $tescoBrightBlue;
+			border-color: $tescoBrightBlue;
+			color:#fff;
+			&:after {
+				color:#fff;
+			}
+		}
+
+		&.disabled {
+			@include button-s7-step-hover-and-disabled;
+			&:hover {
+				@include button-s7-step-hover-and-disabled;
+			}
+		}
+	}
+}
+
+@mixin button-s7-step-hover-and-disabled {
+				color: $inactivePutty;
+				border-color: $lightPutty;
+				background: transparent;
+}
+
+@mixin width-height-and-overflow($containerWidth,$containerHeight,$containerOverflow) {
+			@include width-and-height($containerWidth,$containerHeight);
+			overflow: $containerOverflow;
+}
+
+@mixin width-and-height($containerWidth,$containerHeight) {
+			width: $containerWidth;
+			height:$containerHeight;
+}
+
+@mixin pdp-scene7-container-dimensions ($containerWidth,$containerHeight) {
+	#pdpScene7Container {
+				@include width-and-height($containerWidth,$containerHeight);
+	}
+}
+
+@mixin error-wrap-styles ($errorTop,$errorWidth,$errorPosition,$errorFontSize) {
+		width: $errorWidth;
+		@include error-wrap-styles-position-and-top ($errorTop,$errorPosition);
+		span {
+			font-size: $errorFontSize;
+		}
+}
+
+@mixin error-wrap-styles-position-and-top ($errorTop,$errorPosition) {
+		top: $errorTop;
+		position: $errorPosition;
+}
+
+@mixin error-styles-video-common($errorTop,$errorWidth,$errorPosition,$errorFontSize) {
+	.errorVideo {
+	    .errorWrap {
+		    @include error-wrap-styles ($errorTop,$errorWidth,$errorPosition,$errorFontSize);
+	     }
+      }
+}
+
+@mixin pdp-scene7-container-mobile-zoom-and-video ($containerOverflow, $containerHeight) {
+			overflow: $containerOverflow;
+			width: 100%;
+			min-height: 200px;
+			height: $containerHeight;
+			position:relative;
+}
+
+@mixin displayAndPositioning($elementDisplay, $elementPositioning) {
+	display: $elementDisplay;
+	position:  $elementPositioning;
+}
+
+@mixin PDPV2-block-with-indents {
+	.product {
+	  .with-indents {
+	    padding-left: 8px;
+	    padding-right: 8px;
+	  }
+	}
+}

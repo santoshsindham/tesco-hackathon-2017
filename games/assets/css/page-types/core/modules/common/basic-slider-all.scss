@@ -1,0 +1,47 @@
+/* Basic Video Slider */
+.basic-slider {
+    height: 20px;
+    position: relative;
+    width: 100%;
+    margin: 0;
+}
+
+.basic-slider-handle {
+    background: #fff;
+    box-sizing: border-box;
+    border: 1px solid #7b765f;
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    z-index: 1;
+    &:hover {
+        background: #00a0df;
+        border-color: #fff;
+        cursor: pointer;
+    }
+}
+
+.basic-slider-track {
+    background-color: #7C765F;
+    display: block;
+    width: 100%;
+    position: absolute;
+    height: 2px;
+    top: 9px;
+    left: 0;
+    z-index: 0;
+}
+
+.basic-slider-trail {
+    background: #00A1E0;
+    box-sizing: border-box;
+    left: 0;
+    height: 5px;
+    padding: 0;
+    position: absolute;
+    top: 8px;
+    width: 0;
+    z-index: 1;
+}

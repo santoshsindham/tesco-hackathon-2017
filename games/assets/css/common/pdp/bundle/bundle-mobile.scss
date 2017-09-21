@@ -1,0 +1,24 @@
+@import 'bundle-mixins';
+@include bundleViewSmall;
+
+.bundle-view {
+  .product-tile-image {
+    height: 150px;
+  }
+}
+
+.bundle-primary {
+  .product-tile {
+    .product-tile-section-two {
+      margin-top: 35px;
+    }
+  }
+}
+
+.bundle-secondary {
+  .product-tile {
+    .product-tile-section-two {
+      margin-top: 60px;
+    }
+  }
+}

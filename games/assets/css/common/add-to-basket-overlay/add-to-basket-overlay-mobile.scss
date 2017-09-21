@@ -1,0 +1,27 @@
+/*******************************************
+*	Mobile Add To Basket Overlay module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "add-to-basket-overlay-mixins";
+
+#lightbox {
+	.add-to-basket-notification {
+
+		h2 {
+			padding: 0;
+		}
+		.thumbnail-container {
+			display: none;
+		}
+	}
+}
+
+@include product-info-mobile;
+
+@include closeGraphic;
+
+#notificationContainer, #notificationContainer.visible{
+	display: none;
+}

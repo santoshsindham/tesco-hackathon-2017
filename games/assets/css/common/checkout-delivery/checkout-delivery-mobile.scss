@@ -1,0 +1,1081 @@
+//checkout-delivery module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "checkout-delivery-mixins";
+
+/* ** EPIC 2571 : Start ** */
+/* Payment block */
+.add-new-address {
+  .post-code {
+    button.edit-address-button {
+      height: 45px;
+    }
+  }
+}
+/* ** EPIC 2571 : End ** */
+
+.checkout .checkout-info {
+  margin-bottom: 16px;
+}
+
+.checkout .delivery-block {
+  &.e-gaming {
+    .delivery-options{
+      h2{
+        font-size: 20px;
+      }
+      #egaming-DO-Container{
+        p{
+          top: 0;
+        }
+      }
+    }
+    .collection-details {
+      .e-gaming-email{
+        h2{
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .flowers-module {
+    .flowers-recipient{
+      width: 100%;
+      border-right: none;
+      padding-top: 16px;
+      span[for="save-recipient-title"].error, span[for="new-recipient-title"].error {
+        width: 84px;
+      }
+      span[for="save-recipient-mob"].error, span[for="new-recipient-mob"].error {
+        top: 105px;
+      }
+      .recipient-address-div.disable-flowers-address {
+        select {
+          pointer-events: none;
+        }
+      }
+      .address-tabs li {
+        width: 100%;
+      }
+      .flowers-new-recipient {
+        .address-tabs li {
+          width: auto;
+        }
+        .saved-flower-address,
+        .saved-flower-address.open {
+          .customDropdown,
+          .customDropdown .control {
+            width: 300px;
+            height: 45px;
+          }
+        }
+      }
+    }
+    .flowers-pick-date {
+      padding-left: 0px;
+      .delivery-options-list {
+        padding-top: 6px;
+      }
+      .flowers-pick-date-error {
+        font-size: 14px;
+        margin-top: 8px;
+      }
+    }
+  }
+  .edit-courier-instructions {
+
+    .customDropdown {
+      margin-bottom: 16px;
+    }
+
+    .form-actions {
+      font-size: 0.7em;
+      &:after {
+        @include clear-fix;
+      }
+
+      input[type="button"] {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        float: left;
+        width: 48%;
+        margin-right: 4%;
+      }
+
+      input[type="submit"] {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        float: left;
+        width: 48%;
+      }
+    }
+  }
+
+
+    .delivery-contact-snippet {
+        border-top: 1px solid #DFDFDF;
+        > p {
+        margin-top: 14px !important;
+      }
+    }
+
+  .tabs {
+    li {
+      font-size: 1.4em;
+      padding: 16px 0;
+      border-top: 1px solid $pagePutty;
+      position: relative;
+
+      &.disabled{
+
+        .custom-radio {
+          margin-bottom: 0;
+        }
+
+        label {
+          color: #848282;
+          display: inline-block;
+
+          span {
+            display: block;
+            font-size: 0.9em;
+          }
+        }
+      }
+      .groceryDeliveryText{
+        margin: -62px 0 0 43px;
+        width: 168px;
+        font-size: 13.9px;
+        padding: 8px;
+        height: auto;
+        min-height: 90px;
+        position: absolute;
+        z-index: 8000;
+        img{
+          display: none;
+        }
+        &:before{
+          top: 41px;
+        }
+      }
+
+      //digital-download-delivery css start
+      &.digital-download-delivery {
+        display: table;
+
+        label {
+          display: table-cell;
+          width: 90%;
+        }
+      }
+      //digital-download-delivery css end
+    }
+  }
+
+  .panel {
+    border-top: 1px solid $pagePutty;
+    padding: 16px 0 0 0;
+
+        h2 {
+            padding: 16px 0;
+            font-size: 14px;
+        }
+
+    &.flowers-module {
+      h2 {
+        font-size: 20px;
+        padding: 0px;
+        font-weight: normal;
+      }
+    }
+    .panel {
+      padding: 0;
+    }
+  }
+
+  .view-more-stores {
+    border-top: 1px solid $pagePutty;
+    margin-right: 0;
+  }
+
+  .stores {
+    padding-right: 0;
+
+    > li {
+      padding-right: 60px;
+    }
+  }
+
+  .collection-details {
+    padding-top: 16px;
+    border-top: 1px solid $pagePutty;
+
+    .different-address {
+      border-top: none;
+    }
+    &.flowers-recipient {
+       border-top: none;
+    }
+    .groceryDeliveryAddress {
+      .customDropdown{
+        width:67%;
+        .control {
+          width: 100%;
+          .icon {
+            top:15px;
+            right:10px;
+          }
+        }
+        ul{
+          top:67px;
+        }
+        a span.postcode{
+           position: relative;
+           right: 0px;
+          display: block;
+        }
+        &.open ul{
+          max-height:240px;
+        }
+      }
+    }
+
+  }
+
+  .stores-container,
+  .lockers-container,
+  .collection-details, .delivery-options {
+    float: none;
+    width: auto;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    border-top: 1px solid $pagePutty;
+  }
+
+  .stores-container,
+  .lockers-container {
+    border-right: none;
+    border-top: none;
+
+    h2 {
+      padding-bottom: 8px;
+    }
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .collection-details .datepicker-tooltip-module, .home-delivery-container {
+    padding: 0;
+
+    h2 {
+      padding-bottom: 12px;
+    }
+
+    > p {
+      margin-top: 0;
+    }
+
+    .datepicker-tooltip {
+      display: none!important;
+    }
+
+    .datepicker-wrapper-holder {
+      padding: 0
+    }
+
+    .datepicker-cta {
+      &.edit {
+        top: 15px;
+      }
+    }
+
+    .date-text-show {
+      padding-left: 8px;
+    }
+
+    .selected-delivery-date  {
+      padding-left: 8px;
+    }
+
+    .delivery-options-list {
+      padding-left: 0;
+    }
+  }
+
+
+  .delivery-cost-module {
+    font-size: 1.2em;
+    font-family: $bodyFont;
+    font-weight: bold;
+    width: 100%;
+    #whatsThisCharge{
+      font-weight: normal;
+      padding-bottom: 10px;
+    }
+
+
+    .label {
+      line-height: 1em;
+    }
+
+    .value {
+      font-size: 1.5em;
+      margin-top: 10px;
+      padding-top: 20px;
+    }
+  }
+  .store-options-module {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .age-restriction {
+    position: relative;
+    left: -8px;
+    width: 105.2%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .split-delivery {
+    .button {
+      width: 100%;
+    }
+  }
+
+  .customDropdown .control{
+    width: 100%;
+    .icon {
+      float: right;
+    }
+  }
+
+  .different-address {
+    .label {
+      &:after {
+        content: 'r';
+        font-family: 'Tesco Icons';
+        position: absolute;
+        right: 0;
+      }
+    }
+  }
+}
+
+#virtual-page {
+
+  &.datepicker-tooltip .delivery-saver-message {
+    display: none;
+  }
+
+  .datepicker-title + h3 {
+    display: none;
+  }
+    #delivery-saver-tooltip-content, #whatsThisChargeMessage{
+        margin: 8px;
+      border-top: 2px solid #3e3e40;
+      .close{
+        display: none;
+      }
+      .back {
+      display: block;
+      border-bottom: 1px solid $primaryBorderColor;
+      &:first-child {
+        border-top: none;
+      }
+      &:before {
+        font-family: 'Tesco Icons';
+        content: 'g';
+        padding-right: 8px;
+      }
+     }
+      p, span{
+        font-size: 1.4em;
+        margin-left: 8px;
+        margin-right: 16px;
+      }
+    }
+  .edit-contact-details {
+
+    .customDropdown {
+
+      .control {
+        width: 84px;
+        position: relative;
+      }
+
+      .icon {
+        position: absolute;
+        right: 8px;
+      }
+    }
+    .form-mobile-wrapper {
+      .tel-alt-block {
+        font-size:1.0em;
+        span.error {
+          top: 76.5px;
+        }
+      }
+      .checkbox-wrapper{
+        label{
+          display:inline;
+          font-size:1.0em;
+        }
+      }
+    }
+
+    // fix to ensure that the error doesn't appear above the custom drop down
+    // js amended to insert the error for custom dropdowns after the '.customDropdown' wrapper
+    select.error + .customDropdown {
+      margin-bottom: 2px;
+    }
+
+    input[type=text] {
+      &.required {
+        background-color: #FFFCE9;
+        border: 1px solid $pagePutty;
+      }
+      &.valid {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &.checkout-different-address {
+    z-index: 99999;
+    padding: 8px 8px 200px 8px;
+    overflow-y: scroll;
+
+    h2 {
+      margin-top: 16px;
+      margin-bottom: 0;
+      font-weight: normal;
+      font-size: 1.8em;
+      border-bottom: none;
+    }
+
+    .form-mobile-wrapper {
+      position: relative;
+      padding: 8px 8px 69px 8px;
+    }
+
+
+    .thumbnail {
+      display: none;
+    }
+
+    .new-address {
+      display: none;
+    }
+
+    .products {
+      .product:first-child {
+        border-top: none;
+        padding-top: 8px;
+      }
+    }
+
+    .product {
+      position: relative;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      height: auto;
+      border-bottom: 1px solid $pagePutty;
+
+      h3 {
+        font-weight: normal;
+        font-size: 14px;
+      }
+
+      .cat-no {
+        margin-bottom: 8px;
+      }
+
+      .sold-block {
+        margin-top: 0;
+        margin-bottom: 2px;
+        .dg-items-ps {
+          font-weight: bold;
+        }
+      }
+
+      .price-container {
+        display: block;
+        font-family: "Tesco", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        width: 100%;
+        text-align: right;
+        position: static;
+        float: none;
+        top: auto;
+        right: auto;
+        margin: 8px 0 12px;
+        .price {
+          font-size: 1.45em;
+        }
+      }
+
+      .change-address {
+        clear: both;
+        margin-left: 0;
+        margin-top: 8px;
+
+        label {
+          font-size: 1.4em;
+          display: block;
+          margin-bottom: 12px;
+        }
+        .address p {
+          font-size: 14px;
+          margin: 0;
+        }
+      }
+
+      .product-details, .additional-service-item h3 {
+        max-width: 70%;
+        float: none;
+        margin-left: 0;
+        &:after {
+          @include clear-fix;
+        }
+      }
+
+      .price-container {
+        margin-top: 0;
+        clear: right;
+      }
+
+      .additional-service-item {
+        clear: both;
+        margin-left: 0;
+
+        h3 {
+          margin: 0;
+        }
+      }
+
+    }
+
+    .add-new-address {
+      p {
+        margin: 0;
+      }
+      a {
+        display: block;
+        padding: 16px 0;
+        font-size: 14px;
+      }
+    }
+
+    .form-actions {
+
+      input{
+        font-size: 1.3em;
+      }
+
+      input[type="submit"], input[type="button"] {
+        @include box-shadow(none);
+        float: left;
+        width: 48.75%;
+      }
+
+      input[type="submit"] {
+        margin-left: 2.5%;
+        margin-top: 0;
+      }
+    }
+
+    .different-address {
+      width: 100%;
+
+      .form-actions {
+        position: absolute;
+        bottom: 8px;
+        width: 95.5%;
+      }
+    }
+
+    .products {
+      padding-bottom: 0;
+    }
+
+    .new-address {
+      @include deliveryForm;
+      margin: 0;
+      font-size: 1em;
+      .hidden {
+        display: none;
+      }
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+      border-bottom: none;
+      h4 {
+        font-size: 1.6em;
+        margin: 11px 0 -4px 0;
+
+      }
+    }
+
+    .customDropdown .control {
+      width: 100%;
+      .icon {
+        float: right;
+      }
+    }
+  }
+
+  .edit-contact-details, .new-address, .neighbour-house-no {
+    @include deliveryForm;
+    font-size: 1em;
+    display: block;
+    margin: 0 8px;
+    border-bottom: none;
+
+    .hidden {
+      display: none;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    h4 {
+      font-family: "Tesco", Helvetica, Arial, sans-serif;
+      font-size: 1.8em;
+      font-weight: normal;
+      margin: 16px 0;
+    }
+
+    padding-bottom: 200px;
+
+  }
+
+  .form-mobile-wrapper {
+    background: #fff;
+    border-width: 3px 1px 1px 1px;
+    border-style: solid;
+    border-color: #333 #DFDFDF #DFDFDF #DFDFDF;
+    @include box-shadow(0 0 6px rgba(0,0,0,0.2));
+    padding: 8px;
+
+    .field-wrapper:first-child {
+      margin-top: 8px;
+    }
+    .form-actions {
+      &:after {
+        @include clear-fix;
+      }
+
+      input {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+
+  .store-details-container {
+
+    @include store-details;
+    @include delivery-tabs;
+
+    .inner {
+      margin: 0 8px;
+      font-size: 1.2em;
+      width: auto;
+
+      .panel {
+        background: #fff;
+
+        &.store-info-details {
+          padding-top: 20px;
+        }
+
+        .store-opening-times {
+          .title {
+            padding-top: 0;
+          }
+        }
+      }
+
+      .back {
+        display: block;
+        background: #fff;
+        border-style: solid;
+        border-width: 0 1px 1px 1px;
+        border-color: $pagePutty;
+      }
+    }
+
+    .store-info-details {
+      background: #fff;
+      border-style: solid;
+      border-width: 0 1px;
+      border-color: $pagePutty;
+    }
+
+    .tabs {
+      width: 100%;
+      li {
+        border-radius: 0;
+        &.selected {
+          padding-bottom: 13px;
+          background: #fff;
+          a {
+            color: #222;
+            font-weight: bold;
+          }
+        }
+
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          text-align: center;
+
+        }
+      }
+    }
+
+    .close {
+      display: none;
+    }
+
+    .store-name {
+      font-size: 1.5em;
+      font-family: "Tesco", Helvetica, Arial, sans-serif;
+      color: #222222;
+      margin: 16px 0;
+    }
+    .store-name + .back {
+      border-bottom: 0;
+      border-top: 2px solid #222;
+    }
+
+    .map-div {
+      .store-name {
+        font-size: 14px;
+        margin-top: 0;
+      }
+      .close {
+        display: block;
+      }
+    }
+
+  }
+
+  .datepicker-tooltip {
+    padding-bottom: 200px;
+
+    h3 {
+      font-weight: normal;
+      margin: 16px 0;
+      font-size: 18px;
+      font-family: "Tesco", Helvetica, Arial, sans-serif;
+    }
+
+    margin: 8px;
+
+    .datepicker {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      .calendar {
+        width: 100%;
+        .dow, .days > div {
+          width: 14.2857143%;
+        }
+
+        .days > div {
+          height: 45px;
+          line-height: 45px;
+          span {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .selected-date, .cost {
+      font-size: 1.4em;
+      border-bottom: 1px solid #DFDFDF;
+      padding-bottom: 16px;
+    }
+
+    .selected-date, .cost .value {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .cost .value {
+      float: right;
+    }
+
+    .close {
+      display: none;
+    }
+
+    .selected-date-info {
+      &:after {
+        @include clear-fix;
+      }
+      .label {
+        float: left;
+        display: block;
+        font-size: 14px;
+      }
+    }
+
+    input[type="submit"], input[type="button"] {
+      @include box-shadow(none);
+      float: right;
+      width: 48%;
+    }
+
+    input[type="submit"] {
+      margin-left: 4%;
+    }
+  }
+
+  &.store-not-found {
+    .info {
+      background: #fff;
+      margin: 8px;
+      border-style: solid;
+      border-width: 1px 1px 0 1px;
+      border-color: #DFDFDF;
+      @include box-shadow(0 0 6px rgba(0,0,0,0.3));
+    }
+    .info-box {
+      padding: 8px;
+      border-bottom: 1px solid #DFDFDF;
+    }
+
+    .back {
+      span {
+        padding-right: 8px;
+      }
+    }
+  }
+
+  .ecoupon-link-delivery{
+    float: right;
+    margin-top: 16px;
+    margin-right: 20px;
+  }
+
+  .date-text-show .date-time {
+    display: none;
+  }
+}
+
+#lightbox-locker-info {
+    font-family: $tescoFont;
+
+    h2 {
+        color: $headingColor;
+        font-size: 3em;
+        font-weight: 400;
+        letter-spacing: -.025em;
+        position: relative;
+        left: 0;
+        top: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .col {
+        margin-top: 10px;
+        padding: 0 5px 10px 5px;
+        float: none;
+        width: auto;
+        min-height: 50px;
+
+        h3 {
+            font-size: 2.5em;
+            font-weight: normal;
+            letter-spacing: -.025em;
+        }
+
+        p {
+            font-size: 1.75em;
+            color: $primaryTextColor;
+        }
+    }
+}
+
+#overlay {
+    background: #000;
+    opacity: .5;
+}
+
+#lightbox.more-info-about-lockers {
+    border: none;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    left: 0;
+
+    .close {
+        right: 6px;
+        top: 9px;
+        background-color: #fff !important;
+        color: $darkPutty !important;
+        width: 40px;
+        height: 40px;
+        z-index: 20;
+        display: block;
+
+        .icon {
+            color: $darkPutty !important;
+            font-size: 17px;
+            width: 15px;
+            height: 15px;
+            top: 11px;
+            left: 11px;
+        }
+    }
+
+    a.close {
+        display: none;
+    }
+    span.close {
+        display: block;
+        cursor: pointer;
+        @include border-radius(0);
+    }
+}
+
+.checkout.irSPC{
+  .full-page-form form{
+    overflow: hidden;
+  }
+  .delivery-block{
+    .panel{
+      border-top: 1px solid #000;
+
+      h2{
+        font-size: 2em;
+      }
+    }
+    .collection-details{
+      display: none;
+    }
+  }
+}
+
+.checkout .delivery-block {
+  .store-options-module {
+
+    &.has-secondary-delivery-options {
+      .stores {
+        .details {
+          float: none;
+          position: absolute;
+          margin-right: 10px;
+        }
+
+        li label {
+          padding-right: 50px;
+        }
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .delivery-options {
+        width: 100%;
+        .lockers-fail {
+          margin-right: 0;
+
+          &:before {
+          }
+
+          p {
+          }
+        }
+
+        .stores-container,
+        .lockers-container {
+          width: 100%;
+          float: none;
+          h2[data-icon] {
+            font-weight: normal;
+          }
+        }
+
+        .secondary-delivery-options {
+          width: 100%;
+          border-left: 0 none;
+          padding-left: 0;
+          min-height: 0;
+
+          .stores-container,
+          .lockers-container {
+            h2 {
+              &:before {
+              }
+            }
+
+            .more-delivery-information {
+            }
+
+            .badge-new-delivery {
+              right: 0;
+
+              &:before {
+              }
+            }
+          }
+        }
+      }
+
+      .collection-details {
+        width: 100%;
+      }
+
+      .delivery-cost-module {
+        padding-top: 20px;
+        .label {
+        }
+
+        .value {
+          font-size: 1.6em;
+        }
+      }
+
+      .view-more-stores {
+
+        .icon {
+        }
+      }
+
+      fieldset {
+      }
+      .more-list-holder {
+        float: none;
+        width: 100%;
+        min-height: 0;
+        h4 {
+          font-size: 20px;
+          font-weight: normal;
+          &:before {
+          }
+        }
+
+        & + .more-list-holder {
+          padding-left: 0;
+          margin-left: 0;
+          border-left: 0 none;
+        }
+      }
+    }
+  }
+}

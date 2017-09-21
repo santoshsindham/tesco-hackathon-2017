@@ -1,0 +1,69 @@
+@import "../mixins/media-viewer-mixins";
+
+#media-viewer-container {
+    margin-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    .product-ping {
+        left: 20px;
+    }
+}
+
+#media-viewer {
+    &.zoomVisible,
+    &.spinVisible,
+    &.videoVisible:not(.featureMediaVisible) {
+        padding-bottom: 100%; // 1:1
+    }
+}
+
+.media-viewer--carousel-nav {
+    .btn-s7-carousel {
+        margin-top: 0;
+        padding: 10px 10px 0;
+        top: auto;
+
+        .btn-s7-step {
+            @include border-radius(0);
+            width: 32px;
+            height: 32px;
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+}
+
+#mv-dotMarker-wrapper {
+    display: block;
+    padding-right: 42px;
+    padding-left: 42px;
+}
+
+#media-viewer--sidebar {
+    display: none;
+}
+
+#mediaViewerScene7Container {
+    .s7flyoutzoomview {
+        .s7tip {
+            font-size: 16px;
+            line-height: 35px;
+        }
+    }
+
+    .s7pagescrubber {
+       @include scene7ScrubberDimensions(300px);
+       bottom: 25px;
+    }
+}
+
+#mediaViewerScene7Container {
+    .videoContainer {
+       height: 100%;
+
+       .videoPosition {
+           height: 100%;
+       }
+   }
+}

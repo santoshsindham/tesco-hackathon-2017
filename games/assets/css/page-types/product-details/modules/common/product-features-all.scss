@@ -1,0 +1,16 @@
+@import "../../../core/components/variables";
+@import "../mixins/product-features-mixins";
+
+.product-features-book-layout {
+    @include product-features-book-layout;
+}
+
+.product-features-non-book-layout {
+    background: $backgroundFill;
+    margin-bottom: 20px;
+    li {
+        &:nth-of-type(1n+4) {
+            display: none;
+        }
+    }
+}

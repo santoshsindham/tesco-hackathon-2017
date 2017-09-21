@@ -1,0 +1,60 @@
+@import '../mixins/bundle-mixins';
+
+@include breakpoint(hTablet) {
+  @include bundleViewLarge;
+
+  .bundle-view {
+    .product-tile-image {
+      height: 150px;
+    }
+  }
+
+  .bundle-primary,
+  .bundle-secondary {
+    width: 19%;
+  }
+
+  .bundle-primary {
+    .primary-info {
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .bundle-secondary {
+    margin-left: 45px;
+
+    &:before {
+      left: -35px;
+      line-height: 317px;
+    }
+
+    label {
+      font-size: 14px;
+
+      input {
+        &[type='checkbox'] {
+          ~.label {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .bundle-actions-wrapper {
+    height: 317px;
+    margin-left: 45px;
+    width: 24%;
+
+    &:before {
+      left: -35px;
+      line-height: 317px;
+    }
+  }
+}
+
+@include breakpoint(vTablet) {
+  @include bundleViewSmall;
+}

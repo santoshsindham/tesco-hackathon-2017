@@ -1,0 +1,15 @@
+//checkout-payment module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "checkout-payment-mixins";
+
+@include twoCol;
+@include notMobile;
+    
+.payment-group-block {
+    @include hint-messaging-ll-l-m(15px, 100%, 14px, 5px 10px, 10px 5px);
+}
+
+#payment .payment-wrapper .billing-address .customDropdown .control {
+    width: 340px;
+}

@@ -1,0 +1,62 @@
+@import "../variables";
+
+$page-margin: 4px;
+$savings-color: #ee1c2e;
+$mobile-primary-margin-right: 264px;
+$desktop-primary-margin-right: 316px;
+
+@mixin save-for-later-layout-mobile {
+	#save-for-later {
+		h2 {
+			margin-bottom: 16px;
+		}
+		.products-wrapper {
+			margin-bottom: 0;
+		}
+		.product {
+		    margin: 0;
+		    .unavailable,
+			.move-to-basket {
+				position: static;
+				bottom: auto;
+				right: auto;
+				float: left;
+				margin: 0 0 16px;
+				clear: left;
+				&:after {
+					@include clear-fix;
+				}
+			}
+		}
+	}
+}
+
+@mixin save-for-later-layout-desktop {
+	#save-for-later {
+		.products-wrapper {
+			margin-bottom: 0;
+		}
+		.product {
+			margin: 0 16px;
+			padding: 0 0 16px 60px;
+			.remove {
+				right: -16px;
+			}
+			.unavailable,
+			.move-to-basket {
+				right: 0;
+			}
+		}
+	}
+}
+
+@mixin save-for-later-box-bordered {
+	margin-bottom: 8px;
+	background-color: #fff;
+}
+
+@mixin subtotal-value {
+	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}

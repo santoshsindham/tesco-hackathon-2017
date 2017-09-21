@@ -1,0 +1,8 @@
+//delivery-latest-offer module - kiosk
+@import "../../components/breakpoints";
+@include breakpoint(kiosk);
+@import "../mixins/delivery-latest-offer-mixins";
+
+.delivery-latest-offers {
+	display: none;
+}

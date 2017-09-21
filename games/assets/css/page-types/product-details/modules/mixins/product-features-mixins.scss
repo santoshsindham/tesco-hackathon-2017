@@ -1,0 +1,80 @@
+@mixin product-features-column-layout {
+    @include centerChildrenVertically;
+    padding: 20px 16px;
+
+    li {
+        color: $asphalt;
+        font-family: $tescoFont;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 22px;
+        padding: 0px 10px;
+        text-align: center;
+
+        &:first-child:nth-last-child(2),
+        &:first-child:nth-last-child(2) ~ li {
+            &:nth-child(odd) {
+                border-right: 1px solid $midDarkGrey;
+            }
+        }
+
+        &:first-child:nth-last-child(3),
+        &:first-child:nth-last-child(3) ~ li {
+            &:nth-child(2),
+            &:nth-child(5),
+            &:nth-child(8) {
+                border-left: 1px solid $midDarkGrey;
+                border-right: 1px solid $midDarkGrey;
+            }
+        }
+    }
+}
+
+@mixin product-features-list-layout {
+    @include listWithBullets;
+    padding: 22px 16px 16px 36px;
+
+    li {
+        font-weight: bold;
+    }
+}
+
+@mixin product-features-book-layout {
+    @include gridWrapperGenerator(16px);
+    padding: 0px 16px;
+
+    li {
+        float: left;
+        font-family: $tescoFont;
+        font-size: 16px;
+        line-height: 22px;
+        padding: 0 0 14px 0;
+        width: 48%;
+
+        &:nth-child(even) {
+            float: right;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            span {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+        }
+
+        span {
+            border-bottom: 1px solid $midDarkGrey;
+            display: block;
+            max-height: 40px;
+            overflow: hidden;
+            padding-bottom: 16px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        strong {
+            margin-right: 4px;
+        }
+    }
+}

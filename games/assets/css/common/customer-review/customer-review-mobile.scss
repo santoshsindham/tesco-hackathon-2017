@@ -1,0 +1,27 @@
+/*******************************************
+*	Mobile Customer Review module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "customer-review-mixins";
+
+.customer-review {
+
+    .write-review {
+
+        .button {
+            float: left;
+            clear: left;
+        }
+    }
+
+    .average-rating {
+         margin-bottom: 16px;
+    }
+
+    .feedback {
+        overflow: hidden;
+        margin-bottom: 32px;
+    }
+}

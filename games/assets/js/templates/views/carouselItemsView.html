@@ -1,0 +1,8 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  <ul class="carousel-items-list">
+    {{#views.CarouselItemView}}
+      <li>{{{render}}}</li>
+    {{/views.CarouselItemView}}
+  </ul>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

@@ -1,0 +1,69 @@
+/**
+ * All these styles are now just for the old PDP and so they have been wrapped
+ * in the 'product-description' class that is only on the old PDP. These can be
+ * deleted once we stop using the old PDP. -- Dylan Aubrey (so24)
+ */
+.product-description {
+    .section-container {
+        background-color: #ffffff;
+        margin-bottom: 40px;
+
+        h2 {
+            border-bottom: 1px solid #F2F1ED;
+            color: $xDarkPutty;
+            font-family: $tescoFont;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 1;
+            margin: 0;
+            padding: 16px;
+        }
+
+        .section-content {
+            padding: 20px 16px;
+            font-family: $tescoFont;
+
+            p {
+                font-family: $tescoFont;
+                font-size: 18px;
+                line-height: 26px;
+                font-weight: normal;
+                margin-top: 0px;
+                margin-left: 0px;
+                margin-right: 0px;
+
+                &:last-child {
+                    margin-bottom: 0px;
+                }
+            }
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 22px;
+            color: $xDarkPutty;
+            margin: 0;
+        }
+
+        /**
+         * This has been added here so that it isolates all 'section' style
+         * changes that are just for the old PDP. The special offers sits in
+         * a section container. -- Dylan Aubrey (so24)
+         */
+        .special-offers-list {
+            padding: 20px 16px;
+        }
+
+        /**
+         * This has been added here so that it isolates all 'section' style
+         * changes that are just for the old PDP. The show more sits in
+         * a section container. -- Dylan Aubrey (so24)
+         */
+        .show-more-footer {
+            border-top: none;
+            padding-top: 0;
+            padding-bottom: 20px;
+        }
+    }
+}

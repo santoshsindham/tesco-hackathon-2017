@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\toggle-expand-collapse\common.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/toggle-expand-collapse/</a> common.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/60</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/43</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/15</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.67% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/60</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*jslint plusplus: true, nomen: true */
+/*globals window,document,console,define,require, $ */
+define('modules/toggle-expand-collapse/common', [], function () {
+    'use strict';
+&nbsp;
+    /**
+    * @constructor
+    * @param {object} oSettings Required
+    * @param {string} oSettings.sToggleContainer Required
+    * @param {string} oSettings.sToggleTriggerElement Required
+    * @param {string} oSettings.sToggleElementParent Required
+    */
+<span class="fstat-no" title="function not covered" >    function ToggleExpandCollapse(oSettings) {</span>
+<span class="cstat-no" title="statement not covered" >        if (oSettings === null || oSettings === undefined ||</span>
+                oSettings.sToggleContainer === undefined ||
+                oSettings.sToggleTriggerElement === undefined ||
+                oSettings.sToggleElementParent === undefined) {
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.$toggleContainer = $(oSettings.sToggleContainer);</span>
+<span class="cstat-no" title="statement not covered" >        this.$toggleTriggerElement = $(oSettings.sToggleTriggerElement);</span>
+<span class="cstat-no" title="statement not covered" >        this.sToggleElementParent = oSettings.sToggleElementParent;</span>
+<span class="cstat-no" title="statement not covered" >        this.sToggleTriggerElement = oSettings.sToggleTriggerElement;</span>
+<span class="cstat-no" title="statement not covered" >        this.sToggleParentClassName =</span>
+            oSettings.sToggleParentClassName || 'toggle-parent';
+<span class="cstat-no" title="statement not covered" >        this.sToggleCustomEventName =</span>
+            oSettings.sToggleCustomEventName || 'ToggleStateUpdated';
+<span class="cstat-no" title="statement not covered" >        this.sSetExpandedCSSClassName =</span>
+            oSettings.sSetExpandedCSSClassName || 'toggle-expand';
+<span class="cstat-no" title="statement not covered" >        this.sSetCollapsedCSSClassName =</span>
+            oSettings.sSetCollapsedCSSClassName || 'toggle-collapse';
+<span class="cstat-no" title="statement not covered" >        this.sToggleContainer =</span>
+            oSettings.sToggleContainer;
+<span class="cstat-no" title="statement not covered" >        this.bToggleAnimationEnabled =</span>
+            oSettings.bToggleAnimationEnabled !== undefined ?
+                    oSettings.bToggleAnimationEnabled : true;
+<span class="cstat-no" title="statement not covered" >        this.bAccordionEnabled =</span>
+            oSettings.bAccordionEnabled !== undefined ? oSettings.bAccordionEnabled : true;
+<span class="cstat-no" title="statement not covered" >        this.bEnableCustomEvent =</span>
+            oSettings.bEnableCustomEvent !== undefined ? oSettings.bEnableCustomEvent : false;
+    }
+&nbsp;
+    ToggleExpandCollapse.prototype = {
+        constructor: ToggleExpandCollapse,
+&nbsp;
+        isToggleEventBound: <span class="fstat-no" title="function not covered" >function isToggleEventBound() {</span>
+<span class="cstat-no" title="statement not covered" >            var self = this, oEvents, aClickEvents, i;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (self.$toggleContainer.length) {</span>
+<span class="cstat-no" title="statement not covered" >                oEvents = $._data($(self.$toggleContainer)[0], 'events');</span>
+<span class="cstat-no" title="statement not covered" >                if (oEvents !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (oEvents.click) {</span>
+<span class="cstat-no" title="statement not covered" >                        aClickEvents = oEvents.click;</span>
+<span class="cstat-no" title="statement not covered" >                        for (i = 0; i &lt; aClickEvents.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >                            if (aClickEvents[i].namespace === "toggleExpandCollapse") {</span>
+<span class="cstat-no" title="statement not covered" >                                return true;</span>
+                            }
+                        }
+                    }
+                }
+            }
+        },
+&nbsp;
+        bindToggleEvents: <span class="fstat-no" title="function not covered" >function bindToggleEvents() {</span>
+<span class="cstat-no" title="statement not covered" >            var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            self.$toggleContainer.on('click.toggleExpandCollapse',</span>
+                self.sToggleTriggerElement, <span class="fstat-no" title="function not covered" >function (e) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.toggleElement(e);</span>
+<span class="cstat-no" title="statement not covered" >                    e.preventDefault();</span>
+                });
+<span class="cstat-no" title="statement not covered" >            self.$toggleContainer.addClass(self.sToggleParentClassName);</span>
+<span class="cstat-no" title="statement not covered" >            self.enableAnimation();</span>
+        },
+&nbsp;
+        enableAnimation: <span class="fstat-no" title="function not covered" >function enableAnimation() {</span>
+<span class="cstat-no" title="statement not covered" >            var $toggleParentElementsCollection = this.$toggleContainer.</span>
+                find(this.sToggleElementParent);
+<span class="cstat-no" title="statement not covered" >            if (this.bToggleAnimationEnabled) {</span>
+<span class="cstat-no" title="statement not covered" >                $toggleParentElementsCollection.addClass('animate');</span>
+            }
+        },
+&nbsp;
+        getTarget: <span class="fstat-no" title="function not covered" >function getTarget(e) {</span>
+<span class="cstat-no" title="statement not covered" >            var $targetElement = $(e.target);</span>
+<span class="cstat-no" title="statement not covered" >            return $targetElement;</span>
+        },
+&nbsp;
+        getToggleState: <span class="fstat-no" title="function not covered" >function getToggleState($target) {</span>
+<span class="cstat-no" title="statement not covered" >            var bSetExpandeded = $target.closest($(this.sToggleElementParent)).</span>
+                hasClass(this.sSetExpandedCSSClassName) ? true : false;
+<span class="cstat-no" title="statement not covered" >            return bSetExpandeded;</span>
+        },
+&nbsp;
+        toggleElement: <span class="fstat-no" title="function not covered" >function toggleElement(e) {</span>
+<span class="cstat-no" title="statement not covered" >            var $targetElement = this.getTarget(e);</span>
+<span class="cstat-no" title="statement not covered" >            if (this.getToggleState($targetElement) === false) {</span>
+<span class="cstat-no" title="statement not covered" >                if (this.bAccordionEnabled) {</span>
+<span class="cstat-no" title="statement not covered" >                    this.setAllCollapsed();</span>
+                }
+<span class="cstat-no" title="statement not covered" >                this.setExpanded($targetElement);</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                this.setCollapsed($targetElement);</span>
+            }
+        },
+&nbsp;
+        setExpanded: <span class="fstat-no" title="function not covered" >function setExpanded($target) {</span>
+<span class="cstat-no" title="statement not covered" >            $target.closest($(this.sToggleElementParent))</span>
+                .addClass(this.sSetExpandedCSSClassName)
+                .attr('data-expanded', true);
+<span class="cstat-no" title="statement not covered" >            if (this.bEnableCustomEvent) {</span>
+<span class="cstat-no" title="statement not covered" >                this.triggerCustomEvent('toggle-expand');</span>
+            }
+        },
+&nbsp;
+        setCollapsed: <span class="fstat-no" title="function not covered" >function setCollapsed($target) {</span>
+<span class="cstat-no" title="statement not covered" >            $target.closest($(this.sToggleElementParent))</span>
+                .removeClass(this.sSetExpandedCSSClassName)
+                .removeAttr('data-expanded');
+<span class="cstat-no" title="statement not covered" >            if (this.bEnableCustomEvent) {</span>
+<span class="cstat-no" title="statement not covered" >                this.triggerCustomEvent('toggle-collapse');</span>
+            }
+        },
+&nbsp;
+        setAllCollapsed: <span class="fstat-no" title="function not covered" >function setAllCollapsed() {</span>
+<span class="cstat-no" title="statement not covered" >            this.$toggleContainer.find($(this.sToggleElementParent)).</span>
+                removeClass(this.sSetExpandedCSSClassName);
+        },
+&nbsp;
+        triggerCustomEvent: <span class="fstat-no" title="function not covered" >function triggerCustomEvent(sEventType) {</span>
+<span class="cstat-no" title="statement not covered" >            $(window).trigger(this.sToggleCustomEventName, {</span>
+                toggleContainer: this.$toggleContainer,
+                toggleTriggerElement: this.$toggleTriggerElement,
+                toggleElementParent: $(this.sToggleElementParent),
+                toggleEventType: sEventType
+            });
+        },
+&nbsp;
+        unbindToggleEvents: <span class="fstat-no" title="function not covered" >function unbindToggleEvents() {</span>
+<span class="cstat-no" title="statement not covered" >            var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            self.$toggleContainer.off('click.toggleExpandCollapse',</span>
+                self.sToggleTriggerElement);
+<span class="cstat-no" title="statement not covered" >            self.$toggleContainer.removeClass(self.sToggleParentClassName);</span>
+        },
+&nbsp;
+        init: <span class="fstat-no" title="function not covered" >function init() {</span>
+<span class="cstat-no" title="statement not covered" >            if (this.isToggleEventBound() === true) {</span>
+<span class="cstat-no" title="statement not covered" >                this.unbindToggleEvents();</span>
+            }
+<span class="cstat-no" title="statement not covered" >            this.bindToggleEvents();</span>
+        }
+    };
+&nbsp;
+    return ToggleExpandCollapse;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

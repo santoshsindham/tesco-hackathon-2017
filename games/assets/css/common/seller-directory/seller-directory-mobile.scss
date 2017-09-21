@@ -1,0 +1,20 @@
+//seller-directory module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "seller-directory-mixins";
+
+.seller-directory {
+  
+  .seller {
+    
+    .link {
+      width: 49%;
+      margin-bottom: 0;
+      float: left;
+      
+      &.first {
+        margin-right: 2%;
+      }
+    }
+  }
+}

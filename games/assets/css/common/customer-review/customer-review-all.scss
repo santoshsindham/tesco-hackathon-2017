@@ -1,0 +1,136 @@
+/*******************************************
+*	Customer Review module
+*******************************************/
+
+@import "../variables";
+@import "customer-review-mixins";
+
+.customer-review {
+  clear: both;
+
+    .reviews-wrapper {
+        background-color: #FFF;
+        border-top: 2px solid #3E3E3F;
+        margin: 0 8px;
+    }
+
+    .backTo {
+        border-bottom: 1px solid #BFBDBD;
+        padding: 0 8px;
+        font-size: 14px;
+        padding: 12px 8px;
+
+        .icon {
+            font-size: 12px;
+        }
+    }
+
+    .total-reviewers {
+        font-size: 14px;
+    }
+
+    .write-review {
+        margin: 0 8px;
+        border-bottom: 1px solid #D9D7D7;
+        padding: 16px 0;
+        overflow: hidden;
+
+        .button {
+            @include darkBlueGradient;
+            color: #FFF;
+
+            &:hover,
+            &:active &.no-touch {
+                @include customer-review-darkBlueGradient;
+  }
+        }
+    }
+
+    .reviews {
+
+        li {
+            border-bottom: 1px solid #BFBDBD;
+            margin: 16px 0 0;
+            padding: 0 8px 16px;
+            overflow: hidden;
+        }
+    }
+
+    .rating {
+      text-indent: 0;
+    }
+
+    .summary {
+        font-weight: bold;
+        padding-top: 16px;
+        clear: left;
+    }
+
+    .review {
+        padding-bottom: 24px;
+    }
+
+    .date-written {
+        padding-bottom: 32px;
+    }
+
+    .button {
+        @include tertiaryButton;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    p {
+        font-size: 14px;
+        margin: 0;
+        line-height: 20px;
+        color: #3E3F3F;
+    }
+
+    .review-footer {
+        padding-top: 16px;
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        a, .button {
+            float: left;
+        }
+
+        .button {
+            margin-right: 8px;
+            font-weight: normal;
+
+            .total,
+            &.reply {
+                font-weight: bold;
+            }
+
+            &.reply {
+                margin-right: 0;
+            }
+        }
+    }
+
+    .user-details {
+
+        a {
+          font-size: 14px;
+          line-height: 20px;
+        }
+
+        p {
+            margin: 0;
+            color: #848282;
+
+            span {
+                color: #3E3F3F;
+            }
+        }
+    }
+
+    .icon {
+        font-size: 1em;
+    }
+}

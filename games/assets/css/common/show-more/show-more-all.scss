@@ -1,0 +1,32 @@
+.show-more-wrapper {
+    clear: both;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    @include multipleTransitions(height .2s);
+
+    &:after {
+      @include clear-fix;
+    }
+}
+
+.show-more-wrapper .fade-mask {
+    bottom: 0px;
+    height: 80px;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    z-index: 0;
+    @include multipleTransitions(height .5s);
+    @include fullGradient(transparent, #ffffff);
+}
+
+.show-more-wrapper .fade-mask.hide {
+    height: 0px;
+}
+
+.show-more-footer {
+  button {
+    max-width: 180px;
+  }
+}

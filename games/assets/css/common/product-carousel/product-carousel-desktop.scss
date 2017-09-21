@@ -1,0 +1,16 @@
+/*******************************************
+*	Desktop Product Carousel module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "product-carousel-mixins";
+
+@include desktop-product-carousel;
+
+.product-description .main-details {
+	
+	.products-wrapper {
+		border: 1px solid $primaryBorderColor;
+	}
+}

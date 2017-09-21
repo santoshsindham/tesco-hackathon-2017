@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\views\RelatedSKUView.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/views/</a> RelatedSKUView.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.71% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>9/35</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">16.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">25.71% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>9/35</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/views/RelatedSKUView', [
+  'domlib',
+  'modules/mvc/fn',
+  'modules/pdp/views/BaseView',
+  'modules/pdp/views/CarouselItemsView',
+  'modules/pdp/views/BundleView',
+  'modules/pdp/views/OutfitItemsView'
+], function ($, fn, BaseView, CarouselItemsView, BundleView, OutfitItemsView) {
+  'use strict';
+&nbsp;
+  /**
+   * The view class that renders the related products.
+   * @param {oConfig} config The configuration for the view.
+   * @return {void}
+   */
+<span class="fstat-no" title="function not covered" >  function RelatedSKUView(config) {</span>
+<span class="cstat-no" title="statement not covered" >    this.sViewName = 'RelatedSKUView';</span>
+<span class="cstat-no" title="statement not covered" >    this.sNamespace = 'sku';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTag = 'links';</span>
+<span class="cstat-no" title="statement not covered" >    this.sViewClass = config.sViewClass || 'related-sku-view';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTemplate = config.sTemplate</span>
+        ? $(config.sTemplate)[0].innerHTML
+        : $('#related-items-carousel-template')[0].innerHTML;
+<span class="cstat-no" title="statement not covered" >    this.parent.constructor.call(this, config);</span>
+<span class="cstat-no" title="statement not covered" >    this.views = {</span>
+      classes: {
+        BundleView: BundleView,
+        CarouselItemsView: CarouselItemsView,
+        OutfitItemsView: OutfitItemsView
+      }
+    };
+  }
+&nbsp;
+  fn.inherit(RelatedSKUView, BaseView);
+&nbsp;
+  RelatedSKUView._name = 'RelatedSKUView';
+  RelatedSKUView.sNamespace = 'sku';
+  RelatedSKUView.sTag = 'links';
+&nbsp;
+  RelatedSKUView.prototype._setData = <span class="fstat-no" title="function not covered" >function (params) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.parent._setData.call(this, params);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.flags.isCarousel = !!fn.getValue(this.mParamData, 'carousel', 'show');</span>
+<span class="cstat-no" title="statement not covered" >    this.flags.hasSubView = !!this.isObject(this.mParamData.subView, true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc = {};</span>
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.sku = this.mParamData.id;</span>
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.items = this.mParamData.items;</span>
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.flags = this.mParamData.flags || {};</span>
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.info = { rootViewId: this.sViewId };</span>
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.destroyRootView = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >      _this.setEvent({</span>
+        sName: 'destroyView',
+        sNamespace: _this.sNamespace,
+        sTag: _this.sTag,
+        sViewName: _this.sViewName,
+        getView: <span class="fstat-no" title="function not covered" >function getView(view) {</span>
+<span class="cstat-no" title="statement not covered" >          if (view.sViewId === _this.sViewId) {</span>
+<span class="cstat-no" title="statement not covered" >            return true;</span>
+          }
+<span class="cstat-no" title="statement not covered" >          return false;</span>
+        }
+      }, false, true);
+    };
+  };
+&nbsp;
+  RelatedSKUView.prototype._addSubViews = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var subviewData = this.mParamData.subView;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.flags.hasSubView) {</span>
+<span class="cstat-no" title="statement not covered" >      this.oData.aSubViews.push(</span>
+        this._compileSubView({
+          _class: this.views.classes[subviewData.name],
+          ctlr: subviewData.ctlr,
+          filterOptions: subviewData.filterOptions
+        })
+      );
+    } else <span class="cstat-no" title="statement not covered" >if (this.flags.isCarousel) {</span>
+<span class="cstat-no" title="statement not covered" >      this.oData.aSubViews.push(</span>
+        this._compileSubView({
+          _class: CarouselItemsView,
+          data: this.oData.mvc.items
+        })
+      );
+    }
+  };
+&nbsp;
+  return RelatedSKUView;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

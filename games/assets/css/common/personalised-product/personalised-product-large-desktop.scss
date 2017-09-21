@@ -1,0 +1,24 @@
+@import "personalised-product-mixins";
+
+#personalise-button {
+    height: 45px;
+    &.link{
+        height: auto;
+    }
+}
+
+#personaliseProductContainer {
+    height: 612px;
+}
+
+#lightbox .EmaginationErrorOverlay {
+    div {
+        padding: 100px;
+        margin: 127px auto;
+    }
+}
+
+.product-ping {
+    top: 0;
+    left: 0;
+}

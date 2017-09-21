@@ -1,0 +1,26 @@
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "save-for-later-mixins";
+
+@include save-for-later-layout-mobile;
+
+#save-for-later {
+	margin-top: 0;
+	margin-left: -($page-margin * 2);
+	margin-right: -($page-margin * 2);
+	h2 {
+		margin-left: $page-margin * 2;
+		margin-right: $page-margin * 2;
+	}
+	.products-wrapper {
+		@include box-shadow(none);
+		margin-bottom: 8px;
+		border-left: none;
+		border-right: none;
+	}
+	.show-more {
+		margin: 0 2.5% 16px;
+		width: 95%;
+		padding: 8px 0;
+	}
+}

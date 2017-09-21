@@ -1,0 +1,21 @@
+/*******************************************
+*	Large Desktop Product Carousel module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "product-carousel-mixins";
+
+@include desktop-product-carousel;
+
+.product-carousel .anchor,
+.product-carousel-heroic .anchor {
+	display: block;
+}
+
+.product-description .main-details {
+	
+	.products-wrapper {
+		border: 1px solid $primaryBorderColor;
+	}
+}

@@ -1,0 +1,20 @@
+/*******************************************
+*	Desktop Carousel module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "carousel-mixins";
+
+#carousel {
+	min-height: 360px;
+	.wrapper{
+		min-height: 320px;
+	}
+	.homepage-carousel & {
+		min-height: 396px;
+		.wrapper {
+			min-height: 356px;
+		}
+	}
+}

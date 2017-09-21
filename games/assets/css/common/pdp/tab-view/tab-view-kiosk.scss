@@ -1,0 +1,97 @@
+@import "../../variables";
+
+.kiosk-tabs {
+  background: $pagePutty;
+  float: left;
+  height: 78px;
+  margin: 0;
+  position: relative;
+  width: 1341px;
+  z-index: 1;
+
+  &.in-carousel {
+    .kiosk-tabs-items-wrapper {
+      height: 100%;
+      margin-left: 55px;
+      margin-right: 55px;
+      overflow: hidden;
+    }
+  }
+}
+
+.kiosk-tabs-nav {
+  position: absolute;
+  top: 20px;
+  width: 1341px;
+
+  .icon {
+    color: #4e4e4e;
+    font-size: 40px;
+    height: 58px;
+    line-height: 58px;
+
+    &.previous {
+      float: left;
+    }
+
+    &.next {
+      float: right;
+    }
+  }
+}
+
+.kiosk-tabs-items {
+  padding-top: 20px;
+  position: relative;
+  transition: all .3s cubic-bezier(.77,0,.175,1);
+  white-space: nowrap;
+
+  li {
+    display: inline-block;
+    margin: 0 2px 0 0;
+    vertical-align: top;
+
+    a {
+      background: #ffffff;
+      border: 1px solid #ffffff;
+      border-radius: 3px;
+      color: $asphalt;
+      cursor: pointer;
+      display: block;
+      font: bold 19px "Tesco";
+      height: 58px;
+      line-height: 57px;
+      outline: none;
+      position: relative;
+      text-align: center;
+      width: 223px;
+
+      &:hover {
+        text-decoration:  none;
+      }
+
+      &.special-highlight {
+        border-color: $colorRed;
+        color: $colorRed;
+      }
+
+      &.is-active {
+        background: $tescoBrightBlue;
+        border-color: $tescoBrightBlue;
+        color: #ffffff;
+
+        &:before {
+          color: $tescoBrightBlue;
+          content: 'U';
+          font-family: 'Tesco Icons';
+          font-size: 22px;
+          left: 50%;
+          line-height: normal;
+          margin-left: -7px;
+          position: absolute;
+          top: -17px;
+        }
+      }
+    }
+  }
+}

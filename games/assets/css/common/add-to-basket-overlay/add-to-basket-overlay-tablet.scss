@@ -1,0 +1,70 @@
+/*******************************************
+*	Tablet Add To Basket Overlay module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "add-to-basket-overlay-mixins";
+
+@include product-info-with-image;
+
+#lightbox{
+	.add-to-basket-notification {
+		width: 90%;
+		margin: 5% auto;
+		
+		.product-info {
+			width: 100%;
+			.details {
+				float: left;
+				width: 80%;
+				margin-left: 0;
+				padding-left: 32px;
+				
+				.button {
+					color: #fff;
+					padding: 10px 10px 13px;
+					border: 1px solid $basketOrange;
+					background: $basketOrange;
+					text-align: center;
+					margin-bottom: 6px;			
+					&:hover {
+						text-decoration: none;
+					}
+				}
+				.continue-shopping {
+					border: 1px solid $putty;
+					background: $putty;
+					margin-bottom: 0;
+					display: block;
+				}
+			}
+			.thumbnail-container {
+				float: left;
+				display: block;
+				width: 20%;
+				position: relative;
+				img {
+					width: 100%;
+					
+					&.bcve_ping {
+					   position: absolute;
+			        }
+				}
+				@include bcveIcon(auto, 8px, 18px, auto, 22px, 36px);
+			}
+		}
+		
+		.proceed-to-checkout {
+			position: static;
+		}
+		.continue-shopping {
+		}
+	}
+}
+
+@include closeGraphic;
+
+#notificationContainer, #notificationContainer.visible{
+	display: none;
+}

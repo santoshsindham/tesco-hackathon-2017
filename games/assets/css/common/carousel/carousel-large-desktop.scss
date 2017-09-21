@@ -1,0 +1,33 @@
+/*******************************************
+*	Large Desktop Carousel module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "carousel-mixins";
+
+.alternative-view #carousel, .no-touch .fixedNav #carousel {	
+	width: 80%;
+	float: right;
+}
+
+.homepage.fixedNav .homepage-carousel #carousel {
+    padding-bottom: 38px;
+}
+
+#carousel {
+	 min-height: 360px;
+	.wrapper .images div:first-child li {
+		height: 320px;
+		background: url($ajaxLoaderSrc) no-repeat center center;
+		background-color: #fff;
+	}
+	.homepage-carousel & {
+		min-height: 487px;
+		.wrapper .images div:first-child li{
+			height: 447px;
+			background: url($ajaxLoaderSrc) no-repeat center center;
+			background-color: #fff;
+		}
+	}
+}

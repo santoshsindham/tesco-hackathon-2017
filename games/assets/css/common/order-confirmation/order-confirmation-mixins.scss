@@ -1,0 +1,318 @@
+//order-confirmation module - mixins
+
+$desktop-capped-max-width: 689px;
+
+@mixin order-confirmation-box-bordered($type: '') {
+	/*@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));*/
+	margin-bottom: 16px;
+	background-color: #fff;
+
+	/*
+	@if $type == 'thick' {
+		border-top: 4px solid $color-title;
+	}
+	@else if $type == 'thin' {
+		border-top: 2px solid $color-title;
+	}
+	@else {
+		border-top: 1px solid $primaryBorderColor;
+	}
+	*/
+}
+
+@mixin order-confirmation-buttons-side-by-side {
+	$btn-margin: 8px;
+	$btn-continue-width: 182px;
+	$btn-sign-out-width: 106px;
+
+	width: $btn-continue-width + $btn-sign-out-width + $btn-margin + 4px;
+
+	a {
+		&.continue,
+		&.sign-out {
+			margin-right: 0;
+			margin-left: $btn-margin;
+			padding-right: 0;
+			padding-left: 0;
+		}
+		&.continue {
+			float: right;
+			width: $btn-continue-width;
+		}
+		&.sign-out {
+			margin-left: 0;
+			float: left;
+			width: $btn-sign-out-width;
+		}
+	}
+}
+
+@mixin price-promise-logo {
+	display: table;
+	.logo {
+		position: relative;
+		top: 3px;
+		margin-right: 8px;
+	}
+	span {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+@mixin order-confirmation-mobile {
+	#order-summary {
+		.delivery-group-block {
+			> h2 {
+				margin-bottom: 0;
+				padding-bottom: 0;
+			}
+			.sold-block {
+				margin-bottom: 0;
+				padding-top: 8px;
+				font-size: 11px;
+			}
+			.delivery-group-items {
+				border-top: none;
+			}
+			.product-block {
+				padding-top: 24px;
+				.product-details {
+					> p {
+						&.cat-no {
+							margin: 16px 0;
+						}
+					}
+				}
+			}
+			.delivery-block {
+				.delivery-charge {
+					font-family: 'Helvetica Neue', Arial, sans-serif;
+					.value {
+						font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+					}
+				}
+				div.delivery-type>p {
+					padding-left: 0;
+					&.date{
+		    			a{
+		    				display:block;
+		    			}
+		    		}
+				}
+			}
+		}
+	}
+
+	#price-promise {
+		h2 {
+			margin-bottom: 8px;
+			font-size: 1.8em;
+		}
+	}
+
+	#lightbox.pricePromise {
+		h2 {
+			margin: 12px 32px 12px 8px;
+			padding: 0;
+			font-size: 1.8em;
+		}
+		p {
+			margin: 12px 8px;
+			font-size: 1.4em;
+		}
+	}
+}
+
+@mixin order-confirmation-desktop {
+	$margin-for-secondary: 311px;
+
+	#order-confirmation-header,
+	#order-confirmation-details {
+		margin-right: $onecol;
+		margin-left: $onecol;
+	}
+
+	#order-confirmation-header,
+	#order-confirmation-footer {
+		padding-right: $margin-for-secondary;
+		h2 {
+			margin: 12px 0 24px;
+		}
+		.actions {
+			@include order-confirmation-buttons-side-by-side;
+		}
+	}
+
+	// all viewports except mobile to display the payment and order summary side-by-side - mobile is stacked
+	#payment-summary {
+		@include order-confirmation-box-bordered('thick');
+		width: 296px;
+	}
+
+	#order-summary {
+		.delivery-group-block {
+			@include order-confirmation-box-bordered('thick');
+
+			.sold-block {
+				padding-top: 9px;
+				font-size: 12px;
+			}
+
+			.thumbnail {
+				width: 138px;
+				float: left;
+				margin-bottom: 20px;
+				height: auto;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.product-details,
+			.price-container,
+			.additional-service-item,
+			.giftMessageContainer {
+				margin-left: 152px;
+			}
+
+			.product-details {
+				h3 {
+					padding-right: 125px;
+				}
+			}
+
+			.product-block {
+				padding-top: 20px;
+				.price-container {
+					position: absolute;
+					right: 0;
+					margin-left: 0;
+					top: 24px;
+					.price {
+						font-size: 24px;
+					}
+				}
+				> .price-container {
+					top: 18px;
+				}
+				.additional-service-item {
+					position: relative;
+					margin-top: 16px;
+					margin-bottom: 16px;
+					padding-right: 125px;
+					h3 {
+						margin-bottom: 0;
+					}
+					> .price-container {
+						top: 12px;
+					}
+					.blinkbox + .price-container {
+						top: 22px;
+					}
+				}
+			}
+
+			.delivery-block {
+				margin-top: 24px;
+				h2.delivery-charge {
+					padding: 14px 0;
+					font-size: 18px;
+					font-weight: normal;
+					.value {
+						margin-top: -4px;
+						font-size: 24px;
+						font-weight: bold;
+					}
+				}
+				div.delivery-type {
+					width: 65%;
+					h2 {
+						margin-bottom: 16px;
+					}
+					> p {
+						strong {
+							display: inline;
+						}
+						&.date a {
+							float:right;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	#order-confirmation-footer {
+		float: left;
+		clear: right;
+		width: 97%;
+		margin: 0 10px;
+	}
+
+	#order-summary,
+	#order-confirmation-footer,
+	#price-promise,
+	#blinkbox {
+		margin-right: $margin-for-secondary;
+	}
+
+	#price-promise {
+		h2 {
+			margin-bottom: 4px;
+		}
+		a.more {
+			white-space: nowrap;
+		}
+
+		// tooltip only shown on desktop - mobile and tablet to use overlays
+		.tooltip {
+			width: 348px;
+			#lightbox-content {
+				h2 {
+					margin-bottom: 0;
+					font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+					line-height: 1.1em;
+				}
+				p {
+					margin-bottom: 0;
+					font-size: 1em;
+					&:last-child {
+						padding-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+	#order-confirmation-ad {
+		float: right;
+		width: 300px;
+		margin-right: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+
+		&:after {
+			@include clear-fix;
+		}
+
+		.google-ads-block {
+			margin: 10px 0;
+			width: 100%;
+			.header {
+				margin-bottom: 0;
+			}
+		}
+
+		.adslot {
+			width: 100%;
+			margin: 6px 0;
+			padding-bottom: 6px;
+		}
+	}
+	.giftMessage {
+        margin-right: 125px;
+    }
+}

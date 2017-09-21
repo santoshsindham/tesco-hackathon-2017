@@ -1,0 +1,200 @@
+@import "../pdp/product-details-mixins";
+
+#range-container{
+	.collectionContainer.range{
+	    overflow: hidden;
+
+		section{
+		 	border: none;
+		 	box-shadow: none;
+			h3{
+			    border-bottom: 0;
+			    margin: 0;
+			    padding-left: 0;
+			    text-indent: 0;
+			    border: none;
+			    line-height: 16px;
+			    padding: 38px 0 14px 0;
+			 }
+			 .toggleDetailWrapper{
+			 	&:hover{
+			 		text-decoration: none;
+			 	}
+			}
+		}
+		.collectionItemImageContainer {
+		    overflow: hidden;
+		    height: 190px;
+		    width: 190px;
+		    float: left;
+		    position: relative;
+		    margin-right: 10px;
+		    border: 1px solid #f3f1ed;
+
+		    .collectionItemImage{
+		    	width:100%;
+		    }
+		}
+		.collectionItemDetail {
+		    float: left;
+		    width: 225px;
+		    margin: 8px 0 10px 0;
+				font-size: 16px;
+		    p{
+		    	margin: 0;
+				&.collectionItemDescription{
+					width:100%;
+					margin: 0;
+					min-height: 45px;
+					max-height: 45px;
+					overflow: hidden;
+					line-height: 16px;
+					margin-bottom: 10px;
+					a,a:hover,a:active{
+						color:#333;
+					}
+					a:link:hover{
+						color: #00a1e0;
+					}
+				}
+				&.release{
+				    padding: 5px 0 0 0;
+				    margin-top: 0;
+				}
+			}
+		}
+		.collectionItems{
+			overflow: hidden;
+
+			>li {
+				position: relative;
+			    padding: 0 0 15px 0;
+			    float: left;
+			    background: white;
+			    border: none;
+			}
+			li:nth-child(odd) {
+			  width:53.5%;
+			}
+			li:nth-child(even) {
+				width:46.5%;
+				padding-left: 22px;
+				.collectionActions {
+				  	position: absolute;
+					left: 222px;
+				}
+			}
+			.collectionActions {
+			    float: left;
+			    margin-top: 16px;
+			    width: auto;
+			    overflow: visible;
+			    position: absolute;
+			    left: 200px;
+			    bottom: 15px;
+			    .collectionQuantity{
+			    	width: 42px;
+			    	margin-right: 10px;
+			    	float: left;
+			    }
+			    .collectionItemSelection{
+			    	width: auto;
+			    	float: left;
+						.add-to-basket.btn-v2 {
+							@include buttonStyles;
+							&.primary-button {
+								@include primaryButtonStyles;
+							}
+						}
+
+			    }
+			    .stock-alert{
+			    	width: auto;
+				    float: left;
+				    border-radius: 2px;
+				    margin: 0;
+				    padding: 12px 24px;
+				    font-size: 15.8px;
+				    background-color: #fff;
+				    color: #000;
+				    border: 1px solid #ccc;
+
+				    &:hover{
+				    	background-color: #E5F5FC;
+				    	border: 1px solid #008DC8;
+				    	text-decoration: none;
+				    	color: #008DC8;
+				    }
+			    }
+			}
+			.oo-stock{
+				font-weight:normal;
+			    padding:0;
+			    margin: 0;
+	    	}
+			.collectionItemPrice {
+				display: block;
+				line-height: 16px;
+		   	margin: 20px 0 9px 0;
+				font-size: 22px;
+			}
+			input {
+			    height: 42px;
+			    padding: 0 27px;
+			    margin: 0;
+			    border: none;
+			    border-radius:3px;
+			    border: 1px solid #2c589d;
+			    border-radius: 3px;
+			    background-color: #2c589d;
+			    &:hover{
+			    	border: 1px solid #44c6ff !important;
+			    	background-color: #008DC8;
+			    }
+
+			    &[type=text] {
+				    padding: 10px;
+				    margin:0;
+				    border: 1px solid #ccc;
+				    border-radius: 3px;
+				    text-align: center;
+				    background-color: #fff;
+				    &:hover{
+				    	border: 1px solid #cccccc !important;
+				    }
+				}
+			}
+			.collectionItemDetail{
+				.rating-container{
+			    	height: auto;
+			    }
+			}
+			.average-rating{
+				margin:0;
+			}
+			.total-reviewers{
+				color: #00a1e0;
+				font-size: 12px;
+			    line-height: 14px;
+			    font-family: Helvetica,Arial,sans-serif;
+			    padding-left:10px;
+			    &.no-reviews{
+			    	color: #a69f88;
+			    	line-height: 16px;
+			    }
+			}
+		}
+		li.visually-hidden-select{
+			left: 0;
+		}
+	}
+}
+.no-touch .PDP-Version2 .show-more-footer{
+	.btn-v2-secondary{
+		color: #666;
+	}
+	a:hover{
+		text-decoration: none;
+		color: #008DC8;
+	}
+}

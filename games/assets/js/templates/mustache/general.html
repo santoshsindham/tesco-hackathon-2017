@@ -1,0 +1,1987 @@
+<script type="text/template" id="html5-video-viewer-template">
+    <div class="videoPosition" data-url="{{url}}" data-index="{{index}}">
+        <video preload="metadata" id="s7HTML5VideoPlayer">
+            <source src="{{url}}">
+        </video>
+    </div>
+    <div class="video-controls-wrap">
+        <div class="video-controls">
+            <button class="btn play icon icon-play"></button>
+            <div class="seek-bar"></div>
+            <button class="btn mute icon icon-volume"></button>
+            <button class="btn fullScreen icon icon-full-screen"></button>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="media-viewer-thumbnails-template">
+    {{#aMedia}}
+        {{#.}}
+            {{#isImage}}
+                <li class="{{classNames}}" {{#timestamp}}data-timestamp="{{timestamp}}"{{/timestamp}}>
+                  <span class="mv-thumbnail"><img src="{{{mediaSrc}}}?op_sharpen=1&wid={{oImageDimensions.width}}&hei={{oImageDimensions.height}}" /></span>
+                </li>
+            {{/isImage}}
+            {{#isStatic}}
+                <li class="{{classNames}}" {{#timestamp}}data-timestamp="{{timestamp}}"{{/timestamp}}>
+                  <span class="mv-thumbnail"><img src="{{{mediaSrc}}}" /></span>
+                </li>
+            {{/isStatic}}
+            {{#isSpin}}
+                <li class="{{classNames}}" {{#timestamp}}data-timestamp="{{timestamp}}"{{/timestamp}}>
+                  <span class="mv-thumbnail with-icon"><span class="icon icon-spin"></span> 360 View</span>
+                </li>
+            {{/isSpin}}
+            {{#isVideo}}
+                <li class="{{classNames}}" {{#timestamp}}data-timestamp="{{timestamp}}"{{/timestamp}}>
+                  <span class="mv-thumbnail with-icon"><span class="icon icon-play"></span> Video</span>
+                </li>
+            {{/isVideo}}
+        {{/.}}
+    {{/aMedia}}
+</script>
+
+<script type="text/template" id="image-viewer-carousel-template">
+    {{#length}}
+        <ul class="image-viewer-carousel">
+            {{#.}}
+                {{#isImage}}
+                    <li></li>
+                {{/isImage}}
+                {{#isSpin}}
+                    <li></li>
+                {{/isSpin}}
+                {{#isVideo}}
+                    <li class="bg-video"></li>
+                {{/isVideo}}
+            {{/.}}
+        </ul>
+    {{/length}}
+</script>
+
+<script type="text/template" id="landscape-static-image-viewer-carousel-template">
+  {{#length}}
+    <ul class="image-viewer-carousel">
+      {{#.}}
+        <li><img src="{{mediaSrc}}?wid=650" /></li>
+      {{/.}}
+    </ul>
+  {{/length}}
+</script>
+
+<script type="text/template" id="portrait-static-image-viewer-carousel-template">
+  {{#length}}
+    <ul class="image-viewer-carousel">
+      {{#.}}
+        <li><img src="{{mediaSrc}}?hei=760" /></li>
+      {{/.}}
+    </ul>
+  {{/length}}
+</script>
+
+<script type="text/template" id="image-viewer-dots-template">
+    {{#length}}
+        {{#.}}
+            {{#isImage}}
+                <li class="icon icon-dual-dot"></li>
+            {{/isImage}}
+            {{#isSpin}}
+                <li class="icon icon-spin"></li>
+            {{/isSpin}}
+            {{#isVideo}}
+                <li class="icon icon-play"></li>
+            {{/isVideo}}
+        {{/.}}
+    {{/length}}
+</script>
+
+<script type="text/template" id="flash-video-viewer-template">
+    <div class="videoPosition" data-url="{{url}}" data-index="{{index}}">
+        <object
+            classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+            codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,2,0,0"
+            width="100%"
+            height="100%"
+            id="s7FlashVideoPlayer"
+            align="">
+            <param value="{{flashLocation}}video/videoViewer3.swf" name="movie">
+            <param value="asset={{url}}" name="FlashVars">
+            <param value="high" name="quality">
+            <param value="#FFFFFF" name="bgcolor">
+            <param value="always" name="AllowScriptAccess">
+            <param value="transparent" name="wmode">
+            <embed
+                width="100%"
+                height="100%"
+                align=""
+                pluginspage="http://www.macromedia.com/go/getflashplayer"
+                type="application/x-shockwave-flash"
+                allowscriptaccess="always"
+                name="s7VideoPlayer"
+                wmode="transparent"
+                bgcolor="#FFFFFF"
+                quality="high"
+                flashvars="asset={{url}}"
+                src="{{flashLocation}}video/videoViewer3.swf">
+            </embed>
+        </object>
+    </div>
+</script>
+
+
+
+<script type="text/template" id="buybox-view-template">
+    <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+        <div class="buybox-mask-wrapper">
+            <div class="buybox-mask buybox-mask-media-player"></div>
+            <div class="buybox-mask buybox-mask-buybox-content"></div>
+        </div>
+
+        {{#aSubViews}}
+            {{{render}}}
+        {{/aSubViews}}
+
+        {{#mvc.flags.isSellerPartner}}
+          {{^mvc.flags.hasMultipleSellers}}
+            <div class="why-sellers-wrapper with-device-indents">
+                This item is sold by an approved Tesco Partner. <a data-mvc-model="assets" data-mvc-key="lookupName" data-mvc-value="whytescopartnershtmlblock"
+                 class="why-sellers">What does this mean?</a>
+            </div>
+          {{/mvc.flags.hasMultipleSellers}}
+          {{#mvc.flags.hasMultipleSellers}}
+            <div class="why-sellers-wrapper with-device-indents">
+                <a data-mvc-model="assets" data-mvc-key="lookupName" data-mvc-value="whytescopartnershtmlblock"
+                  class="why-sellers">Why do we have different buying options?</a>
+            </div>
+          {{/mvc.flags.hasMultipleSellers}}
+        {{/mvc.flags.isSellerPartner}}
+
+        {{#aWishlistsView}}
+          {{{render}}}
+        {{/aWishlistsView}}
+
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+
+<script type="text/template" id="primary-seller-view-template">
+    <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+        <div class="primary-buybox">
+            {{#aSubViews}}
+                {{{render}}}
+            {{/aSubViews}}
+        </div>
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="seller-summaries-view-template">
+    <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+        <p class="buying-options-title">More buying options</p>
+        {{#aSubViews}}
+            {{{render}}}
+        {{/aSubViews}}
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="seller-summary-view-template">
+    <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+          <div class="seller-summary with-device-indents with-arrow" data-seller-id="{{mvc.sellers.sellerId}}" data-listing-id="{{mvc.sellers.id}}">
+
+              <div class="seller-summary-name-wrapper">
+                  <p class="seller-summary-name smaller line-height-reset">Sold by <strong>{{mvc.sellers.name}}</strong></p>
+                  {{#state.hasAddOnItem}}
+                    <p class="add-on-item">Add on item</p>
+                  {{/state.hasAddOnItem}}
+                  <div class="seller-summary-icon-wrapper hidden-kiosk hidden-largeDesktop hidden-desktop">
+                    <span class="icon larger link" data-icon="r"></span>
+                  </div>
+              </div>
+              <div class="seller-summary-price-wrapper">
+                  <div class="seller-summary-left-icon-wrapper hidden-tablet hidden-mobile">
+                    <span class="icon link" data-icon="g"></span>
+                  </div>
+                  <p class="seller-summary-product-price product-price" itemprop="price">&pound;{{mvc.sellers.prices.price}}</p>
+                  <p class="seller-summary-delivery-option smaller line-height-reset">
+                    <span class="seller-summary-delivery-option-text">
+                      {{#mvc.sellers.custom.deliveryOptions.free}}
+                        {{^mvc.sellers.custom.deliveryOptions.chargeableClickAndCollect}}
+                          {{mvc.sellers.custom.deliveryOptions.charge}}
+                        {{/mvc.sellers.custom.deliveryOptions.chargeableClickAndCollect}}
+                      {{/mvc.sellers.custom.deliveryOptions.free}}
+
+                      {{^mvc.sellers.custom.deliveryOptions.free}}
+                        {{^mvc.sellers.custom.deliveryOptions.chargeableClickAndCollect}}
+                          {{#mvc.sellers.custom.deliveryOptions.charge}}
+                            &pound;{{mvc.sellers.custom.deliveryOptions.charge}}
+                          {{/mvc.sellers.custom.deliveryOptions.charge}}
+                        {{/mvc.sellers.custom.deliveryOptions.chargeableClickAndCollect}}
+                      {{/mvc.sellers.custom.deliveryOptions.free}}
+                      {{mvc.sellers.custom.deliveryOptions.name}}
+
+                      {{#mvc.sellers.custom.deliveryOptions.leadTime}}
+                        ({{mvc.sellers.custom.deliveryOptions.leadTime}})
+                      {{/mvc.sellers.custom.deliveryOptions.leadTime}}
+                    </span>
+                  </p>
+              </div>
+          </div>
+      {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="buybox-template-buybox-content">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}" itemprop="offers" itemscope=""
+      itemtype="http://schema.org/Offer">
+    {{#state.hasStockMessage}}
+      <div class="float-wrapper">
+        <div class="stock-messaging-wrapper pull-left-all {{props.stockMessageClass}}">
+          <p class="stock-messaging line-height-reset"><small>{{{props.stockMessageText}}}</small></p>
+        </div>
+      </div>
+    {{/state.hasStockMessage}}
+    <link itemprop="availability" href="{{props.stockSchemaHref}}">
+
+    {{#state.hasMinimumAge}}
+      <p itemprop="minimum-age" class="minimum-age">You must be {{props.minimumAge}} or over to buy this item</p>
+    {{/state.hasMinimumAge}}
+
+    {{#state.hasSeller}}
+      <p class="seller-name">
+        Buy from <strong>{{props.name}}</strong>
+
+        {{#state.isPartner}}
+          <a class="partner-info-icon link" data-icon="h"></a>
+        {{/state.isPartner}}
+      </p>
+    {{/state.hasSeller}}
+
+    {{#state.hasAddOnItem}}
+		  <p class="add-on-item">Add an item</p>
+	  {{/state.hasAddOnItem}}
+
+    {{#views.ProductPriceView}}
+      {{{render}}}
+    {{/views.ProductPriceView}}
+
+    {{#state.isBoost}}
+      <div class="clubcard-boost-wrapper float-wrapper">
+        <img class="clubcard-boost-image pull-left-all" src="{{props.staticImagePath}}ping_clubcard_sm.png" />
+        <p class="clubcard-boost-text smaller pull-left-all line-height-reset">
+          <span>Included in</span> <a class="smaller"><strong>Clubcard Boost!</strong></a>
+        </p>
+        {{#state.hasClubcardPoints}}
+          <p class="clubcard-points smaller pull-left-all line-height-reset">
+            Earn
+            <strong>
+              {{#state.hasFromPrice}}
+                <span class="from-prefix">from </span>
+              {{/state.hasFromPrice}}
+              {{props.clubcardPoints}} Clubcard points
+            </strong>
+          </p>
+        {{/state.hasClubcardPoints}}
+      </div>
+    {{/state.isBoost}}
+
+    {{#state.hasReleaseDate}}
+      <p itemprop="release" class="release-date">Release date: {{props.releaseDate}}</p>
+    {{/state.hasReleaseDate}}
+
+    {{#state.noListings}}
+      <div class="disc-prod">
+        <h2 class="disc-prod-title">We no longer sell this product.</h2>
+      </div>
+    {{/state.noListings}}
+
+    {{#state.hasHookLogic}}
+      {{^state.isPartner}}
+        <div id="hook-logic" class="hidden-all">{{{props.hookLogic}}}</div>
+      {{/state.isPartner}}
+    {{/state.hasHookLogic}}
+
+  </div>
+
+  {{#aSubViews}}
+      {{{render}}}
+  {{/aSubViews}}
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="product-price-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} {{#state.hasWasWasPrice}}has-was-was{{/state.hasWasWasPrice}}">
+
+    {{#state.hasFromPrice}}
+      <strong><small class="from-prefix product-price-from-prefix">From </small></strong>
+      <span class="product-price" itemprop="priceCurrency" content="GBP">&pound;</span><span class="product-price" itemprop="price">{{props.fromPrice}}</span>
+    {{/state.hasFromPrice}}
+
+    {{#state.hasPrice}}
+      <span class="product-price" itemprop="priceCurrency" content="GBP">&pound;</span><span class="product-price" itemprop="price">{{props.price}}</span>
+    {{/state.hasPrice}}
+
+    {{#state.showSavings}}
+      <div class="savings-wrapper text smaller">
+
+        {{#state.hasRrpPrice}}
+          <del class="rrp-price">
+            <span class="rrp-prefix">RRP </span>
+            &pound;{{props.rrpPrice}}
+          </del>
+        {{/state.hasRrpPrice}}
+
+        {{#state.hasWasPrice}}
+          {{#state.hasWasWasPrice}}
+            <del class="was-was-price">
+              <span class="was-prefix">Was </span>
+
+              {{#state.hasFromPrice}}
+                <span class="from-prefix">from </span>
+              {{/state.hasFromPrice}}
+
+              &pound;{{props.wasWasPrice}}
+            </del>
+
+            <span class="was-was-price-divider"></span>
+          {{/state.hasWasWasPrice}}
+          <del class="was-price">
+            <span class="was-prefix">Was </span>
+
+            {{#state.hasFromPrice}}
+              <span class="from-prefix">from </span>
+            {{/state.hasFromPrice}}
+
+            &pound;{{props.wasPrice}}
+          </del>
+        {{/state.hasWasPrice}}
+        {{#state.hasSavings}}
+          <span class="saving">
+            <span class="save-prefix">Save </span>
+
+            {{#state.hasFromPrice}}
+              <span class="from-prefix">from </span>
+            {{/state.hasFromPrice}}
+
+            &pound;{{props.savings}}</span>
+          </span>
+        {{/state.hasSavings}}
+      </div>
+    {{/state.showSavings}}
+
+    {{#state.showPoints}}
+      {{^state.isBoost}}
+        {{#state.hasClubcardPoints}}
+          <p class="clubcard-points">
+            Earn
+            {{#state.hasFromPrice}}
+              <span class="from-prefix">from </span>
+            {{/state.hasFromPrice}}
+            <strong>
+              {{props.clubcardPoints}} Clubcard points
+            </strong>
+          </p>
+        {{/state.hasClubcardPoints}}
+      {{/state.isBoost}}
+    {{/state.showPoints}}
+
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="item-actions-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#aSubViews}}
+        {{{render}}}
+    {{/aSubViews}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="store-stock-check-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#state.isNearestStoreAvailable}}
+      <p class="with-margin-btm">
+        Local store: <strong class="nearest-store-stock-status {{props.stockStatusClass}}">{{props.nearestStore.stockStatus}}</strong>
+      </p>
+      <p>
+        <strong class="nearest-store-name">{{props.nearestStore.name}}</strong>
+      </p>
+      {{#props.nearestStore.distance}}
+      <p class="nearest-store-distance with-margin-btm">
+        <strong>{{props.nearestStore.distance}} miles</strong> from
+        <strong class="nearest-store-lookup">{{props.nearestStore.postCode}}</strong>
+      </p>
+      {{/props.nearestStore.distance}}
+      <a class="change-store-link" data-id="{{props.listingID}}">Change store</a>
+    {{/state.isNearestStoreAvailable}}
+    {{^state.isNearestStoreAvailable}}
+      <form class="stock-check-form">
+        <label for="stock-check-form-postcode" class="stock-check-label text">Check stock in your local store:</label>
+        <input id="stock-check-form-postcode" title="Enter town / postcode" placeholder="Enter town / postcode" value="" class="postcode pull-left-all" type="text" autocomplete="off">
+        <div class="button-wrapper">
+          <input type="submit" class="button secondary" value="Check" />
+        </div>
+      </form>
+    {{/state.isNearestStoreAvailable}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="size-guide-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <a class="size-guide-link" data-mvc-model="assets" data-mvc-key="lookupName"
+        data-mvc-value="{{mvc.products.custom.sizeGuideLookupName}}">Size guide</a>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="add-to-basket-view-template">
+  <form id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} float-wrapper
+      {{props.state}}-state {{^state.hideQuantity}}with-quantity{{/state.hideQuantity}}" novalidate>
+    {{^state.hideQuantity}}
+      <label class="screen-reader">Quantity:</label>
+      <input type="text" class="text-box product-quantity pull-left-all" maxlength="2" pattern="[0-9]*"
+          data-max-qty="{{props.maxQuantity}}" value="1" data-mvc-key="quantity"
+          {{#state.disabled}}disabled="disabled"{{/state.disabled}}/>
+    {{/state.hideQuantity}}
+    <div class="add-to-basket-button-wrapper">
+      <button id="{{props.formHandlerId}}" type="button" data-mvc-key="id" class="button primary"
+          data-mvc-value="{{props.formHandlerId}}" {{#state.disabled}}disabled="disabled"{{/state.disabled}}>
+        <span>{{props.label}}</span>
+      </button>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </form>
+</script>
+
+<script type="text/template" id="personalise-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{^state.isPersonalised}}
+      <button type="button" class="button primary personalise-button"><span>Personalise me</span></button>
+    {{/state.isPersonalised}}
+    {{#state.isPersonalised}}
+      <a class="edit-personalise-link"><small>Edit personalisation</small></a>
+    {{/state.isPersonalised}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="request-stock-alert-view-template">
+    <form id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} float-wrapper {{mvc.sellers.buyBoxMessage}}-state">
+        <button id="{{mvc.formHandler.id}}" type="button" data-mvc-key="id"
+            data-mvc-value="{{mvc.formHandler.id}}" class="button secondary" {{mvc.custom.disabled}}>
+          <span>{{mvc.sellers.buyButtonLabel}}</span>
+        </button>
+        <div class="stock-alert-success">
+          <div class="stock-alert-success__box">
+            <div class="icon-wrapper"><span class="icon larger" data-icon="5"></span></div>
+            <p><small><strong>Your stock alert is set up</strong></small></p>
+            <p>We will email you when this item is back in stock</p>
+          </div>
+          <p class="stock-alert-success__link">
+            <a href="/direct/my/email-when-stock-back.page">Manage stock alerts</a> within your account
+          </p>
+        </div>
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </form>
+</script>
+
+<script type="text/template" id="gift-message-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <p>Add a personal gift message at checkout.</p>
+  </div>
+</script>
+
+<script type="text/template" id="promotions-view-template">
+    <div id="{{sViewId}}" class="{{sViewClass}}">
+        {{#aSubViews.length}}
+            <ul class="special-offers-list number-of-offers-{{aSubViews.length}}">
+                {{#aSubViews}}
+                    <li class="{{fnOddEvenClass}}">
+                        {{{render}}}
+                    </li>
+                {{/aSubViews}}
+            </ul>
+        {{/aSubViews.length}}
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="promotions-view-with-title-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#aSubViews.length}}
+      <div class="block-wrapper with-indents">
+        <div class="block">
+          <h2 class="block-title uppercase">{{title}}</h2>
+          <div id="special-offers-container">
+            <ul class="special-offers-list number-of-offers-{{aSubViews.length}}">
+              {{#aSubViews}}
+                <li class="{{fnOddEvenClass}}">
+                  {{{render}}}
+                </li>
+              {{/aSubViews}}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {{{oEvent}}}{{{addViewDataAttr}}}
+    {{/aSubViews.length}}
+  </div>
+</script>
+
+
+<script type="text/template" id="promotions-offer-template">
+    <div id="{{sViewId}}" class="{{sViewClass}} special-offer-container {{sToggleClass}}"
+            data-promo-id="{{mvc.promotions.id}}" data-promo-type="{{mvc.promotions.type}}">
+        <div class="special-offer-container-top">
+            <div class="offer-title">
+                <h5>{{mvc.promotions.displayName}}</h5>
+            </div>
+            <div class="offer-icon">
+                <div class="show-more-cheveron"></div>
+            </div>
+        </div>
+        <div class="special-offer-container-bottom">
+            <div class="offer-description">
+                {{#mvc.promotions.customerInstructions}}
+                    <p class="qualifying-text">{{mvc.promotions.customerInstructions}}</p>
+                {{/mvc.promotions.customerInstructions}}
+                {{#mvc.promotions.linkSaveURL}}
+                    <p class="offer-cta"><a href="{{mvc.promotions.linkSaveURL}}">See other products that qualify for this offer</a></p>
+                {{/mvc.promotions.linkSaveURL}}
+                <p class="offer-terms">{{mvc.promotions.description}}</p>
+            </div>
+        </div>
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="buybox-template-event-messaging">
+    <div id="{{sViewId}}" class="{{sViewClass}}">
+        <div class="event-message text">{{{eventMessage}}}</div>
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="buybox-template-delivery-snippet">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{countdownClass}}">
+    <div class="countdown-message highlight">
+      <span class="countdown-message-text"></span>
+    </div>
+
+    <div class="delivery-options-text" itemprop="availableDeliveryMethod">
+      <p class="highlight">
+        <strong>
+          {{mvc.deliveryOptions.0.free}}
+          {{mvc.deliveryOptions.0.name}}
+
+          {{#mvc.deliveryOptions.0.leadTime}}
+            ({{mvc.deliveryOptions.0.leadTime}})
+          {{/mvc.deliveryOptions.0.leadTime}}
+
+          {{^mvc.deliveryOptions.0.free}}
+            {{^mvc.deliveryOptions.0.chargeableClickAndCollect}}
+              {{#mvc.deliveryOptions.0.charge}}
+                &pound;{{mvc.deliveryOptions.0.charge}}
+              {{/mvc.deliveryOptions.0.charge}}
+            {{/mvc.deliveryOptions.0.chargeableClickAndCollect}}
+          {{/mvc.deliveryOptions.0.free}}
+        </strong>
+      </p>
+    </div>
+
+    {{#mvc.deliveryOptions.0.chargeableClickAndCollect}}
+      <p class="click-and-collect-charges smaller">
+        <span>FREE for orders of &pound;{{basketThreshold}} or more,</span>
+        <span>&pound;{{deliveryCharge}} for orders under &pound;{{basketThreshold}}.</span>
+      </p>
+    {{/mvc.deliveryOptions.0.chargeableClickAndCollect}}
+
+    {{#mvc.custom.deliveryOptions.moreOptionsText}}
+      <p class="more-delivery-options">
+        <span class="more-delivery-options-text">{{mvc.custom.deliveryOptions.moreOptionsText}}</span>
+        <a class="more-delivery-options-link hidden-tablet hidden-mobile">See details</a>
+      </p>
+    {{/mvc.custom.deliveryOptions.moreOptionsText}}
+
+    <div class="delivery-snippet-icon-wrapper hidden-kiosk hidden-largeDesktop hidden-desktop">
+      <span class="icon highlight larger" data-icon="r"></span>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="buybox-template-delivery-details">
+    <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+      {{#mvc.deliveryOptions}}
+        <div class="delivery-details-group" itemprop="availableDeliveryMethod">
+          <p>
+            <strong>
+              {{free}}
+              {{name}}
+
+              {{#leadTime}}
+                ({{leadTime}})
+              {{/leadTime}}
+
+              {{^free}}
+                {{^chargeableClickAndCollect}}
+                  {{#charge}}
+                    &pound;{{charge}}
+                  {{/charge}}
+                {{/chargeableClickAndCollect}}
+              {{/free}}
+            </strong>
+          </p>
+
+          <p class="delivery-options-text smaller">
+            {{#chargeableClickAndCollect}}
+              <span class="click-and-collect-charges">FREE for orders of &pound;{{basketThreshold}} or more,
+                &pound;{{deliveryCharge}} for orders under &pound;{{basketThreshold}}.</span>
+            {{/chargeableClickAndCollect}}
+
+            <span>{{{message}}}</span>
+          </p>
+      </div>
+      {{/mvc.deliveryOptions}}
+
+      {{#mvc.assets.deliveryOptions.nextDayTerms}}
+        <p class="delivery-details-terms-and-conditions smallest with-margin-btm">
+          {{{mvc.assets.deliveryOptions.nextDayTerms}}}
+        </p>
+      {{/mvc.assets.deliveryOptions.nextDayTerms}}
+
+      {{#mvc.assets.deliveryOptions.leadTime}}
+        <p class="delivery-details-lead-time-advisory smaller with-margin-btm">
+          {{{mvc.assets.deliveryOptions.leadTime}}}
+        </p>
+      {{/mvc.assets.deliveryOptions.leadTime}}
+
+      {{#mvc.assets.deliveryOptions.returns}}
+        <p class="delivery-details-returns-policy smaller">
+          {{{mvc.assets.deliveryOptions.returns}}}
+        </p>
+      {{/mvc.assets.deliveryOptions.returns}}
+
+      {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="services-form-template">
+  <form id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <legend>More options for this item</legend>
+      {{#mvc.services}}
+      <div class="fieldset-wrapper float-wrapper">
+        {{#custom.checkbox}}
+          {{{render}}}
+        {{/custom.checkbox}}
+        <div class="price-wrapper">
+          <a class="icon tooltip-trigger pull-right-all" style="{{custom.visibility}}"
+              data-icon="h" data-mvc-key="id" data-mvc-value="{{id}}"></a>
+          <strong class="price pull-right-all">&pound;{{price}}</strong>
+        </div>
+      </div>
+      {{/mvc.services}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </form>
+</script>
+
+
+<script type="text/template" id="service-check-box-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} col-mobile-8 col-tablet-8 col-desktop-8 col-largeDesktop-8">
+    <label for="{{mvc.formHandler.id}}">
+      <input type="checkbox" id="{{mvc.formHandler.id}}" data-mvc-key="id" data-mvc-value="{{mvc.formHandler.id}}">
+      <div class="check-box pull-left-all"></div>
+      <div title="{{mvc.services.name}}" class="label ellipsed col-all-10">{{mvc.services.name}}</div>
+    </label>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="services-banner-template">
+  <a id="{{sViewId}}" class="{{sViewClass}} {{props.classNames}} block-link
+      center-children-vertically {{#state.hasTooltip}}with-tooltip{{/state.hasTooltip}}"
+      data-mvc-key="id" data-mvc-value="{{mvc.services.id}}">
+    <div class="icon-wrapper hidden-mobile">
+      <span class="icon larger with-round-outline" data-icon="S"></span>
+    </div>
+    <h5>
+      <span class="banner-name">{{{props.name}}}</span>
+      <span class="banner-price"> &pound;{{{props.price}}}</span>
+      {{#state.hasTooltip}}
+        <span class="hidden-mobile">
+          <span class="link nowrap">Find out more</span>
+        </span>
+        <div class="icon-wrapper hidden-kiosk hidden-largeDesktop hidden-desktop hidden-tablet
+            center-vertically-right">
+          <span class="icon large" data-icon="r"></span>
+        </div>
+      {{/state.hasTooltip}}
+    </h5>
+  </a>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="services-banner-group-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} functional-banner {{props.classNames}} with-bkg-color">
+    {{#views.ServicesBannerView}}
+      {{#state.multipleServices}}
+        <div class="col-kiosk-6 col-largeDesktop-6 col-desktop-6 col-tabletH-6">
+      {{/state.multipleServices}}
+        {{{render}}}
+      {{#state.multipleServices}}
+        </div>
+      {{/state.multipleServices}}
+    {{/views.ServicesBannerView}}
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="services-banner-group-in-block-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} block-wrapper hidden-kiosk with-bkg-color">
+    <div class="block functional-banner {{props.classNames}}">
+      {{#views.ServicesBannerView}}
+        {{#state.multipleServices}}
+          <div class="col-kiosk-6 col-largeDesktop-6 col-desktop-6 col-tabletH-6">
+        {{/state.multipleServices}}
+          {{{render}}}
+        {{#state.multipleServices}}
+          </div>
+        {{/state.multipleServices}}
+      {{/views.ServicesBannerView}}
+    </div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="info-panel-template-group">
+    <div id="{{sViewId}}" class="PDP-Version2__component info-panel-group {{sViewClass}} {{sClassNames}}">
+        {{#aSubViews}}
+            {{{render}}}
+        {{/aSubViews}}
+
+        <div class="info-panel-mask-wrapper">
+            <div class="info-panel-mask"></div>
+        </div>
+
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="info-panel-template">
+    <div id="{{sViewId}}" class="info-panel {{sViewClass}} {{sClassNames}}" data-mvc-tag="{{tag}}">
+        <div class="info-panel-header">
+            <h4 class="info-panel-title ellipsed">{{{sTitle}}}</h4>
+            <span class="icon larger info-panel-back-icon" data-icon="g"></span>
+        </div>
+        <div class="info-panel-content-wrapper">
+          <h3 class="info-panel-content-title">{{{sTitle}}}</h3>
+          <div class="info-panel-content {{sContentClasses}}">
+              {{#aSubViews}}
+                  {{{render}}}
+              {{/aSubViews}}
+          </div>
+        </div>
+        <a class="icon info-panel-close-icon" data-icon="y"></a>
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="info-panel-template-tooltip">
+  <div id="{{sViewId}}" class="PDP-Version2__component info-panel {{sViewClass}} {{sClassNames}}">
+    <div class="info-panel-content-wrapper">
+      <span class="icon tooltip-error-icon" data-icon="8"></span>
+      <div class="text text-block smaller info-panel-content">
+        {{#aSubViews}}
+          {{{render}}}
+        {{/aSubViews}}
+      </div>
+    </div>
+    <a class="icon info-panel-close-icon" data-icon="y"></a>
+    <span class="icon tooltip-pointer"></span>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="product-tile-image-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <a href="{{{props.link}}}" class="thumbnail" data-productid="{{props.id}}" title="{{props.displayName}}">
+      <div class="thumbnail-alts" data-picture="" data-alt="{{props.displayName}}">
+        <div data-src="{{{props.imageSrcLarge}}}" data-media="(min-width: 600px)"></div>
+        <div data-src="{{{props.imageSrcDetail}}}" data-media="(max-width: 599px)"></div>
+        <!--[if (lt IE 9) & (!IEMobile)]>
+            <div data-src="{{{props.imageSrcDetail}}}"></div>
+        <![endif]-->
+				<noscript>
+					<img src="{{{props.imageSrcLarge}}}" alt="{{props.displayName}}" />
+				</noscript>
+      </div>
+    </a>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="product-tile-title-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <a href="{{{props.link}}}" data-productid="{{props.id}}">
+        <h3 class="tile-title">{{{props.displayName}}}</h3>
+    </a>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="product-ratings-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <a href="{{mvc.inherit.publicLink}}{{#mvc.inherit.noofRatingsProduced}}#BVRRContainer{{/mvc.inherit.noofRatingsProduced}}">
+        <span class="avg-rating rating">
+            <span class="screen-reader-text">Rating:</span>
+            {{#mvc.inherit.noofRatingsProduced}}
+                <span class="stars stars-{{mvc.inherit.custom.numOfStars}} point-{{mvc.inherit.custom.numOfPoints}}">
+                  {{mvc.inherit.custom.numOfStars}}
+                  {{#mvc.inherit.custom.numOfPoints}}.{{mvc.inherit.custom.numOfPoints}}{{/mvc.inherit.custom.numOfPoints}} stars
+                </span>
+            {{/mvc.inherit.noofRatingsProduced}}
+            {{^mvc.inherit.noofRatingsProduced}}
+                <span class="stars stars-0">No rating</span>
+            {{/mvc.inherit.noofRatingsProduced}}
+        </span>
+        <small class="total-reviews smaller" data-review="{{mvc.inherit.noofRatingsProduced}}">
+            {{#mvc.inherit.noofRatingsProduced}}
+                ({{mvc.inherit.noofRatingsProduced}})
+            {{/mvc.inherit.noofRatingsProduced}}
+            {{^mvc.inherit.noofRatingsProduced}}
+                (No Reviews)
+            {{/mvc.inherit.noofRatingsProduced}}
+        </small>
+    </a>
+  </div>
+</script>
+
+<script type="text/template" id="custom-dropdown-template">
+  <div class="{{dropdownClass}}">
+    <a class="{{controlClass}} block-link" {{{selectedAttr}}}>
+      {{#selectedSwatch}}
+        <img src="{{selectedSwatch}}">
+      {{/selectedSwatch}}
+      <span class="innerText">{{selectedText}}</span>
+      <span class="additionalText">{{additionalText}}</span>
+    </a>
+    <ul>
+      <li class="alt-heading">{{label}}</li>
+      {{#options}}
+        <li>
+          <a class="option {{currentClass}}" data-disabled="{{disabled}}"
+              data-value="{{value}}" {{{dataAttr}}}>
+            {{#swatch}}
+              <img src="{{swatch}}">
+            {{/swatch}}
+            <span>{{{innerHTML}}}</span>
+          </a>
+        </li>
+      {{/options}}
+    </ul>
+  </div>
+</script>
+
+<script type="text/template" id="variants-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#aSubViews}}
+      {{{render}}}
+    {{/aSubViews}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="swatch-variant-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <div class="swatch-variant-information">
+      <strong>{{props.name}}:</strong> <span class="swatch-variant-display-name">{{props.selected}}</span>
+    </div>
+    <ul class="swatch-variant" data-variant-group="{{props.internalName}}" data-product-association="{{state.isProductVariant}}">
+      {{#props.links}}
+        {{#value}}
+          {{#displayOption}}
+            <li {{#selected}}class="swatch-variant-selected"{{/selected}}>
+              <a title="{{value}}" class="{{^available}}swatch-variant-unavailable{{/available}}"
+                  data-variant-value="{{value}}" data-variant-id="{{id}}">
+                <img src="{{swatch}}" title="{{value}}" alt="{{value}}" />
+                <span class="swatch-variant-label">{{value}}</span>
+              </a>
+            </li>
+          {{/displayOption}}
+        {{/value}}
+      {{/props.links}}
+    </ul>
+
+    <div class="swatch-variant-mobile">
+      {{#state.inDropdown}}
+        <div class="select-wrapper">
+          <label for="{{props.internalName}}" class="screen-reader">Select {{props.name}}</label>
+          <select id="{{props.internalName}}" name="{{props.internalName}}" data-variant-group="{{props.internalName}}"
+              data-product-association="{{state.isProductVariant}}">
+            {{#props.links}}
+              {{#value}}
+                {{#displayOption}}
+                  <option value="{{id}}" data-variant-id="{{id}}" {{^available}}data-available="false"{{/available}}
+                      data-variant-value="{{value}}" data-inventory="{{hasInventory}}"
+                      {{#selected}}selected="selected"{{/selected}} data-swatch-url="{{swatch}}">
+                    {{value}}
+                    {{#hasInventory}}
+                      {{^available}} - Sold out{{/available}}
+                    {{/hasInventory}}
+                  </option>
+                {{/displayOption}}
+              {{/value}}
+            {{/props.links}}
+          </select>
+        </div>
+      {{/state.inDropdown}}
+
+      {{^state.inDropdown}}
+      <div class="dropdown-customised">
+        {{#props.links}}
+        <span class="control block-link single-swatch-only {{^available}}swatch-variant-unavailable{{/available}}">
+          {{#value}}
+            {{#displayOption}}
+              <img src="{{swatch}}" title="{{value}}" alt="{{value}}" />
+              <span class="innerText">
+                {{value}}
+                {{#hasInventory}}
+                  {{^available}} - Sold out{{/available}}
+                {{/hasInventory}}
+              </span>
+            {{/displayOption}}
+          {{/value}}
+        </span>
+        {{/props.links}}
+      </div>
+      {{/state.inDropdown}}
+    </div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+<script type="text/template" id="dropdown-variant-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#state.displayOptions}}
+      <div class="element-wrapper">
+        {{#state.inDropdown}}
+          <div class="select-wrapper">
+            <label for="{{props.internalName}}" class="screen-reader">Select {{props.name}}</label>
+            <select id="{{props.internalName}}" name="{{props.internalName}}" data-variant-group="{{props.internalName}}"
+                data-product-association="{{state.isProductVariant}}">
+              {{^state.hideDefaultOption}}
+                <option value="" data-variant-value="" data-option-index="-1">
+                    Select {{props.name}}
+                </option>
+              {{/state.hideDefaultOption}}
+              {{#props.links}}
+                {{#value}}
+                  {{#displayOption}}
+                    <option value="{{id}}" data-value="{{id}}" {{^subscribable}}{{^available}}disabled="disabled"{{/available}}{{/subscribable}}
+                        data-variant-value="{{value}}" data-inventory="{{hasInventory}}" {{#selected}}selected="selected"{{/selected}}>
+                      {{value}}
+                      {{#hasInventory}}
+                        {{^available}} - Sold out{{/available}}
+                      {{/hasInventory}}
+                    </option>
+                  {{/displayOption}}
+                {{/value}}
+              {{/props.links}}
+            </select>
+          </div>
+        {{/state.inDropdown}}
+
+        {{^state.inDropdown}}
+          <strong class="single-variant-type">{{props.name}}</strong>:
+          {{#props.links}}
+            {{#value}}
+              {{#displayOption}}
+                <span>
+                  {{value}}
+                  {{#hasInventory}}
+                    {{^available}} - Sold out{{/available}}
+                  {{/hasInventory}}
+                </span>
+              {{/displayOption}}
+            {{/value}}
+          {{/props.links}}
+        {{/state.inDropdown}}
+      </div>
+    {{/state.displayOptions}}
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="product-synopsis-template">
+  <div id="{{sViewId}}" class="block {{sViewClass}}">
+    <h2 class="block-title uppercase">Product Synopsis</h2>
+    {{#mvc.sku.skuSynopsis}}
+      {{{mvc.sku.skuSynopsis}}}
+    {{/mvc.sku.skuSynopsis}}
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="kiosk-product-details-template">
+  <div id="{{sViewId}}" class="block {{sViewClass}}">
+    {{#state.alreadyInBasket}}
+      <div class="info-messaging-block with-icon personalised-product-info-message-block">
+        <div class="info-icon-wrapper center-vertically-left">
+          <span class="icon info-icon largest" data-icon="8"></span>
+        </div>
+
+        <p class="info-message">You already have a version of this personalised item in your basket.
+          If you're looking to amend it, please remove the current item before adding a new one.
+        </p>
+      </div>
+    {{/state.alreadyInBasket}}
+
+    {{#state.hasUES}}
+      <div class="schoolInfoSection">
+        <h2>{{mvc.products.ues.schoolName}}<h2>
+        <p class="schoolAddress">{{mvc.products.ues.schoolAddressText}}<p>
+      </div>
+
+      <div class="schoolDonation">
+        <span>{{mvc.products.ues.dontationText}}</span>
+        <span class="value">&pound;{{mvc.products.ues.dontationFund}}</span>
+      </div>
+    {{/state.hasUES}}
+
+    <h2 class="block-title uppercase">Product Details</h2>
+
+    {{#mvc.vm.bFFBrandProduct}}
+      <span class="icon-FFlogo">F&amp;F</span>
+    {{/mvc.vm.bFFBrandProduct}}
+
+    {{#mvc.vm.bOnlineExclusive}}
+      <span class="online-exclusive">Online Exclusive</span>
+    {{/mvc.vm.bOnlineExclusive}}
+
+    {{#mvc.products.dynamicAttributes.styleRef}}
+      <span class="style-ref">Ref: {{mvc.products.dynamicAttributes.styleRef}}</span>
+    {{/mvc.products.dynamicAttributes.styleRef}}
+
+    {{#mvc.vm.sku.miniDescription}}
+      <ul class="product-features product-features-non-book-layout">
+        {{#mvc.vm.sku.miniDescription.feature_1}}
+          <li class="col-largeDesktop-4 col-desktop-4">{{{mvc.vm.sku.miniDescription.feature_1}}}</li>
+        {{/mvc.vm.sku.miniDescription.feature_1}}
+
+        {{#mvc.vm.sku.miniDescription.feature_2}}
+          <li class="col-largeDesktop-4 col-desktop-4">{{{mvc.vm.sku.miniDescription.feature_2}}}</li>
+        {{/mvc.vm.sku.miniDescription.feature_2}}
+
+        {{#mvc.vm.sku.miniDescription.feature_3}}
+          <li class="col-largeDesktop-4 col-desktop-4">{{{mvc.vm.sku.miniDescription.feature_3}}}</li>
+        {{/mvc.vm.sku.miniDescription.feature_3}}
+      </ul>
+    {{/mvc.vm.sku.miniDescription}}
+
+    {{#mvc.sku.attributes.shortSalesText}}
+      <div class="block-content text-block">
+        <p class="with-margin-btm">{{{mvc.sku.attributes.shortSalesText}}}</p>
+      </div>
+    {{/mvc.sku.attributes.shortSalesText}}
+
+    {{#mvc.sku.longDescription}}
+      <div class="block-content text-block" itemprop="description">
+        {{{mvc.sku.longDescription}}}
+      </div>
+
+    {{/mvc.sku.longDescription}}
+
+    {{#mvc.sku.bookDetails}}
+      <ul class="product-features product-features-book-layout float-wrapper" itemscope="" itemtype="http://schema.org/CreativeWork">
+        {{#mvc.sku.bookDetails.authors}}
+          <li itemprop="authors"><span><strong>Author(s):</strong>{{{mvc.sku.bookDetails.authors}}}</span></li>
+        {{/mvc.sku.bookDetails.authors}}
+
+        {{#mvc.sku.bookDetails.formats}}
+          <li itemprop="formats"><span><strong>Format(s):</strong>{{{mvc.sku.bookDetails.formats}}}</span></li>
+        {{/mvc.sku.bookDetails.formats}}
+
+        {{#mvc.sku.bookDetails.publisher}}
+          <li itemprop="publisher"><span><strong>Publisher:</strong>{{{mvc.sku.bookDetails.publisher}}}</span></li>
+        {{/mvc.sku.bookDetails.publisher}}
+
+        {{#mvc.sku.bookDetails.publicationDate}}
+          <li itemprop="publicationDate" class="published"><span><strong>Published:</strong>{{{mvc.sku.bookDetails.publicationDate}}}</span></li>
+        {{/mvc.sku.bookDetails.publicationDate}}
+
+        {{#mvc.sku.bookDetails.ISBN}}
+          <li itemprop="ISBN"><span><strong>ISBN:</strong>{{{mvc.sku.bookDetails.ISBN}}}</span></li>
+        {{/mvc.sku.bookDetails.ISBN}}
+
+        {{#mvc.sku.bookDetails.illustrations}}
+          <li itemprop="illustrations"><span><strong>Illustrations:</strong>{{{mvc.sku.bookDetails.illustrations}}}</span></li>
+        {{/mvc.sku.bookDetails.illustrations}}
+
+        {{#mvc.sku.bookDetails.totalPages}}
+          <li itemprop="totalPages"><span><strong>Total pages:</strong>{{{mvc.sku.bookDetails.totalPages}}}</span></li>
+        {{/mvc.sku.bookDetails.totalPages}}
+
+        {{#mvc.sku.bookDetails.genre}}
+          <li itemprop="genre"><span><strong>Genre:</strong>{{{mvc.sku.bookDetails.genre}}}</span></li>
+        {{/mvc.sku.bookDetails.genre}}
+
+        {{#mvc.sku.bookDetails.secondaryGenre}}
+          <li itemprop="secondaryGenre"><span><strong>Secondary genre:</strong>{{{mvc.sku.bookDetails.secondaryGenre}}}</span></li>
+        {{/mvc.sku.bookDetails.secondaryGenre}}
+      </ul>
+    {{/mvc.sku.bookDetails}}
+
+    {{#views.productDetails}}
+      {{{render}}}
+    {{/views.productDetails}}
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="product-details-template">
+    <div id="{{sViewId}}" class="block {{sViewClass}}">
+        <h2 class="block-title uppercase">Product Details</h2>
+        {{#mvc.vm.bOnlineExclusive}}
+            <span class="online-exclusive">Online Exclusive</span>
+        {{/mvc.vm.bOnlineExclusive}}
+        {{#mvc.products.dynamicAttributes.styleRef}}
+            <strong class="style-ref">
+                Ref: {{mvc.products.dynamicAttributes.styleRef}}
+            </strong>
+        {{/mvc.products.dynamicAttributes.styleRef}}
+        {{#mvc.vm.sku.miniDescription}}
+            <ul class="product-features product-features-non-book-layout">
+                {{#mvc.vm.sku.miniDescription.feature_1}}
+                    <li class="col-largeDesktop-4 col-desktop-4">{{{mvc.vm.sku.miniDescription.feature_1}}}</li>
+                {{/mvc.vm.sku.miniDescription.feature_1}}
+
+                {{#mvc.vm.sku.miniDescription.feature_2}}
+                    <li class="col-largeDesktop-4 col-desktop-4">{{{mvc.vm.sku.miniDescription.feature_2}}}</li>
+                {{/mvc.vm.sku.miniDescription.feature_2}}
+
+                {{#mvc.vm.sku.miniDescription.feature_3}}
+                    <li class="col-largeDesktop-4 col-desktop-4">{{{mvc.vm.sku.miniDescription.feature_3}}}</li>
+                {{/mvc.vm.sku.miniDescription.feature_3}}
+            </ul>
+        {{/mvc.vm.sku.miniDescription}}
+
+        {{#mvc.sku.attributes.shortSalesText}}
+          <p class="with-margin-btm">{{{mvc.sku.attributes.shortSalesText}}}</p>
+        {{/mvc.sku.attributes.shortSalesText}}
+
+        <div class="block-content text-block" itemprop="description">
+          {{{mvc.sku.longDescription}}}
+        </div>
+
+        {{#bHasReadMore}}
+          <a class="read-more-link">Read more</a>
+        {{/bHasReadMore}}
+
+        {{#aSubViews}}
+          {{{render}}}
+        {{/aSubViews}}
+     </div>
+     {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+
+<script type="text/template" id="product-page-title-template">
+    <div class="{{sViewClass}}">
+        <h1 class="product-title {{mvc.vm.sFFlogoClass}}">
+            {{#mvc.vm.bOnlineExclusive}}
+                <span class="online-exclusive">Online Exclusive</span>
+            {{/mvc.vm.bOnlineExclusive}}
+            <span itemprop="name" id="productLabel" class="product-title-text">{{{mvc.vm.title}}}</span>
+            <span class="screen-reader">Catalogue number:</span>
+            <span itemprop="sku" class="catalogue-id">{{mvc.sku.id}}</span>
+        </h1>
+
+        {{#mvc.sku.attributes.classification}}
+        <div class="age-rating-wrapper">
+            <img class="age-rating" src="{{mvc.vm.sGlobalStaticAssetsPath}}age-rating/{{mvc.sku.attributes.classification}}.png" alt="{{mvc.sku.attributes.classification}}" title="{{mvc.sku.attributes.classification}}" />
+        </div>
+        {{/mvc.sku.attributes.classification}}
+
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="kiosk-product-page-title-template">
+    <div class="{{sViewClass}} {{sClassNames}}">
+        <h1 class="product-title {{mvc.vm.sFFlogoClass}}">
+            <span itemprop="name" id="productLabel" class="product-title-text">{{{mvc.vm.title}}}</span>
+        </h1>
+        <span class="screen-reader">Catalogue number:</span>
+        <span itemprop="sku" class="catalogue-id">{{mvc.sku.id}}</span>
+
+        {{#mvc.sku.attributes.classification}}
+        <div class="age-rating-wrapper">
+            <img class="age-rating" src="{{mvc.vm.sGlobalStaticAssetsPath}}age-rating/{{mvc.sku.attributes.classification}}.png" alt="{{mvc.sku.attributes.classification}}" title="{{mvc.sku.attributes.classification}}" />
+        </div>
+        {{/mvc.sku.attributes.classification}}
+
+        <div class="rating-container">
+            <div id="BVRRSummaryContainer" class="pdp-ratings-summary">
+                <div class="ratings-wrapper">
+                  <a>
+                      <label class="screen-reader">Rating:</label>
+                      <span class="icon ratings-stars disabled" data-icon="xxxxx"></span>
+                  </a>
+                </div>
+            </div>
+            <div class="rating-mask"></div>
+        </div>
+
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+<script type="text/template" id="product-page-tab-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <ul class="product-tabs">
+        <li><a id="tab-overview" class="tab-home is-active">Product overview</a></li>
+        {{#hasPromos}}
+            <li><a id="tab-PromotionsView" class="kiosk-tab special-highlight">{{promoLabel}}</a></li>
+        {{/hasPromos}}
+        {{#hasDetails}}
+            <li><a id="tab-ProductDetailsView" class="kiosk-tab">Product details</a></li>
+        {{/hasDetails}}
+        {{#bHasSynopsis}}
+            <li><a id="tab-ProductSynopsisView" class="kiosk-tab">Synopsis</a></li>
+        {{/bHasSynopsis}}
+        {{#bHasAuthorBiography}}
+        <li><a id="tab-AuthorBiographyView" class="kiosk-tab">Author's biography</a></li>
+        {{/bHasAuthorBiography}}
+        {{#bHasSpecification}}
+        <li><a id="tab-KioskProductSpecView" class="kiosk-tab">Product specifications</a></li>
+        {{/bHasSpecification}}
+        {{#bHasReviews}}
+            <li><a id="tab-KioskProductReviewsView" class="kiosk-tab">Reviews</a></li>
+        {{/bHasReviews}}
+    </ul>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="kiosk-product-page-reviews-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <h2 class="block-title uppercase">Product reviews</h2>
+    <div id="BVRRContainer"></div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="product-page-template">
+    {{#oProductPageTitleView}}
+        {{{render}}}
+    {{/oProductPageTitleView}}
+    {{#oProductDetailsView}}
+        {{{render}}}
+    {{/oProductDetailsView}}
+    {{#oProductSpecView}}
+        {{{render}}}
+    {{/oProductSpecView}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+<script type="text/template" id="kiosk-product-page-template">
+  <div class="content-container has-rendered">
+    {{#oProductPageTitleView}}
+      <div class="col-kiosk-12">
+        {{{render}}}
+      </div>
+    {{/oProductPageTitleView}}
+    <div class="col-kiosk-9">
+      <div class="col-kiosk-8">
+        <div class="main-content-wrapper">
+          {{#oProductMediaViewerView}}
+            {{{render}}}
+          {{/oProductMediaViewerView}}
+
+          {{#oServicesBannerGroupView}}
+            {{{render}}}
+          {{/oServicesBannerGroupView}}
+        </div>
+      </div>
+      <div class="col-kiosk-4 main-content-right">
+        {{#oProductDetailsView}}
+          {{{render}}}
+        {{/oProductDetailsView}}
+      </div>
+      <div class="col-kiosk-12">
+        {{#oKioskTabs}}
+          {{{render}}}
+        {{/oKioskTabs}}
+      </div>
+    </div>
+    <div class="col-kiosk-3">
+      <aside class="buybox-wrapper">
+        {{#oBuyboxView}}
+          {{{render}}}
+        {{/oBuyboxView}}
+      </aside>
+    </div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+<script type="text/template" id="product-media-viewer-static-image-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <div class="static-product-image {{{mvc.custom.mediaViewer.sScene7Enabled}}}">
+      <img itemprop="image" id="scene7-placeholder" src="{{{mvc.sku.mediaAssets.defaultImage.src}}}" alt="{{{mvc.products.displayName}}}">
+    </div>
+
+    {{{oEvent}}}
+  </div>
+</script>
+
+<script type="text/template" id="product-media-viewer-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <div class="main-details" id="media-viewer-container">
+
+      {{#oProductMediaViewerStaticImageView}}
+        {{{render}}}
+      {{/oProductMediaViewerStaticImageView}}
+
+      <div id="media-viewer-wrapper">
+
+        <div id="media-viewer--main">
+          <div id="media-viewer" class="zoomVisible">
+            <div id="media-viewer-inner">
+              <div id="mediaViewerScene7Container"></div>
+            </div>
+          </div>
+
+          <div id="mv-dotMarker-wrapper">
+            <div id="mv-dotMarker-innerWrapper">
+              <div class="mv-dotMarker-container">
+                <ul class="media-viewer-markers"></ul>
+              </div>
+            </div>
+          </div>
+
+          <span class="btn-zoom-image"><span class="icon icon-zoom"></span></span>
+        </div>
+
+        <div id="media-viewer--sidebar">
+          <div class="mv-thumbnail-container">
+            <ul class="mv-thumbnail-carousel"></ul>
+            <ul class="mv-thumbnail-nav">
+              <li class="disabled"><a class="icon previous"></a></li>
+              <li class="disabled"><a class="icon next"></a></li>
+            </ul>
+          </div>
+
+          <div id="mv-carousel-index"></div>
+        </div>
+
+        <div class="media-viewer--carousel-nav">
+          <div class="btn-s7-carousel btn-s7-prev">
+            <a class="icon btn-s7-step"></a>
+          </div>
+          <div class="btn-s7-carousel btn-s7-next">
+            <a class="icon btn-s7-step"></a>
+          </div>
+        </div>
+      </div>
+
+      {{#oProductPingView}}
+        <div class="media-viewer--pings">
+          {{{render}}}
+        </div>
+      {{/oProductPingView}}
+    </div>
+
+    {{{oEvent}}}
+  </div>
+</script>
+
+<script type="text/template" id="product-spec-template">
+    <div id="{{sViewId}}" class="block {{sViewClass}} {{sClassNames}}">
+        {{#mvc.vm.sku.specification.length}}
+        <h2 class="block-title uppercase">Product specifications</h2>
+        <div class="section-content-container">
+            <div id="product-spec-section-content" class="section-content">
+                {{#mvc.vm.sku.specification}}
+                <div class="product-spec-group-container">
+                    <div class="product-spec-group-title-background"></div>
+                    <div class="product-spec-group-title-container">
+                       <h4 class="section-subtitle">{{{groupName}}}</h4>
+                    </div>
+                    <div class="product-spec-group">
+                        {{#groupAttributes}}
+                        <div class="product-spec-row-container" data-internal-attr-name="{{{attr}}}">
+                            <div class="product-spec-row">
+                                <div class="product-spec-cell product-spec-label">
+                                    {{{title}}}
+                                </div>
+                                <div class="product-spec-cell product-spec-value">
+                                    {{{description}}}
+                                </div>
+                                <div class="icon-container">
+                                    <div class="icon icon-info"></div>
+                                </div>
+                            </div>
+                            <div class="product-spec-description"></div>
+                        </div>
+                        {{/groupAttributes}}
+                    </div>
+                </div>
+                {{/mvc.vm.sku.specification}}
+            </div>
+        </div>
+        {{/mvc.vm.sku.specification.length}}
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="related-items-carousel-template">
+  {{#mViewData.items.length}}
+    <div id="{{sViewId}}" class="block-wrapper with-indents {{mViewData.relationshipType}}">
+      <div class="carousel-fullwidth block">
+          <header class="cfw-header">
+              <h2 class="block-title uppercase cfw-title">{{{mViewData.relatedItemHeading}}}</h2>
+              <div class="product-carousel-nav-wrapper">
+                <ul class="product-carousel-nav {{mViewData.carousel.customNavigationClass}}">
+                    <li class="disabled">
+                        <a href="#" class="previous">
+                            <span class="label">Previous</span>
+                            <span aria-hidden="true" class="icon"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="next">
+                            <span class="label">Next</span>
+                            <span aria-hidden="true" class="icon"></span>
+                        </a>
+                    </li>
+                </ul>
+              </div>
+          </header>
+          {{#aSubViews}}
+            {{{render}}}
+          {{/aSubViews}}
+      </div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  {{/mViewData.items.length}}
+</script>
+
+<script type="text/template" id="related-items-view-with-title-template">
+    <div id="{{sViewId}}" class="{{sViewClass}} block-wrapper">
+      <div class="block-wrapper with-indents">
+        <div class="block">
+          <h2 class="block-title uppercase">{{{mViewData.relatedItemHeading}}}</h2>
+          {{#aSubViews}}
+            {{{render}}}
+          {{/aSubViews}}
+		    </div>
+      </div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="outfit-items-template">
+  <div id="{{sViewId}}" class="{{sViewClass}}">
+    <ul class="outfit-items-list">
+      {{#views.OutfitItemView}}
+        <li class="{{props.oddEvenClass}}">{{{render}}}</li>
+      {{/views.OutfitItemView}}
+    </ul>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="outfit-item-template">
+  <div id="{{sViewId}}" class="{{sViewClass}}">
+    {{#views.ProductTileView}}
+      {{{render}}}
+    {{/views.ProductTileView}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="carousel-items-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <ul class="carousel-items-list">
+      {{#views.CarouselItemView}}
+        <li>{{{render}}}</li>
+      {{/views.CarouselItemView}}
+    </ul>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="carousel-item-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#views.ProductTileView}}
+      {{{render}}}
+    {{/views.ProductTileView}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="product-tile-template">
+    <div id="{{sViewId}}" class="product-tile {{sViewClass}} {{props.classNames}}">
+      <div class="product-tile-section-one">
+        {{#views.ProductTileImageView}}
+          {{{render}}}
+        {{/views.ProductTileImageView}}
+      </div>
+      <div class="product-tile-section-two">
+        {{#views.ProductTileTitleView}}
+          {{{render}}}
+        {{/views.ProductTileTitleView}}
+        {{#views.ProductPriceView}}
+          {{{render}}}
+        {{/views.ProductPriceView}}
+        {{#views.ProductTileRatingsView}}
+          {{{render}}}
+        {{/views.ProductTileRatingsView}}
+        {{#views.VariantsView}}
+          {{{render}}}
+        {{/views.VariantsView}}
+        {{#views.ItemActionsView}}
+          {{{render}}}
+        {{/views.ItemActionsView}}
+      </div>
+      {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+</script>
+
+
+<script type="text/template" id="media-viewer-video-error-template">
+    <div id="prodVideoView" class="videoView error">
+        <div class="videoContainer">
+            <div class="videoPosition" data-index="{{iIndex}}">
+                <div class="errorVideo center-children-vertically">
+                    <div class="errorWrap">
+                        <span>{{sDescription}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="product-spec-enclosed-template">
+    {{#mvc.vm.sku.specification.length}}
+    <div id="product-spec-container" class="block product-spec-block">
+        {{#mvc.vm.sku.specification}}
+        <div class="product-spec-group-container">
+            <div class="product-spec-group">
+                {{#groupAttributes}}
+                <div class="product-spec-row-container" data-internal-attr-name="{{{attr}}}">
+                    <div class="product-spec-row">
+                        <div class="product-spec-cell product-spec-label">
+                            {{{title}}}
+                        </div>
+                        <div class="product-spec-cell product-spec-value">
+                            {{{description}}}
+                        </div>
+                        <div class="icon-container">
+                            <div class="icon icon-info"></div>
+                        </div>
+                    </div>
+                    <div class="product-spec-description"></div>
+                </div>
+                {{/groupAttributes}}
+            </div>
+        </div>
+        {{/mvc.vm.sku.specification}}
+        {{{oEvent}}}{{{addViewDataAttr}}}
+    </div>
+    {{/mvc.vm.sku.specification.length}}
+</script>
+
+
+<script type="text/template" id="product-ping-template">
+    <div id="{{sViewId}}" class="{{sViewClass}}" data-picture data-alt="{{props.mediaType}}">
+        <div data-src="{{{props.srcLarge}}}" data-media="(min-width: 1200px)"></div>
+        <div data-src="{{{props.srcSmall}}}" data-media="(max-width: 1199px)"></div>
+        <noscript>
+            <img src="{{{props.srcSmall}}}" alt="{{props.mediaType}}">
+      </noscript>
+    </div>
+    {{{oEvent}}}
+</script>
+
+
+<script type="text/template" id="price-check-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} block-wrapper with-indents">
+    <div class="block">
+    	<h2 class="block-title uppercase">Price Check</h2>
+    	<div class="price-check-content">
+    		<h4 class="price-check-cta">We've checked the price so you don't have to.</h4>
+    		<div class="price-check-header">
+    			<ul>
+    				<li>Seller</li>
+    				<li>Competitor price</li>
+    			</ul>
+    		</div>
+        <div class="price-check-competitors">
+          <ul>
+        	  {{#props.competitors}}
+          		<li class="price-check-competitor">
+          			<ul>
+          				<li>
+          					{{{competitorName}}}
+          					<div class="price-check-timestamp text smaller">
+          						Checked <span>{{lastUpdateDateTime}}</span>
+          					</div>
+          				</li>
+          				<li><span class="product-price">&pound;{{competitorPrice}}</span></li>
+          			</ul>
+          		</li>
+         	  {{/props.competitors}}
+          </ul>
+        </div>
+        <div class="price-check-footer text smaller">
+          Comparison excludes multibuys. Delivery charges may apply.
+        </div>
+    	</div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="warranties-view-template">
+  <form id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#mvc.vm.warranties.length}}
+      {{#mvc.vm.warranties}}
+      <div class="fieldset-wrapper float-wrapper">
+        <div class="col-mobile-9 col-tablet-9 col-desktop-9 col-largeDesktop-9 col-kiosk-9">
+          <label for="{{catalogRefId}}">
+            <input type="checkbox" id="{{catalogRefId}}" data-mvc-key="catalogRefIds" data-mvc-value="{{catalogRefId}}" class="warranty-checkbox">
+            <div class="check-box pull-left-all"></div>
+            <div title="{{description}}" class="label ellipsed col-all-10 smaller">Add {{description}}</div>
+          </label>
+        </div>
+        <div class="price-wrapper">
+          <strong class="price pull-right-all">&pound;{{displayPrice}}</strong>
+        </div>
+      </div>
+      {{/mvc.vm.warranties}}
+
+      <p class="warranties-supplier-footnote smaller">Provided by <a href="http://www.tesco.com/direct/drops-spills/" target="_blank">SquareTrade</a></p>
+    {{/mvc.vm.warranties.length}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </form>
+</script>
+
+<script type="text/template" id="bundle-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#props.primary}}
+      <div class="bundle-primary">
+        <div class="primary-info">
+          <p>{{tileHeading}}</p>
+        </div>
+        {{#view}}
+          {{{render}}}
+        {{/view}}
+      </div>
+    {{/props.primary}}
+    {{#props.recommendations}}
+      <div class="bundle-secondary">
+        <label for="{{id}}" data-catID="{{catID}}">
+          <input type="checkbox" id="{{id}}" class="bundle-checkbox"
+              {{#checked}}checked="checked"{{/checked}}>
+          <div class="check-box pull-left-all"></div>
+          <div class="label">{{checkboxLabel}}</div>
+        </label>
+        {{#view}}
+          {{{render}}}
+        {{/view}}
+      </div>
+    {{/props.recommendations}}
+    <div class="bundle-actions-wrapper">
+      <div class="bundle-actions">
+        <div class="bundle-actions-inner">
+          <p class="larger">Bundle price</p>
+          <div class="bundle-price">
+            <span class="product-price larger" itemprop="price">&pound;{{props.price}}</span>
+          </div>
+          {{#views.addToBasket}}
+            {{{render}}}
+          {{/views.addToBasket}}
+        </div>
+      </div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="author-biography-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    <h2 class="block-title uppercase">Author's biography</h2>
+    <div class="block-content">
+      <p>{{{props.authorBiography}}}</p>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="author-biography-view-in-block-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} block-wrapper with-indents">
+    <div class="block">
+      <h2 class="block-title uppercase">Author's biography</h2>
+      <div class="block-content">
+        <p>{{{props.authorBiography}}}</p>
+      </div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+<script type="text/template" id="dropdown-wishlists-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} {{^mvc.wishlists.bMultipleWishlists}}no-stored-wishlists{{/mvc.wishlists.bMultipleWishlists}} {{#mvc.wishlists.bHideWishlists}}disable-wishlists{{/mvc.wishlists.bHideWishlists}} with-device-indents">
+    <div class="element-wrapper">
+      <div class="select-wrapper">
+        <label for="" class="screen-reader">{{mvc.wishlists.defaultWishlistText}}</label>
+        <select id="wishlists-dropdown" name="{{sViewId}}" data-key-id="{{sViewId}}">
+          <option data-option-index="-1" value="{{mvc.wishlists.defaultWishlistText}}" data-url="{{mvc.wishlists.defaultHref}}">{{mvc.wishlists.defaultWishlistText}}</option>
+          {{#mvc.wishlists}}
+            <option value="{{{href}}}" data-url="{{{href}}}">
+              {{{name}}}
+            </option>
+          {{/mvc.wishlists}}
+        </select>
+      </div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="inline-content-view-in-block-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}} block-wrapper with-indents">
+    <div class="block">
+      <h2 class="block-title uppercase">{{{props.title}}}</h2>
+      <div class="block-content">
+        {{#state.hasCmsContent}}
+          <div id="cms-content">{{{props.cmsContent}}}</div>
+        {{/state.hasCmsContent}}
+        {{#state.hasExternalScript}}
+          <div id="flix-inpage"></div>
+          <div id="inline-content"></div>
+          {{{props.externalScript}}}
+        {{/state.hasExternalScript}}
+      </div>
+    </div>
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="store-stock-check-overlay-template">
+  <div class="col-largeDesktop-7 col-desktop-7">
+    <div class="col-stores-wrapper">
+      <form class="stock-check-form" data-id="{{props.id}}">
+        <label for="stock-check-overlay-form-postcode" class="stock-check-label text">Check stock in your local store:</label>
+        <input id="stock-check-overlay-form-postcode" title="Enter town / postcode" placeholder="Enter town / postcode" value="{{props.nearestStoreLookup}}" class="postcode pull-left-all" type="text" autocomplete="off">
+        <div class="button-wrapper">
+          <input type="submit" class="button secondary" value="Check" />
+        </div>
+      </form>
+      {{#props.nearestStores.length}}
+      <div class="block with-sm-margin-btm">
+        <div class="col-largeDesktop-7 col-desktop-7 col-tablet-7 col-mobile-12">
+          <p class="larger"><strong>Nearest availability to '{{props.nearestStoreLookup}}'</strong></p>
+        </div>
+        {{#props.showInStockOnlyCheckbox}}
+        <div class="element-wrapper in-stock-filter-checkbox-wrapper">
+          <label for="in-stock-filter-checkbox" class="pull-right-all pull-left-mobile">
+            <input type="checkbox" id="in-stock-filter-checkbox" class="in-stock-filter-checkbox" {{#state.isInStockOnly}}checked="checked"{{/state.isInStockOnly}} data-id="{{props.id}}">
+            <div class="check-box"></div>
+            <div class="label">In stock stores only</div>
+          </label>
+        </div>
+        {{/props.showInStockOnlyCheckbox}}
+      </div>
+      <div class="block stores-list-wrapper">
+        <ul>
+          {{#props.nearestStores}}
+          <li id="store-{{id}}" class="stores-list-item {{stockStatusClass}} {{#isSelected}}is-selected{{/isSelected}}" data-storeid="{{id}}">
+            <a id="{{index}}" class="store-detail-link" data-index="{{index}}">
+              <span class="store-index">{{position}}</span>
+              <span class="store-name col-tablet-12">{{storeName}}</span>
+              <span class="stock-status col-tablet-4 col-mobile-6">{{stockStatusMessage}}</span>
+              {{#distance}}<span class="store-distance col-tablet-4 col-mobile-6">{{distance}} miles</span>{{/distance}}
+              <span class="view-store-info-toggle col-tablet-4 col-mobile-12"><span>View store info</span></span>
+            </a>
+            <div class="store-details-wrapper">
+              <div class="hidden-tablet hidden-mobile">
+                <p>Your selected store:</p>
+                <h5 class="with-margin-btm">
+                  <span class="tableIndex">{{position}}</span>
+                  <strong>{{storeName}}</strong>
+                  {{#distance}}<span class="store-detail-distance">{{distance}} miles</span>{{/distance}}
+                </h5>
+              </div>
+              <div class="store-address-collection-times">
+                <div class="col-largeDesktop-6 col-desktop-6 col-tablet-6">
+                  <h6 class="text">Address &amp; telephone</h6>
+                  <address itemprop="address" itemscope="itemscope" itemtype="http://schema.org/PostalAddress" class="text smaller">
+                    {{#addressOne}}<span itemprop="streetAddress">{{addressOne}}</span>{{/addressOne}}
+                    {{#addressTwo}}<span itemprop="streetAddress">{{addressTwo}}</span>{{/addressTwo}}
+                    {{#townCity}}<span itemprop="addressLocality">{{townCity}}</span>{{/townCity}}
+                    {{#county}}<span itemprop="addressRegion">{{county}}</span>{{/county}}
+                    {{#postalCode}}<span itemprop="postalCode">{{postalCode}}</span>{{/postalCode}}
+                    {{#country}}<span itemprop="addressCountry">{{country}}</span>{{/country}}
+                  </address>
+                  {{#telephone}}
+                  <p class="smaller with-margin-btm">{{telephone}}</p>
+                  {{/telephone}}
+                  <p class="smaller with-margin-btm hidden-largeDesktop hidden-desktop">
+                    <a href="//tesco.com/store-locator/uk/?bID={{bid}}" target="_blank" class="tesco-store-locator-link">
+                      View map &amp; full store information</a>
+                  </p>
+                </div>
+                <div class="col-largeDesktop-6 col-desktop-6 col-tablet-6">
+                  <h6 class="text">Collection times</h6>
+                  <table class="store-collection-times text smaller">
+                    <thead class="hidden-all">
+                      <tr>
+                        <th scope="col" class="day">Day</th>
+                        <th scope="col">Open</th>
+                        <th scope="col">Closed</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="day">Monday</td>
+                        <td>{{monOpen}}</td>
+                        <td>{{monClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Tuesday</td>
+                        <td>{{tueOpen}}</td>
+                        <td>{{tueClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Wednesday</td>
+                        <td>{{wedOpen}}</td>
+                        <td>{{wedClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Thursday</td>
+                        <td>{{thuOpen}}</td>
+                        <td>{{thuClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Friday</td>
+                        <td>{{friOpen}}</td>
+                        <td>{{friClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Saturday</td>
+                        <td>{{satOpen}}</td>
+                        <td>{{satClose}}</td>
+                      </tr>
+                      <tr>
+                        <td class="day">Sunday</td>
+                        <td>{{sunOpen}}</td>
+                        <td>{{sunClose}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </li>
+          {{/props.nearestStores}}
+        </ul>
+      </div>
+      {{/props.nearestStores.length}}
+      {{#props.showMoreStoresButton}}
+      <a class="check-more-stores-link button secondary" data-id="{{props.id}}">Check more stores</a>
+      {{/props.showMoreStoresButton}}
+      <p class="smaller">Stock levels may change by the time you arrive at the store. Store and online prices may vary. We don't stock this item in our smaller stores (Express and Metro)</p>
+    </div>
+  </div>
+  <div class="col-largeDesktop-5 col-desktop-5">
+    <div class="map-col-wrapper">
+      <div id="stockMapDetails">
+        <div id="mapContainer"></div>
+      </div>
+      <div class="selected-store-details-wrapper"></div>
+    </div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</script>
+
+
+<script type="text/template" id="product-clp-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#state.hasProductWarnings}}
+    <div class="{{props.classes}}">
+      <div class="block product-clp-block">
+        {{^mvc.flags.isKiosk}}
+        <h2 class="block-title uppercase">Product Warning</h2>
+        {{/mvc.flags.isKiosk}}
+        {{#mvc.flags.isKiosk}}
+        <h3 class="text with-margin-btm"><strong>Product Warning</strong></h3>
+        {{/mvc.flags.isKiosk}}
+        {{#props.pictographs.length}}
+        <ul class="clp-pictograms">
+          {{#props.pictographs}}
+          <li class="clp-{{{code}}}"><span class="clp-name">{{{name}}}</span></li>
+          {{/props.pictographs}}
+        </ul>
+        {{/props.pictographs.length}}
+        {{#props.statement}}
+        <div class="text-block clp-text-block">
+          {{{props.statement}}}
+        </div>
+        {{/props.statement}}
+      </div>
+    </div>
+    {{/state.hasProductWarnings}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>
+
+
+<script type="text/template" id="kiosk-product-spec-view-template">
+  <div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+    {{#views.productSpec}}
+    {{{render}}}
+    {{/views.productSpec}}
+    {{{oEvent}}}{{{addViewDataAttr}}}
+  </div>
+</script>

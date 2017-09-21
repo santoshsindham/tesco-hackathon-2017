@@ -1,0 +1,18 @@
+/*******************************************
+*	self-service : Tablet
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "self-service-mixins";
+
+.order-details #nav-bar .icon-user {
+	margin-right: 10px;
+}
+
+#secReason {
+	&:disabled {
+		background: #f4f4f4;
+		border-color: #eeeeee;
+	}
+}

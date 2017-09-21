@@ -1,0 +1,515 @@
+//checkout-delivery module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "checkout-delivery-mixins";
+
+.checkout {
+	@include breakpoint(hTablet){
+		.delivery-block {
+			margin-top: 52px;
+		}
+	}
+
+    h2 {
+        font-size: 2.2em;
+    }
+
+	.delivery-block {
+
+		@include delivery-tabs;
+		// width amend for vtablet to stop from going off the screen
+		@include storeDetailsTooltip;
+
+		@media screen and (min-width: 600px) and (max-width: 767px) {
+			.store-details-container {
+				right: -286px;
+				width: 270px;
+			}
+		}
+		.delivery-options-list {
+	        li {
+	        	.delivery-saver-message{
+					.delivery-saver-tooltip-content{
+						right: -155px;
+					}
+				}
+			}
+		}
+
+		.delivery-cost-module {
+			width: 100%;
+
+
+			.label {
+				font-size: 22px;
+                padding-top: 30px;
+                margin-top: 0;
+			}
+
+			.value {
+				margin-top: 37px;
+				font-size: 1.2em;
+				padding-top: 20px;
+			}
+		}
+
+		.delivery-type{
+			ul.tabs{
+				li {
+					width:auto;
+					&.store-collect {
+						width: 25%;
+				}
+					.groceryDeliveryText{
+						margin-left: 46px;
+						margin-bottom: 8px;
+					}
+				}
+			}
+		}
+		.stores {
+			padding-right: 0;
+
+			.details {
+				position: static;
+				float: right;
+			}
+		}
+
+		.view-more-stores {
+			margin-right: 0;
+		}
+
+		.stores-container,
+		.lockers-container,
+		.collection-details,
+		.delivery-options {
+			float: none;
+			width: auto;
+			padding-top: 0;
+			padding-left: 0;
+			padding-right: 0;
+			border: none;
+		}
+
+		.collection-details {
+		  margin-top: 16px;
+		  border-top: 1px solid $primaryBorderColor;
+
+		  .different-address {
+			border-top: none;
+		  }
+		  &.flowers-recipient {
+		  	border-top: none;
+		  }
+		}
+
+		.delivery-options {
+			margin-bottom: 0;
+		}
+
+		.panel {
+			padding: 0 12px;
+
+			h2 {
+				padding: 16px 0;
+				font-size: 14px;
+				font-weight: bold;
+			}
+			&.flowers-module {
+				h2 {
+					font-size: 20px;
+					padding: 0px;
+					font-weight: normal;
+				}
+			}
+		}
+
+		.stores-container,
+		.lockers-container {
+			border-right: none;
+			border-top: none;
+
+			h2 {
+				padding-bottom: 8px;
+			}
+
+			p {
+				margin-top: 0;
+			}
+		}
+
+		.store-details-container {
+			top: 62px;
+			left: 0;
+			right: auto;
+			width: 100%;
+			// padding-bottom: 8px;
+			&:after {
+				top: -15px;
+				background: url(../img/checkout-tooltip-arrow-top.png) no-repeat;
+				width: 29px;
+				height: 15px;
+				left: 14px;
+			}
+
+			.tabs {
+				width: 100%;
+
+				li {
+					border-radius: 0;
+
+					&.selected {
+						padding-bottom: 13px;
+						background: #fff;
+
+						a {
+							color: #222;
+							font-weight: bold;
+						}
+					}
+
+					a {
+						display: block;
+						width: 100%;
+						height: 100%;
+						text-align: center;
+					}
+				}
+			}
+
+			.store-name {
+				font-size: 1.8em;
+			}
+		}
+
+		.collection-details {
+			.edit-contact-details,
+			.new-address {
+				input[type=text] {
+					width: 48%; /* ** EPIC 2571 : Changes ** */
+				}
+			}
+			.edit-saved-address fieldset {
+				width: 95%;
+			}
+			.edit-contact-details{
+				.form-mobile-wrapper{
+					.tel-alt-block {
+						span.error {
+							top: 63px;
+						}
+					}
+				}
+			}
+		}
+
+		.different-address {
+			.label {
+				&:after {
+					content: 'r';
+					font-family: 'Tesco Icons';
+					position: absolute;
+					right: 0;
+				}
+			}
+		}
+
+		label.error, label.invalid2 {
+			display: block;
+		}
+		.flowers-module {
+			.flowers-recipient{
+				width: 100%;
+				border-right: none;
+				span[for="save-recipient-mob"].error, span[for="new-recipient-mob"].error {
+					top: 46px;
+				}
+				span.name {
+					display: inline-block;
+				}
+				.recipient-address-div.disable-flowers-address {
+					select {
+						pointer-events: none;
+					}
+				}
+				.flowers-new-recipient {
+	        .address-tabs li {
+	          &.add-new {
+	            width: 24%;
+	          }
+	          &:nth-child(2) {
+	            width: 76%;
+	            padding-left: 30%;
+	          }
+	        }
+					.saved-flower-address {
+						.customDropdown,
+						.customDropdown .control {
+							width: 630px;
+							height: 45px;
+						}
+					}
+	      }
+			}
+			.flowers-pick-date {
+				padding-left: 0px;
+				.delivery-options-list {
+					padding-top: 16px;
+				}
+				.flowers-pick-date-error {
+					font-size: 14px;
+    				margin-top: 8px;
+			}
+			}
+		}
+	}
+
+	.store-not-found {
+		@include tooltipLarge;
+	}
+
+    .ecoupon-link-delivery {
+		float: right;
+		margin-top: 16px;
+		margin-right: 20px;
+	}
+
+	.delivery-contact-snippet p span.name {
+		display: inline;
+		border-bottom: 0;
+	}
+
+    .delivery-block .datepicker-tooltip-module, .delivery-block .home-delivery-container {
+        font-size: 1em;
+    }
+
+    #delivery-wrapper {
+    	span.error {
+			width: 48%;
+		}
+		.flowers-recipient {
+			span.error {
+			width: 100%;
+		}
+			span[for="save-recipient-title"].error, span[for="new-recipient-title"].error {
+				width: 84px;
+			}
+			span[for="postal-code-pca"].error {
+				width: 70%;
+			}
+		}
+
+	}
+
+	.new-address {
+		.post-code {
+			span[for="postal-code-pca"].error {
+				width: 68.6% !important;
+			}
+		}
+	}
+}
+#lightbox {
+        #lightbox-locker-info {
+            font-family: $tescoFont;
+            position: relative;
+            background-color: #fff;
+
+            > h2 {
+                color: $headingColor;
+                font-size: 4em;
+                font-weight: 400;
+                letter-spacing: -.025em;
+                position: relative;
+                left: 0;
+                top: 0;
+                padding-left: 0;
+                padding-right: 0;
+                background-color:#fff;
+            }
+
+            .col {
+                margin-top: 10px;
+                padding: 0 5px 10px 5px;
+                float: none;
+                width: auto;
+                min-height: 50px;
+                background-color:#fff;
+
+                h3 {
+                    font-size: 3em;
+                    font-weight: normal;
+                    letter-spacing: -.025em;
+                }
+
+                p {
+                    font-size: 2em;
+                    color: $primaryTextColor;
+                }
+            }
+        }
+    }
+
+    #lightbox.more-info-about-lockers {
+        border: none;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        top: 0;
+        left: 0;
+
+        .close {
+            right: 15px;
+            top: 15px;
+            background-color: #fff !important;
+            color: $darkPutty !important;
+            width: 28px;
+            height: 28px;
+            z-index: 10;
+
+            .icon {
+                color: $darkPutty !important;
+                font-size: 17px;
+                width: 15px;
+                height: 15px;
+                top: 5px;
+                left: 5px;
+            }
+        }
+    }
+
+.checkout.irSPC{
+	.delivery-block{
+		.panel{
+			padding: 0px;
+
+			h2{
+				font-size: 2em;
+			}
+		}
+		.collection-details{
+			display: none;
+		}
+	}
+	#delivery-wrapper span.error {
+		width: 100%;
+	}
+}
+
+#payment {
+    .total,
+    .payment-details {
+        .total-to-pay{
+            font-size: 2.2em;
+        }
+    }
+}
+
+
+.checkout .delivery-block {
+	.store-options-module {
+
+		&.has-secondary-delivery-options {
+			.stores {
+				.details {
+					float: none;
+					position: absolute;
+				}
+			}
+
+			h2 {
+				font-size: 20px;
+			}
+
+			.delivery-options {
+				width: 100%;
+				.lockers-fail {
+					margin-right: 0;
+				}
+
+				.stores-container,
+				.lockers-container {
+					width: 100%;
+					float: none;
+					h2[data-icon] {
+						font-weight: normal;
+					}
+				}
+
+				.secondary-delivery-options {
+					width: 100%;
+					border-left: 0 none;
+					padding-left: 0;
+					min-height: 0;
+
+					.stores-container,
+					.lockers-container {
+						.badge-new-delivery {
+							right: 0;
+						}
+					}
+				}
+			}
+
+			.collection-details {
+				width: 100%;
+			}
+
+			.delivery-cost-module {
+				padding-top: 20px;
+				.label {
+					font-size: 22px;
+				}
+
+				.value {
+					font-size: 22px;
+				}
+			}
+
+			.more-list-holder {
+				float: none;
+				width: 100%;
+				min-height: 0;
+
+				h4 {
+					font-size: 20px;
+					font-weight: normal;
+				}
+
+				& + .more-list-holder {
+					padding-left: 0;
+					margin-left: 0;
+					border-left: 0 none;
+				}
+			}
+		}
+	}
+}
+#virtual-page {
+	#whatsThisChargeMessage{
+        margin: 8px;
+  		border-top: 2px solid #3e3e40;
+  		.close{
+  			display: none;
+  		}
+  		.back {
+			display: block;
+			border-bottom: 1px solid $primaryBorderColor;
+			&:first-child {
+				border-top: none;
+			}
+			&:before {
+				font-family: 'Tesco Icons';
+				content: 'g';
+				padding-right: 8px;
+			}
+		 }
+  		p, span{
+  			font-size: 1.4em;
+  			margin-left: 8px;
+  			margin-right: 16px;
+  		}
+    }
+}

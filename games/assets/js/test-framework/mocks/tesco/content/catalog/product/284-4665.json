@@ -1,0 +1,96 @@
+{
+  "id" : "284-4665",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Hard Drive Capacity",
+    "internalName" : "hard_drive_in_gb"
+  } ],
+  "userActionable" : false,
+  "siteProductPageTemplates" : {
+    "site18630002" : {
+      "id" : "400900013",
+      "type" : "page",
+      "href" : "/direct/rest/content/SecureSiteBuilderRepository/page/400900013"
+    }
+  },
+  "prices" : { },
+  "displayName" : "Xbox One with Kinect Holiday Value Bundle",
+  "publicLink" : "/direct/xbox-one-with-kinect-holiday-value-bundle/284-4665.prd",
+  "avgRating" : 4.77,
+  "longDescription" : "<p>This bundle of the Xbox One Black 500GB console comes with Dance Central Spotlight, Kinect Sport Rivals and Zoo Tycoon games (digital copy) plus a Kinect for Xbox One. Perfect for the holidays, you?ll have hours of multiplayer fun with this Xbox One with the Kinect Holiday value bundle.</p><p></p><p><h2>Friends, family and online rivals</h2></p><p>Microsoft?s dedicated server provides Xbox One users with one of the most advanced multiplayer networks via Xbox Live. Set up an Xbox Live Gold membership (not included) to gain access to cross console multiplayer features and a huge community of online gamers from all across the world. You will be able to play your favourite games with both Windows 10 and Xbox One gamers. You can also share your content: upload a screenshot with ease from your Xbox One console or stream on Twitch.tv at the push of a button. Microsoft is dedicated to making the Xbox One the ultimate community, and since the initial release it has updated the console with an all-new community area for social connection and integration.</p><p></p><p><h2>A new dancing experience</h2></p><p>Dance Central Spotlight is a next-generation dance game where you and a friend can use your whole body and voice to control the game. Featuring over 50 add-on songs and even more routines per song, Dance Central Spotlight is perfect for practising your favourite dance routines, increasing your fitness and having fun with friends. </p><p></p><p><h2>All-new sport rivals</h2></p><p>The third in the Kinect Sports series, Kinect Sport Rivals utilises the power of the Kinect for Xbox One to 3D-scan your likeness into the game and track your movements and facial expressions for the first time. Choose to join one of three teams and compete in events online against hundreds of players. You can decide to be a part of the wild Wolf Clan, the cunning Viper Network or the honourable Eagle Legion. The adventure is tailored to you, growing and evolving as you explore different areas and the various sports on offer. It includes six immersive events: bowling, rock climbing, jet ski racing, sharp-shooting and football, as well as occasional seasonal events.  </p><p></p><p><h2>Be a tycoon with Zoo Tycoon</h2></p><p>With over one hundred beautifully rendered animals and large detailed environments, you have more options than ever to build your zoo empire. Zoo Tycoon allows you to join up with three friends on Xbox Live and manage your zoo together. Combined with the Kinect for Xbox One, animals can recognise your voice and react when you move.</p>",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat12590007",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat12590007"
+  }, {
+    "id" : "cat19280051",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19280051"
+  }, {
+    "id" : "cat19380008",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19380008"
+  }, {
+    "id" : "cat29730025",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat29730025"
+  }, {
+    "id" : "cat3376381",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376381"
+  }, {
+    "id" : "cat3376578",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376578"
+  }, {
+    "id" : "cat3376674",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376674"
+  }, {
+    "id" : "cat3376693",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376693"
+  } ],
+  "brand" : "Microsoft",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/284-4665_PI_TPS2669936?$[preset]$",
+        "secureSrc" : "//tesco.scene7.com/is/image/tesco/284-4665_PI_TPS2669936?$[preset]$",
+        "renderSource" : "Scene 7",
+        "alt" : "String",
+        "defaultImage" : true
+      }
+    }
+  },
+  "noofRatingsProduced" : 256,
+  "links" : [ {
+    "id" : "284-4665",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/284-4665"
+  }, {
+    "id" : "284-4665",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/284-4665",
+    "options" : {
+      "primary" : "500GB"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

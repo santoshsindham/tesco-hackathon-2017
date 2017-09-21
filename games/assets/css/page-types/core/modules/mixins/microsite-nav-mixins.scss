@@ -1,0 +1,55 @@
+$color-bg: #eaeaea; // Not sure we need this
+$color-title: #585859;
+$color-list-item-background: white;
+$color-list-item-border: #bfbdbd;
+$color-list-item-border-desktop: #F5F5F5;	/* RWD UI Changes */
+$color-list-item-text: #3e3e3f;
+$color-fotter-bg: #135d9f;
+$color-fotter-text: white;
+
+@mixin menu-header {
+	margin-bottom: 0;
+	background: $color-list-item-background;
+	font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+	font-weight: normal;
+	color: $darkPutty;
+}
+
+@mixin menu-styles {
+	width: 100%;
+	overflow: hidden;
+	/* overflow-y: auto; */ 
+	position: relative;
+	background: #ffffff;
+	border-top: 1px solid $pagePutty;
+	font-family: Arial, "Tesco", sans-serif;
+	li {
+		border-bottom: 1px solid $primaryBorderColor;
+		width: 50%;
+		float: left;
+		&:hover {
+			//background: #f7f9ff;
+			cursor: pointer;
+		}
+		a {
+			display: block;
+			width: 100%;
+			padding-left: 8px;
+			padding-right: 30px;
+			text-decoration: none;
+			font-size: 1.4em;
+			line-height: 20px;
+			padding-top:10px;
+			padding-bottom:6px;
+			position: relative;
+			> span {
+  				display: table-cell;
+				vertical-align: middle;
+			}
+			&:hover {
+				color: $linkHoverColor;
+				text-decoration: underline;
+			}
+		}
+	}
+}

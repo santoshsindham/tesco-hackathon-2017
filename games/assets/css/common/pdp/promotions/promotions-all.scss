@@ -1,0 +1,44 @@
+@import "../../variables";
+@import "promotions-mixins";
+
+.buybox-promotions-wrapper,
+#special-offers-container {
+    @include promotions-common;
+}
+
+.buybox-promotions-wrapper {
+    .special-offer-container {
+        .qualifying-text,
+        .offer-cta,
+        .offer-terms {
+            @include smallerText;
+        }
+    }
+}
+
+#special-offers-container {
+    @include promotions-box-view;
+
+    .special-offer-container {
+        .offer-title {
+            h4,
+            h5 {
+                @include h4Heading;
+                color: $offers;
+            }
+        }
+        .qualifying-text {
+            margin: 0 0 20px 0;
+        }
+        .offer-cta {
+            margin: 0 0 20px 0;
+        }
+        .offer-terms {
+            margin: 0;
+        }
+    }
+
+    .see-all-offers-link {
+        display: none;
+    }
+}

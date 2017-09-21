@@ -1,0 +1,58 @@
+#range-container{
+	.collectionContainer.range{
+		padding: 10px 0;
+		.collectionItemImageContainer {
+		    height: 120px;
+		    width: 120px;
+		    margin-right: 10px;
+		}
+		.collectionItems{
+			
+			>li {
+				position: static;
+				float: left;
+				width: 100%;
+				&:nth-child(even) {
+					width: 100%;
+					padding-left: 0;
+					.collectionActions{
+						position: static;
+					}
+				}
+				&:nth-child(odd) {
+					width: 100%;
+					
+				}
+				.collectionItemDetail {
+				    float: left;
+				    width: 53.5%;
+				    p{
+					    &.collectionItemDescription{
+					    	word-break: break-word;
+					    	min-height: 30px;
+					    	max-height: 30px;
+					    }
+				    }
+				    .collectionItemPrice{
+				  		margin: 31px 0 9px;
+				    }
+				    .release{
+				    	display: none;
+				    }
+				    .oo-stock{
+				    	display: none;
+				    }
+				    .rating-container{
+				    	margin: 0;
+				    }
+				}
+				.collectionActions{
+					display: none;
+					.stock-alert{
+					 	display: none;
+					}
+				}
+			}
+		}
+	}
+}

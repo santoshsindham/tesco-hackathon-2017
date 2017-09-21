@@ -1,0 +1,34 @@
+//every-little-helps-stamps module - tablet
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "every-little-helps-stamps-mixins";
+
+.every-little-helps-stamps {
+
+	padding: 12px $onecol;
+
+	li {
+
+		width: $onecol * 39.5;
+		height: 80px;
+		margin: 0 3px 4px 0;
+
+		a {
+			padding-right: 15 * $onecol;
+		}
+	}
+
+}
+
+@include breakpoint(vTablet) {
+    .page-wide-elh {
+        li {
+            a {
+                padding-right: 8px;
+                &:before {
+                    padding-right: 8px;
+                }
+            }
+        }
+    }
+}

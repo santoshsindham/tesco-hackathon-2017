@@ -1,0 +1,731 @@
+@import "../../../core/components/variables";
+@import "../mixins/pdp-s7viewer-mixins";
+
+/* HTML5 Player Styles */
+
+#pdpScene7Container {
+    .s7container {
+        overflow: visible;
+        position: relative;
+    }
+}
+
+#product-carousel {
+    .s7zoomview,
+    .s7flyoutzoomview,
+    .spinView {
+        display: none;
+        overflow: hidden;
+    }
+
+
+}
+
+
+
+#product-thumb-carousel-videos {
+    display: none;
+}
+
+.product-carousel-s7 {
+    overflow: hidden;
+    width: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    .carousel {
+        width: 40px;
+        height: 500px;
+    }
+    #product-thumb-carousel {
+        display: none;
+    }
+    #product-thumb-carousel-videos {
+        display: none;
+    }
+    #product-thumb-carousel-gallery {
+        display: none;
+    }
+    .s7-spin-thumb {
+        min-height: 40px;
+        visibility: hidden;
+    }
+    &.zoomVisible,
+    &.videoVisible {
+        #prodSpinView {
+            display: none;
+        }
+        .s7-spin-thumb {
+            display: none;
+        }
+    }
+    .media-controls {
+        position:absolute;
+        left:-200px;
+        /* To resolve black screen while play/pause video */
+        .triggerRepaint, .triggerRepaint:active {
+            border-color: #00A1E1 !important;
+        }
+        div {
+            @include border-radius(0px);
+            display: inline-block;
+            font-size: 14px;
+            float: left;
+            padding: 10px 0;
+            text-align: center;
+            }
+        .button {
+            background: #fff;
+            border-color: #D6D2CA;
+            color: #7C765F;
+            cursor: pointer;
+            &:hover, &:focus,
+            &:active {
+                border-color: #00A1E0;
+                color: #fff;
+                background: #00A1E0;
+            }
+        }
+        .current {
+            border-color: #00A1E0;
+            background: #fff;
+            color: #00A1E0;
+            cursor:default;
+            &:link,
+            &:visited,
+            &:hover,
+            &:focus,
+            &:active {
+                background: #fff;
+                color: #00A1E0;
+            }
+        }
+        &:hover {
+            .current {
+                background: #fff;
+                border-color: #00A1E0;
+                color: #00A1E0;
+                    &:hover {
+                        border-color: #00A1E0;
+                        background: #fff;
+                        color: #00A1E0;
+                    }
+                }
+        }
+    }
+}
+
+#product-carousel.spinVisible {
+    .s7spinview {
+        display: block;
+    }
+    .s7-spin-thumb {
+        display: none;
+    }
+    #product-thumb-carousel-spin {
+        display: block;
+    }
+    .btn-s7-step {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+#product-carousel.zoomVisible {
+    .s7zoomview, .s7flyoutzoomview {
+        display: block;
+    }
+    #product-thumb-carousel {
+        display: block;
+    }
+}
+
+.videoVisible {
+    #product-thumb-carousel-videos {
+        display: block;
+        ul {
+            li {
+                width: 40px;
+                margin-right: 10px;
+                &.selected, &:hover {
+                    background: url('../images/video/thumb_selected.png') no-repeat 0px 0px;
+                    border: 1px solid #00A1E0;
+                    img {
+                        opacity: 0;
+                    }
+                }
+                img {
+                    border: 1px solid #D6D2C4;
+                }
+            }
+        }
+    }
+}
+
+
+
+.interaction-panel {
+    display: none;
+    width: 100%;
+    height: 82%;
+    position: absolute;
+    top: 9px;
+    cursor: pointer;
+    background: url(../images/video/play_lrge.png) no-repeat #000000 center center;
+    background: #000000;
+    opacity: 1;
+    z-index: 1111;
+}
+
+#s7container {
+    cursor: pointer;
+}
+
+.s7setindicator {
+    background-color: transparent;
+    border-radius: 0px;
+    bottom: 5px;
+    height: 22px;
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+    .s7dot {
+        margin: 0 6px;
+    }
+    .s7dot[state='unselected'] {
+        border: 1px solid $primaryBorderColor;
+        background-color: #fff;
+    }
+    .s7dot[state='selected'] {
+        background-color: #00A1E0;
+    }
+}
+
+.btn-overlay {
+    background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAyCAYAAACpgnCWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzUxNzcyOUVCQkVEMTFFMzgzMkFBQjIyMEE0OUM3OUIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzUxNzcyOUZCQkVEMTFFMzgzMkFBQjIyMEE0OUM3OUIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3NTE3NzI5Q0JCRUQxMUUzODMyQUFCMjIwQTQ5Qzc5QiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3NTE3NzI5REJCRUQxMUUzODMyQUFCMjIwQTQ5Qzc5QiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqDjDnQAAAIVSURBVHjaYmRYcP8/A40BEwMdwPCxhIVcjToCbAwlOnwY4kde/mSYc/szdSy58uEXw42PvxnajQQx5NAtoSi4Oi5/ZFh89wtt48RPloshQpGbdpaALFjjIMrAysTI8Pvff7w+IitOfNEsCDnwmmHT428M14BxpMHPSh1LXn3/y/D9L6SggFkAiyNQqkMHjOQWK+Yi7AxinMwMm6EW0CSfnHzzk7o5HhQHIJdTrVhBD1NQKloLjORdbuJkW4RhCaioqNDlx0imnMyM4DigWtkFKiq0gEkRlNGQkykxkUxSxMcq84Bp5HxAs6J+xf2vFFlAlCUgH8HiiGr1Cag+QAegogKU6kDFOzmAcbQhMegsYfz///+m0eAaHo27hw9u8x7cv1kZXVxOXvWdg5PvI6pYIq+g+llEROLLsSO7NLFIP6JacHn5Rt1RU9d7QtM4OXv6sMSd21ekaGYJyIKN6+Yb//v3jwkI/uHzEQuZFogjW+AflHjW2NT2xbbNyz6/efOChyqW8PEJ/GJmZvnHwPCHAWYBLI5AqY5qxcrtm5cFP336wAa04OXQKbtAcQByOdUsQQ9TaCoyWbZ4sgW5FmFYAioqgKlEBT2Z/v37hwkUB1Qru0BFxZvXL3hBGQ0tmb6kagF56+YlGbBXkfIBzSJeRVXnGSUWEGUJyEewOKJafQKqD9DFQEUFKNWBivfRhsTwsAQgwACRMQHw88YZ2wAAAABJRU5ErkJggg==') 0px -25px no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 25px;
+    padding: 0px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 25px;
+    z-index: 2;
+    &:hover {
+        background-position: 0px 0px;
+    }
+}
+
+.no-touch {
+    .hot-area {
+        .btn-s7-step {
+            &:hover {
+                color:#fff;
+                background: $tescoBrightBlue;
+                border-color: $tescoBrightBlue;
+            }
+            &.disabled {
+                &:hover {
+                    color: #D6D2C4;
+                }
+            }
+         }
+    }
+}
+
+.hot-area {
+    padding: 15px;
+    position: absolute;
+    text-align: center;
+    z-index: 10;
+    top:50%;
+    margin-top:-33px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &.prev {
+        left: 0px;
+    }
+    &.next {
+        right: 0px;
+    }
+    .btn-s7-step {
+        background: #fff;
+        opacity: 0.8;
+        border: 1px solid #fff;
+        color: #A69F88;
+        font-family: 'Tesco Icons';
+        font-size: 1.5em;
+        height: 35px;
+        line-height: 35px;
+        width: 35px;
+        z-index: 2;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        &:hover {
+            opacity:1;
+            cursor: pointer;
+            &:after {
+                top: 9px;
+                left: 6px;
+            }
+        }
+
+        &:active {
+            background-color: $tescoBrightBlue;
+            border-color: $tescoBrightBlue;
+            color:#fff;
+            &:after {
+                color:#fff;
+            }
+        }
+        &.btn-s7-next {
+            right: 0;
+            &:after {
+                content: 'r';
+            }
+        }
+        &.btn-s7-prev {
+            left: 0;
+            &:after {
+                content: 'g';
+            }
+        }
+        &.disabled {
+            background: #fff;
+            border-color: #fff;
+            opacity: 0.8;
+            color: #D6D2C4;
+            &:hover {
+                background: #fff;
+                border-color: #fff;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.s7swatches {
+    background-color: #fff;
+    display: block;
+    width: 70px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    left: -75px;
+    top: 0;
+}
+
+.s7swatches .s7thumbcell {
+    margin: 0px;
+ }
+
+.s7swatches .s7thumb {
+    width: 50px;
+    height: 50px;
+}
+
+.s7swatches .s7thumb[state="selected"] {
+    border: 1px solid #7C765F;
+}
+
+.s7swatches .s7button {
+    @include tertiaryButtonColoring;
+    border: 1px solid $primaryBorderColor;
+    font-family: 'Tesco Icons';
+    font-size: 17px;
+    text-align: center;
+    line-height: 30px;
+    width: 70px;
+}
+
+.s7swatches .s7scrollupbutton {
+    @include tertiaryButtonColoring;
+    display: block;
+    height: 30px;
+    left: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.s7swatches .s7scrollupbutton:after {
+    content: '1';
+}
+
+.s7swatches .s7scrollupbutton[state='up'] {
+    @include tertiaryButtonColoring;
+}
+.s7swatches .s7scrollupbutton[state='over'] {
+    @include tertiaryButtonColoring;
+}
+.s7swatches .s7scrollupbutton[state='down'] {
+    @include tertiaryButtonColoring;
+}
+.s7swatches .s7scrollupbutton[state='disabled'] {
+    background: #f1f1f1;
+    color: #ccddeb;
+}
+
+.s7swatches .s7scrolldownbutton {
+    display: block;
+    height: 30px;
+    left: 0 !important;
+    position: absolute;
+    top: 0px;
+}
+
+.s7swatches .s7scrolldownbutton:after {
+    content: '2';
+}
+
+.s7swatches .s7scrolldownbutton[state='up'] {
+    @include tertiaryButtonColoring;
+ }
+
+.s7swatches .s7scrolldownbutton[state='over'] {
+    @include tertiaryButtonColoring;
+ }
+
+.s7swatches .s7scrolldownbutton[state='down'] {
+    @include tertiaryButtonColoring;
+ }
+
+.s7swatches .s7scrolldownbutton[state='disabled'] {
+    background: #f1f1f1;
+    color: #ccddeb;
+ }
+
+/* Implemented but not used */
+ .s7pagescrubber {
+    display: none;
+}
+
+/* Custom Carousel */
+$carouselBtnHeight : 33px;
+
+.carousel {
+    .carousel-step {
+        color: #7C765F;
+        background: #fff;
+        border: 1px solid #D6D2C4;
+        cursor: pointer;
+        display: block;
+        height: $carouselBtnHeight;
+        overflow: hidden;
+        position: relative;
+        text-decoration: none;
+        text-indent: 100%;
+        &:hover {
+            color: #fff;
+            background: #00A1E0;
+            border-color: #00A1E0;
+            cursor: pointer;
+        }
+
+        &:after {
+            display: block;
+            font-family: 'Tesco Icons';
+            font-size: 12px;
+            position: absolute;
+            left: 0;
+            line-height: 38px;
+            text-align: center;
+            top: 0;
+            text-indent: 0;
+            vertical-align: middle;
+            width: 100%;
+        }
+        &.carousel-next:after {
+            content: '2';
+        }
+        &.carousel-prev:after {
+            content: '1';
+        }
+        &.disabled {
+            color: #E5E2D9;
+            background: #fff;
+            border: 1px solid #D6D2C4;
+            cursor: default;
+            &:hover {
+                color: #E5E2D9;
+                background: #fff;
+                border-color: #D6D2C4;
+                cursor: default;
+            }
+        }
+    }
+    .carousel-slider {
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        margin: 6px 0;
+    }
+    .carousel-items-container {
+        @include translate3d(0,0,0);
+        -webkit-backface-visibility: hidden;
+        -webkit-transition: -webkit-transform 600ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -moz-transition: -moz-transform 600ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -ms-transition: -ms-transform 600ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        -o-transition: -o-transform 600ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        transition: transform 600ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+        min-width: 2000px;
+        position: absolute;
+        top: 0;
+        li {
+            width: 74px;
+            height: 74px;
+            margin-bottom: 6px;
+            cursor: pointer;
+
+            &.video-thumb {
+                width: 50px;
+                height: 40px;
+            }
+        }
+        img {
+            @include border-radius(2px);
+            display: block;
+            border: 1px solid #d6d2c4;
+        }
+        .selected img {
+            border: 1px solid #00A1E0;
+        }
+    }
+}
+#product-thumb-carousel-gallery .carousel-slider .carousel-items-container li img {
+    border: 0px;
+}
+
+
+/* HTML5 overlay styles */
+#overlay.dark {
+    background: rgba(0, 0, 0, 0.9);
+    @include opacity(0.8);
+}
+
+#pdpScene7Container {
+    position:relative;
+}
+
+#lightbox {
+    .detailWrapper {
+        border: 0 none;
+        box-shadow: none;
+    }
+    &.pdpS7Overlay {
+        margin: 15px 2%;
+        width: 96%;
+        .btn-s7-step {
+            display: block !important;
+            overflow: visible;
+        }
+        .product-carousel-s7 {
+            background: #fff;
+            padding: 10px;
+            #pdpScene7Container {
+                border: none;
+                margin: 20px auto;
+                max-height: 80%;
+                width: 100%;
+            }
+            .btn-overlay {
+                display: none;
+            }
+            .media-controls {
+                width: 100%;
+                div {
+                    font-weight: normal;
+                    padding: 7px;
+                    width: 150px;
+                }
+            }
+            &.zoomVisible {
+                #product-thumb-carousel {
+                    display: block;
+                }
+            }
+            &.spinVisible {
+                .btn-s7-step {
+                    visibility: hidden;
+                }
+            }
+            &.videoVisible {
+                #product-thumb-carousel-videos {
+                    display: block;
+                    ul.carousel-items-container {
+                        li {
+                            width: 40px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+            .carousel {
+                &.horizontal {
+                    margin-top: 10px;
+                    height: 40px;
+                    width: 100%;
+                    .carousel-slider {
+                        height: 40px;
+                        position: absolute;
+                        margin: 0;
+                        padding: 0 0 0 30px;
+                        width: 96%;
+                    }
+                    .carousel-items-container {
+                        width: 100%;
+                        li {
+                            float: left;
+                            width: 50px;
+                            img {
+                                max-height: 40px;
+                            }
+                        }
+                    }
+                    .carousel-step {
+                        float: left;
+                        height: 100%;
+                        width: 25px;
+                        z-index: 2;
+                        &.carousel-next {
+                            float: right;
+                            &:after {
+                                content: 'r';
+                            }
+                        }
+                        &.carousel-prev:after {
+                            content: 'g';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#product-carousel {
+    &.videoVisible.hide-overlay {
+        #btn-overlay {
+            display: none;
+        }
+    }
+    &.spinVisible {
+        .btn-s7-step {
+            display: none;
+            opacity: 0;
+        }
+    }
+}
+
+/* Override scene7 default styles for the icon effect element */
+.touch {
+    .s7zoomview .s7iconeffect {
+       background: rgba(0, 0, 0, 0.6);
+       height: 40px;
+       width: 200px;
+       text-align: center;
+       padding: 11px 10px 10px;
+       &[media-type='standard'], &[media-type='multitouch'] {
+          &:after{
+             color: #fff;
+             content: 'Double tap to zoom';
+             font-size: 1.4em;
+          }
+       }
+    }
+}
+
+.no-touch {
+    .s7zoomview .s7iconeffect {
+        &[media-type='standard'] {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+}
+
+.s7spinview .s7iconeffect[state='spin_1D'],
+.s7spinview .s7iconeffect[state='spin_2D']{
+   background: rgba(0, 0, 0, 0.6);
+   height: 40px;
+   width: 200px;
+   text-align: center;
+   padding: 11px 10px 10px;
+   &:after{
+      color: #fff;
+      content: '< Drag to rotate 360 >';
+      font-size: 1.4em;
+   }
+}
+
+.product-carousel.rr-product h2 {
+    white-space: normal;
+    max-height: 60px;
+}
+.price-check-details+div a.backToTopLink{
+    display:none;
+}
+
+.pdpS7Overlay .product-ping {
+    display: none;
+}
+
+/* ************************************** */
+/* Scene7 image player updated March 2015 */
+/* ************************************** */
+#pdpScene7Container {
+    .s7flyoutzoomview .s7highlight, .s7flyoutzoomview .s7tip, .s7flyoutzoomview .s7cursor {
+        display: none !important;
+        opacity: 0 !important;
+    }
+    .s7flyoutzoomview .s7cursor[input='mouse'], .s7flyoutzoomview .s7cursor[input='touch'] {
+        background-image: none !important;
+    }
+    .s7container {
+        #prodZoomView.s7flyoutzoomview {
+            position: static !important;
+            left: 0px !important;
+            top: 0px !important;
+            margin: 0 auto !important;
+            border: 0;
+            .s7flyoutzoom {
+                background: #ffffff;
+                left: 0px !important;
+                top: 0px !important;
+                border: 0;
+            }
+        }
+    }
+}
+#lightbox {
+    .product-ping {
+        display: none !important;
+    }
+    .product-carousel-s7 .s7spinview {
+        width: 100% !important;
+    }
+    #pdpScene7Container .s7container {
+        #prodZoomView.s7flyoutzoomview {
+            width: 100% !important;
+            .s7flyoutzoom {
+                left: auto !important;
+                top: auto !important;
+                position: static !important;
+                margin: 0 auto !important;
+                > div {
+                    background: #ffffff;
+                }
+            }
+        }
+    }
+}
+#product-carousel.zoomVisible #pdpScene7Container div.hot-area {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+}

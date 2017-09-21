@@ -1,0 +1,39 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  {{#props.primary}}
+    <div class="bundle-primary">
+      <div class="primary-info">
+        <p>{{tileHeading}}</p>
+      </div>
+      {{#view}}
+        {{{render}}}
+      {{/view}}
+    </div>
+  {{/props.primary}}
+  {{#props.recommendations}}
+    <div class="bundle-secondary">
+      <label for="{{id}}" data-catID="{{catID}}">
+        <input type="checkbox" id="{{id}}" class="bundle-checkbox"
+            {{#checked}}checked="checked"{{/checked}}>
+        <div class="check-box pull-left-all"></div>
+        <div class="label">{{checkboxLabel}}</div>
+      </label>
+      {{#view}}
+        {{{render}}}
+      {{/view}}
+    </div>
+  {{/props.recommendations}}
+  <div class="bundle-actions-wrapper">
+    <div class="bundle-actions">
+      <div class="bundle-actions-inner">
+        <p class="larger">Bundle price</p>
+        <div class="bundle-price">
+          <span class="product-price larger" itemprop="price">&pound;{{props.price}}</span>
+        </div>
+        {{#views.addToBasket}}
+          {{{render}}}
+        {{/views.addToBasket}}
+      </div>
+    </div>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

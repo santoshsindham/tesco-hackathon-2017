@@ -1,0 +1,28 @@
+/*******************************************
+*   Sitewide Promo Block (TAB)
+*   Auth: Martin McLoughlin
+*******************************************/
+@import "../../../core/components/variables";
+@import "../../../core/components/breakpoints";
+
+@include breakpoint(vTablet) {
+    .siteWidePromoBlock-item {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+}
+
+@include breakpoint(hTablet) {
+    /* .block.sitewide-promo-block {
+        width: 768px;
+    } */
+
+    .siteWidePromoBlock-item {
+        width: 354px;
+        margin-bottom: 30px;
+        &.odd {
+            margin-right: 40px;
+        }
+    }
+}

@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\controllers\PriceCheckController.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/controllers/</a> PriceCheckController.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.79% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>8/58</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/24</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">13.79% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>8/58</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/controllers/PriceCheckController', [
+  'modules/mvc/fn',
+  'modules/pdp/controllers/BaseController',
+  'modules/pdp/views/PriceCheckView',
+  'modules/tesco.analytics'
+], function (fn, BaseController, PriceCheckView, analytics) {
+  'use strict';
+&nbsp;
+  /**
+   *
+   * @param {Array&lt;Objects&gt;} models
+   * @return {void}
+   */
+<span class="fstat-no" title="function not covered" >  function PriceCheckController(models) {</span>
+<span class="cstat-no" title="statement not covered" >    this.sNamespace = 'sku';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTag = 'competitors';</span>
+<span class="cstat-no" title="statement not covered" >    this.views = {</span>
+      classes: {
+        PriceCheckView: PriceCheckView
+      }
+    };
+<span class="cstat-no" title="statement not covered" >    this.flags = { viewRendered: false };</span>
+<span class="cstat-no" title="statement not covered" >    this.parent.constructor.call(this, models);</span>
+  }
+&nbsp;
+&nbsp;
+  fn.inherit(PriceCheckController, BaseController);
+  PriceCheckController.modelNames = ['sku', 'inventorySKU'];
+&nbsp;
+&nbsp;
+  PriceCheckController.prototype._collateDataDependancies = <span class="fstat-no" title="function not covered" >function (args) {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      _args = args,
+      skuModel = this.models.sku,
+      mvcData = args.mParamData.mvc,
+      skuData = mvcData.sku,
+      masterDeferred = args.deferred,
+      mvcPage = window.oAppController.oPageController;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (!mvcPage.getSelectedSku().id) {</span>
+<span class="cstat-no" title="statement not covered" >      this.rejectAndDestroy(masterDeferred);</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (skuModel.getCompetitors(skuData).length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >      _this.flags.viewRendered = true;</span>
+<span class="cstat-no" title="statement not covered" >      masterDeferred.resolve(_args);</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    skuModel.fetch({</span>
+      mSearchValue: skuData.id,
+      sModelMethod: 'competitors',
+      doneCallback: <span class="fstat-no" title="function not covered" >function (respData) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!fn.isObject(respData) || !fn.isArray(respData.skus, { notEmpty: true })) {</span>
+<span class="cstat-no" title="statement not covered" >          _this.rejectAndDestroy(masterDeferred);</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!fn.isObject(respData.skus[0])</span>
+            || !fn.isArray(respData.skus[0].competitors, { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >          _this.rejectAndDestroy(masterDeferred);</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        skuData = skuModel.update({</span>
+          mSearchValue: skuData.id,
+          sUpdateKey: 'competitors',
+          mUpdateValue: respData.skus[0].competitors
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!fn.isObject(skuData, { notEmpty: true })) {</span>
+<span class="cstat-no" title="statement not covered" >          _this.rejectAndDestroy(masterDeferred);</span>
+<span class="cstat-no" title="statement not covered" >          return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _this.flags.viewRendered = true;</span>
+<span class="cstat-no" title="statement not covered" >        _args.mParamData.mvc.sku = skuData;</span>
+<span class="cstat-no" title="statement not covered" >        masterDeferred.resolve(_args);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _this._analyticsTracking(respData.skus[0].competitors);</span>
+      }
+    });
+  };
+&nbsp;
+  PriceCheckController.prototype._analyticsTracking = <span class="fstat-no" title="function not covered" >function (analyticsResponse) {</span>
+<span class="cstat-no" title="statement not covered" >    var oWebAnalytics = null,</span>
+      v = [],
+      competitorName = [],
+      competitorPrice = [],
+      competitorInfo = '',
+      finalCompetitorList = [],
+      competitorDetails = '';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.isArray(analyticsResponse, true)) {</span>
+<span class="cstat-no" title="statement not covered" >      this.forLoop(analyticsResponse, <span class="fstat-no" title="function not covered" >function (i) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (this.isObject(analyticsResponse[i], true)) {</span>
+<span class="cstat-no" title="statement not covered" >          competitorName[i] = analyticsResponse[i].competitorName;</span>
+<span class="cstat-no" title="statement not covered" >          competitorPrice[i] = analyticsResponse[i].competitorPrice;</span>
+<span class="cstat-no" title="statement not covered" >          competitorInfo = competitorName[i] + '-' + competitorPrice[i];</span>
+<span class="cstat-no" title="statement not covered" >          finalCompetitorList.push(competitorInfo);</span>
+        }
+      });
+<span class="cstat-no" title="statement not covered" >      competitorDetails = finalCompetitorList.toString();</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    v = [{</span>
+      prop51: competitorDetails,
+      contextData: {
+        content_module_impression: 1,
+        content_module_name: 'Price Checker'
+      }
+    }];
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oWebAnalytics = new analytics.WebMetrics();</span>
+<span class="cstat-no" title="statement not covered" >    oWebAnalytics.submit(v);</span>
+  };
+&nbsp;
+  PriceCheckController.prototype.rejectAndDestroy = <span class="fstat-no" title="function not covered" >function (deferred) {</span>
+<span class="cstat-no" title="statement not covered" >    var renderedView = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.flags.viewRendered) {</span>
+<span class="cstat-no" title="statement not covered" >      renderedView = this._getStoredView('PriceCheckView', <span class="fstat-no" title="function not covered" >function (view) {</span></span>
+<span class="cstat-no" title="statement not covered" >        if (view.sTag === 'competitors') {</span>
+<span class="cstat-no" title="statement not covered" >          return true;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return false;</span>
+      });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if (fn.isObject(renderedView, { notEmpty: true })) {</span>
+<span class="cstat-no" title="statement not covered" >        renderedView.destroy();</span>
+      }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      this.flags.viewRendered = false;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    deferred.reject();</span>
+  };
+&nbsp;
+  return PriceCheckController;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

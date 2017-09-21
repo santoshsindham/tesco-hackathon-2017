@@ -1,0 +1,7 @@
+/*******************************************
+* Large desktop	page title module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "buy-block-mixins";

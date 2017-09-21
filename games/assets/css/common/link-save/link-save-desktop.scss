@@ -1,0 +1,43 @@
+/*******************************************
+*	Desktop Link Save module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+
+#tab-module {
+	width: 946px;
+	margin-left: 7px;
+}
+
+.tab-content {	
+	border-left: 1px solid #bfbdbd;
+	border-right: 1px solid #bfbdbd;
+}
+
+ul.tabs-link-save {
+
+	li a.active {
+		border-left: 1px solid #bfbdbd;
+	}	
+}
+
+.link-save {	
+	h1.page-title {
+		margin-bottom: 0;
+	}
+	
+	#product-filters {
+		margin-bottom: 0;
+	}
+	
+	#product-categories {
+		background: #ffffff;
+		border: 1px solid #bfbdbd;
+		border-bottom: none;
+		float: right;
+		margin: 0 7px 0 0;
+		padding: 15px 15px 6px;
+		width: 946px;
+	}	
+}

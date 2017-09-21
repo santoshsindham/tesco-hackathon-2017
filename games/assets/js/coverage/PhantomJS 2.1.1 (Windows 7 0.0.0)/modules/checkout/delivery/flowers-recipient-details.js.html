@@ -1,0 +1,2516 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\checkout\delivery\flowers-recipient-details.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/checkout/delivery/</a> flowers-recipient-details.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.16% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>4/345</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/97</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.72% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/58</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">1.16% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/345</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566
+567
+568
+569
+570
+571
+572
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594
+595
+596
+597
+598
+599
+600
+601
+602
+603
+604
+605
+606
+607
+608
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620
+621
+622
+623
+624
+625
+626
+627
+628
+629
+630
+631
+632
+633
+634
+635
+636
+637
+638
+639
+640
+641
+642
+643
+644
+645
+646
+647
+648
+649
+650
+651
+652
+653
+654
+655
+656
+657
+658
+659
+660
+661
+662
+663
+664
+665
+666
+667
+668
+669
+670
+671
+672
+673
+674
+675
+676
+677
+678
+679
+680
+681
+682
+683
+684
+685
+686
+687
+688
+689
+690
+691
+692
+693
+694
+695
+696
+697
+698
+699
+700
+701
+702
+703
+704
+705
+706
+707
+708
+709
+710
+711
+712
+713
+714
+715
+716
+717
+718
+719
+720
+721
+722
+723
+724
+725
+726
+727
+728
+729
+730
+731
+732
+733
+734
+735
+736
+737
+738
+739
+740
+741
+742
+743
+744
+745
+746
+747
+748
+749
+750
+751
+752
+753
+754
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765
+766
+767
+768
+769
+770
+771
+772
+773
+774
+775
+776
+777
+778
+779
+780
+781
+782
+783
+784
+785
+786
+787
+788
+789
+790
+791
+792
+793
+794
+795
+796
+797
+798
+799
+800
+801
+802
+803
+804
+805
+806
+807
+808
+809
+810
+811
+812
+813
+814
+815
+816
+817
+818</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*global define: true */
+define([
+	'domlib',
+	'modules/common',
+	'modules/breakpoint',
+	'../loader',
+	'modules/custom-dropdown/common',
+	'./refresh-all',
+	'modules/tesco.utils',
+	'modules/tesco.data',
+	'modules/checkout/payment',
+	'modules/validation',
+	'modules/editable-addresses/common',
+	'modules/checkout/resetForm',
+	'./courier',
+	'./new-address'
+], function($, common, breakpoint, loader, dropdown, refreshAll, utils, data, payment, validationExtras, PCA_EditableAddress, resetForm, courier, newAddress) {
+&nbsp;
+	var updatePostCodePlaceholder;
+	var flowersRecipientDetails = {
+			group: null,
+            editButtonClicked: false,
+            editButtonEnabled: false,
+            containerSelector: '.edit-new-recipient',
+            pcaAddressSelected: false,
+            
+            enableSave: <span class="fstat-no" title="function not covered" >function (myForm) {</span>
+<span class="cstat-no" title="statement not covered" >                var self = flowersRecipientDetails.validation;</span>
+<span class="cstat-no" title="statement not covered" >                myForm = $(myForm);</span>
+<span class="cstat-no" title="statement not covered" >                if (myForm) {</span>
+<span class="cstat-no" title="statement not covered" >                    validationExtras.enableSave(</span>
+                        myForm.find('[name=nick-names], [name=postal-code-pca], [name=companyname], [name=flatnumber], [name=buildingname]'), /* ** EPIC 2571 : Changes ** */
+                        myForm.find('input.add-recipient')
+                    );
+                } else {
+<span class="cstat-no" title="statement not covered" >                    validationExtras.enableSave(</span>
+                        self.$form.find('[name=nick-names], [name=postal-code-pca], [name=companyname], [name=flatnumber], [name=buildingname]'), /* ** EPIC 2571 : Changes ** */
+                        self.$form.find('input.add-recipient')
+                    );
+                }
+               
+            },
+            recipientType: <span class="fstat-no" title="function not covered" >function(e){</span>
+	        	
+<span class="cstat-no" title="statement not covered" >	        	var tabs = $(e.target).closest('.address-tabs');</span>
+<span class="cstat-no" title="statement not covered" >				tabs.find('.selected').removeClass('selected');</span>
+<span class="cstat-no" title="statement not covered" >				var $elem = $(e.target).closest('li'); </span>
+<span class="cstat-no" title="statement not covered" >				$elem.addClass('selected');</span>
+	        				
+<span class="cstat-no" title="statement not covered" >	        	var $form = utils.getFormByElement($elem); </span>
+<span class="cstat-no" title="statement not covered" >	        	var request = 'selectRecipientFlowers';</span>
+<span class="cstat-no" title="statement not covered" >				var url = $elem.attr('data-url'); </span>
+<span class="cstat-no" title="statement not covered" >				var DL = new data.DataLayer({singleton:true});          </span>
+<span class="cstat-no" title="statement not covered" >				var myData = $form.serialize()</span>
+<span class="cstat-no" title="statement not covered" >				DL.get(url, myData, $elem, data.Handlers.Checkout, request, null, null, <span class="fstat-no" title="function not covered" >function(data) {</span></span>
+<span class="cstat-no" title="statement not covered" >					 flowersRecipientDetails.update(data);</span>
+<span class="cstat-no" title="statement not covered" >					 var $elem = $( '.flowers-pick-date .datepicker-cta'),					</span>
+						$newRecipientFormOpen = $('.edit-new-recipient'),
+						$savedAddressFormOpen = $('.edit-saved-address');
+<span class="cstat-no" title="statement not covered" >					 if($newRecipientFormOpen.is(':visible')){</span>
+<span class="cstat-no" title="statement not covered" >						  if ($('.edit-da-block.new-address').length) {</span>
+<span class="cstat-no" title="statement not covered" >							$('.edit-da-block.new-address').each(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >								if ($(this).is(':visible')) {</span>
+<span class="cstat-no" title="statement not covered" >									$(this).find('.cancel').trigger('click');</span>
+<span class="cstat-no" title="statement not covered" >									 $(this).find('table.pcaCapturePlusTable, div#ed59pz86tg22kf685176, input.postal-code-pca, button.edit-address-button, .manually-add-address').remove();</span>
+								}
+							});
+						}
+					 }
+<span class="cstat-no" title="statement not covered" >					 flowersRecipientDetails.initialisePCAField($('.collection-details.flowers-recipient'));</span>
+<span class="cstat-no" title="statement not covered" >					 if($newRecipientFormOpen.is(':visible') || $savedAddressFormOpen.is(':visible')){</span>
+<span class="cstat-no" title="statement not covered" >						if(!$elem.hasClass('disabled')){</span>
+<span class="cstat-no" title="statement not covered" >							$elem.addClass('disabled');</span>
+						}
+<span class="cstat-no" title="statement not covered" >						$('.flowers-pick-date').find('.flowers-pick-date-error').hide();</span>
+					 }
+				});
+	        },
+	        cancelRecipient: <span class="fstat-no" title="function not covered" >function () { </span>
+<span class="cstat-no" title="statement not covered" >	        	flowersRecipientDetails.manualAddressSignUpSlideUp();</span>
+<span class="cstat-no" title="statement not covered" >                if($('.edit-new-recipient').length){</span>
+<span class="cstat-no" title="statement not covered" >                	el = $('.edit-new-recipient').find('.manually-add-address');</span>
+<span class="cstat-no" title="statement not covered" >                	$elem = $('.edit-new-recipient').eq(0).find('form');</span>
+<span class="cstat-no" title="statement not covered" >                	$elem.find('[name=honorific-prefix], [name=recipient-fname], [name=recipient-lname], [name=tel], [name=tel-alt], [name=nick-names], [id=postal-code-pca], [name=companyname], [name=flatnumber], [name=buildingname]').removeClass('valid').val('');</span>
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                	el = $('.edit-saved-address').find('.manually-add-address');</span>
+<span class="cstat-no" title="statement not covered" >                	$elem = $('.edit-saved-address').eq(0).find('form');</span>
+<span class="cstat-no" title="statement not covered" >                	$elem.find('[name=save-honorific-prefix], [name=save-recipient-fname], [name=save-recipient-lname], [name=tel], [name=tel-alt]').removeClass('valid').val('');</span>
+                }
+<span class="cstat-no" title="statement not covered" >                $elem.validate().resetForm();</span>
+<span class="cstat-no" title="statement not covered" >                var $form = $('.flowers-recipient').find('form');</span>
+<span class="cstat-no" title="statement not covered" >				resetForm.init($form);</span>
+            },
+			validation: <span class="fstat-no" title="function not covered" >function ($group, $mobileTarget) {</span>
+								
+<span class="cstat-no" title="statement not covered" >	            $('.edit-new-recipient form', $group).each(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	                var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                var $save = $(self).find('input[type=submit]');</span>
+<span class="cstat-no" title="statement not covered" >	                var $mobile = $(self).find('[name=tel]');</span>
+<span class="cstat-no" title="statement not covered" >	                var $alternate = $(self).find('[name=tel-alt]');</span>
+<span class="cstat-no" title="statement not covered" >	                var $checkbox = $(self).find('.dg-d-da-nonumber');</span>
+<span class="cstat-no" title="statement not covered" >	                var mapFields = ['postal-code-pca', 'companyname', 'flatnumber', 'buildingname', 'street', 'locality', 'city'];</span>
+<span class="cstat-no" title="statement not covered" >	                var $toCompare = [];</span>
+<span class="cstat-no" title="statement not covered" >	                	$toCompare = $('.collection-details.flowers-recipient').find('#address-nickname-1');</span>
+&nbsp;
+	                
+<span class="cstat-no" title="statement not covered" >	                $(flowersRecipientDetails.containerSelector).find('input[name="postal-code-pca"]').data('isAddressSelected', false);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                var getFields = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	                    var $fields = $(self).find('[name=honorific-prefix], [name=recipient-fname], [name=recipient-lname], [name=nick-names], [name=postal-code-pca], [name=companyname], [name=flatnumber], [name=buildingname]');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                    if ($checkbox.is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >	                        $fields = $fields.add($alternate);</span>
+	                    } else {
+<span class="cstat-no" title="statement not covered" >	                        $fields = $fields.add($mobile);</span>
+	                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                    return $fields;</span>
+	                };
+&nbsp;
+	                // add the custom validation methods to the validation library before form validation setup
+<span class="cstat-no" title="statement not covered" >	                validationExtras.customMethods.nameCheck();</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.customMethods.telephone();</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.customMethods.mobile();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                $(self).validate({</span>
+	                    onkeyup: <span class="fstat-no" title="function not covered" >function (elm) {</span>
+<span class="cstat-no" title="statement not covered" >	                        if (this.check(elm)) {</span>
+<span class="cstat-no" title="statement not covered" >	                            $(elm).addClass('valid');</span>
+	                        } else {
+<span class="cstat-no" title="statement not covered" >	                            $(elm).removeClass('valid');</span>
+	                        }
+<span class="cstat-no" title="statement not covered" >	                        validationExtras.enableSave(getFields(), $save); </span>
+	                    },
+	                    focusInvalid: false,
+	                    onfocusout: <span class="fstat-no" title="function not covered" >function (elm) {</span>
+<span class="cstat-no" title="statement not covered" >	                        this.element(elm);</span>
+<span class="cstat-no" title="statement not covered" >	                        validationExtras.enableSave(getFields(), $save); </span>
+	                    },
+	                    errorPlacement: <span class="fstat-no" title="function not covered" >function (error, element) {</span>
+<span class="cstat-no" title="statement not covered" >	                    	switch (element.attr("name")) {</span>
+                            case "postal-code-pca":
+<span class="cstat-no" title="statement not covered" >                                error.insertBefore(element.parents('form').find(".pcaCapturePlusTable"));</span>
+<span class="cstat-no" title="statement not covered" >                                break;</span>
+                            case "companyname":
+                            case "flatnumber":
+                            case "buildingname":
+<span class="cstat-no" title="statement not covered" >                                error.insertBefore(element.parents('form').find("input[name='companyname']")); </span>/* ** EPIC : 2571 : Changes ** */
+<span class="cstat-no" title="statement not covered" >                                break;</span>
+                            default:
+<span class="cstat-no" title="statement not covered" >                            	error.insertAfter(validationExtras.errorPlacementElement(element));</span>
+                            }
+	                    },
+	                    errorElement: 'span',
+	                    groups: {
+                            editableAddressesError: "companyname flatnumber buildingname" 
+                        },
+	                    rules: {
+	                        'honorific-prefix': {
+	                            required: true
+	                        },
+	                        'recipient-fname': {
+	                            required: true,
+	                            nameCheck: {
+	                                isLastname: false
+	                            }
+	                        },
+	                        'recipient-lname': {
+	                            required: true,
+	                            nameCheck: {
+	                                isLastname: true
+	                            }
+	                        },
+	                        // mobile phone number only required if the checkbox IS NOT selected
+	                        'tel': {
+	                            required: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return !$checkbox.is(':checked');</span>
+	                            },
+	                            mobile: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return !$checkbox.is(':checked');</span>
+	                            }
+	                        },
+&nbsp;
+	                        // alternate phone number only required if the checkbox IS selwected
+	                        'tel-alt': {
+	                            required: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return $checkbox.is(':checked');</span>
+	                            },
+	                            telephone: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return $checkbox.is(':checked');</span>
+	                            }
+	                        },
+	                        'nick-names': { 
+	                        	required: true,
+	                        	isUnique: {
+	                        		fieldToCompare: $toCompare
+	                        	}
+	                        },
+	                        'postal-code-pca': {
+                                required: true
+                            },
+                            'companyname': {
+                                checkEditableAddresses: true 
+                            },
+                            'flatnumber': {
+                                checkEditableAddresses: true 
+                            },
+                            'buildingname': {
+                                checkEditableAddresses: true 
+                            }
+	                    },
+	                    messages: {
+	                        'honorific-prefix': {
+	                            required: validationExtras.msg.title.required
+	                        },
+	                        'recipient-fname': {
+	                            required: validationExtras.msg.firstname.required,
+	                            nameCheck: validationExtras.msg.firstname.inValid
+	                        },
+	                        'recipient-lname': {
+	                            required: validationExtras.msg.lastname.required,
+	                            nameCheck: validationExtras.msg.lastname.inValid
+	                        }, 
+	                        'tel': {
+	                            required: validationExtras.msg.mobile.required,
+	                            mobile: validationExtras.msg.mobile.inValid
+	                        },
+	                        'tel-alt': {
+	                            required: validationExtras.msg.alternateTelephone.required,
+	                            telephone: validationExtras.msg.alternateTelephone.inValid
+	                        },
+	                        'nick-names': {
+	                            required: validationExtras.msg.addressNickname.required,
+	                            isUnique: validationExtras.msg.isUnique.inValid
+	                        },
+	                        'postal-code-pca': {
+                                required: validationExtras.msg.postcode.required
+                            }
+	                    },
+	                    submitHandler: <span class="fstat-no" title="function not covered" >function (form) {</span>
+<span class="cstat-no" title="statement not covered" >	                    	   var $container = $(flowersRecipientDetails.containerSelector),</span>
+	                               fieldLength = mapFields.length,
+	                               fieldValue = '';
+<span class="cstat-no" title="statement not covered" >	                           for (var m = 0; m &lt; fieldLength; m++) {</span>
+<span class="cstat-no" title="statement not covered" >	                               fieldValue = $container.find('[name=' + mapFields[m] + ']').val();</span>
+<span class="cstat-no" title="statement not covered" >	                               fieldNameHdn = mapFields[m].replace(/-/g, "");</span>
+<span class="cstat-no" title="statement not covered" >	                               $container.find("#form-values-" + fieldNameHdn).val(fieldValue);</span>
+	                           }
+<span class="cstat-no" title="statement not covered" >	                    	flowersRecipientDetails.save($(form), $mobileTarget);</span>
+	                    }
+	                });
+&nbsp;
+	                // apply focus fix for android devices
+<span class="cstat-no" title="statement not covered" >	                validationExtras.focusoutFix($(self));</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.selectChangeFix($(self), getFields(), $save);</span>
+&nbsp;
+	                // set up max character limits
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(self).find('[name=recipient-fname]'), 25);</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(self).find('[name=recipient-lname]'), 20);</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(self).find('[name=tel], [name=tel-alt]'), 11);</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(this).find('[name=nick-names]'), 20);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	              if ($(self).find('[name=tel]').val().length &gt; 0 &amp;&amp; $checkbox.prop('checked')) {</span>
+<span class="cstat-no" title="statement not covered" >	                    $checkbox.click();</span>
+	                } 
+&nbsp;
+	                // check if the save should be enabled
+<span class="cstat-no" title="statement not covered" >	                validationExtras.enableSave(getFields(), $save);</span>
+	            });
+	            
+<span class="cstat-no" title="statement not covered" >	            $('.edit-saved-address form', $group).each(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	                var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                var $save = $(self).find('input[type=submit]');</span>
+<span class="cstat-no" title="statement not covered" >	                var $mobile = $(self).find('[name=tel]');</span>
+<span class="cstat-no" title="statement not covered" >	                var $alternate = $(self).find('[name=tel-alt]');</span>
+<span class="cstat-no" title="statement not covered" >	                var $checkbox = $(self).find('.dg-d-da-nonumber');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                var getFields = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	                    var $fields = $(self).find('[name=save-honorific-prefix], [name=save-recipient-fname], [name=save-recipient-lname]');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                    if ($checkbox.is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >	                        $fields = $fields.add($alternate);</span>
+	                    } else {
+<span class="cstat-no" title="statement not covered" >	                        $fields = $fields.add($mobile);</span>
+	                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                    return $fields;</span>
+	                };
+&nbsp;
+	                // add the custom validation methods to the validation library before form validation setup
+<span class="cstat-no" title="statement not covered" >	                validationExtras.customMethods.nameCheck();</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.customMethods.telephone();</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.customMethods.mobile();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                $(self).validate({</span>
+	                    onkeyup: <span class="fstat-no" title="function not covered" >function (elm) {</span>
+<span class="cstat-no" title="statement not covered" >	                        if (this.check(elm)) {</span>
+<span class="cstat-no" title="statement not covered" >	                            $(elm).addClass('valid');</span>
+	                        } else {
+<span class="cstat-no" title="statement not covered" >	                            $(elm).removeClass('valid');</span>
+	                        }
+<span class="cstat-no" title="statement not covered" >	                        validationExtras.enableSave(getFields(), $save); </span>
+	                    },
+	                    focusInvalid: false,
+	                    onfocusout: <span class="fstat-no" title="function not covered" >function (elm) {</span>
+<span class="cstat-no" title="statement not covered" >	                        this.element(elm);</span>
+<span class="cstat-no" title="statement not covered" >	                        validationExtras.enableSave(getFields(), $save); </span>
+	                    },
+	                    errorPlacement: <span class="fstat-no" title="function not covered" >function (error, element) {</span>
+<span class="cstat-no" title="statement not covered" >	                    	error.insertAfter(validationExtras.errorPlacementElement(element));</span>
+	                    },
+	                    errorElement: 'span',
+	                    rules: {
+	                        'save-honorific-prefix': {
+	                            required: true
+	                        },
+	                        'save-recipient-fname': {
+	                            required: true,
+	                            nameCheck: {
+	                                isLastname: false
+	                            }
+	                        },
+	                        'save-recipient-lname': {
+	                            required: true,
+	                            nameCheck: {
+	                                isLastname: true
+	                            }
+	                        },
+	                        // mobile phone number only required if the checkbox IS NOT selected
+	                        'tel': {
+	                            required: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return !$checkbox.is(':checked');</span>
+	                            },
+	                            mobile: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return !$checkbox.is(':checked');</span>
+	                            }
+	                        },
+&nbsp;
+	                        // alternate phone number only required if the checkbox IS selwected
+	                        'tel-alt': {
+	                            required: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return $checkbox.is(':checked');</span>
+	                            },
+	                            telephone: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >	                                return $checkbox.is(':checked');</span>
+	                            }
+	                        }
+	                    },
+	                    messages: {
+	                        'save-honorific-prefix': {
+	                            required: validationExtras.msg.title.required
+	                        },
+	                        'save-recipient-fname': {
+	                            required: validationExtras.msg.firstname.required,
+	                            nameCheck: validationExtras.msg.firstname.inValid
+	                        },
+	                        'save-recipient-lname': {
+	                            required: validationExtras.msg.lastname.required,
+	                            nameCheck: validationExtras.msg.lastname.inValid
+	                        }, 
+	                        'tel': {
+	                            required: validationExtras.msg.mobile.required,
+	                            mobile: validationExtras.msg.mobile.inValid
+	                        },
+	                        'tel-alt': {
+	                            required: validationExtras.msg.alternateTelephone.required,
+	                            telephone: validationExtras.msg.alternateTelephone.inValid
+	                        }
+	                    },
+	                    submitHandler: <span class="fstat-no" title="function not covered" >function (form) {</span>
+<span class="cstat-no" title="statement not covered" >	                    	flowersRecipientDetails.save($(form), $mobileTarget);</span>
+	                    }
+	                });
+&nbsp;
+	                // apply focus fix for android devices
+<span class="cstat-no" title="statement not covered" >	                validationExtras.focusoutFix($(self));</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.selectChangeFix($(self), getFields(), $save);</span>
+&nbsp;
+	                // set up max character limits
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(self).find('[name=save-recipient-fname]'), 25);</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(self).find('[name=save-recipient-lname]'), 20);</span>
+<span class="cstat-no" title="statement not covered" >	                validationExtras.limitCharacters($(self).find('[name=tel], [name=tel-alt]'), 11);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	              if ($(self).find('[name=tel]').val().length &gt; 0 &amp;&amp; $checkbox.prop('checked')) {</span>
+<span class="cstat-no" title="statement not covered" >	                    $checkbox.click();</span>
+	                } 
+&nbsp;
+	                // check if the save should be enabled
+<span class="cstat-no" title="statement not covered" >	                validationExtras.enableSave(getFields(), $save);</span>
+	            });
+	        },
+	        noMobileNumberToggle: <span class="fstat-no" title="function not covered" >function (e) {</span>
+<span class="cstat-no" title="statement not covered" >	        	var $target = $(e.target).closest('.edit-new-recipient');</span>
+<span class="cstat-no" title="statement not covered" >				if($target.hasClass('edit-new-recipient')){</span>
+<span class="cstat-no" title="statement not covered" >					$target = $(e.target).closest('.edit-new-recipient');</span>
+				} else {
+<span class="cstat-no" title="statement not covered" >					$target = $(e.target).closest('.edit-saved-address');</span>
+				}	
+<span class="cstat-no" title="statement not covered" >	            var $altBlock = $target.find('.tel-alt-block');</span>
+<span class="cstat-no" title="statement not covered" >	            var $save = $target.find('input[type=submit]');</span>
+<span class="cstat-no" title="statement not covered" >	            var $mobile = $target.find('[name=tel]');</span>
+<span class="cstat-no" title="statement not covered" >	            var $alternate = $target.find('[name=tel-alt]');</span>
+<span class="cstat-no" title="statement not covered" >	            var $checkbox = $target.find('.dg-d-da-nonumber');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            var $enable, $disable;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            if (!$checkbox.is(':checked')) {</span>
+<span class="cstat-no" title="statement not covered" >	                $enable = $mobile;</span>
+<span class="cstat-no" title="statement not covered" >	                $disable = $alternate;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                if (common.isTouch()) {</span>
+<span class="cstat-no" title="statement not covered" >	                    $altBlock.removeClass('open').hide();</span>
+	                } else {
+<span class="cstat-no" title="statement not covered" >	                    $altBlock.removeClass('open').slideUp();</span>
+	                }
+	            } else {
+<span class="cstat-no" title="statement not covered" >	                $enable = $alternate;</span>
+<span class="cstat-no" title="statement not covered" >	                $disable = $mobile;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	                if (common.isTouch()) {</span>
+<span class="cstat-no" title="statement not covered" >	                    $altBlock.addClass('open').show();</span>
+	                } else {
+<span class="cstat-no" title="statement not covered" >	                    $altBlock.addClass('open').slideDown();</span>
+	                }
+	            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            $enable</span>
+	                .prop('disabled', false)
+	                .addClass('required')
+	                .removeClass('valid');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            $disable</span>
+	                .prop('disabled', true)
+	                .removeClass('required')
+	                .removeClass('valid')
+	                .removeClass('error')
+	                .next('.error').remove();
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            if ($disable[0] === $alternate[0]) {</span>
+	                //$disable.val('');
+	            }
+&nbsp;
+	        },
+	        save: <span class="fstat-no" title="function not covered" >function ($target, $mobileTarget) {</span>
+	            		
+<span class="cstat-no" title="statement not covered" >	            var $form = $target;</span>
+<span class="cstat-no" title="statement not covered" >	            $target = $target.closest('.flowersNewRecipient').find('.new-recipient');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            var myDeliveryGroup = utils.getDeliveryGroup($form);</span>
+<span class="cstat-no" title="statement not covered" >	            var request = 'saveNewRecipient';</span>
+<span class="cstat-no" title="statement not covered" >	            var url = utils.getFormAction($form);</span>
+<span class="cstat-no" title="statement not covered" >	            var $elem = $form;</span>
+<span class="cstat-no" title="statement not covered" >	            var DL = new data.DataLayer();</span>
+<span class="cstat-no" title="statement not covered" >	            var myData = $form.serialize();</span>
+<span class="cstat-no" title="statement not covered" >	            DL.get(url, myData, $elem, data.Handlers.Checkout, request, null, null, <span class="fstat-no" title="function not covered" >function (data) {</span></span>
+<span class="cstat-no" title="statement not covered" >	            	flowersRecipientDetails.update(data);</span>
+<span class="cstat-no" title="statement not covered" >	            	$('.new-recipient').find('.loader').remove();</span>
+<span class="cstat-no" title="statement not covered" >	            	$('.datepicker-tooltip-module').find('.loader').remove();</span>
+<span class="cstat-no" title="statement not covered" >					var responseTxt = $.parseJSON(data.responseText);</span>
+<span class="cstat-no" title="statement not covered" >					var datapickerObj = responseTxt.flowersDeliverySlotSelection;</span>
+<span class="cstat-no" title="statement not covered" >					$('.flowers-pick-date .datepicker-tooltip-module').html(datapickerObj);</span>
+<span class="cstat-no" title="statement not covered" >					common.customRadio($('.flowers-pick-date'));</span>
+					
+<span class="cstat-no" title="statement not covered" >	            	 if(($('.edit-new-recipient').show()).length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.edit-new-recipient').hide();</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.added-new-recipient').show();</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.flowers-pick-date').find('.datepicker-cta').removeClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.flowers-pick-date').find('.flowers-pick-date-error').hide();</span>
+	                 } else {
+<span class="cstat-no" title="statement not covered" >	                     $('.saved-address').show();</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.edit-saved-address').hide();</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.flowers-pick-date').find('.flowers-pick-date-error').hide();</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.recipient-address-div').removeClass('disable-flowers-address');</span>
+<span class="cstat-no" title="statement not covered" >	                     $('.flowers-pick-date').find('.datepicker-cta').addClass('disabled');</span>
+	                 }
+	            });
+&nbsp;
+	        },
+	        update: <span class="fstat-no" title="function not covered" >function (result, open) {</span>
+<span class="cstat-no" title="statement not covered" >	        	$('.flowers-recipient select').each(<span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >					dropdown.init( $(this) );</span>
+	        	});
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            common.customCheckBox.init($('.flowers-module'));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	            flowersRecipientDetails.validation($('.flowers-module'));</span>
+<span class="cstat-no" title="statement not covered" >	            common.customRadio($('.flowers-module'));</span>
+	            
+	        },
+	        changeDetails: <span class="fstat-no" title="function not covered" >function(e, $parent, $editParent){</span>
+<span class="cstat-no" title="statement not covered" >            	var target = $(e).find('.collection-details');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    			if (e.type) {</span>
+<span class="cstat-no" title="statement not covered" >    				e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >    				e.stopPropagation();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    				target = $(e.target);</span>
+    			}
+            	
+<span class="cstat-no" title="statement not covered" >    			var form = target.closest('.flowers-recipient').find($editParent);</span>
+    			
+<span class="cstat-no" title="statement not covered" >    			if (form.hasClass('open')) {</span>
+<span class="cstat-no" title="statement not covered" >    				target.closest('.collection-details').find($parent).show();</span>
+<span class="cstat-no" title="statement not covered" >    				form.removeClass('open').slideUp();</span>
+    			} else {
+<span class="cstat-no" title="statement not covered" >    				target.closest('.collection-details').find($parent).hide();</span>
+<span class="cstat-no" title="statement not covered" >    				form.addClass('open').slideDown();</span>
+<span class="cstat-no" title="statement not covered" >    				if(target.hasClass('change-address')){</span>
+<span class="cstat-no" title="statement not covered" >    					$('body, html').animate({</span>
+    						scrollTop: $('.new-flower-address').offset().top
+    					});
+    				}
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    				common.customCheckBox.init(target.closest('.collection-details'));</span>
+<span class="cstat-no" title="statement not covered" >    				dropdown.updateSelectDimension( form.find('.customDropdown') );</span>
+<span class="cstat-no" title="statement not covered" >    				flowersRecipientDetails.initialisePCAField(target.closest('.collection-details'));</span>
+    			}
+            },
+            changeFlowersAddress: <span class="fstat-no" title="function not covered" >function($elem) {	</span>
+    			
+<span class="cstat-no" title="statement not covered" >    			var request = 'saveNewRecipient';</span>
+<span class="cstat-no" title="statement not covered" >    	        var $form = utils.getFormByElement($elem);	        </span>
+<span class="cstat-no" title="statement not covered" >    	        var url = utils.getFormAction($form); </span>
+<span class="cstat-no" title="statement not covered" >    	        var DL = new data.DataLayer();</span>
+<span class="cstat-no" title="statement not covered" >    	        var myData = $form.serialize();</span>
+<span class="cstat-no" title="statement not covered" >    	        DL.get(url, myData, $elem, data.Handlers.Checkout, request, null, null, <span class="fstat-no" title="function not covered" >function(result) {	</span></span>
+<span class="cstat-no" title="statement not covered" >    	        	$('.new-recipient').find('.loader').remove();</span>
+<span class="cstat-no" title="statement not covered" >    				dropdown.init($('.new-recipient').find('select'));</span>
+<span class="cstat-no" title="statement not covered" >    				common.customCheckBox.init($('.collection-details'));</span>
+    				
+<span class="cstat-no" title="statement not covered" >    				$('.edit-saved-address').hide();</span>
+<span class="cstat-no" title="statement not covered" >    		        $('.saved-address').show();</span>
+<span class="cstat-no" title="statement not covered" >    		        $('.recipient-address-div').removeClass('disable-flowers-address');</span>
+<span class="cstat-no" title="statement not covered" >    		        $('.flowers-pick-date .datepicker-tooltip-module').find('.loader').remove();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    		        var responseTxt = $.parseJSON(result.responseText);</span>
+<span class="cstat-no" title="statement not covered" >					var datapickerObj = responseTxt.flowersDeliverySlotSelection;</span>
+<span class="cstat-no" title="statement not covered" >					$('.flowers-pick-date .datepicker-tooltip-module').html(datapickerObj);</span>
+<span class="cstat-no" title="statement not covered" >					common.customRadio($('.flowers-pick-date'));</span>
+    				
+<span class="cstat-no" title="statement not covered" >    				var noOptionStr = $('.recipient-address-div').find('.customDropdown a span.innerText').text();</span>
+<span class="cstat-no" title="statement not covered" >	                if (noOptionStr != 'Select a saved address') {</span>
+<span class="cstat-no" title="statement not covered" >	                	$( '.flowers-pick-date .datepicker-cta').removeClass('disabled');</span>
+<span class="cstat-no" title="statement not covered" >	                	$('.flowers-pick-date').find('.flowers-pick-date-error').hide();</span>
+	                }
+    	        });			
+    	        		
+    		},
+	        pickDateValidation: <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >	        	var $elem = $( '.flowers-pick-date .datepicker-cta'),					</span>
+					$newRecipientFormOpen = $('.edit-new-recipient'),
+					$newRecipientAddress = $('.new-flower-address'),
+					$savedAddressFormOpen = $('.edit-saved-address'),
+					$savedAddressCollapse = $('.saved-address'),
+					$savedAddressDropdown = $('.recipient-address-div'),
+					$pickDateError = $('.flowers-pick-date').find('.flowers-pick-date-error');
+					
+<span class="cstat-no" title="statement not covered" >	        	var chkSelected = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	        		var noOptionStr = $('.recipient-address-div').find('.customDropdown a span.innerText').text();</span>
+<span class="cstat-no" title="statement not covered" >	                if (noOptionStr == 'Select a saved address') {</span>
+<span class="cstat-no" title="statement not covered" >	                	$('.flowers-pick-date .datepicker-tooltip-module').find('.datepicker-tooltip').removeClass('visible').hide();</span>
+<span class="cstat-no" title="statement not covered" >	                	if(!$elem.hasClass('disabled')){</span>
+<span class="cstat-no" title="statement not covered" >							$elem.addClass('disabled');</span>
+						}
+<span class="cstat-no" title="statement not covered" >	                	$pickDateError.show();</span>
+	                }
+	            };
+				
+<span class="cstat-no" title="statement not covered" >				if($elem.hasClass('disabled')){</span>
+	        		
+<span class="cstat-no" title="statement not covered" >	        		if($newRecipientFormOpen.is(':visible')){</span>
+<span class="cstat-no" title="statement not covered" >						var $save = $newRecipientFormOpen.find('input[type=submit]');</span>
+<span class="cstat-no" title="statement not covered" >						$save.trigger('click');</span>
+<span class="cstat-no" title="statement not covered" >						if(!$newRecipientAddress.hasClass('open')){</span>
+<span class="cstat-no" title="statement not covered" >							$('.flowers-new-address-error').show();</span>
+						}
+<span class="cstat-no" title="statement not covered" >						$pickDateError.show();</span>
+					}
+					else <span class="cstat-no" title="statement not covered" >if($savedAddressFormOpen.is(':visible')){</span>
+<span class="cstat-no" title="statement not covered" >						var $save = $savedAddressFormOpen.find('input[type=submit]');</span>
+<span class="cstat-no" title="statement not covered" >						$save.trigger('click');						</span>
+					}
+					else <span class="cstat-no" title="statement not covered" >if($savedAddressCollapse.is(':visible')) {</span>
+<span class="cstat-no" title="statement not covered" >						chkSelected();</span>
+					}
+					else{
+<span class="cstat-no" title="statement not covered" >						console.log("else");</span>
+					}
+					
+	        	}
+	        },
+	        initialisePCAField: <span class="fstat-no" title="function not covered" >function ($container) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var el,</span>
+                    pca,
+                    fieldLimits = {
+                        companyName: 60,
+                        flatNumber: 30,
+                        buildingName: 55,
+                        primaryStreet: 70
+                    };
+<span class="cstat-no" title="statement not covered" >                if ($("#postal-code-pca").length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    $container.find('div.post-code').append('&lt;input id="postal-code-pca" class="input postal-code-pca required highlight" type="text" title="Enter a postcode" placeholder="Enter a postcode" name="postal-code-pca" maxlength="8"&gt;&lt;div id="ed59pz86tg22kf685176"&gt;&lt;/div&gt;');</span>
+                }
+<span class="cstat-no" title="statement not covered" >                el = $container.find('input[name="postal-code-pca"]');</span>
+<span class="cstat-no" title="statement not covered" >                el.data('isAddressSelected', false);</span>
+&nbsp;
+                // Global function defined in PCA library
+<span class="cstat-no" title="statement not covered" >                loadCapturePlus();</span>
+<span class="cstat-no" title="statement not covered" >                if ($(".edit-address-button").length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >                    $container.find('.pcaCapturePlusTable').after('&lt;button class="secondary-button disabled edit-address-button"&gt;Edit&lt;/button&gt;');</span>
+                }
+<span class="cstat-no" title="statement not covered" >                $container.find('.post-code').after('&lt;div class="manually-add-address"&gt;&lt;div class="field-wrapper"&gt;&lt;label for="nv-Company"&gt;Company name&lt;/label&gt;&lt;input id="nv-Company" title="Please complete one of the following three fields" placeholder="Company name" name="companyname" value="" type="text" class="highlight" maxlength="' + fieldLimits.companyName + '"&gt;&lt;/div&gt;&lt;div class="field-wrapper"&gt;&lt;label for="nv-FlatNumber"&gt;Flat / unit number&lt;/label&gt;&lt;input id="nv-FlatNumber" title="Please complete one of the following three fields" placeholder="Flat / unit number" name="flatnumber" value="" type="text" class="highlight" maxlength="' + fieldLimits.flatNumber + '"&gt;&lt;/div&gt;&lt;div class="field-wrapper"&gt;&lt;label for="nv-BuildingName"&gt;Building number / name&lt;/label&gt;&lt;input id="nv-BuildingName" title="Please complete one of the following three fields" placeholder="Building number / name" name="buildingname" value="" type="text" class="highlight" maxlength="' + fieldLimits.buildingName + '"&gt;&lt;/div&gt;&lt;div class="field-wrapper"&gt;&lt;label for="nv-PrimaryStreet"&gt;Street&lt;/label&gt;&lt;input id="nv-PrimaryStreet" title="Street" placeholder="Street" name="street" value="" type="text" maxlength="' + fieldLimits.primaryStreet + '"&gt;&lt;/div&gt;&lt;div class="field-wrapper"&gt;&lt;input id="nv-Locality" title="Locality"  name="locality" value="" type="hidden" /&gt;&lt;input id="nv-City" title="City" placeholder="City" name="city" value="" type="hidden" /&gt;&lt;div class="locality-city"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                pca = new PCA_EditableAddress(flowersRecipientDetails, $container, true, flowersRecipientDetails.updatePostCodePlaceholder);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                flowersRecipientDetails.validation($container); </span>// initialise validation since new fields are added 			
+            },
+        	 clearPCAField: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                 var _oPCAElem = $(flowersRecipientDetails.containerSelector).find('input[name="postal-code-pca"]');</span>
+<span class="cstat-no" title="statement not covered" >                 if (_oPCAElem.data('isAddressSelected')) {</span>
+<span class="cstat-no" title="statement not covered" >                     _oPCAElem.val('').data('isAddressSelected', false).valid();</span>
+                 }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 flowersRecipientDetails.editButtonClicked = false; </span>
+<span class="cstat-no" title="statement not covered" >                 flowersRecipientDetails.manualAddressSignUpSlideUp();</span>
+             },
+&nbsp;
+             removeHTMLFromDom: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                 $(flowersRecipientDetails.containerSelector).find('table.pcaCapturePlusTable, div#ed59pz86tg22kf685176, input.postal-code-pca, button.edit-address-button, .manually-add-address').remove();</span>
+             },
+             manualAddressSignUpSlideUp: <span class="fstat-no" title="function not covered" >function () { </span>
+<span class="cstat-no" title="statement not covered" >            	 var el, $elem;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 el = $(flowersRecipientDetails.containerSelector).find('.manually-add-address');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 if (!el.is(':visible')) {</span>
+<span class="cstat-no" title="statement not covered" >                     return;</span>
+                 }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 $elem = $(flowersRecipientDetails.containerSelector).eq(0).find('form');</span>
+               
+<span class="cstat-no" title="statement not covered" >                 $elem.find('[name=companyname], [name=flatnumber], [name=buildingname]').removeClass('valid').val('');</span>
+<span class="cstat-no" title="statement not covered" >                 $elem.validate().resetForm();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 flowersRecipientDetails.enableSave($elem);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 el.slideUp('fast', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                	 flowersRecipientDetails.editButtonClicked = false;</span>
+<span class="cstat-no" title="statement not covered" >                	 flowersRecipientDetails.pcaAddressSelected = false;</span>
+                 });
+             },
+             manualAddressSignUpSlideDown: <span class="fstat-no" title="function not covered" >function () {</span> // show the panel
+<span class="cstat-no" title="statement not covered" >                 var el = $(flowersRecipientDetails.containerSelector).find('.manually-add-address'),</span>
+                     self = this,
+                     $addressInputs = el.find('input:text');
+<span class="cstat-no" title="statement not covered" >                 el.slideDown('fast', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                     validationExtras.updatePlaceholders('.manually-add-address');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     if (common.isIE9OrLower()) {</span>
+<span class="cstat-no" title="statement not covered" >                         $addressInputs.each(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                             if ($(this).val()) {</span>
+<span class="cstat-no" title="statement not covered" >                                 $(this).closest('.placeholder').find('label').hide();</span>
+                             } else {
+<span class="cstat-no" title="statement not covered" >                                 $(this).closest('.placeholder').find('label').show();</span>
+                             }
+                         });
+                     }
+                     
+<span class="cstat-no" title="statement not covered" >                     var $save = $('.edit-new-recipient').find('input[type=submit]');</span>
+<span class="cstat-no" title="statement not covered" > 					 var $fields = $('.edit-new-recipient').find('[name=honorific-prefix], [name=recipient-fname], [name=recipient-lname], [name=nick-names], [name=postal-code-pca], [name=companyname], [name=flatnumber], [name=buildingname]');</span>
+                     					 
+<span class="cstat-no" title="statement not covered" >                     validationExtras.enableSave($fields, $save);</span>
+                 });
+             },
+            
+             clearNewAddress: <span class="fstat-no" title="function not covered" >function (context) {</span>
+<span class="cstat-no" title="statement not covered" >            	 resetForm.init($('form', context));</span>
+             },
+&nbsp;
+             updatePostCodePlaceholder: <span class="fstat-no" title="function not covered" >function () {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 if (common.isIE9OrLower()) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                     var $tdContainer = $('#postal-code-pca').closest('td'),</span>
+                         $inputPostcode = $('#postal-code-pca');
+<span class="cstat-no" title="statement not covered" >                     validationExtras.updatePlaceholders('.post-code');</span>
+<span class="cstat-no" title="statement not covered" >                     $inputPostcode.prependTo($tdContainer);</span>
+<span class="cstat-no" title="statement not covered" >                     $tdContainer.css({</span>
+                         'position': 'relative'
+                     });
+<span class="cstat-no" title="statement not covered" >                     $tdContainer.find('.placeholder').css({</span>
+                         'height': '36px',
+                         'position': 'absolute',
+                         'top': '0',
+                         'overflow': 'auto',
+                         'white-space': 'nowrap',
+                         'width': $tdContainer.width()
+                     });
+                 }
+             },
+            
+             createMessage: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                 if ($(flowersRecipientDetails.containerSelector).find('.pcaCapturePlusTable .message').length) {</span>
+<span class="cstat-no" title="statement not covered" >                     return;</span>
+                 }
+<span class="cstat-no" title="statement not covered" >                 $(flowersRecipientDetails.containerSelector).find('.pcaCapturePlusTable .pcaAutoCompleteSmall').before('&lt;div class="message"&gt;&lt;/div&gt;');</span>
+&nbsp;
+             },
+             showMessage: <span class="fstat-no" title="function not covered" >function (showError) {</span>
+<span class="cstat-no" title="statement not covered" >            	 flowersRecipientDetails.createMessage();</span>
+<span class="cstat-no" title="statement not covered" >                 var el = $(flowersRecipientDetails.containerSelector).find('.pcaCapturePlusTable .message'),</span>
+                     message = 'If you can\'t find the right address enter the full postcode and select Edit',
+                     errorClass = 'error-text';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 el.removeClass(errorClass);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 if (showError) {</span>
+<span class="cstat-no" title="statement not covered" >                     message = 'Sorry, we don\'t recognise this postcode. Please enter another postcode.';</span>
+<span class="cstat-no" title="statement not covered" >                     el.addClass(errorClass);</span>
+                 }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 el.html(message).show();</span>
+             },
+&nbsp;
+             hideMessage: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >                 $(flowersRecipientDetails.containerSelector).find('.pcaCapturePlusTable .message').hide();</span>
+             },
+             
+             newFlowerAddress: <span class="fstat-no" title="function not covered" >function () {</span>
+            	 
+<span class="cstat-no" title="statement not covered" >            	 flowersRecipientDetails.editButtonClicked = false;</span>
+            	 
+<span class="cstat-no" title="statement not covered" >            	 var $details = $('.collection-details.flowers-recipient');</span>
+<span class="cstat-no" title="statement not covered" >                 var $content = $details.find('.new-flower-address');</span>
+<span class="cstat-no" title="statement not covered" >                 var $form = $(flowersRecipientDetails.containerSelector).eq(0).find('form');</span>
+                 
+                 //$('.manually-add-address').remove();
+                 
+<span class="cstat-no" title="statement not covered" >                   var showCallback = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                     validationExtras.updatePlaceholders($content);</span>
+<span class="cstat-no" title="statement not covered" >                     flowersRecipientDetails.initialisePCAField($details);</span>
+ 					 
+                   };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                   if (typeof jQuery !== 'undefined') {</span>
+<span class="cstat-no" title="statement not covered" >                       $content.not(':animated').slideDown(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                           showCallback();</span>
+                       });
+                   } else {
+<span class="cstat-no" title="statement not covered" >                       showCallback();</span>
+                   }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                 return false;</span>
+            },
+            toggleFlowersAddress : <span class="fstat-no" title="function not covered" >function(e){</span>
+<span class="cstat-no" title="statement not covered" >            	e.preventDefault();</span>
+            	
+<span class="cstat-no" title="statement not covered" >            	var $target = $(e.target);</span>
+<span class="cstat-no" title="statement not covered" >            	var $parent = $target.parents('.flowers-recipient .edit-new-recipient');</span>
+<span class="cstat-no" title="statement not covered" >            	var $addressConatiner = $parent.find('.new-flower-address');</span>
+<span class="cstat-no" title="statement not covered" >            	if($addressConatiner.hasClass('open')){</span>
+<span class="cstat-no" title="statement not covered" >            		$addressConatiner.hide();</span>
+<span class="cstat-no" title="statement not covered" >            		$addressConatiner.removeClass('open');</span>
+<span class="cstat-no" title="statement not covered" >            		flowersRecipientDetails.clearPCAField();</span>
+<span class="cstat-no" title="statement not covered" >            		flowersRecipientDetails.removeHTMLFromDom();</span>
+<span class="cstat-no" title="statement not covered" >            		$target.show();</span>
+            	}
+            	else {
+<span class="cstat-no" title="statement not covered" >					if ($('.edit-da-block.new-address').length) {</span>
+<span class="cstat-no" title="statement not covered" >                        $('.edit-da-block.new-address').each(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                            if ($(this).is(':visible')) {</span>
+<span class="cstat-no" title="statement not covered" >                                $(this).find('.cancel').trigger('click');</span>
+<span class="cstat-no" title="statement not covered" >                                $(this).find('table.pcaCapturePlusTable, div#ed59pz86tg22kf685176, input.postal-code-pca, button.edit-address-button, .manually-add-address').remove();</span>
+                            }
+                        });
+                    }
+<span class="cstat-no" title="statement not covered" >            		$addressConatiner.show();</span>
+<span class="cstat-no" title="statement not covered" >            		$addressConatiner.addClass('open');</span>
+<span class="cstat-no" title="statement not covered" >            		flowersRecipientDetails.initialisePCAField($('.flowers-recipient'));</span>
+<span class="cstat-no" title="statement not covered" >            		$target.hide();</span>
+            	}
+            	
+            },
+			init: <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >				common.customRadio($('.flowers-module'));</span>
+<span class="cstat-no" title="statement not covered" >				$(document).on('click', '.flowers-recipient .address-tabs input[type="radio"]', flowersRecipientDetails.recipientType);</span>
+				
+<span class="cstat-no" title="statement not covered" >				flowersRecipientDetails.newFlowerAddress();</span>
+				 
+<span class="cstat-no" title="statement not covered" >				$(document).on('change', '.edit-new-recipient .dg-d-da-nonumber', flowersRecipientDetails.noMobileNumberToggle);</span>
+<span class="cstat-no" title="statement not covered" >				$(document).on('change', '.edit-saved-address .dg-d-da-nonumber', flowersRecipientDetails.noMobileNumberToggle);</span>
+				
+<span class="cstat-no" title="statement not covered" >				$(document).on('focus', '.edit-new-recipient input[name="postal-code-pca"]', flowersRecipientDetails.clearPCAField);</span>
+<span class="cstat-no" title="statement not covered" >				flowersRecipientDetails.validation($('.checkout'));</span>
+				
+<span class="cstat-no" title="statement not covered" >				$(document).on('click', '.flowers-recipient .edit-new-recipient .cancel', flowersRecipientDetails.cancelRecipient);</span>
+<span class="cstat-no" title="statement not covered" >				$(document).on('click', '.flowers-recipient .edit-saved-address .cancel', flowersRecipientDetails.cancelRecipient);</span>
+	
+<span class="cstat-no" title="statement not covered" >	            refreshAll.reInit.push(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	            	flowersRecipientDetails.validation($('.checkout'));</span>
+	            });
+	           
+<span class="cstat-no" title="statement not covered" >	            $(document).on('click', '.flowers-pick-date .datepicker-cta', flowersRecipientDetails.pickDateValidation);</span>
+	            
+<span class="cstat-no" title="statement not covered" >	            $(document).on('change', '.recipient-address-div select', <span class="fstat-no" title="function not covered" >function(e) {</span></span>
+<span class="cstat-no" title="statement not covered" >	            	flowersRecipientDetails.changeFlowersAddress($(this));					</span>
+				});
+	            
+			}
+			
+	};
+			
+	return flowersRecipientDetails;
+});</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

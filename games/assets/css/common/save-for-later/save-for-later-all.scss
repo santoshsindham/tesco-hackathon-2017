@@ -1,0 +1,137 @@
+@import "../variables";
+@import "save-for-later-mixins";
+
+#save-for-later {
+	clear: both;
+	width: auto;
+	.products-wrapper {
+		@include save-for-later-box-bordered;
+		&:after {
+			@include clear-fix;
+		}
+		.products {
+			margin: 0;
+			padding-bottom: 0;
+			> li {
+				position: relative;
+				width: auto;
+				float: none;
+				clear: both;
+				margin: 0;
+				&:hover {
+					h3 a {
+						border: none;
+					}
+				}
+				.price{
+					height:auto;
+				}
+			}
+		}
+	}
+	.product {
+		&:after {
+			@include clear-fix;
+		}
+		@include box-shadow(none);
+		width: auto;
+		border: none;
+		margin: 0;
+		padding: 0 16px 0 76px;
+		font-size: 1em;
+		h3 {
+			position: relative;
+			height: auto;
+			float: none;
+			margin: 16px 0 8px;
+			padding-right: 30px; // for close icon
+			overflow: visible;
+			font-size: 14px;
+			line-height: normal;
+			a {
+				display: inline;
+				&:hover {
+					text-decoration: underline;
+				}
+				img {
+					position: absolute;
+					top: 4px;
+					left: -60px;
+
+					// This is a temporary fix for GMO6 to hide the blinkbox ping as it is overlapping the product image on the save for later block
+					&.blinkbox-ping{
+						display: none;
+					}
+				}
+			}
+		}
+		p {
+			font-size: 14px;
+			margin: 0 0 8px;
+		}
+		.price {
+			margin: 0 0 12px;
+			font-weight: normal;
+			line-height: normal;
+			p {
+				margin: 0 0 4px;
+			}
+			.current,
+			.total {
+				@include subtotal-value;
+			}
+			.previous {
+				float: left;
+				margin-right: 8px;
+				color: #848282;
+				text-decoration: line-through;
+			}
+			.discount {
+				clear: both;
+				color: $savings-color;
+			}
+		}
+		.remove {
+			position: absolute;
+		    top: 0;
+		    right: 0;
+		    padding: 16px;
+		    overflow: visible;
+		    color: $putty;
+		    font-size: 12px;
+		    &:hover {
+		      text-decoration: none;
+		    }
+		    &:after {
+				content: "y";
+			    font-family: 'Tesco Icons';
+			    text-indent: 0;
+		    }
+		}
+		.unavailable,
+		.move-to-basket {
+			position: absolute;
+			bottom: 16px;
+			right: 16px;
+			width: auto;
+			margin: 0;
+			padding: 8px 15px;
+		}
+		.unavailable {
+			padding: 0;
+			font-size: 1.4em;
+		}
+	}
+	.no-items {
+		display: none; // js to show
+		margin: 16px;
+		font-size: 1.4em;
+	}
+	.show-more {
+		display: none; // js to show
+		float: left;
+		margin: 0 16px 16px 16px;
+		width: auto;
+		padding: 8px 12px;
+	}
+}

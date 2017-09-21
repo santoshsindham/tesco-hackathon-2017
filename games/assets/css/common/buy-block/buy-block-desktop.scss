@@ -1,0 +1,8 @@
+/*******************************************
+* Desktop	page title module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "buy-block-mixins";
+

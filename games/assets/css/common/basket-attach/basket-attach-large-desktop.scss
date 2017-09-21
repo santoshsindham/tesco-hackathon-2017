@@ -1,0 +1,50 @@
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "basket-attach-mixins";
+
+#basket-attach {
+	
+	.basket-item {
+		width: 702px;
+		float: left;
+
+		.add-to-basket {
+			float: right;
+		}
+
+	}
+
+	.basket-summary {
+		width: 462px;
+		float: right;
+		
+		a:not(.primary-button){
+			padding-bottom: 5px;
+			line-height: 20px;	
+	    }		
+
+		& > p {
+			font-size: 1.2em;
+
+			span {
+				font-size: 1em;
+			}
+		}
+
+		.notice {
+			text-align: right;
+			font-size: 1em;
+		}
+
+		.add-to-basket {
+			margin: 0;
+			width: auto;
+		}
+
+	}
+
+}
+
+#delivery-options {
+	@include largeTable;
+}

@@ -1,0 +1,46 @@
+{
+    "message": "Popular products",
+    "items": [{
+        "id": "581-8614",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…co.com%2Fdirect%2Ffifa-17-500gb-xbox-one%2F581-8614.prd%3FskuId%3D581-8614"
+    }, {
+        "id": "179-7462",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…F%2Fwww.tesco.com%2Fdirect%2Ffifa-17-ps4%2F179-7462.prd%3FskuId%3D179-7462"
+    }, {
+        "id": "627-6262",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…ww.tesco.com%2Fdirect%2Ffifa-17-xbox-one%2F627-6262.prd%3FskuId%3D627-6262"
+    }, {
+        "id": "745-8366",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…co.com%2Fdirect%2Fplaystation-45-console%2F745-8366.prd%3FskuId%3D745-8366"
+    }, {
+        "id": "216-7890",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…%2Flego-classic-large-creative-box-10697%2F216-7890.prd%3FskuId%3D216-7890"
+    }, {
+        "id": "182-7550",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…Fdirect%2Fplaystation-vr-ps4-peripherals%2F182-7550.prd%3FskuId%3D182-7550"
+    }, {
+        "id": "404-3212",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…Fdirect%2Fduplo-creative-build-box-10618%2F404-3212.prd%3FskuId%3D404-3212"
+    }, {
+        "id": "130-0023",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…%2Fdirect%2Fps4-pro-1tb-4k-console-black%2F130-0023.prd%3FskuId%3D130-0023"
+    }, {
+        "id": "556-3837",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…m%2Fdirect%2Famazon-fire-streaming-stick%2F556-3837.prd%3FskuId%3D556-3837"
+    }, {
+        "id": "621-1670",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…ect%2Freally-stunning-magic-gold-edition%2F621-1670.prd%3FskuId%3D621-1670"
+    }, {
+        "id": "284-4665",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…box-one-with-kinect-holiday-value-bundle%2F284-4665.prd%3FskuId%3D284-4665"
+    }, {
+        "id": "152-7712",
+        "linkURL": "http://integration.richrelevance.com/rrserver/click?a=03bce68238ae2fc6&vg=f…2Fsim-free-motorola-moto-g-4th-gen-black%2F152-7712.prd%3FskuId%3D152-7712"
+    }],
+    "itemFormat": "ids",
+    "strategy": "PopularProducts",
+    "placement_name": "add_to_cart_page.placement1",
+    "config": {
+        "view": "carousel"
+    }
+}

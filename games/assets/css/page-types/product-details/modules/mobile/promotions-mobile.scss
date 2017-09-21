@@ -1,0 +1,10 @@
+@import "../mixins/promotions-mixins";
+
+.buybox-promotions-wrapper {
+    @include promotions-box-view;
+    @include promotions-box-view-s;
+}
+
+#special-offers-container {
+    @include promotions-box-view-s;
+}

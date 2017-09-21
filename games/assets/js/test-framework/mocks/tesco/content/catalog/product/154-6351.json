@@ -1,0 +1,96 @@
+{
+  "id" : "154-6351",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "154-6351",
+    "fromPrice" : "379.00",
+    "toPrice" : "427.00",
+    "clubcardPoints" : 379
+  },
+  "displayName" : "Apple iPad Air 2, 32GB with Wi-Fi - Space Grey",
+  "publicLink" : "/direct/apple-ipad-air-2-32gb-with-wi-fi-space-grey/154-6351.prd",
+  "avgRating" : 4.95,
+  "longDescription" : "iPad Air 2 is an impossibly thin 6.1 millimetres, making it our thinnest iPad ever. And it weighs less than a pound. So it's even easier to hold in one hand and take with you anywhere. The displays on previous generations of iPad used three separate components. iPad Air 2 changes all that, combining those three layers into just one. This eliminates gaps between layers, along with the internal reflectance caused by those gaps. The result? Colours are richer, contrast is greater, and images are sharper and more vivid. The LCD layer is now closer to your eyes (and your fingers), so when you touch the screen it feels as if you're touching your content. And we've improved the sensitivity of the screen, so it tracks your finger even more accurately, especially when you make quick gestures. Which means everything you do - playing games, surfing the web, enjoying photos and videos - becomes more personal, immediate, and immersive. iPad Air 2 features a custom-designed anti-reflective coating that reduces glare by 56 percent, making it the least reflective tablet in the world. In virtually any kind of environment - offices, classrooms, outdoors - everything is clearer and more readable. With the A8X chip built on second-generation 64-bit desktop-class architecture, iPad Air 2 is the fastest, most powerful iPad ever. With this kind of performance, you might expect a compromise or two. Like a bigger form factor or a shorter battery life. But iPad Air 2 is both thinner and lighter than the previous iPad Air. And thanks in part to the M8 motion coprocessor, it still has an incredibly long 10-hour battery life. Thanks to its FaceTime HD camera and brilliant Retina display, video calls on iPad Air 2 are clearer than they've ever been. So no matter who you're talking to or where they are, you'll feel like you're both in the room.",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat17810004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat17810004"
+  }, {
+    "id" : "cat20150054",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat20150054"
+  }, {
+    "id" : "cat21990011",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat21990011"
+  }, {
+    "id" : "cat22550003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat22550003"
+  }, {
+    "id" : "cat3376693",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376693"
+  }, {
+    "id" : "cat44330003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat44330003"
+  }, {
+    "id" : "cat6500031",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat6500031"
+  } ],
+  "brand" : "Apple",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/154-6351_PI_1000560MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "noofRatingsProduced" : 64,
+  "links" : [ {
+    "id" : "154-6351",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/154-6351",
+    "options" : {
+      "primary" : "Space grey"
+    }
+  }, {
+    "id" : "154-6351",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/154-6351"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "154-6351",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/154-6351",
+    "options" : {
+      "primary" : "Space grey"
+    }
+  } ]
+}

@@ -1,0 +1,23 @@
+/*******************************************
+*	Mobile Carousel module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "carousel-mixins";
+
+@include responsiveCarousel;
+
+#carousel {
+	 padding: 0 8px;
+	 min-height: 160px;
+	.wrapper{
+		min-height: 120px;
+	}
+	.homepage-carousel & {
+		min-height: 135px;
+		.wrapper {
+			min-height: 95px;
+		}
+	}
+}

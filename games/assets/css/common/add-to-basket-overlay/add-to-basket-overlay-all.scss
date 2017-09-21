@@ -1,0 +1,72 @@
+/*******************************************
+*	Add to Basket module
+*******************************************/
+
+@import "../variables";
+@import "add-to-basket-overlay-mixins";
+
+.add-to-basket-notification.notification {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+#notificationContainer, #lightbox{
+	.add-to-basket-notification {
+		p {
+			margin-top: 0;
+			a {
+				border-bottom: 1px solid #ccd6e0;
+				text-decoration: none;
+			}
+			a:hover,
+			a:focus,
+			a:active {
+				border-color: $contentLink;
+			}
+			&.product-title {
+				height: 3em;
+				overflow: hidden;
+				margin-bottom: 12px;
+				
+			}
+			&.product-title a {
+				border: none;
+			}
+			&.product-title a:hover,
+			&.product-title a:focus,
+			&.product-title a:active {
+				text-decoration: underline;
+			}
+		}
+		.button {
+			color: #fff;
+			padding: 10px 10px 13px;
+			border: 1px solid #f58101;
+			@include orangeGradient;
+			@include border-radius(3px);
+			text-align: center;
+			margin-bottom: 6px;
+			
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		.continue-shopping {
+			border: 1px solid #014b8f;
+			@include darkBlueGradient;
+			@include border-radius(3px);
+			margin-bottom: 0;
+		}
+	}
+	
+}
+#main-content .product-grid#listing{
+	a.proceed-to-checkout, a.proceed-to-checkout:link, a.proceed-to-checkout:active{
+		color:#fff;
+	}
+	a.proceed-to-checkout:hover, a.proceed-to-checkout:link:hover, a.proceed-to-checkout:visited:hover { 
+    	color: #fff; 
+    }
+}

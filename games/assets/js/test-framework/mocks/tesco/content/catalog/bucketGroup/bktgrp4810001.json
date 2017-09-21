@@ -1,0 +1,20 @@
+{
+  "id" : "bktgrp4810001",
+  "displayName" : "305-8509_X",
+  "links" : [ {
+    "id" : "bktgrp4810001",
+    "type" : "bucketGroup",
+    "bucketName" : "305-8509_X",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/bucketGroup/bktgrp4810001"
+  }, {
+    "id" : "305-8509",
+    "type" : "sku",
+    "rel" : "contains",
+    "href" : "/direct/rest/content/catalog/sku/305-8509",
+    "options" : {
+      "primary" : "32GB",
+      "swatch" : "/directuiassets/ProductAssets/305/305-8509/Swatches/305-8509_SW_1000005SW01_pdp.jpg"
+    }
+  } ]
+}

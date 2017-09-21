@@ -1,0 +1,10 @@
+/*******************************************
+*	self-service : All
+*******************************************/
+
+@import "../variables";
+@import "self-service-mixins";
+
+#priReason + div.customDropdown {
+	z-index: 20;
+}

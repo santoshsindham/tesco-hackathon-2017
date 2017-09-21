@@ -1,0 +1,292 @@
+//ui-components module - all @import "../../components/variables";
+
+@mixin uiOverLayBackground() {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+.uiOverlay {
+    position: absolute;
+    z-index: 999;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include uiOverLayBackground;
+}
+
+.subNavCover {
+  @include uiOverLayBackground;
+}
+
+.uiDropdown {
+    background: white;
+    display: inline-block;
+    position: relative;
+    font-size: 15px;
+    line-height: 1.4em;
+    border: solid 1px $darkPutty;
+    font-family: $tescoFont;
+    z-index: 1023;
+
+    &.isSvpOrViewportSmallerThanDropdown {
+        position: absolute;
+        right: 0;
+        top: 0;
+        left: auto;
+        &.navigation {
+          margin-left: 0;
+        }
+    }
+
+    .uiContainer {
+
+        p {
+            padding: 0;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        .uiDropdownTitle {
+            padding: 0 16px;
+            margin: 16px 0 0 0;
+            font-size: 26px;
+            line-height: 26px;
+            color: $putty;
+        }
+
+        .backButton {
+            width: 100%;
+            border: solid 1px $pagePutty;
+            font-size: 1em;
+
+            a {
+                display: block;
+                margin-left: 8px;
+                height: 40px;
+                line-height: 40px;
+                text-decoration: none;
+                color: $putty;
+                &:active,
+                &:focus {
+                    color: $tescoBlue;
+                    outline: none;
+                    .icon {
+                        color: $tescoBlue;
+                    }
+                }
+                .icon {
+                    color: $putty;
+                    font-size: 0.8em;
+                    margin-right: 8px;
+                }
+              }
+        }
+
+        .button {
+            font-size: 1em;
+            font-weight: normal;
+            line-height: 50px;
+            text-align: center;
+            padding: 0;
+        }
+
+        .uiDropdownButtons {
+            padding: 16px;
+            ul {
+               list-style-type: none;
+               margin: 0;
+               padding: 0;
+
+               li {
+                   margin-bottom: 10px;
+
+                   &.aside {
+                       width: 48%;
+                       display: inline-block;
+                       margin-left: 4%;
+                       &:first-child {
+                           margin-left: 0;
+                       }
+                   }
+
+                   a {
+                       &:active,
+                       &:focus {
+                           outline: none;
+                       }
+                   }
+                   button {
+                       &:active,
+                       &:focus {
+                           outline: none;
+                       }
+                   }
+               }
+            }
+        }
+
+    }
+
+    &.mobileWidth {
+        width: 320px;
+    }
+
+    &.static {
+        .dropdownContent {
+            margin: 16px;
+            p {
+                  color: $darkPutty;
+            }
+        }
+        border-color: $tescoBlue;
+        color: $darkPutty;
+        .button {
+            width: 280px;
+            height: 50px;
+            margin: 0 auto;
+            text-decoration: none;
+            background: $tescoBlue;
+            color: white;
+            .no-touch &:hover, &:active, &:focus {
+                background: $tescoBrightBlue;
+            }
+        }
+    }
+}
+.uiGiftMessage {
+    display: block;
+    width: 40%;
+    min-width: 370px;
+    margin: 15px 0px;
+    font-size: 16px;
+
+    .new-flowers-msg-header {
+      margin-top: -42px;
+    }
+
+    .header, .new-flowers-msg-header {
+        font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+        padding: 10px 0px;
+        display: inline-block;
+
+        .label {
+            display: inline-block;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .count, .lineCount {
+            float: right;
+            font-size: 0.8em;
+            font-style: italic;
+            color: #848282;
+            margin: 0px;
+            padding: 5px 5px;
+            &.warn {
+                color: $amber !important;
+            }
+        }
+    }
+
+    textarea, .personalGiftMessage {
+        display: block;
+        width: 318px;
+        padding: 5px 10px;
+        resize: none;
+        overflow: hidden;
+        font-family: "Courier", Arial, sans-serif;
+        border: 1px solid #a9a9a9;
+        margin-left: 1px;
+        line-height: 18px;
+    }
+
+    .buttons {
+        display: none;
+        margin-top: 10px;
+        text-align: center;
+
+        .button {
+            width: 45%;
+            display: inline-block;
+            &.save {
+                margin-left: 18px;
+            }
+        }
+    }
+}
+
+.personal-gift-message-wrapper {
+    position: relative;
+    height: auto;
+    .gift-message-mask {
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        background: black;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+    }
+}
+
+.kiosk {
+    .personal-gift-message-wrapper {
+        .gift-message-mask {
+            display: block;
+        }
+        .header {
+            display: block;
+        }
+        .personalGiftMessage {
+            font-size: 20px;
+        }
+    }
+}
+
+.kiosk .uiGiftMessage div.personalGiftMessage {
+    font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+    border: 1px solid #d6d2c4;
+    padding: 10px;
+    height: 194px;
+    cursor: pointer;
+}
+
+.kiosk-lightbox {
+    .uiGiftMessage {
+        width: 100%;
+        margin-top: -24px;
+        .buttons {
+            display: block;
+            text-align: left;
+            margin-top: 24px;
+            .button {
+                &.cancel {
+                    @include tertiaryButtonWhite;
+                }
+                width: 260px;
+                &.save {
+                    float: right;
+                }
+            }
+        }
+
+        .header {
+            font-size: 18px;
+            .label {
+                display: none;
+            }
+
+            .count, .lineCount {
+                padding: 10px 0px;
+            }
+        }
+
+        textarea {
+            font-size: 26px;
+            padding: 10px;
+            width: 600px;
+            line-height: 26px;
+        }
+    }
+}

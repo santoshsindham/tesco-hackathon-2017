@@ -1,0 +1,113 @@
+// tablet
+
+@import "full-width-carousel-mixins";
+
+.carousel-fullwidth {
+
+  .cfw-header {
+    .cfw-title {
+      width: 82%;
+    }
+
+    .cfw-navigation {
+      display: none;
+    }
+
+    .product-carousel-nav {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      > li {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .cfw-products {
+    .products-list {
+      margin-left: -20px;
+
+      .list-item {
+        padding: 0 0 0 20px;
+        width: 33%;
+      }
+    }
+
+    .thumbnail-alts {
+      height: 234px;
+    }
+  }
+
+  .carousel-items-list {
+    &.carousel-items-show-5 {
+      > li {
+        width: 33.3333333%;
+
+        .product-tile {
+          .product-tile-image {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &.noNav {
+    .cfw-header .product-carousel-nav {
+      width: 72px;
+    }
+  }
+
+  &.cfw-old-carousel-styles {
+    @include old-carousel-styles-m;
+  }
+}
+
+@include breakpoint(hTablet) {
+  .cfw-header {
+
+    .cfw-title {
+      width: 66.6666%;
+    }
+
+    .cfw-navigation {
+      display: block;
+      margin-right: 30px;
+    }
+
+    .product-carousel-nav {
+      width: 110px;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      > li {
+        margin-left: 0;
+      }
+    }
+
+    &.cfw-additional-controls {
+      @include additional-carousel-controls-m2;
+    }
+  }
+
+  @for $i from 1 through 9 { /* Width adjustments for space between arrows for 3-12 nav dots */
+    &[data-items-count="#{$i + 2}"] {
+
+      .cfw-header {
+        .product-carousel-nav {
+          width: 110px + ($i * 24);
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(vTablet) {
+  .cfw-header {
+    &.cfw-additional-controls {
+      @include additional-carousel-controls-m1;
+    }
+  }
+}

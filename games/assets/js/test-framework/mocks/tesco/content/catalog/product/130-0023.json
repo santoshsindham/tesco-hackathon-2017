@@ -1,0 +1,99 @@
+{
+  "id" : "130-0023",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Hard Drive Capacity",
+    "internalName" : "hard_drive_in_gb"
+  } ],
+  "userActionable" : true,
+  "siteProductPageTemplates" : {
+    "site18630002" : {
+      "id" : "400900013",
+      "type" : "page",
+      "href" : "/direct/rest/content/SecureSiteBuilderRepository/page/400900013"
+    }
+  },
+  "prices" : {
+    "id" : "130-0023",
+    "price" : "349.99",
+    "clubcardPoints" : 349
+  },
+  "displayName" : "PS4 Pro 1TB Console Black",
+  "publicLink" : "/direct/ps4-pro-1tb-console-black/130-0023.prd",
+  "avgRating" : 4.84,
+  "longDescription" : "<p><h2>Overview of the PS4?</h2></p><p>Bring next-generation gaming home with the PlayStation® 4 Pro 1TB 4K console in jet black. Since the release of the PS4? in 2013, Sony® has been hard at work creating an even more powerful system for gaming. Made with the gamer in mind, the PS4? Pro has twice the amount of power compared to the standard PS4? and is the leader of the next-generation consoles in this regard. The cutting edge internal hardware gives the PS4? Pro the ability to stream games in full 4K with compatible TVs, and with PlayStation® virtual reality (VR) it takes the VR gaming visuals up to a whole new level. This version comes with a large 1TB hard drive, giving you lots of space to store your games, music and apps. With its sleek, slim design and intuitive interface, you?ll be in love the moment you get it in your hands.</p><p></p><p><h2>The next generation of console gaming</h2></p><p>With powerful Ultra HD gameplay capabilities and 3D and Blu-ray built in, the PS4? Pro will not disappoint. The gameplay is faster than ever. With the addition of exclusive PlayStation® apps, you can take your PlayStation® experience to an all-new level. With PlayStation® Now allowing you to play PS3? games from a huge library, PlayStation® Music for music lovers, PlayStation® Plus providing free games and exclusive content and the PlayStation® Store with its huge variety of games, demos, themes and downloadable content, your options have never been so open.</p><p></p><p><h2>Giving you the edge</h2></p><p>When every second counts, the PS4? Pro lives up to its legacy, with visually smooth gameplay and HD gameplay without tearing, you?ll have a whole new edge thanks to its powerful hardware. The PS4? Pro helps you get the most out of your gameplay and sits in a league of its own, firmly above the other next-generation consoles. Zero stuttering, buffering or freezing, even in 4K HD, it?s gaming the way you deserve it. Adding to the PS4? Pro is the impressive range of exclusive and VR titles, which means you can get your must-have games sooner.</p><p></p><p></p><p><h2>Beauty redefined</h2></p><p>4K graphics are fully supported in the PS4? Pro, meaning colours are truer and deeper, while images are sharp and clear. With twice the power of the PS4?, you?ll find the PS4? Pro lives up to expectations and renders graphics more beautifully and in even higher definition than previously thought possible. Experience games the way they were meant to be experienced. The PS4? Pro?s powerful processor delivers seamless performance across games and apps and allows multitasking, so you can switch between apps and games without having to save and switch one off. Made for 4K HD gaming, the PS4? Pro lives up to its creators? intentions.</p><p></p><p><h2>Continue playing everywhere</h2></p><p>Rather than stop playing, you can continue your game off-console with your PS Vita?, iPhone, iPad and Android mobile phones. Connection is easy and seamless, so you can get more gameplay with less downtime. Take your game to a whole new level of immersion with the PlayStation® VR headset (sold separately).</p>",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat12590007",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat12590007"
+  }, {
+    "id" : "cat19280050",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19280050"
+  }, {
+    "id" : "cat19380014",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat19380014"
+  }, {
+    "id" : "cat29730025",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat29730025"
+  }, {
+    "id" : "cat3376381",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376381"
+  }, {
+    "id" : "cat3376578",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376578"
+  }, {
+    "id" : "cat3376674",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376674"
+  }, {
+    "id" : "cat3376693",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376693"
+  } ],
+  "brand" : "PS4 Pro 1TB 4K console",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/130-0023_PI_66650AL2?$[preset]$",
+        "secureSrc" : "//tesco.scene7.com/is/image/tesco/130-0023_PI_66650AL2?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "noofRatingsProduced" : 97,
+  "links" : [ {
+    "id" : "130-0023",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/130-0023"
+  }, {
+    "id" : "130-0023",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/130-0023",
+    "options" : {
+      "primary" : "1TB"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

@@ -1,0 +1,35 @@
+/*******************************************
+*	VAT invoice module - Large Desktop
+*******************************************/
+
+#vat-invoice-details {
+    .vat-address-field {
+    	.visually-hidden-select.native-select-trigger {
+			left: auto;
+  		}
+
+        .customDropdown {
+    		width: 100%;
+    	}
+    }
+
+    .vat-footer-buttons {
+    	overflow: hidden; // contain floated elements
+    	width: 50%;
+
+    	.secondary-button, .primary-button {
+    		float: right;
+    		width: 48%;
+    	}
+
+    	.my-account-button {
+    		float: left;
+		}
+    }
+}
+
+.vat-items-footer-buttons {
+    .tertiary-button {
+        width: 30%;
+    }
+}

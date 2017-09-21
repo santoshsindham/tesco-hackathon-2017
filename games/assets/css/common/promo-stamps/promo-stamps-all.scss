@@ -1,0 +1,19 @@
+//promo-stamps module - all
+@import "../variables";
+@import "promo-stamps-mixins";
+
+.promo-stamps {
+	padding: 0px 8px;
+
+	li {
+		padding-bottom: 8px;
+		a {
+			display: block;
+		}
+	}
+	img {
+		width: 100%;
+		border: 1px solid $primaryBorderColor;
+
+	}
+}

@@ -1,0 +1,7 @@
+@import "../mixins/search-links-mixins";
+@include breakpoint(hTablet) {
+    @include searchLinksProductDetailsLarge;
+}
+@include breakpoint(vTablet) {
+    @include searchLinksProductDetailsSmall;
+}

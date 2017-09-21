@@ -1,0 +1,162 @@
+#order-details {
+	margin-right: 8px;
+	margin-left: 8px;
+	
+	#order-summary {
+		float: left;
+		width: 633px;
+		margin-right: 0;
+	}
+}
+
+#order-summary {
+	.dg-order-details {
+		border-top: 0;
+		clear: left;
+		width: 100%;
+	}
+}
+#order-header-title {
+    .title-links {
+	    float: right;
+	    text-align: right;
+	}
+}
+#order-header-actions {
+	overflow: hidden;
+}
+
+.delivery-details {	
+	.toggle-delivery-details {
+        display: none;
+    }
+	.delivery-details-expanded {
+		height: auto;
+		> div {
+			float: left;
+			width: 185px;
+			padding-right: 8px;
+		}
+	}
+}
+
+.delivery-item {
+	border-top: 1px solid $pagePutty;
+	
+	&:first-child {
+		border-top: 0;
+	}
+	
+	margin: 0;
+	padding-top: 16px;
+	.description {
+		width: 60%;
+		float: left;
+		
+		.product-title {
+			margin-left: 152px;
+		}
+	}
+	.status {
+		width: 25%;
+		float: left;
+		margin-bottom: 16px;
+		padding-left: 16px;
+	}
+	.price {
+		width: 15%;
+		float: left;
+		margin-bottom: 16px;
+		padding-left: 8px;
+		text-align: right;
+	}
+	
+	.section-heading {
+		margin-bottom: 16px;
+		padding-bottom: 16px;
+		border-bottom: 1px solid $pagePutty;
+		margin-left: -16px;
+	}
+	.description {
+		.section-heading {
+			margin-left: 0;
+		}
+	}
+	.status {
+		.section-heading {
+			padding-left: 16px;
+		}
+	}
+}
+
+.order-details-top {
+	margin-right: 319px;
+	margin-top:0;
+}
+
+.parcel-tracking-container{
+	margin: 15px 0 20px 25px;
+	ul{
+		li:nth-child(4), li:first-child {
+			span{
+				width: 100%;
+				text-align: center;
+				margin-left: -38.5px !important;
+			}
+		}
+		&.storeCollect{
+			li:nth-child(2){
+				width: 23%;
+			}
+			li:nth-child(3){
+			 	width: 20%;
+			}
+		}
+		&.homeDelivery{
+			li:nth-child(2){
+				width: 29%;
+			}
+			li:nth-child(3){
+				width: 30%;
+			}
+		}
+	}
+	li.status{
+		width: 15%;
+		padding-top: 17px;
+		&.inactive{
+			&::before{
+				width: 21px;
+				height: 21px;
+			}
+		}		
+		&::before{
+			width: 24px;
+			height: 24px;
+			border-radius: 12px;
+		}
+		span:not(.icon){
+				font-size: 16px;
+				line-height: 22px;			
+		}
+		&.standard{
+			span{
+				&.icon{
+					font-size: 3.7em;
+					top: -30px;
+    				left: -70px;
+				}
+				&:not(.icon){
+					margin-left: -87px !important;
+				}
+			}
+			margin-left: 85px;
+			margin-top: 20px;
+		}	
+	}
+}
+.parcel-details{
+	.track-parcel{
+    	padding: 8px 12px 22px 12px;
+    }
+}

@@ -1,0 +1,73 @@
+/*******************************************
+*	Price Comparator module
+*******************************************/
+@import "../../variables";
+/*******************************************
+*	DEFAULT STYLES
+*******************************************/
+$prussianBlue: #00294F;
+$ecruWhite: #D6D2C3;
+$warmYellow: #7D775F;
+$parrotGreen: #80AC02;
+$competitorBdrBtm: $lightGrey;
+
+.price-check-view {
+  .price-check-cta {
+    margin-bottom: 10px;
+  }
+
+	.price-check-header {
+    background: $backgroundPutty;
+		border-bottom: 1px solid $backgroundPutty;
+		font-weight: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    li {
+      color: $asphalt;
+      display: inline-block;
+      font-weight: bold;
+      margin-right: -4px;
+      padding-left: 15px;
+      padding-right: 15px;
+      vertical-align: top;
+      width: 50%;
+		}
+	}
+
+	.price-check-competitor {
+    border-bottom: 1px solid $competitorBdrBtm;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+		li {
+      display: inline-block;
+			font-weight: bold;
+      margin-right: -4px;
+      padding-left: 15px;
+      padding-right: 15px;
+      vertical-align: top;
+      width: 50%;
+
+      .product-price {
+        font-size: 20px;
+        line-height: 42px;
+      }
+    }
+  }
+
+	.price-check-timestamp {
+		color: $parrotGreen;
+    font-weight: normal;
+
+    span {
+      white-space: nowrap;
+    }
+	}
+
+  .price-check-footer {
+    margin-top: 15px;
+    text-align: left;
+    padding: 0 15px;
+  }
+}

@@ -1,0 +1,531 @@
+
+/* 2.2   Payment Summary */
+
+.payment-summary h2{
+    padding:1px 0 8px 0;
+    border-bottom: 1px solid #DDD7D7;
+}
+.payment-summary p span.price_points{
+	position:absolute;
+	bottom: 0px;
+	right:0px
+}
+.payment-summary li span.price_points{
+	top:2px;
+	right:0;
+	position:absolute;
+}
+.payment-summary p span.last-price_point{
+	position:absolute;
+	top:2px;
+	right:0;	
+}
+.payment-summary p.pricelabel,.payment-summary li.pricelabel  {
+	position:relative;
+}
+.payment-summary h2.has-disclaimer{
+	padding-bottom:2px;
+	border-bottom: 1px solid #DDD7D7;
+}
+.payment-summary h3{
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+.payment-summary p{
+	margin: 8px 0;
+    font-size: 1.2em;
+    color: #575757;
+}
+.payment-summary p span{
+    float: right;
+	font-weight: normal;
+}
+.payment-summary .primary-info ul.last-item{
+	border-bottom: 1px solid #DDD7D7;
+}
+.payment-summary .primary-info li.discount{
+	border-top: none;
+}	
+.payment-summary ul li{
+    padding: 0;
+	margin: 5px 0 0 0;
+    font-size: 1.2em;
+	color: #575757;
+}
+.payment-summary .primary-info .payment-charges{
+	list-style: none;
+	padding-bottom:6px;
+}
+.payment-summary .primary-info ul.payment-charges{
+	border-bottom: 1px solid #DDD7D7;
+}
+.payment-summary .primary-info ul.giftCard{
+	border-bottom:none;
+}
+.payment-summary .primary-info ul.giftCard li{
+	border: 0 solid #DDD7D7;
+}
+.payment-summary .payment-charges .subtotal,
+.payment-summary .primary-info li.attention,
+.payment-summary .primary-info .promo-heading,
+.storefinder-resultstable .storefinder-results-address-title td,
+.buy-box-stock-alerts .out-of-stock,
+.buy-box-stock-alerts p strong,
+.delivery-details .action-wrapper,
+#delivery-address tr,
+#seller-dir-section .dotted-line,
+.address-card-section{
+	-moz-border-image: url(../images/border_dotted.gif) 1 1 1 1 / 1px 0 0 0 repeat;
+	-webkit-border-image: url(../images/border_dotted.gif) 1 1 1 1 / 1px 0 0 0 repeat;
+	border-image: url(../images/border_dotted.gif) 1 1 1 1 / 1px 0 0 0 repeat;
+}
+.payment-summary .payment-charges .subtotal{
+	border-top: #DDD7D7 1px dashed;
+	padding-top:2px;
+}
+.payment-summary .primary-info .total-cost{
+	list-style: none;
+	border-bottom: none;
+}
+.payment-charges li.last-item{
+	margin: 8px 0;
+}
+.payment-summary .primary-info .attention li.last-item{
+    margin: 8px 0 8px 5px;
+}
+.payment-summary ul li span{
+    position: relative;
+    float: left;
+}
+.payment-summary ul .quantity{
+    padding: 0 5px 0 0;
+}
+.payment-summary ul .item{
+    color: #00539f;
+    width: 165px;
+    position: relative;
+    float: left;
+    overflow: auto;
+}
+.payment-summary ul .price{
+    float: right;
+}
+.payment-summary ul .small{
+    padding: 3px 0 0 0;
+    font-size: 0.9em;
+}
+.payment-summary .primary-info{
+    padding: 10px;
+	margin: 0 0 20px 0;
+    border: 2px solid #DDD7D7;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+.basket .payment-summary .primary-info{
+	margin: 0 0 10px 0;
+}
+.basket .summary .payment-summary .basket-payment-total{
+	margin: 0;
+}
+.payment-summary .primary-info .total-cost li{
+	list-style: disc inside none;
+}
+.payment-summary .primary-info .total-cost p{
+    font-weight: bold;
+}
+.payment-summary .primary-info ul,
+.payment-summary .primary-info li,
+.payment-summary .primary-info .total-cost li{
+	list-style: none;
+}
+.payment-summary .primary-info li a{
+	display: block;
+	margin: 0 0 0 10px;
+	float: left;
+	width: 150px;
+}
+.payment-summary .primary-info li .quantity{
+	float: left;
+	color: #848282;
+	position: relative;
+}
+.payment-summary .primary-info .attention li.last-item{
+	margin: 5px 0 5px 5px;
+}
+.payment-summary .savings{
+	color: #ec1b2c;
+}
+.payment-summary .primary-info p{
+	margin: 6px 0 2px 0;
+}
+.payment-summary .primary-info .total-payment {
+	background: #EFEFEF none repeat scroll 0 0;
+	margin:10px 0;
+	padding:7px;
+}
+.payment-summary .primary-info .sub-total{
+	border-bottom: 1px solid #DDD7D7;
+	font-weight: bold;
+	padding: 0 0 5px 0;
+}
+.payment-summary .primary-info p.last-item{
+	margin: 6px 0 10px 0;
+}
+.payment-summary .primary-info ul{
+    border-bottom: 1px solid #DDD7D7;
+}
+.payment-summary .primary-info .promotional{
+	border-bottom: none;
+}
+.payment-summary .primary-info .basket-items .services .basket-item-quantity{
+	float: left;
+	margin-left: 0px;
+}
+.payment-summary .primary-info .non-promotional{
+	border-bottom: none;
+	background: url("../images/order_summary_dotted.jpg") no-repeat scroll 0 0 transparent;
+	padding: 5px 0 0 0;
+}
+.payment-summary .primary-info .attention,
+.payment-summary .primary-info .attention li{
+    color: #ec1b2c;
+    margin-top: 5px;
+    border:0;
+}
+.payment-summary .primary-info li.attention{
+	border-top: 1px dashed #DDD7D7;
+	padding-top:5px;
+}
+.payment-summary .primary-info .promo-heading{
+	border-top: 1px dashed #848282;
+	font-weight:bold;
+	padding:10px 0 0 0;
+}
+.payment-summary .primary-info .attention li{
+	margin: 8px 0 0 20px;
+	list-style: disc outside;
+	position:relative;
+}
+.payment-summary .primary-info UL.payment-charges li.attention p{
+	width:160px;
+}
+.application-content .shopping-basket .standalone-link,#content .shopping-basket .standalone-link{
+	margin:0;
+}
+.payment-summary .primary-info ul li span.promo-amount{
+    position:absolute;
+    bottom:0;
+    right:0;
+}
+.payment-summary .primary-info.confirmation-section{
+	padding-bottom:1px;
+}
+.payment-summary .primary-info .promotional li,
+.payment-summary .primary-info .non-promotional li{
+	margin: 0 0 5px 2px;
+	overflow: visible;
+}
+.payment-summary .primary-info ul li p{
+    width: 15.0em;
+	font-size: 1.0em;
+	color: #ec1b2c;
+	display: inline-block;
+	margin: 0 0 0 1px;
+	vertical-align: top;
+}
+.payment-summary .primary-info ul li span{
+    float: right;
+}
+.payment-summary .primary-info .total-cost p span{
+    float: right;
+}
+.summary .payment-summary .basket-payment-total .total-payment{
+    margin: 0px 0 10px 0;
+    padding: 27px 23px 16px 23px;
+    background: #D9D9D9;
+    min-height:104px;
+}
+.payment-summary p em{
+    font-weight: bold;
+}
+.payment-summary .secondary-info{
+    margin: 0 0 10px 8px;
+	float: left;
+}
+.payment-summary .secondary-info p{
+    margin: 0px;
+    font-size: 1.2em;
+    color: #4F5050;
+	font-weight: normal;
+}
+/* Refactor? */
+.payment-summary .secondary-info p{
+    margin: 0 0 0 4px;
+    font-size: 1.1em;
+    color: #4F5050;
+	font-weight: normal;
+}
+.payment-summary .secondary-info a{
+	font-size: 1.2em;
+	margin: 3px 0 0 5px;
+}
+
+.payment-summary .secondary-info label{
+	margin: 1px 0 0 0;
+	float: left;
+	padding:0;
+}
+.payment-summary .secondary-info input{
+    margin: 4px 7px 0 0;
+	float: left;
+}
+.payment-summary .primary-info .total-payment p{
+    margin: 5px 0 0 0;
+    color: #4F5050;
+}
+.payment-summary .primary-info .total-payment .total-savings{
+	 color: #ec1b2c;
+}
+.summary .payment-summary .basket-payment-total .points,
+.payment-summary .primary-info .total-payment .total-cost,
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-cost,
+.basket .summary .payment-summary .basket-payment-total .total-payment .basket-tot,
+.payment-summary .primary-info .basket-items li,
+.payment-summary .total-line,
+.basket-contents-list li,
+.coupons-table th,
+.form-container .form-group-divider,
+.form-container .payment-option-active .cardholder,
+.payment-option-active h3,
+.footnotes,
+ul.pricing,
+ul.logistics,
+.items-summary-details .more-product-options h2,
+.items-summary-details .more-product-options .form-container h2,
+.summary .payment-summary .total-payment .payment-charges,
+.option-1, .option-2, .option-3,
+#delivered-to fieldset,
+#select-address .main-account,
+.find-address .search-results,
+.find-address .last,
+.find-address .post-code,
+p.related-searches,
+.search-suggestions,
+.address-list h3,
+.payment-cards .address-card-section,
+.myaccount-links,
+.titled-sections .myaccount-links-list,
+#payment-details .primary-info .no-attention,
+.more-product-options h2,
+.product-gallery-layout-mesh .row-end .product-tile{
+	-moz-border-image: url(../images/border_dotted.gif) 1 1 1 1 / 0 0 1px 0 repeat;
+    -webkit-border-image: url(../images/border_dotted.gif) 1 1 1 1 / 0 0 1px 0 repeat;
+	border-image: url(../images/border_dotted.gif) 1 1 1 1 / 0 0 1px 0 repeat;
+}
+.summary .payment-summary .basket-payment-total .points{
+    margin: 0;
+	border-bottom: 1px dashed #848282;
+    color: #575757;
+}
+ .summary .payment-summary .basket-payment-total .total-payment .points{
+	padding-bottom:6px;
+}
+.payment-summary .basket-payment-total .total-payment .deliverycost{
+	color: #848282;
+	margin-top:4px;
+}
+.payment-summary .primary-info .total-payment .title{
+    font-weight: bold;
+	margin: 0 0 5px 0;
+}
+.summary .payment-summary .basket-payment-total .total-payment .title{
+    font-weight: bold;
+	color: #4F5050;
+}
+.payment-summary .primary-info .total-payment .total-cost{
+    padding: 0 0 5px 0;
+    margin: 0;
+    border-bottom: 1px dashed #848282;
+    line-height: 1;
+	/*
+	  if you find you need to change the values below
+	  you will most likely break the border on page 08.05
+	*/
+}
+.delivery-options .payment-summary .primary-info .total-payment .total-cost {
+	padding:0;
+	border-bottom:none;
+	-moz-border-image: none;
+	-webkit-border-image: none;
+	border-image: none;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-cost{
+    padding: 0 0 5px 0;
+    margin: 15px 0 0 0;
+    line-height: 1;
+	color: #4F5050;
+	float:right;
+	clear:both;
+}
+
+.basket .summary .payment-summary .basket-payment-total .total-payment .basket-tot{
+	width:100%;
+	height:60px;
+	border-bottom: 1px dashed #848282;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-points{
+	font-weight:bold;
+	color: #4F5050;
+	margin:10px 0 0 0;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-points1,.payment-summary .total-payment .total-points1{
+	font-weight:bold;
+	color: #4F5050;
+	margin:0;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-points1 span, payment-summary .total-payment .total-points1 span{
+	font-weight:bold;
+}
+.payment-summary .primary-info .total-payment .total-cost span{
+    float: none;
+}
+.payment-summary .primary-info .total-payment .total-cost span:hover{
+	background: none;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-cost span{
+	float: none;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .total-cost span:hover{
+	float: none;
+}
+.payment-summary .primary-info .total-payment .currency{
+    font-size: 2.1em;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .currency{
+    font-size: 2.1em;
+}
+.payment-summary .primary-info .total-payment .integer{
+    font-size: 3.5em;
+    font-weight: bold;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .integer{
+    font-size: 3.5em;
+    font-weight: bold;
+}
+.payment-summary .primary-info .total-payment .decimal{
+    font-size: 2.2em;
+    font-weight: bold;
+}
+.basket .summary .payment-summary .basket-payment-total .total-payment .decimal{
+    font-size: 2.2em;
+    font-weight: bold;
+}
+.total-payment .points{
+	font-weight: normal;
+}
+.payment-summary .primary-info .total-payment .points span{
+    float: right;
+}
+.payment-summary .primary-info .total-payment .points span:hover{
+	background: none;
+}
+.payment-summary .basket-large{
+	margin: 0 0 4px 0;
+/*	padding: 2px 0 4px 0; */
+	width: 256px; /* explicit width prevents the button breaking in ie */
+	text-align: center;
+	display: block;
+}
+.payment-summary a.basket-large{
+	width: auto;
+}
+.payment-summary .primary-info .basket-items{
+	border-bottom: 1px solid #DDD7D7;
+}
+.payment-summary .primary-info .basket-items li{
+	border-bottom: 1px dashed #DDD7D7;
+	margin: 0 0 0 0;
+	clear: both;
+	padding: 10px 0 10px 0;
+	border-left:0;
+	border-right:0;
+	border-top:0;
+	padding:5px 0;
+}
+.payment-summary .primary-info .basket-items .last-item{
+	border: 0px;
+	padding: 5px 0 15px 0;
+	-moz-border-image: none;
+	-webkit-border-image: none;
+	border-image: none;
+}
+.payment-summary .primary-info .basket-items h3{
+	margin: 0 0 8px 0;
+	color: #848282;
+	font-size: 1.1em;
+}
+.payment-summary .primary-info .basket-items h3.other-items{
+	margin: 15px 0 8px 0;
+}
+.basket .payment-summary .primary-info .basket-items .remove{
+	margin: 0 0 0 50px;
+}
+.basket .payment-summary .primary-info .basket-items .add{
+	margin: 0 0 0 5px;
+}
+.basket-items img{
+	float: left;
+	margin: 4px 0 0 0;
+	overflow: hidden;
+}
+.basket-items .quantity{
+	margin: 5px 0 0 0;
+}
+.payment-summary .primary-info .basket-items .quantity-display{
+	margin: 0 0 0 55px;
+}
+.payment-summary .primary-info .basket-items .js .quantity-display{
+	margin: 0 0 0 5px;
+}
+.payment-summary .primary-info .basket-items a{
+	line-height: 1.0;
+	font-size: 1em;
+	width: 112px;
+	margin: 2px 0 0 0;
+	word-wrap:break-word;
+}
+.payment-summary .primary-info .basket-items a.product-img-link{
+	width:auto;
+}
+.payment-summary .primary-info .basket-items .basket-item-quantity{
+	float: left;
+	margin-left: 3px;
+}
+.payment-summary .currency{ 
+	 font-size: 2.1em;
+}
+.payment-summary .integer {
+	 font-size: 3.5em;
+}
+.payment-summary .decimal {
+	 font-size: 2.2em;
+}
+.payment-summary .total-line {
+	line-height: 3.5em;
+	border-bottom: 1px dashed #848282;
+}
+.payment-summary .total-line span {
+	font-weight: bold;
+	float: none;
+}
+.payment-summary .total-line .total-amount{
+	float: right;
+}
+.payment-summary .total-label{
+	position: relative;
+	top:0.8em;
+}
+.shopping-basket .item-list tr button{
+	padding: 1px 7px;
+}

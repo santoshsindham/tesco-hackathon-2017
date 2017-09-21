@@ -1,0 +1,329 @@
+$color-footer-bg: $darkPutty;
+$color-link-text: white;
+$color-link-bg: #004e8f;
+$color-link-border: #002d53;
+$color-accordion-element-title-border: $pagePutty;
+$color-accordion-element-title-text: #bfbfbf;
+$color-accordion-element-item-text: $pagePutty;
+$color-accordion-element-item-underline: #666666;
+$color-accordion-element-item-underline-hover: #888888;
+$color-every-little-helps: white;
+$color-panel-logo-all-bg: white;
+
+@mixin font-tesco {
+    font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+}
+
+@mixin logo-panel-mobile-tablet {
+    .panel-logo-all {
+		padding-bottom: 0;
+        li {
+            margin-right: 4px;
+            a {
+				height: 33px;
+				background-image: url('../img/visaMstrCardEtcSprites.jpg');
+            }
+            &.visa a {
+				width: 41px;
+                background-position: 0 0;
+            }
+            &.mastercard a {
+				width: 47px;
+				background-position: -41px 0;
+            }
+            &.american-express a {
+				width: 35px;
+				background-position: -87px 0;
+            }
+            &.maestro a {
+				width: 43px;
+				background-position: -124px 0;
+            }
+            &.tesco-bank {
+                margin-right: 10px;
+            }
+            &.tesco-bank a {
+				width:75px;
+				background-position: -284px 0;
+            }
+            &.verisign a {
+				width: 61px;
+				background-position: -222px 0;
+            }
+            &.visa-verified a {
+                width: 55px;
+                height: 32px;
+                background: url('../img/visaMstrCardEtcSprites.jpg') -167px 0 no-repeat;
+            }
+            &.mastercard-securecode a {
+                width: 55px;
+                background: url('../img/visaMstrCardEtcSprites.jpg') -362px 0 no-repeat;
+                height:32px;
+            }
+            &.amex-safekey a {
+                width: 71px;
+                background: url('../img/visaMstrCardEtcSprites.jpg') -417px 0 no-repeat;
+                height: 32px;
+            }
+        }
+    }
+}
+
+@mixin common-tablet-footer {
+	$color-accordion-element-item-text: #bfbfbf;      // #mq-mod
+	$color-accordion-element-item-underline: #5e5e5e; // #mq-new
+    #footer {
+        .container-link {
+            ul {
+                padding-top: 19px;
+                a {
+                    background: #ffffff;
+                }
+                a:hover {
+                    border-bottom: 1px solid $linkHoverColor;
+                }
+            }
+        }
+        .accordion,
+        .panel-bottom {
+            padding-left: 66px;
+        }
+        .accordion-element {
+            width: 50%;
+            float: left;
+            &.last {
+                float: left;
+                width: 45%;
+            }
+            .title-box {
+                padding: 0;
+            }
+            .content ul {
+                padding: 0 0 0 0px;
+            }
+            .content li {
+                padding: 6px 0 6px 10px;
+                margin-left: -10px;
+                margin-right: 10px;
+                a {
+                    text-decoration: none;
+                    &:hover {
+                        background-color: $linkHoverColor;
+                        color: $pagePutty;
+                    }
+                    span:hover {
+                        border-bottom: 1px solid #bfbdbd;
+                    }
+                    span.icon:hover {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+        .accordion-group {
+            float: left;
+            width: 50%;
+            .accordion-element {
+                float: none;
+                width: 100%;
+                padding-bottom: 33px;
+            }
+        }
+    }
+    @include logo-panel-mobile-tablet;
+    .panel-logo-all {
+        padding-left: 66px;
+    }
+}
+
+@mixin common-desktop-footer {
+    #footer {
+        .container-link {
+            padding-left: 5 * $onecol;
+            padding-right: $onecol;
+            ul li a span.icon-cta:before,
+            ul li a span.icon-cta {
+                display: none;
+            }
+            ul {
+                li {
+                    font-size: 1em;
+                    padding-top: 0;
+                    padding-left: $onecol;
+                    padding-right: 0;
+                    a {
+                        background: #fff;
+                        font-size: 1em;
+                        line-height: 1em;
+                        border-bottom: none;
+                        display: table-cell;
+                        padding: 0 (2 * $onecol);
+                        height: 4.5 * $onecol;
+                        text-align: center;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        &:hover {
+                            background: $tescoBrightBlue;
+                        }
+                        span {
+                            color: #fff;
+                            font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                            font-weight: bold;
+                            font-size: 1.8em;
+                            display: inline-block;
+                            vertical-align: text-bottom;
+                            margin-bottom: 1px;
+                        }
+                        span.icon {
+                            padding-right: 7px;
+                            font-size: 1.4em;
+                            line-height: 1em;
+                            display: inline-block;
+                            vertical-align: text-bottom;
+                            margin-bottom: -2px;
+                        }
+                            span.text{
+                            color: $darkPutty;
+                            }
+                            span.icon-locator, span.icon-help{
+                            color: $putty;
+                        }
+                        &:hover {
+                            span {
+                                color: #bfbdbd;
+                            }
+                            span.text, span.icon-locator, span.icon-help {
+                                color: #FFF;
+                            }
+                        }
+                    }
+                    &.second {
+                        a {
+                            span.icon {
+                                padding-right: 7px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .accordion-group {
+            width: 60 * $onecol;
+            float: left;
+            margin-right: -10px;
+        }
+        .accordion-element {
+            border-bottom: none;
+            width: 30 * $onecol;
+            float: left;
+            &.last {
+                overflow: hidden;
+                .content {
+                    width: 60 * $onecol;
+                }
+                li {
+                    float: left;
+                    width: 30 * $onecol;
+                }
+            }
+            .title-box {
+                span.icon {
+                    display: none;
+                }
+            }
+            .content {
+                ul {
+                    padding-left: 0;
+                    li {
+                        a {
+                            text-decoration: none;
+                            &:hover {
+                                background: $tescoBrightBlue;
+                            }
+                        }
+                        &.sitemap {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+        .panel-bottom,
+        .panel-logo-all {
+            padding-left: 5 * $onecol;
+        }
+    }
+    .panel-logo-all {
+        margin-left: 40px;
+        li {
+            margin-right: 12px;
+            a {
+	    		height: 33px;
+	  			background-image: url('../img/visaMstrCardEtcSprites.jpg');
+            }
+            &.visa a {
+	    		width: 41px;
+                background-position: 0 0;
+            }
+            &.mastercard {
+                margin-right: 16px;
+            }
+            &.mastercard a {
+	    		width: 44px;
+	  			background-position: -41px 0;
+            }
+            &.american-express {
+                margin-right: 16px;
+            }
+            &.american-express a {
+	    		width: 35px;
+	  			background-position: -87px 0;
+            }
+            &.maestro a {
+	    		width: 41px;
+	  			background-position: -124px 0;
+            }
+            &.tesco-bank a {
+	    		width: 75px;
+	  			background-position: -284px 0;
+            }
+            &.verisign a {
+	    		width: 61px;
+	  			background-position: -222px 0;
+            }
+            &.verisign span {
+                @include screen-reader;
+            }
+		&.visa-verified a {
+                width: 55px;
+                height: 31px;
+                background: url('../img/visaMstrCardEtcSprites.jpg') -167px 0 no-repeat;
+            }
+            &.mastercard-securecode a {
+                width: 55px;
+                background: url('../img/visaMstrCardEtcSprites.jpg') -362px 0 no-repeat;
+                height: 31px;
+            }
+            &.amex-safekey a {
+                width: 71px;
+                background: url('../img/visaMstrCardEtcSprites.jpg') -417px 0 no-repeat;
+                height: 31px;
+            }
+        }
+    }
+
+	
+    .plain-full-bleed {
+        > .page {
+            .panel-logo-all {
+                width: 1200px;
+            }
+        }
+    }
+}
+
+@mixin hideSitemap {
+    .sitemap {
+        display: none;
+    }
+}

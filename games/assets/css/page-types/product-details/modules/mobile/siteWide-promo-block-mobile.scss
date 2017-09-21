@@ -1,0 +1,23 @@
+/*******************************************
+*   Sitewide Promo Block (MOB)
+*   Auth: Martin McLoughlin
+*******************************************/
+@import "../../../core/components/variables";
+
+.siteWidePromoBlock-item {
+    width: 100%;
+    float: none;
+    margin-bottom: 20px;
+}
+
+.siteWidePromoBlock-item--copy {
+    p {
+        display: none;
+    }
+}
+
+/* .siteWidePromoBlock-navigation {
+    text-align: center;
+    display: block;
+}
+ */

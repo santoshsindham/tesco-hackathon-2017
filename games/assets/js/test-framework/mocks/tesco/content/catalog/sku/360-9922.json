@@ -1,0 +1,190 @@
+{
+  "id" : "360-9922",
+  "prices" : {
+    "id" : "360-9922",
+    "price" : "30.00",
+    "was" : "60.00",
+    "savings" : "30.00",
+    "clubcardPoints" : 30
+  },
+  "displayName" : "Trespass Rame Fleece Lined Softshell Jacket M Flint",
+  "publicLink" : "/direct/trespass-mens-rame-softshell-jacket/204-7271.prd?skuId=360-9922",
+  "specification" : {
+    "Material" : [ {
+      "title" : "Material",
+      "description" : "Polyester",
+      "attr" : "material"
+    } ],
+    "Features" : [ {
+      "title" : "Care Instructions",
+      "description" : "Machine Washable. 100% Polyester.",
+      "attr" : "care_instructions"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Flint",
+    "size" : "M"
+  },
+  "longDescription" : "Combat the cold this winter with the help of the Rame softshell jacket from outdoor clothing experts Trespass. Featuring the Tres-tex&reg; membrane that allows the body's water vapour to pass through while preventing rain and snow from penetrating, the softshell jacket is water and windproof as well as being breathable. A fleece lining adds warmth and comfort, while zip pockets and a removable hood are practical additions. The jacket is finished with riptape at the cuffs plus toggle drawstrings through the hood and hem to ensure a close, comfortable fit.Zip-through fasteningSits below the hip",
+  "ancestorCategories" : [ {
+    "id" : "cat3375746",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375746"
+  }, {
+    "id" : "cat3375936",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375936"
+  }, {
+    "id" : "cat3376549",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376549"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38420004",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420004"
+  }, {
+    "id" : "cat38420005",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420005"
+  }, {
+    "id" : "cat38420008",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420008"
+  }, {
+    "id" : "cat38420020",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420020"
+  }, {
+    "id" : "cat38420088",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38420088"
+  }, {
+    "id" : "cat38470010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38470010"
+  }, {
+    "id" : "cat38510015",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38510015"
+  }, {
+    "id" : "cat38670087",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670087"
+  }, {
+    "id" : "cat38690065",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38690065"
+  }, {
+    "id" : "cat38710074",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710074"
+  }, {
+    "id" : "cat38890077",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38890077"
+  }, {
+    "id" : "cat39370006",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39370006"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_1000449MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_1000449MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_66786MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_66786AL2?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_66786AL3?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_66786AL4?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_66786AL5?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/360-9922_PI_66786AL6?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Swatches",
+      "src" : "//direct.tescoassets.com/directuiassets/ProductAssets/360/360-9922/Swatches/360-9922_SW_66786SWswatch_1.jpg",
+      "renderSource" : "CMS"
+    }, {
+      "mediaType" : "Swatches",
+      "src" : "//direct.tescoassets.com/directuiassets/ProductAssets/360/360-9922/Swatches/360-9922_SW_1000025SW01.jpg",
+      "renderSource" : "CMS"
+    } ],
+    "pings" : [ {
+      "mediaType" : "PriceMarkdownPings",
+      "src" : "//direct.tescoassets.com/directuiassets/SiteAssets/NonSeasonal/en_GB/images/ping_priceMarkdown_50pc_off_$[preset]$.png"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 1" : "Soft, windproof and durable softshell fabric",
+    "Bullet 2" : "M size",
+    "Bullet 3" : "Zip-off adjustable hood"
+  },
+  "links" : [ {
+    "id" : "360-9922",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/360-9922",
+    "options" : {
+      "primary" : "Flint",
+      "secondary" : "M",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/360/360-9922/Swatches/360-9922_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "204-7271",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/204-7271",
+    "options" : {
+      "primary" : "Grey",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/279/279-2020/Swatches/279-2020_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "T0001fc092",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/T0001fc092"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

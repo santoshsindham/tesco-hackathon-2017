@@ -1,0 +1,21 @@
+/*******************************************
+*	Desktop Example module
+*******************************************/
+
+@import "../../../core/components/breakpoints";
+@include breakpoint(desktop);
+@import "../mixins/popular-searches-mixins";
+
+#popular-searches {
+
+	max-height: 26px;
+
+	ul{
+		li {
+			a{
+				@include linkWithBorder;
+				font-size: 1.4em;
+			}
+		}
+	}
+}

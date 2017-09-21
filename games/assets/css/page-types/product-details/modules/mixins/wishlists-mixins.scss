@@ -1,0 +1,50 @@
+@mixin wishlistsCustomDropdownStyles {
+  .wishlists-wrapper {
+    &.disable-wishlists {
+      display: none;
+    }
+
+    select {
+      option.default {
+        display: none;
+      }
+    }
+
+    .additionalText {
+      display: none;
+    }
+
+    ul {
+      a.current {
+        display: none;
+      }
+    }
+
+    &.no-stored-wishlists {
+      .dropdown-customised {
+        ul {
+          display: none;
+        }
+      }
+      a.control {
+        &:after {
+          content: '2';
+          transform: rotate(270deg);
+        }
+      }
+    }
+
+  }
+
+  .touch .wishlists-wrapper {
+    &.no-stored-wishlists {
+      #wishlists-dropdown {
+        display: none;
+      }
+    }
+  }
+}
+
+@mixin wishlistsAll {
+  @include wishlistsCustomDropdownStyles;
+}

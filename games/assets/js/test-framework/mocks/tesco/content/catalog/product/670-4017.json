@@ -1,0 +1,234 @@
+{
+  "id" : "670-4017",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : true,
+  "prices" : {
+    "id" : "670-4017",
+    "price" : "12.00",
+    "clubcardPoints" : 12
+  },
+  "displayName" : "F&F Open Front Long Line Cardigan",
+  "publicLink" : "/direct/ff-open-front-long-line-cardigan/670-4017.prd",
+  "longDescription" : "Layer this cosy cardigan over your everyday outfits for a simple trans-seasonal style solution. In a soft, fine gauge knit, the cardigan has wide ribbed panels on the front, hem and&nbsp;sleeve cuffs.&nbsp;In a long line cut with an open front, the cardigan is finished with decorative patch pockets.Open frontThigh length",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat3375861",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375861"
+  }, {
+    "id" : "cat3376557",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376557"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38110008",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38110008"
+  }, {
+    "id" : "cat38310015",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38310015"
+  }, {
+    "id" : "cat38670055",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670055"
+  }, {
+    "id" : "cat38690064",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38690064"
+  }, {
+    "id" : "cat38710074",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710074"
+  }, {
+    "id" : "cat38900036",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38900036"
+  } ],
+  "brand" : "F&F",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/201-2207_PI_66786MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Womens",
+    "styleRef" : "bm710432",
+    "supplier" : "FF"
+  },
+  "links" : [ {
+    "id" : "606-2129",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/606-2129",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "8",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/606/606-2129/Swatches/606-2129_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "566-4224",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/566-4224",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "10",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/566/566-4224/Swatches/566-4224_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "208-9289",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/208-9289",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "12",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/208/208-9289/Swatches/208-9289_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "718-5157",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/718-5157",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "14",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/718/718-5157/Swatches/718-5157_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "220-5870",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/220-5870",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "16",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/220/220-5870/Swatches/220-5870_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "556-4339",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/556-4339",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "18",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/556/556-4339/Swatches/556-4339_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "201-2207",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/201-2207",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "20",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/201/201-2207/Swatches/201-2207_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "673-4985",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/673-4985",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "22",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/673/673-4985/Swatches/673-4985_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "499-1246",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/499-1246",
+    "options" : {
+      "primary" : "Black",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/121/121-2263/Swatches/121-2263_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "283-6003",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/283-6003",
+    "options" : {
+      "primary" : "Black",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/216/216-1402/Swatches/216-1402_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "450-9971",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/450-9971",
+    "options" : {
+      "primary" : "Grey",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/104/104-0847/Swatches/104-0847_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "782-5904",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/782-5904",
+    "options" : {
+      "primary" : "Mid wash",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/120/120-6000/Swatches/120-6000_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "670-4017",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/670-4017",
+    "options" : {
+      "primary" : "Navy",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/201/201-2207/Swatches/201-2207_SW_66786SWswatch_1_pdp.jpg"
+    }
+  }, {
+    "id" : "785-8280",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/785-8280",
+    "options" : {
+      "primary" : "White",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/140/140-6555/Swatches/140-6555_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "201-2207",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/201-2207",
+    "options" : {
+      "primary" : "Navy",
+      "secondary" : "20",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/201/201-2207/Swatches/201-2207_SW_66786SWswatch_1_pdp.jpg"
+    }
+  } ]
+}

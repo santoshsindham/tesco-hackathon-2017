@@ -1,0 +1,31 @@
+/*******************************************
+*	Streamline Basket - Large Desktop
+*******************************************/
+
+#streamline-basket-iframe { height: 960px; }
+
+.streamline-basket .more-options div.checkbox {
+    cursor: pointer;
+}
+
+#lightbox {
+    &.streamline-basket {
+        position: relative;
+        max-width: 1000px;
+        margin: 20px auto;
+
+        .section-main {
+            width: 65%;
+        }
+
+        .section-nav {
+            width: 35%;
+            top: -109px;
+            margin-bottom: -109px;
+        }
+
+        .recommendersArea {
+          min-height: 380px;
+        }
+    }
+}

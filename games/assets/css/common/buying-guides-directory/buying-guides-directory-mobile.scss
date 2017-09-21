@@ -1,0 +1,14 @@
+//buying-guides-directory module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "buying-guides-directory-mixins";
+
+@include mobile-buying-guides-directory;
+
+.buying-guides-directory {
+	#buying-guides-directory {
+		.level-two {
+			margin-left: 1px;
+		}
+	}
+}

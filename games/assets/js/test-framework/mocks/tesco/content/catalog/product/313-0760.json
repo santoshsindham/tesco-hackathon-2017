@@ -1,0 +1,226 @@
+{
+  "id" : "313-0760",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : false,
+  "prices" : { },
+  "displayName" : "F&F Marl Tie Front Midi Dress",
+  "publicLink" : "/direct/ff-marl-tie-front-midi-dress/313-0760.prd",
+  "longDescription" : "Master casual style with this jersey midi dress from F&amp;F. In a marl colourway with a ribbed finish, the dress features a simple round neck and short sleeves. In an on-trend midi silhouette, the dress in finished with a statement tie detail on the front.Slips on over the headSits below the knee. Model height is 5 feet 10 inches",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat3376045",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376045"
+  }, {
+    "id" : "cat3376557",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376557"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38150144",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38150144"
+  }, {
+    "id" : "cat38150152",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38150152"
+  }, {
+    "id" : "cat38310015",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38310015"
+  }, {
+    "id" : "cat38670055",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670055"
+  }, {
+    "id" : "cat38690064",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38690064"
+  }, {
+    "id" : "cat38710074",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38710074"
+  }, {
+    "id" : "cat38900036",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38900036"
+  }, {
+    "id" : "cat39370003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat39370003"
+  } ],
+  "brand" : "F&F",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/252-1076_PI_66786MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "ageSuitability" : "Adult",
+    "gender" : "Womens",
+    "styleRef" : "jf625450",
+    "supplier" : "FF"
+  },
+  "links" : [ {
+    "id" : "669-1151",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/669-1151",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "6",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/669/669-1151/Swatches/669-1151_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "434-0521",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/434-0521",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "8",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/434/434-0521/Swatches/434-0521_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "409-0073",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/409-0073",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "10",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/409/409-0073/Swatches/409-0073_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "618-7265",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/618-7265",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "12",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/618/618-7265/Swatches/618-7265_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "260-3771",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/260-3771",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "14",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/260/260-3771/Swatches/260-3771_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "278-2783",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/278-2783",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "16",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/278/278-2783/Swatches/278-2783_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "279-8266",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/279-8266",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "18",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/279/279-8266/Swatches/279-8266_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "252-1076",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/252-1076",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "20",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/252/252-1076/Swatches/252-1076_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "272-6682",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/272-6682",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "22",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/272/272-6682/Swatches/272-6682_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "657-7177",
+    "type" : "product",
+    "rel" : "colourAssociation",
+    "href" : "/direct/rest/content/catalog/product/657-7177",
+    "options" : {
+      "primary" : "Grey",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/100/100-8521/Swatches/100-8521_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "313-0760",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/313-0760",
+    "options" : {
+      "primary" : "Grey marl",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/252/252-1076/Swatches/252-1076_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "587-7463",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/587-7463",
+    "options" : {
+      "primary" : "White",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/265/265-3282/Swatches/265-3282_SW_1000025SW01_pdp.jpg"
+    }
+  }, {
+    "id" : "576-6145",
+    "type" : "product",
+    "rel" : "completeTheLook",
+    "href" : "/direct/rest/content/catalog/product/576-6145"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "252-1076",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/252-1076",
+    "options" : {
+      "primary" : "Grey marl",
+      "secondary" : "20",
+      "swatch" : "//direct.tescoassets.com/directuiassets/ProductAssets/252/252-1076/Swatches/252-1076_SW_1000025SW01_pdp.jpg"
+    }
+  } ]
+}

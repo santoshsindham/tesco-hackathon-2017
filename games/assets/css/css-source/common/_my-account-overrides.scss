@@ -1,0 +1,377 @@
+.my-account{
+	#page-container{
+		background-color: white;
+		padding: 10px 0;
+		.layout-b{
+			#main-content{
+				float: left;
+			}
+			.secondary-content {
+				width: 230px;
+			}
+			.primary-content {
+				width: 675px!important;
+				h2{
+					margin-bottom: 20px;
+				}
+			}
+			.application-content {
+				width: 100%;
+				h1{
+					font-size: 2.3em;
+					font-weight: bold;
+					margin: 0 0 5px 0!important;
+				}
+				.form-container .form-group-buttons .button {
+				    padding: 4px 12px 5px 12px;
+
+						&.addAddress, #saveAddress {
+							height: 40px;
+				      padding: 10px 12px;
+						}
+				}
+				.address-card-section p{
+					display:inline;
+				}
+				#btn-edit-1{
+					max-width: 140px;
+				}
+			}
+			#microsite-nav {
+				.menu {
+					width: 100%;
+				}
+			}
+			.form-container {
+				.form-field {
+					width: 100%;
+					#postcode{
+						padding: 3px;
+						font-size: 11px;
+						width: auto;
+					}
+					.button{
+						padding: 2px 12px;
+					}
+					label{
+						width: 170px;
+					}
+					label[for="main-account"]{
+						width: auto;
+						padding: 0;
+					}
+					.checkbox{
+						width: auto;
+						height: 20px;
+						margin-top: 0;
+					}
+					label.invalid{
+						width: auto;
+					}
+					textarea.invalid, input.invalid {
+						box-shadow: none;
+					}
+				}
+				h3{
+					label{
+						width: auto;
+						padding-right: 0;
+						font-size: 1.2em;
+					}
+				}
+				.sub-head {
+					margin: 43px 0 18px 0;
+					float: left;
+					clear: both;
+				}
+			}
+		}
+		.form-container #add-address .form-group-buttons {
+			margin-right: 4px;
+			padding-bottom: 20px;
+			position: absolute;
+			bottom: -15px;
+			right: 0;
+		}
+		.layout-a {
+			.application-content {
+				h1{
+					font-size: 2.3em;
+					font-weight: bold;
+					margin: 0 0 5px 0!important;
+				}
+				.form-container .form-group-buttons .button {
+				    padding: 3px 12px 5px 12px;
+				}
+			}
+			.form-container {
+				.claim-radio {
+    				vertical-align: middle;
+   				}
+   				.claim-radio-label {
+				    font-size: 1.2em;
+				    font-weight: normal;
+				    width: auto;
+				    float: none;
+				    vertical-align: middle;
+   				}
+   				select.form-select {
+    				width: 221px;
+   				}
+			}
+		}
+	}
+}
+
+/* Change Password - START */
+.form-container #change-password .pwd-input-tip{
+	background: #f7f7f7;
+	width: 275px;
+	padding: 10px;
+	margin: 0;
+	font-size: 1.2em;
+	overflow:hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.form-field.pwdStrengthDiv{
+	margin-left: 170px;
+	display: none;
+	font-size: 1.2em;
+	.form-span{
+		font-weight: bold;
+	}
+	#passStrengthIndicator{
+		display: inline-block;
+		font-weight: bold;
+		margin-left: 15px;
+		width: 98px;
+		padding: 3px 0px 3px 7px;
+	}
+	.state-0{
+	   color:#fff;
+	   background: #AA0A00;
+	   }
+	   .state-1{
+	    color:#0A0A0A;
+	   background: #F97B00;
+	   }
+	   .state-2{
+	   color:#0A0A0A;
+	   background: #F3C00F;
+	   }
+	   .state-3{
+	    color:#0A0A0A;
+	   background: #48C545;
+	   }
+	   .state-4{
+	    color:#fff;
+	   background: #008800;
+	   }
+	   .state-intial{
+		   height:18px;
+   	   background: #CCC;
+   	   margin-bottom:-5px;
+	   }
+}
+#change-password{
+		.pwd-input-tip{
+			margin:35px 0px 0px 440px;
+		}
+		.form-field label{
+			width:170px;
+		}
+		.form-field.pwdStrengthDiv{
+			margin-left:190px;
+		}
+}
+
+/* Change Password - END */
+
+#footer .panel-bottom {
+	padding-right: 16px;
+	line-height: 21px;
+	vertical-align: middle;
+	text-align: right;
+}
+
+/* Accessibility */
+.accessibility-options{
+	#accessibility-opt{
+		.form-container{
+			.form-field{
+				width: 99%;
+				margin-left: 2px;
+			}
+			.form-group-divider{
+				font-size: 1.2em;
+				input[type="radio"]{
+					float: left;
+				}
+				label{
+					font-size: 0.8em;
+					padding-right: 0;
+				}
+			}
+		}
+	}
+}
+
+/* Basket Overlay */
+#basket-preview-wrapper .basket-container {
+	top: 132px;
+}
+
+#content.layout-a .primary-content h1, #content.layout-a .application-content h1{
+	margin-bottom: 5px;
+}
+/**fix for 36697 **/
+.tooltip-pending-orders {
+	display:none;
+	width:365px;
+	color: #4F5050;
+}
+.tooltip-pending-orders .jt-tooltip-content {
+    padding-left: 15px;
+    padding-right:15px;
+}
+.tooltip-pending-orders p {
+	font-size:1.1em;
+}
+.tooltip-pending-orders ul {
+	margin-bottom:12px;
+    margin-top: 16px;
+}
+.tooltip-pending-orders li {
+	display:inline;
+	margin:0 10px 0 0;
+}
+.tooltip-delete-address {
+	display:none;
+	width:150px;
+	color: #4F5050;
+}
+.tooltip-delete-address p {
+	font-size:1.1em;
+}
+.tooltip-delete-address ul {
+	margin-bottom:12px;
+	text-align:center;
+}
+.tooltip-delete-address li {
+	display:inline;
+	margin:0 5px;
+}
+.offers-content {
+  position: relative !important;
+  .offers.jt-tooltip {
+    &.tooltip-position-below {
+      top: -5px !important;
+      left: -90px !important;
+    }
+    &.tooltip-position-above {
+      bottom: 10px !important;
+      left: -90px !important;
+    }
+  }
+}
+select.form-select{
+	width:200px;
+}
+
+.my-account #page-container .layout-b .form-container {
+	#contact-details {
+		.form-field {
+			width: auto;
+			.button {
+				margin-left: 170px;
+			}
+			select {
+				width: 221px;
+			}
+		}
+	}
+	#edit-address {
+		.action-wrapper {
+			.generic-standard {
+				float: left;
+			}
+			.input-standard {
+				float: right;
+			}
+		}
+		#property-type {
+			width: 221px;
+		}
+		.form-field {
+			.key {
+				margin-right: 0;
+				min-width: 0;
+			}
+			.edtAdrr {
+				float: left;
+
+				p {
+					display: block;
+					float: none;
+					margin: 0;
+				}
+			}
+		}
+	}
+	&.delivery-details {
+		margin-top: 30px;
+	}
+}
+
+.tooltip-pending-orders,
+.tooltip-delete-address {
+	.button {
+		display: inline;
+		font-size: 1.2em;
+	}
+}
+
+.vat.button {
+	float: left;
+}
+
+.my-account #page-container .layout-a .form-container {
+	#claimdescription-container {
+    	#claimdescription-text {
+        	margin-left: 200px;
+        	width: 221px;
+		}
+    	#claimdescription {
+        	width: 221px;
+		}
+	}
+}
+
+.my-account {
+    .form-group-buttons {
+        width: auto;
+    }
+}
+
+.my-account {
+    .delivery-details {
+        fieldset {
+            width: auto;
+        }
+        label {
+            margin: 0;
+            padding: 3px 20px 0 0;
+            text-align: left;
+        }
+        input {
+            width: 221px;
+        }
+        .action-wrapper {
+            position: static;
+            margin-top: 0;
+        }
+    }
+}

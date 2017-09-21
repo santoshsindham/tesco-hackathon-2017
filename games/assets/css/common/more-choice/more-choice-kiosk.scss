@@ -1,0 +1,8 @@
+//more-choice module - kiosk
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "more-choice-mixins";
+
+.more-choice-block {
+	display: none;
+}

@@ -1,0 +1,15 @@
+//seller-directory module - desktop
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "seller-directory-mixins";
+
+.seller-directory {
+  
+  .seller {
+    width: 23%;
+    border: 1px solid $primaryBorderColor;
+    float: left;
+    overflow: hidden;
+    margin: 16px 1%;
+  }
+}

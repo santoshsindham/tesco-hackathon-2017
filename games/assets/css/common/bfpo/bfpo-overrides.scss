@@ -1,0 +1,29 @@
+@mixin bfpoOverridesAll {
+    .checkout .delivery-block .collection-details {
+        .bfpo-content {
+            p {
+                font-size: 16px;
+                padding-left: 0;
+            }
+        }
+    }
+
+    .full-page-form form {
+        .bfpo-content {
+            p {
+                font-size: 16px;
+                margin: 4px 0;
+            }
+        }
+    }
+}
+
+@mixin bfpoOverridesMobile {
+    #virtual-page .new-address {
+        .bfpo-content {
+            p {
+                font-size: 16px;
+            }
+        }
+    }
+}

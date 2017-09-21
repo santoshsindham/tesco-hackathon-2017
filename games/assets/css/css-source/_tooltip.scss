@@ -1,0 +1,112 @@
+.jt-tooltip {
+  display: none;
+  position: absolute;
+  max-width: 500px;
+  padding: 0;
+  
+  .tooltip {
+    position: absolute;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  
+  .jt-tooltip-content {
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0; //overwrite common
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
+    padding: $g2;
+    background: #ffffff;
+  }
+}
+
+.tooltip-position-above {
+  padding-bottom: 13px;
+  
+  .tooltip {
+    bottom: 0;
+    height: 15px !important;
+    width: 27px !important;
+    background-image: url('/assets/images/arrow-down.png');
+  }
+  
+  .jt-tooltip-content {
+    border-color: #adaaaa #adaaaa #d7d6d6 #adaaaa;  
+  }
+}
+
+.tooltip-position-right {
+  
+  .tooltip {
+    left: 0;
+    height: 27px !important;
+    width: 15px !important;
+    background-image: url('/assets/images/arrow-left.png');
+  }
+  
+  .jt-tooltip-content {
+    border-color: #adaaaa #adaaaa #adaaaa #d7d6d6;  
+  }
+}
+
+.tooltip-position-below {
+  padding-top: 13px;
+  
+  .tooltip {
+    top: 0;
+    height: 15px !important;
+    width: 27px !important;
+    background-image: url('/assets/images/arrow.png');
+  }
+  
+  .jt-tooltip-content {
+    border-color: #d7d6d6 #adaaaa #adaaaa #adaaaa;  
+  }
+}
+
+.tooltip-position-left {
+  
+  .tooltip {
+    right: 0;
+    height: 27px !important;
+    width: 15px !important;
+    background-image: url('/assets/images/arrow-right.png');
+  }
+  
+  .jt-tooltip-content {
+    border-color: #adaaaa #d7d6d6 #adaaaa #adaaaa;  
+  }
+}
+
+
+// Map
+/*
+#map-container-div{
+  display: none;
+}
+#map-container-div .close-button{
+  position: absolute;
+  top: 25px;
+  right: 0px;
+  z-index: 1000001;
+  cursor: pointer;
+}
+*/
+
+.map-container {
+  max-width: none !important;
+  
+  .jt-tooltip-content {
+    padding: $g3;
+    
+    .mapviewer-stores {
+      position: relative;
+      float: right; //from common
+      height: 360px;
+      width: 580px;
+      //background: #DDD7D7;
+    }
+  }
+}

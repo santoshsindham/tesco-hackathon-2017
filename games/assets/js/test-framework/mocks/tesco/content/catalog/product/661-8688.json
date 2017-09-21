@@ -1,0 +1,78 @@
+{
+  "id" : "661-8688",
+  "userActionable" : true,
+  "prices" : {
+    "id" : "661-8688",
+    "price" : "9.77",
+    "clubcardPoints" : 9
+  },
+  "displayName" : "Ice Toolz Hollowtech 2 BB Tool",
+  "publicLink" : "/direct/ice-toolz-hollowtech-2-bb-tool/661-8688.prd",
+  "longDescription" : "Cromo Shimano Hollowtech 2 compatible crank adapter tool. For use with 8mm hex or 3/8 driver.",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat13210033",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat13210033"
+  }, {
+    "id" : "cat30100006",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat30100006"
+  }, {
+    "id" : "cat3375826",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375826"
+  }, {
+    "id" : "cat3376661",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376661"
+  }, {
+    "id" : "cat3376692",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376692"
+  }, {
+    "id" : "cat8100021",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat8100021"
+  } ],
+  "brand" : "Ice Toolz",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/661-8688_PI_1000261MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "links" : [ {
+    "id" : "661-8688",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/661-8688"
+  }, {
+    "id" : "661-8688",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/661-8688"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "661-8688",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/661-8688"
+  } ]
+}

@@ -1,0 +1,305 @@
+
+.account .form-container {
+	position: relative;
+}
+.account .form-container .form-group-divider {
+    padding: 45px 0px 20px 0px;
+	margin: 0 10px 0 0;
+}
+.account .form-container .generic-standard{
+/*
+  Currently commented out for the new edit and add address
+  pages
+*/
+/*	margin: 10px 25px 10px 10px;*/
+	float:left;
+	margin:0 2px;
+}
+.account .form-container .disabled-standard{
+	margin: 10px;
+	font-size: 1em;
+}
+.account .form-container .address-card-section .disabled-standard {
+	margin: 0px 0px 0px 6px;	
+}
+.account .form-group .form-footer a,
+.account .form-group .form-intro a {
+    font-size: 1em;
+    display: inline;
+	float: none;
+}
+.account .product-list {
+    padding-right: 0;
+    margin-top: 45px;
+	float: left;
+}
+.account .product-list .alerts-in-stock,
+.account .product-list .alerts-out-of-stock{
+	margin: 0 0 50px 0;
+	float: left;
+}
+.account .alerts-in-stock input.disabled-standard{
+	padding: 1px 8px 1px 11px
+}
+.accessibility-options .form-intro {
+    font-size:1.1em;
+}
+.account .accessibility-options .form-container .form-group-divider {
+    padding-top:0;
+}
+.address-list h3{
+    padding: 0 0 10px;
+    border-bottom: 1px dashed #DDD7D7;
+    font-size: 1em;
+    color: #575757;
+}
+.address-card {
+    width: 210px;
+    padding: 10px;
+    display: inline-block;
+	vertical-align: top;
+    margin: 1px 8px 15px 1px;
+}
+.address-card-section {
+	font-size: 1.2em;
+	padding: 10px 0;
+	border-top: 1px dashed #DDD7D7;
+	margin: 5px 0;
+	color: #575757;
+	clear: both
+}
+.address-card-section p {
+	font-size: 1em;
+    margin-bottom:0;
+}
+.address-card-section h4 {
+	margin: 0 0 5px;
+	color: #4F5050;
+}
+.address-list .vcard .adr {
+    font-size: 1.2em;
+    color: #575757;
+    min-height: 89px;
+    margin-top:0;
+    margin-bottom: 0px;
+}
+.delivery-address div.vcard div.adr{
+	min-height: 110px;
+}
+.option-1 .address-list,.option-2 .address-list{
+	min-height: 120px;
+}
+.address-list .vcard .adr span {
+    display: block;
+}
+.address-list .vcard h3 {
+    border: 0px solid #fff;
+    -moz-border-image: none;
+    -webkit-border-image: none;
+	border-image: none;
+    font-size: 1.4em;
+    margin:0px
+}
+.radio-field .radio-input,
+.address-list .radio-input {
+    margin: 0.3em 10px 0 0;
+}
+.form-container .form-group.addresses {
+	margin-bottom:0;
+}
+.addresses .button {
+	margin: 20px 0 0;
+}
+.address-card-section .button {
+	float: right;
+	clear: none;
+	margin: 20px 0px 0px 5px;
+	cursor:pointer;
+}
+.addresses .form-group-buttons {
+    padding:10px 13px 0 0;
+}
+.addresses .form-group-buttons .button {
+	margin-top:0;
+}
+.address-card-phones {
+	min-height: 70px;
+}
+.address-card-phones li {
+	clear: both;
+	line-height: 1.6em;
+}
+.address-card-phones .phone-name {
+    width:100px;
+}
+.phone-name, .field-name {
+	float: left;
+	font-weight: bold;
+}
+.data-content {
+	float: right;
+}
+.payment-cards .address-card h3 {
+    font-size:1.4em;
+}
+.payment-cards .vcard{
+	padding-top: 10px;
+}	
+.payment-cards .address-card-section {
+    border-top:none;
+    border-bottom: 1px dashed #DDD7D7;
+    overflow:hidden;
+}
+.payment-cards .address-card-section .card-type{
+	text-transform: uppercase;
+}
+.address-list.payment-cards .vcard h3 {
+    font-size:1.2em;
+}
+.payment-cards .vcard .button {
+    float:right;
+    clear:none;
+    margin-left: 5px;
+}
+.account-footer {
+    clear: both;
+    padding-top: 30px;
+}
+.account-footer .form-container {
+    padding: 0 20px 10px 20px;
+}
+.columns {
+	margin-top: -4px;
+}
+.column {
+    width: 450px;
+    float: left;
+    margin: 0 0 40px 20px;
+}
+.columns .first {
+    margin-left: 0px;
+}
+.stock-heading,
+.columns h2 {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #DDD7D7;
+}
+.myaccount-links-list, .myaccount-links-list-start, .myaccount-links-list-end {
+    font-size: 1.1em;
+    line-height: 1.75em;
+}
+.myaccount-links li {
+	text-indent:1px;
+}
+.myaccount-links-list .myaccount-links-list-sub{
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:disc;
+	margin:0 0 5px 15px;
+	padding:0;
+}
+.myaccount-links-list-start {
+	margin: 8px 0;
+}
+.myaccount-links-list {
+	margin: 20px 0;
+}
+.myaccount-links h3 {
+    margin-bottom:2px;
+}
+.myaccount-links-list-end {
+	margin: 15px 0;
+}
+.myaccount-links-list a {
+	font-size: 1em;
+	margin: 0;
+}
+.myaccount-links,
+.titled-sections .myaccount-links-list {
+    border-bottom: 1px dashed #DDD7D7;
+	border-left-width: 0px;
+}
+.titled-sections .myaccount-links-list {
+    padding-bottom: 7px;
+    margin: 0 0 15px;
+}
+.titled-sections .myaccount-links {
+    border-bottom: 0px solid #fff;
+    -moz-border-image: none;
+    -webkit-border-image: none;
+	border-image: none;
+    padding-bottom: 0;
+    margin: 0;
+}
+.form-container-intro,
+.radio-field p {
+	font-size: 1.1em;
+	color: #4F5050;
+}
+.form-container .form-container-intro {
+	margin-bottom: 10px;
+}
+.radio-field h3 {
+	overflow: hidden;
+	font-size: 1.2em;
+	margin: 0px;
+}
+.radio-field p {
+	margin-left: 24px;
+    max-width:530px;
+	clear: both;
+}
+#clubcard-details .input-standard{
+	margin: 10px 5px 10px 10px;
+}
+#change-email .input-standard{
+	margin: 0 15px 0 0;
+	float: right;
+}
+
+/* 5.16 Product information navigation */
+
+.secondary-nav-product-info{
+	border: 1px solid #DDD7D7;
+	padding: 10px;
+	margin: 20px 0 0 0;
+}
+.secondary-nav-product-info h2{
+	font-size: 1.4em;
+}
+.secondary-nav-product-info li{
+	margin: 0 0 5px 0;
+	font-size: 1.1em;
+}
+.secondary-nav-product-info li.last-item{
+	margin: 0;
+}
+.clubcard-details {
+	font-size: 1.1em;
+	color: #4F5050;
+	margin: 10px 0;
+}
+.clubcard-details li {
+	clear: both;
+	line-height: 1.5em;
+	margin-bottom: 6px;
+}
+.clubcard-details li span {
+    font-size:1.1em;
+}
+.clubcard-details h4 {
+	font-weight: bold;
+	width: 200px;
+	float: left;
+	margin: 0 10px 0 0;
+	font-size: 1.1em;
+}
+.form-field .vcard {
+	margin-left: 150px;
+	clear: both;
+	padding: 10px;
+}
+.delivery-number .adr span{
+	color: #4F5050;
+	font-size: 1.2em;
+}

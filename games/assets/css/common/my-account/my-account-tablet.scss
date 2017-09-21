@@ -1,0 +1,348 @@
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "../forms/forms-mixins";
+
+.my-account-full-page {
+
+	#order-summary {
+		margin-right: 0;
+	}
+	#main-content {
+        padding:0 8px;
+    }
+}
+
+.my-account {
+
+	@include inline-form-fields;
+
+	#durationSelectTop.visually-hidden-select.native-select-trigger {
+        margin-left: 0 !important; /* Duration dropdown */
+    }
+
+	.my-account-form {
+        input,
+        select,
+        .customDropdown {
+            margin-left: 0;
+        }
+    }
+
+    .page-error {
+        margin: 0 1.25% 16px;
+    }
+
+    #main-content {
+        .my-account-heading {
+            margin-left: 8px;
+            margin-right: 8px;
+            h1 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .example {
+		padding-right: 10px;
+		text-align: right;
+		width: 68%;
+		float: left;
+		margin-left: 143px;
+	}
+
+	.search-field-wrapper input {
+		margin-left:0;
+	}
+
+	.form-group-buttons {
+		width: 78%;
+		margin: 0 auto;
+		.cancel {
+			margin-left:0;
+		}
+		.cancel1 {
+            margin-left:0;
+        }
+		.save {
+			margin-top: 0;
+		}
+	}
+
+	span.error {
+		display:inline-block;
+		width: 68%;
+	}
+
+	.pca-container {
+		left: 143px;
+		width: 68%;
+		span.error {
+			margin-left:0;
+		}
+	}
+
+	.no-orders-placed {
+		margin-right: $onecol;
+		margin-left: $onecol;
+	}
+
+	#orders-list-header,
+	#orders-list-details {
+		margin: 0 $onecol;
+	}
+
+	#orders-list-details {
+		#order-summary {
+			.delivery-group-block {
+				padding: 0;
+			}
+		}
+	}
+
+	.orders-sorting {
+		.pagination {
+			.product-carousel {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	#order-summary {
+		.delivery-group-block {
+			//padding: 0;
+			.product-details h3 {
+				padding-right: 125px;
+			}
+			.dispatch-info-header {
+				border-bottom: none;
+				h3 {
+					padding: 12px 8px;
+    	    		margin: 0;
+				}
+			}
+			.product-block{
+				.product-details {
+					width : 70%;
+				}
+			}
+			.supplied-container {
+				position: absolute;
+				right: 0;
+				top: 8px;
+				width:115px;
+				img {
+					display: none;
+				}
+				.sold-block{
+					font-size: 14px;
+					line-height: 20px;
+					@include tescoFont;
+					.dg-items-ps{
+						display: block;
+						font-weight: bold;
+						margin: 0 0 5px 0;
+					}
+				}
+			}
+			.orderDetails {
+				a {
+				    &.view-track-button{
+						display: inline-block;
+				    }
+				    &.view-button, &.track-button{
+						display: none;
+			       }
+				}
+			}
+		}
+	}
+}
+.cancel-orders-details{
+	.order-details-header{
+		.cancel-info{
+			width:100%;
+		 }
+	}
+	.cancel-order-form{
+		.field-wrapper{
+			label{
+				text-align:left;
+				padding:0px;
+				margin-bottom:4px;
+				width:100%;
+				float: none;
+			}
+			textarea{
+				width:100%;
+			}
+			.back-to-order{
+				float:left;
+				margin-left:0px;
+			}
+			.back-to-order, input[type='submit']{
+				width:45%;
+			}
+		}
+	}
+	.order-details-content{
+		 margin: 0px 50px;
+		.order-details-block{
+			.refund{
+				div{
+					width:100%;
+					strong{
+						width:100%;
+						display:block;
+					}
+				}
+				div:first-child{
+					border-bottom:1px solid $primaryBorderColor;
+					padding-bottom:12px;
+				}
+				div:nth-child(2){
+					padding-top:12px;
+				}
+				div.fullWidth{
+					border:0px;
+					padding-bottom:0px;
+					margin-bottom:-10px;
+				}
+			}
+			&.grocery-info {
+				.refund div:first-child {
+				    padding-bottom: 0px;
+				    border-bottom: none;
+				}
+			}
+		}
+	}
+}
+.data-type{
+	 float: right;
+	 margin-right: 10%;
+}
+.name{
+	border-bottom:1px solid $primaryBorderColor;
+	display: block;
+	padding-bottom: 12px;
+}
+
+.myAccountMessage {
+    font-size: 16px;
+}
+
+.my-account-form {
+    .field-wrapper {
+        max-width: 400px;
+    }
+    label {
+        float: none;
+        width: auto;
+        margin: 0 0 4px;
+        padding: 0;
+        text-align: left;
+    }
+    .form-textinput {
+        margin-left: 0;
+    }
+    input[type=submit] {
+        margin:0px;
+        float:left;
+    }
+    p.required-msg {
+        margin:0px;
+        display:inline;
+        float:right;
+        clear:none;
+    }
+    span.error {
+        display: block;
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+.my-account {
+    .my-account-content {
+        margin-left: 8px;
+        margin-right: 8px;
+        &:last-child {
+            margin-bottom: 8px;
+        }
+    }
+    .notification-block {
+        margin: 0 8px 16px;
+    }
+}
+
+@include breakpoint(hTablet) {
+    .my-account {
+        #main-content {
+            .my-account-content {
+                .my-address, .my-card {
+                    width:31%;
+                    &.active {
+                        p.current-address {
+                            margin:0px;
+                            padding: 14px 0px;
+                        }
+                    }
+                    section {
+                        input.select-address {
+                            font-size:16px;
+                        }
+                    }
+                    input.tertiary-button {
+                        width:100%;
+                        padding:0 8px;
+                    }
+                    &.only-card {
+                        width: 282px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include breakpoint(vTablet) {
+    .my-account-content {
+        .my-address, .my-card {
+            width:47%;
+            section {
+                input.tertiary-button {
+                    margin:0px;
+                    font-size:16px;
+                    width:100%;
+                    padding:0 8px;
+                }
+            }
+            input.delete-card {
+                font-size:14px;
+                width:100%;
+            }
+        }
+        .my-card {
+            width: 282px;
+        }
+    }
+    #card-payment {
+        .customDropdown {
+            left: auto;
+        }
+    }
+}
+
+.my-account {
+    .my-account-form-pca {
+        max-width: 320px;
+        .pca-container {
+            left: auto;
+            width: auto;
+        }
+        .field-wrapper {
+            max-width: 320px;
+        }
+    }
+}

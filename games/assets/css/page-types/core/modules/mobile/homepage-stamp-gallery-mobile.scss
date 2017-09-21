@@ -1,0 +1,9 @@
+/*******************************************
+*	Mobile module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(mobile);
+@import "../mixins/homepage-stamp-gallery-mixins";
+
+@include homepage-stamp-device;

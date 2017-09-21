@@ -1,0 +1,22 @@
+{
+  "id" : "154-6351",
+  "fromPrice" : "379.00",
+  "toPrice" : "428.00",
+  "clubcardPoints" : 379,
+  "listings" : [ {
+    "id" : "O0002220b2",
+    "price" : "414.95",
+    "clubcardPoints" : 414,
+    "source" : "Partner"
+  }, {
+    "id" : "O000227fbc",
+    "price" : "428.00",
+    "clubcardPoints" : 428,
+    "source" : "Partner"
+  }, {
+    "id" : "T00020c7db",
+    "price" : "379.00",
+    "clubcardPoints" : 379,
+    "source" : "Tesco"
+  } ]
+}

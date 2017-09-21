@@ -1,0 +1,14 @@
+{
+  "availabilities" : [ {
+    "productReference" : {
+      "id" : "T0000a64e6",
+      "type" : "listing"
+    },
+    "location" : {
+      "id" : "03356",
+      "error" : "Not found"
+    },
+    "stock_status" : "IN_STOCK",
+    "available" : true
+  } ]
+}

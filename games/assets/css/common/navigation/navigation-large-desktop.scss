@@ -1,0 +1,58 @@
+/*******************************************
+* Large desktop navigation module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "navigation-mixins";
+
+#navigation {
+	padding-left: $onecol;
+	padding-right: $onecol;
+	width: 30 * $onecol;
+	float: right;
+	.wrapper {
+		height: auto;
+		margin: 0;
+	}
+	.menu {
+		h2 {
+			height: auto;
+			font-size:20px;
+			line-height:18px;
+			padding:15px 0 15px 8px;
+			color: $darkPutty;
+			border: none;
+		}
+		ul li {
+			border-right-color: transparent;
+		}
+		ul li a {		
+								
+			
+			span
+			{
+			height:40px;
+			}
+			&:after
+			{
+			display: none;
+			}
+		}
+		
+	}
+  .menu,
+  .sub-menu {
+    ul li {
+      width: 100%;
+      float: none;
+    }
+  }
+  .anchor {
+  	display: none;
+  }
+}
+
+.alternative-view #secondary-content {
+	position: absolute;
+}

@@ -1,0 +1,60 @@
+/*******************************************
+*	Desktop microsite nav module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(desktop);
+@import "../mixins/microsite-nav-mixins";
+
+#microsite-nav {
+	padding: 0 $onecol $onecol;
+
+	.menu {
+
+		/* RWD UI Changes : start */
+		h2 {
+			font-size: 18px;
+			line-height: 18px;
+		}
+		/* RWD UI Changes : end */
+	}
+}
+
+.my-account {
+	#microsite-nav {
+        width:240px;
+        float:left;
+		.menu {
+            width:100%;
+		}
+	}
+    #main-content {
+        float:right;
+        margin-left:0px;
+        width: auto;
+        &.primary-content {
+            width: 710px;
+        }
+    }
+    .my-account-content, .my-account-heading {
+        width:710px;
+        margin-left:0px;
+    }
+}
+
+.event {
+	#microsite-nav {
+		padding-top: 0px;
+	}
+}
+
+#microsite-nav {
+    .toggle-expand-collapse {
+        &:after {
+            display: none;
+        }
+    }
+    .expand-collapse-content {
+        display: block;
+    }
+}

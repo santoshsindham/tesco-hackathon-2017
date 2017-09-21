@@ -1,0 +1,46 @@
+//delivery-latest-offer module - all
+@import "../../components/variables";
+@import "../mixins/delivery-latest-offer-mixins";
+
+$onecol: 8px;
+
+.delivery-latest-offers {
+	overflow: hidden;
+
+	li {
+		display: inline-block;
+		position: relative;
+		float: left;
+		clear: none;
+		line-height: 32px;
+		padding: 0 8px;
+		border: 1px solid #D8D8D8;
+		@include border-radius(5px);
+		@include darkBlueGradient;
+
+		a {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
+		h3 {
+			padding: 0;
+			margin: 0;
+			color: #fff;
+			font-weight: normal;
+			font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+			line-height: 1;
+			padding: 16px 0 16px 44px;
+		}
+
+		img {
+			position: absolute;
+			top: 50%;
+			margin-top: -14px;
+			float: left;
+			padding: 0 0 0 4px;
+		}
+	}
+
+}

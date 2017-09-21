@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\views\KioskProductPageView.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/views/</a> KioskProductPageView.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.53% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>13/53</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">24.53% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>13/53</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/views/KioskProductPageView', [
+  'domlib',
+  'modules/mvc/fn',
+  'modules/pdp/views/BaseView',
+  'modules/pdp/views/KioskProductPageTitleView',
+  'modules/pdp/views/KioskProductDetailsView',
+  'modules/pdp/views/ProductMediaViewerView',
+  'modules/pdp/media-viewer/common',
+  'modules/pdp/views/BuyboxView',
+  'modules/pdp/views/ServicesBannerGroupView',
+  'modules/pdp/views/ProductPageTabView'
+], function (
+  $,
+  fn,
+  BaseView,
+  KioskProductPageTitleView,
+  KioskProductDetailsView,
+  ProductMediaViewerView,
+  mediaViewer,
+  BuyboxView,
+  ServicesBannerGroupView,
+  ProductPageTabView
+) {
+  'use strict';
+&nbsp;
+  var KioskProductPageView = <span class="fstat-no" title="function not covered" >function (oConfig) {</span>
+<span class="cstat-no" title="statement not covered" >    this.sViewName = 'KioskProductPageView';</span>
+<span class="cstat-no" title="statement not covered" >    this.sNamespace = 'sku';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTag = 'kioskPage';</span>
+<span class="cstat-no" title="statement not covered" >    this.sViewClass = 'content-container';</span>
+<span class="cstat-no" title="statement not covered" >    this.sTemplate = $('#kiosk-product-page-template')[0].innerHTML;</span>
+<span class="cstat-no" title="statement not covered" >    this.sMainContentWrapperSelector = '.main-content-wrapper';</span>
+<span class="cstat-no" title="statement not covered" >    this.sStaticWrapperSelector = '.static-product-image';</span>
+<span class="cstat-no" title="statement not covered" >    this.parent.constructor.call(this, oConfig);</span>
+  };
+&nbsp;
+  fn.inherit(KioskProductPageView, BaseView);
+&nbsp;
+  KioskProductPageView._name = 'KioskProductPageView';
+  KioskProductPageView.sNamespace = 'sku';
+&nbsp;
+  KioskProductPageView.prototype._setData = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    if (this.oData.mvc.custom === undefined) {</span>
+<span class="cstat-no" title="statement not covered" >      this.oData.mvc.custom = {};</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.flags.isKiosk = window.isKiosk();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this._setPreloadedElements();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.oProductPageTitleView = this._compileSubView({</span>
+      _class: KioskProductPageTitleView
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.oProductDetailsView = this._compileSubView({</span>
+      _class: KioskProductDetailsView
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.oProductMediaViewerView = this._compileSubView({</span>
+      _class: ProductMediaViewerView
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.oBuyboxView = this._compileSubView({</span>
+      _class: BuyboxView,
+      ctlr: true
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.oServicesBannerGroupView = this._compileSubView({</span>
+      _class: ServicesBannerGroupView,
+      ctlr: true
+    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    this.oData.oKioskTabs = this._compileSubView({</span>
+      _class: ProductPageTabView,
+      ctlr: true
+    });
+  };
+&nbsp;
+  KioskProductPageView.prototype._initDependancies = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var _this = this,</span>
+      eScene7 = new $.Event('scene7.init');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    eScene7.oData = this.oData.mvc.sku;</span>
+<span class="cstat-no" title="statement not covered" >    this._setMediaViewerOrientation();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(window).trigger(eScene7);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if (this.oData.mvc.sku.noofRatingsProduced === null) {</span>
+<span class="cstat-no" title="statement not covered" >      $(window).on('bazaarVoiceLoaded', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        _this._disableBazaarVoiceReviews();</span>
+      });
+    }
+  };
+&nbsp;
+  KioskProductPageView.prototype._disableBazaarVoiceReviews = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    $('#BVRRSummaryContainer, #BVRRSummaryContainer a.bv-rating-stars-container')</span>
+      .unbind('click')
+      .on('click', <span class="fstat-no" title="function not covered" >function (event) {</span>
+<span class="cstat-no" title="statement not covered" >        event.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >        event.stopImmediatePropagation();</span>
+      });
+  };
+&nbsp;
+  KioskProductPageView.prototype._setMediaViewerOrientation = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    if ($(this.sMainContentWrapperSelector).length) {</span>
+<span class="cstat-no" title="statement not covered" >      $(this.sMainContentWrapperSelector).addClass(</span>
+        'media-viewer--' + this.oData.mvc.custom.mediaViewer.sOrientation
+      );
+    }
+  };
+&nbsp;
+  KioskProductPageView.prototype._getPreloadedMediaViewerOrientation = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var sOrientation = 'landscape'; </span>// default to landscape media orientation
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    if ($(this.sMainContentWrapperSelector).length) {</span>
+<span class="cstat-no" title="statement not covered" >      sOrientation = $(this.sMainContentWrapperSelector).hasClass('media-viewer--portrait')</span>
+        ? 'portrait'
+        : 'landscape';
+    }
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.custom.mediaViewer = {};</span>
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.custom.mediaViewer.sOrientation = sOrientation;</span>
+  };
+&nbsp;
+  KioskProductPageView.prototype._getPreloadedMediaViewerType = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    var sScene7Enabled = null;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    sScene7Enabled = $(this.sStaticWrapperSelector).hasClass('scene7-enabled')</span>
+      ? 'scene7-enabled'
+      : '';
+<span class="cstat-no" title="statement not covered" >    this.oData.mvc.custom.mediaViewer.sScene7Enabled = sScene7Enabled;</span>
+  };
+&nbsp;
+  KioskProductPageView.prototype._setPreloadedElements = <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >    this._getPreloadedMediaViewerOrientation();</span>
+<span class="cstat-no" title="statement not covered" >    this._getPreloadedMediaViewerType();</span>
+  };
+&nbsp;
+  return KioskProductPageView;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+@import "../../common/variables";
+@import 'personalised-product-mixins';
+
+#EmaginationJS-personalised-image {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.EmaginationJS-hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+#personaliseProductContainer, .emagination-placeholder {    // level 0
+    display: none;
+    position: static;
+    margin-bottom: 0 !important;
+    height: 600px;
+
+    #EmaginationJS-ButtonPanel {
+
+        .EmaginationJS-Button {
+
+            &[disabled], &[disabled]:hover {
+                color: $inactiveTextColor;
+                background: $pagePutty;
+                cursor: default !important;
+
+                span {
+                    color: $inactiveTextColor;
+                }
+            }
+        }
+    }
+
+    #EmaginationJS-Personalisation {    // level 1
+        display: inline-block;
+        border: 0;
+        border-radius: 0;
+        overflow: hidden;
+        background: $pagePutty;
+
+        .EmaginationJS-Next,
+        .EmaginationJS-Previous {
+            color: $xDarkPutty;
+        }
+
+        #EmaginationJS-CanvasContainer {
+            height: 500px;
+
+            .EmaginationJS-TextLayer, .EmaginationJS-ImageLayer {
+                border-color: #000000;
+                &.active {
+                    border-color: $tescoBrightBlue;
+                }
+            }
+        }
+
+        #EmaginationJS-LoadingOverlay {
+            background: rgba(0, 0, 0, 0.95);
+
+            .EmaginationJS-LoadingMessage {
+                font-family: "Tesco", Arial;
+                font-size: 1.6em;
+                color: $white;
+            }
+        }
+    }
+
+    #EmaginationJS-Controls {    // level 1
+        height: 460px !important;
+        background: $pagePutty;
+        border: 0;
+        border-radius: 0;
+        width: 29.2%;
+        padding: 15px;
+        .EmaginationJS-Help.EmaginationJS-Btn, #EmaginationJS-ReportError {
+            display: none;
+        }
+
+        .EmaginationJS-ControlsTitle {
+            color: $xDarkPutty;
+            font-family: "Tesco", Arial;
+            font-size: 1.4em;
+        }
+
+        #EmaginationJS-ControlsPlaceholder {
+            font-family: "Tesco", Arial;
+            color: $xDarkPutty;
+            h4 {
+                font-size: 2em;
+                margin: 0;
+            }
+            p {
+                font-size: 1.5em;
+            }
+        }
+
+        #EmaginationJS-ImageControls {
+            .EmaginationJS-LibraryImage{
+                border-color: $putty;
+                &.active {
+                    border-color: $tescoBrightBlue;
+                }
+            }
+        }
+    }
+
+    #EmaginationJS-ButtonPanel {    // level 1
+        background: none;
+        border: 0;
+        border-radius: 0;
+        width: 29.2%;
+        margin-bottom: 0.8%;
+        a {
+            color: $tescoBrightBlue;
+            background: $pagePutty;
+            span {
+                color: $xDarkPutty;
+                font-family: "Tesco", Arial;
+                font-size: 0.6em;
+            }
+            &:hover {
+                background: $tescoBrightBlue;
+                color: $white;
+                span {
+                    color: $white;
+                }
+            }
+        }
+        .EmaginationJS-Button {
+            font-size: 2.4em;
+            border-color: $white;
+        }
+    }
+
+    #EmaginationJS-Save {    // level 1
+        background: $pagePutty;
+        float: right;
+        width: 29.2%;
+        text-align: center;
+        z-index: 1;
+        margin-top: 0.8%;
+        padding: 10px 0;
+        #accept-personalisation-button {
+            width: 86%;
+        }
+    }
+
+    .EmaginationJS-ToolTip {
+        font-size: 1.1em;
+        background-color: $tescoBrightBlue;
+        &:after {
+            background-color: $tescoBrightBlue;
+        }
+        .EmaginationJS-CloseToolTip {
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+
+    .overlay-button, .EmaginationJS-Btn {
+        font-size: 1.8em;
+        font-family: "Tesco", Arial;
+        border: 1px solid $putty;
+        color: $xDarkPutty;
+        background: $white;
+        border-radius: 0;
+        cursor: pointer;
+        &:hover {
+            border-color: $tescoBrightBlue;
+            background-color: $tescoBrightBlue;
+            color: $white;
+            text-decoration: none;
+        }
+        &[disabled], &[disabled]:hover {
+            color: $inactiveTextColor;
+            border-color: $inactiveTextColor;
+        }
+        &[disabled]:hover {
+            border: 1px solid $inactiveTextColor;
+            background: $white;
+            cursor: default;
+        }
+    }
+    .overlay-button {
+        padding: 10px 15px;
+    }
+
+    .EmaginationJS-ControlsBack {
+        font-size: 1.2em;
+    }
+}
+
+#EmaginationJS-HelpOverlay {    // level 0
+    opacity: 0;
+}
+
+#lightbox {
+    &.personalise-product {
+        a.close {
+            z-index: 1;
+        }
+    }
+    #personaliseProductContainer {
+        display: block;
+    }
+}
+
+.personalise-messages {
+    position: relative;
+    &:after {
+        @include clear-fix;
+    }
+
+    .personalise-info {
+        position: relative;
+        padding: 0 0 16px 19px;
+        font-family: $tescoFont;
+        margin: 0;
+        margin-top: 11px;
+        font-size: 1.3em;
+        border-bottom: 1px solid $primaryBorderColor;
+        color: $darkPutty;
+
+        &:before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            content: 'i';
+            font-family: 'Tesco Icons';
+            color: $orange;
+        }
+
+        &.added {
+            background-color: $hoverOrange;
+            color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            margin-top: 11px;
+
+            &:before {
+                @include arrowUp(31px, 11px, $hoverOrange);
+                bottom: initial;
+            }
+        }
+    }
+    #personalise-button, .link {
+        cursor: pointer;
+        &:before {
+            content: 'd';
+            font-family: 'Tesco Icons';
+            padding-right: 6px;
+        }
+    }
+
+    .link {
+        @include linkStyle();
+        border: 0;
+        background-color: transparent;
+        margin-top: 16px;
+        padding: 0;
+        font-family: $tescoFont;
+        font-weight: bold;
+        font-size: 1.4em;
+        line-height: 17px;
+    }
+
+    .personalise-error {
+        top: 54px;
+
+        .body {
+            &:before, &:after  {
+                border-style: solid;
+                border-width: 25px;
+            }
+            &:before {
+                border-color: transparent transparent #fff transparent;
+                top: -49px;
+                z-index: 311;
+            }
+        }
+    }
+    .error-tooltip.personalise-error {
+        .body {
+            &:after {
+                border-color: transparent transparent $error;
+                margin-left: -27px;
+            }
+        }
+    }
+
+    .tooltip.personalise-error {
+        opacity: 1;
+    }
+}
+
+.addPersonalisedToBasketForm {
+    &:after {
+        @include clear-fix;
+    }
+}
+
+.added-to-basket {
+    @include newButton;
+    height: 45px;
+    background-color: $inactivePutty;
+    color: $xDarkPutty;
+
+    &.displayNone {
+        display: none;
+    }
+}
+
+.buy-from {
+    .buy {
+        .buttons.noQuantityBox {
+            width: 100%;
+        }
+    }
+}
+
+.personalised-product-image {
+    cursor: pointer;
+}
+
+#EmaginationJS-PhotoEditor {
+    padding-bottom: 60px;
+    .EmaginationJS-CropWarning {
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        font-size: 1.2em;
+        margin-bottom: 0;
+        background-color: rgba(254, 239, 179, 1);
+    }
+    .EmaginationJS-CropButton.EmaginationJS-Btn {
+        font-family: Tesco,Arial;
+        font-size: 1.6em;
+        border: 1px solid $putty;
+        color: $xDarkPutty;
+        background: $white;
+        border-radius: 0;
+        cursor: pointer;
+        text-decoration: none;
+        position: absolute;
+        bottom: 0px;
+        right: 70px;
+        &.saveCropBtn {
+            right: 0px;
+        }
+        &:hover {
+            background-color: $tescoBrightBlue;
+            border-color: $tescoBrightBlue;
+            color: $white;
+        }
+    }
+}
+
+.EmaginationErrorOverlay {
+    background: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    div {
+        background-color: white;
+        margin: 127px auto;
+        width: 66%;
+        p {
+            margin-bottom: 10px
+        }
+        button {
+            display: block;
+            margin: 10px auto 0;
+            padding: 7px 7px;
+            text-align: center;
+            font-family: Tesco,Arial;
+            font-size: 1.6em;
+            border: 1px solid $putty;
+            color: $xDarkPutty;
+            background: $white;
+            border-radius: 0;
+            cursor: pointer;
+            &:hover {
+                background-color: $tescoBrightBlue;
+                border-color: $tescoBrightBlue;
+                color: $white;
+            }
+        }
+    }
+}
+
+@include emaginationV2All;

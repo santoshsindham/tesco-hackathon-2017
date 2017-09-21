@@ -1,0 +1,152 @@
+﻿@import "../variables";
+
+/*
+ * CSS Styles that are needed by jScrollPane for it to operate correctly.
+ *
+ * Include this stylesheet in your site or copy and paste the styles below into your stylesheet - jScrollPane
+ * may not operate correctly without them.
+ */
+
+.jspContainer
+{
+	overflow: hidden;
+	position: relative;
+}
+
+.jspPane
+{
+	position: absolute;
+}
+
+.jspVerticalBar
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 48px;
+	height: 100%;
+
+    .jspTrack {
+        width: 14px;
+        left: 50%;
+        margin-left: -7px;
+    }
+}
+
+.jspHorizontalBar
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 16px;
+	background: red;
+}
+
+.jspCap
+{
+	display: none;
+}
+
+.jspHorizontalBar .jspCap
+{
+	float: left;
+}
+
+.jspTrack
+{
+	background: $mediumGrey;
+	position: relative;
+}
+
+.jspDrag
+{
+	background: $tescoBrightBlue;
+	position: relative;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.jspHorizontalBar .jspTrack,
+.jspHorizontalBar .jspDrag
+{
+	float: left;
+	height: 100%;
+}
+
+.jspArrow
+{
+	background: $putty;
+	display: block;
+	cursor: pointer;
+	padding: 0;
+	margin: 0;
+    border-radius: 50%;
+    speak: none;
+    font-weight: normal;
+    font-family: 'Tesco Icons';
+    font-size: 18px;
+    line-height: 48px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+
+    &:hover {
+        text-decoration: none;
+        color: #fff;
+    }
+}
+
+.jspArrowUp {
+    top: 1px;
+}
+
+.jspArrowDown {
+    bottom: 1px;
+}
+
+.jspArrow.jspDisabled,
+.jspScrollable-disabled .jspArrow {
+	cursor: default;
+	background: $inactivePutty;
+}
+
+.jspVerticalBar .jspArrow
+{
+    width: 48px;
+    height: 48px;
+
+    &:before {
+        content: attr(data-icon);
+    }
+}
+
+.jspHorizontalBar .jspArrow
+{
+	width: 16px;
+	float: left;
+	height: 100%;
+}
+
+.jspVerticalBar .jspArrow:focus
+{
+	outline: none;
+}
+
+.jspCorner
+{
+	background: #eeeef4;
+	float: left;
+	height: 100%;
+}
+
+/* Yuk! CSS Hack for IE6 3 pixel bug :( */
+* html .jspCorner
+{
+	margin: 0 -3px 0 0;
+}

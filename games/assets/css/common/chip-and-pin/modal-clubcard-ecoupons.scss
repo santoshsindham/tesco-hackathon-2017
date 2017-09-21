@@ -1,0 +1,105 @@
+@import "../variables";
+
+$innerScrollerHeight: 810px;
+$scrollerPadding: 50px;
+
+#lightbox {
+	.kiosk-lightbox {
+        .eCouponWallet.inline-scrolling {
+            margin-top: 20px;
+			height: $innerScrollerHeight;
+			padding-right: $scrollerPadding;
+            position: relative;
+
+            #content-mask,
+			.content-mask { 
+				height: $innerScrollerHeight;
+                border-top: solid 1px $putty;
+                border-bottom: solid 1px $putty;
+			}
+            .eCouponList {
+                
+                li {
+                    border-bottom: solid 1px $lightPutty;
+                    padding: 15px 0;
+                    margin-right: 25px;
+
+                    &:after {
+                        @include clear-fix;
+                    }
+                    
+                    h2 {
+                        font-size: 25px;
+                        margin-bottom: 0;
+
+                        &.available {
+                            color: $positiveGreen;
+                        }
+
+                        &.unavailable {
+                            color: $tescoRed;
+                        }
+                    }
+
+                    p {
+                        font-size: 20px;
+                        margin: 4px 0;
+                    }
+
+                    button[type=button] {
+                        @include tertiaryButtonWhite;
+                        float: right;
+                        font-size: 25px;
+                        width: 280px;
+                        height: 60px;
+                    }
+                }
+            }
+
+            #pagination-nav,
+            .pagination-nav-container {
+                position: absolute;
+				margin: auto;
+				top: -30px;
+				right: -5px;
+
+                .pagination-bar {
+				    height: $innerScrollerHeight;
+				    width: 10px;
+				    margin: 44px 19px;
+					
+                    span {
+					    width: 10px;
+					    background-color: $tescoBrightBlue;
+				    }
+			    }
+			    a {
+				    &.pagination-up,
+                    &.pagination-down {
+					    width: 48px;
+					    color: #fff;
+					    display: block;
+					    margin: 0;	
+					    background-color: $putty;
+					    border-color: $putty;					
+				    }
+                    &.pagination-down {
+                        position: absolute;
+                        top: $innerScrollerHeight;
+                    }
+				    &.disabled {
+					    background-color: $inactivePutty;
+					    border-color: $inactivePutty;
+				    }
+			    }
+            }
+        }
+
+        .dialog-footer {
+            #btnCancel {
+                float: right;
+                margin-right: 75px;
+            }
+        }
+    }
+}

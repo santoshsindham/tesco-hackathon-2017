@@ -1,0 +1,20 @@
+@import "product-details-mixins";
+@import "product-details-overrides";
+@include productDetailsStylesTablet;
+@include viewportGridGenerator(tablet);
+@include viewportGridOffsetGenerator(tablet);
+@include viewportFloatGenerator(tablet);
+@include viewportHideGenerator(tablet);
+@include breakpoint(hTablet) {
+    @include viewportGridGenerator(tabletH);
+    @include viewportGridOffsetGenerator(tabletH);
+    @include viewportFloatGenerator(tabletH);
+    @include viewportHideGenerator(tabletH);
+}
+@include breakpoint(vTablet) {
+    @include viewportGridGenerator(tabletV);
+    @include viewportGridOffsetGenerator(tabletV);
+    @include viewportFloatGenerator(tabletV);
+    @include viewportHideGenerator(tabletV);
+}
+@include productDetailsOverridesTablet;

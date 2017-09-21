@@ -1,0 +1,24 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  <a href="{{mvc.inherit.publicLink}}{{#mvc.inherit.noofRatingsProduced}}#BVRRContainer{{/mvc.inherit.noofRatingsProduced}}">
+      <span class="avg-rating rating">
+          <span class="screen-reader-text">Rating:</span>
+          {{#mvc.inherit.noofRatingsProduced}}
+              <span class="stars stars-{{mvc.inherit.custom.numOfStars}} point-{{mvc.inherit.custom.numOfPoints}}">
+                {{mvc.inherit.custom.numOfStars}}
+                {{#mvc.inherit.custom.numOfPoints}}.{{mvc.inherit.custom.numOfPoints}}{{/mvc.inherit.custom.numOfPoints}} stars
+              </span>
+          {{/mvc.inherit.noofRatingsProduced}}
+          {{^mvc.inherit.noofRatingsProduced}}
+              <span class="stars stars-0">No rating</span>
+          {{/mvc.inherit.noofRatingsProduced}}
+      </span>
+      <small class="total-reviews smaller" data-review="{{mvc.inherit.noofRatingsProduced}}">
+          {{#mvc.inherit.noofRatingsProduced}}
+              ({{mvc.inherit.noofRatingsProduced}})
+          {{/mvc.inherit.noofRatingsProduced}}
+          {{^mvc.inherit.noofRatingsProduced}}
+              (No Reviews)
+          {{/mvc.inherit.noofRatingsProduced}}
+      </small>
+  </a>
+</div>

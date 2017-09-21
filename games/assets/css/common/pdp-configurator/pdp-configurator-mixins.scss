@@ -1,0 +1,42 @@
+@mixin clearfix() {
+	&:after {
+		content: " ";
+		clear: both;
+		display: block;
+	}
+}
+
+.pdp-configurator-close {
+	font-family: 'Tesco Icons';
+    font-size: 24px;
+    color: #c7c7c7;
+    display: inline-block;
+    z-index: 10;
+    text-align: center;
+    border: none;
+    position: absolute;
+    right: 3.099%; /*25px*/
+    background: none;
+    padding: 0px;
+    margin: 0px;
+    outline: none;
+    top: 4.855%; /*25px*/
+
+    &:after {
+        content: 'y';
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: #B1AFAA;
+    }
+}
+
+@mixin fadeInAnimation {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}

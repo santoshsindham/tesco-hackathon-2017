@@ -1,0 +1,374 @@
+@mixin headerDesktopStyles($bodyMarginTop, $headerHeight, $headerbarWidth) {
+
+    #wrapper {
+        padding-top: $bodyMarginTop;
+
+        &.checkout,
+        &.order-confirmation {
+            padding-top: 0px;
+
+            #masthead-wrapper {
+                height: 70px;
+                border-bottom: none;
+            }
+        }
+    }
+
+    #masthead-wrapper {
+        height: $headerHeight;
+
+        &.fixHeaderToBottom {
+            .dropdownOpen {
+                .fixedHeaderScrollPane {
+                    &:not(.basket-flyout-contents-wrapper) {
+                        overflow-y: scroll;
+                        overflow-x: hidden;
+                        -webkit-overflow-scrolling: touch; // adds momentum scroll on iOS devices
+                        border-top: 3px solid $white;
+                        border-bottom: 3px solid $white;
+                        box-shadow: 0px 1px 0px $paleGrey, 0px -1px 0px $paleGrey;
+                        @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+                        > li {
+                            &:last-child {
+                                margin-bottom: 30px;
+                            }
+                        }
+                    }
+
+                    .m-searchify {
+                        margin-bottom: 100px;
+                    }
+
+                    &.basket-flyout-contents-wrapper {
+                        position: relative;
+
+                        .basket-flyout-footer-wrapper {
+                            padding-bottom: 0px;
+
+                            .basket-footnote {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                .fixedHeaderScrollPaneDesktop {
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    -webkit-overflow-scrolling: touch; // adds momentum scroll on iOS devices
+                    border-top: 3px solid $white;
+                    border-bottom: 3px solid $white;
+                    @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+                    div.flyout-promo {
+                        top: 460px;
+                        bottom: auto;
+                    }
+
+                    ul.categories-l2 {
+                        margin-bottom: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+    #masthead {
+        width: $headerbarWidth;
+    }
+
+}
+
+@mixin headerDeviceStyles($bodyMarginTop, $headerHeight, $headerbarWidth) {
+
+    #wrapper {
+        padding-top: $bodyMarginTop;
+
+        &.checkout,
+        &.order-confirmation {
+            padding-top: 0px;
+
+            #masthead-wrapper {
+                height: 70px;
+                border-bottom: none;
+            }
+        }
+    }
+
+    #masthead-wrapper {
+        height: $headerHeight;
+
+        &.fixHeaderToBottom {
+            .dropdownOpen {
+                .fixedHeaderScrollPane {
+                    &:not(.basket-flyout-contents-wrapper) {
+                        overflow-y: scroll;
+                        overflow-x: hidden;
+                        -webkit-overflow-scrolling: touch; // adds momentum scroll on iOS devices
+                        border-top: 3px solid $white;
+                        border-bottom: 3px solid $white;
+                        box-shadow: 0px 1px 0px $paleGrey, 0px -1px 0px $paleGrey;
+                        @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+                        > li {
+                            &:last-child {
+                                margin-bottom: 30px;
+                            }
+                        }
+                    }
+
+                    .m-searchify {
+                        margin-bottom: 100px;
+                    }
+
+                    &.basket-flyout-contents-wrapper {
+                        position: relative;
+
+                        .basket-flyout-footer-wrapper {
+                            padding-bottom: 0px;
+
+                            .basket-footnote {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+
+                &.fixedHeaderScrollPaneDevices {
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    -webkit-overflow-scrolling: touch; // adds momentum scroll on iOS devices
+                    border-top: 3px solid $white;
+                    border-bottom: 3px solid $white;
+                    box-shadow: 0px 1px 0px $paleGrey, 0px -1px 0px $paleGrey;
+                    @include customScrollBar(8px, $paleGrey, transparent, 5px);
+
+                    ul.categories-l1 {
+                        margin-bottom: 100px;
+                    }
+                }
+            }
+        }
+    }
+
+    #masthead {
+        width: $headerbarWidth;
+    }
+
+}
+
+//************************************************************************
+
+@mixin tescoDirectLogoStyle {
+    position: absolute;
+    top: 12px;
+    width: 160px;
+    display: block;
+    z-index: 0;
+    margin: 1px 0 0 0;
+    font-size: 60px;
+    line-height: 1;
+    color: $blue;
+    text-decoration: none;
+
+    &:before {
+        position: absolute;
+        top: -9px;
+        left: 0;
+        z-index: -1;
+    }
+
+    &:after {
+        position: absolute;
+        top: -9px;
+        left: 0;
+        width: 95px;
+        height: 36px;
+        font-family: 'Tesco Icons';
+        content: attr(data-icon);
+        color: $red;
+        display: block;
+        overflow: hidden;
+        z-index: -1;
+        background: #fff;
+    }
+}
+
+@mixin tescoDirectLogoCentredStyle {
+    //@extend tescoDirectLogoStyle;
+    top: 10px;
+    left: 50%;
+
+    &:before,
+    &:after {
+        margin-left: -50%;
+    }
+}
+
+//************************************************************************
+
+@mixin headerbarDeviceStyles {
+
+    #masthead-wrapper {
+        border-bottom: 2px solid $paleGrey;
+
+        #ssb-header-links {
+            top: auto;
+        }
+
+        #header-links {
+            margin-bottom: -2px;
+        }
+
+        #catalogue-nav-link,
+        #search-link {
+            display: block;
+        }
+
+        .catalog-nav-link-label {
+            display: none;
+        }
+
+        .header-link {
+            .menu-title {
+                display: none;
+            }
+        }
+
+        #offers-header-link,
+        #clearance-header-link {
+            display: none;
+        }
+
+        .parent-header-link {
+            .badge {
+                left: 25px;
+            }
+        }
+    }
+
+}
+
+//************************************************************************
+
+@mixin searchDeviceStyles {
+
+    #search-header-list-item {
+        position: static;
+    }
+
+    #search-wrapper {
+        position: absolute;
+        top: 66px;
+        left: 0px;
+        height: 0px;
+        width: 100%;
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px 15px;
+        background-color: $white;
+        border-bottom: none;
+        box-shadow: none;
+        @include multipleTransitions(all 0.3s);
+
+        #search-results-wrapper {
+            margin-top: 0px;
+            @include multipleTransitions(height 0.3s, margin 0.3s);
+        }
+
+        .search {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 45px;
+        }
+
+        a.search-close-link {
+            position: absolute;
+            right: 20px;
+            top: 25px;
+            display: block;
+            color: $grey;
+            @include multipleTransitions(color 0.3s);
+
+            .no-touch & {
+                &:hover {
+                    text-decoration: none;
+                    color: $paleGrey;
+                }
+            }
+
+            &:active {
+                text-decoration: none;
+                color: $paleGrey;
+            }
+
+            span {
+                font-size: 16px;
+
+                &::after {
+                    content: 'y';
+                }
+            }
+        }
+
+        #search-field {
+            width: 100%;
+        }
+
+        &.dropdownOpen {
+            height: 70px;
+            border-bottom: 2px solid $paleGrey;
+            box-shadow: 0 3px 5px 0 rgba(0,0,0,.16);
+
+            &.searchifyOpen {
+                #search-results-wrapper {
+                    margin-top: -10px;
+                    border-right: none;
+                    border-left: none;
+                }
+            }
+        }
+    }
+
+    #masthead-wrapper {
+        &.fixHeaderToBottom {
+            #search-wrapper {
+                &.dropdownOpen {
+                    &.searchifyOpen {
+                        #search-results-wrapper {
+                            margin-top: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//************************************************************************
+
+@mixin flyoutDeviceStyles {
+
+    #basket-header-list-item {
+        position: static;
+    }
+
+    .flyout-menu {
+        top: 56px;
+    }
+
+    #basket-flyout-menu {
+        top: 66px;
+        right: 0px;
+        border-right: none;
+    }
+
+}
+
+@mixin basketOverlayStyles {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: normal;
+  padding: 15px 0;
+}

@@ -1,0 +1,287 @@
+//buying-guides module - all
+@import "../variables";
+@import "buying-guides-mixins";
+
+.buying-guides {
+
+	// category theme colours
+	&.category-theme-01 { @include category-theme( #74899D, #475D72 ); }
+	&.category-theme-02 { @include category-theme( #9D8874, #725C47 ); }
+
+	#main-content {
+		.hero-image {
+			border-bottom: 1px solid $primaryBorderColor;
+			img {
+				display: block;
+				height: auto !important;
+				margin: 0;
+				max-width: 100%;
+				padding: 0;
+				width: 100%;
+				border: none;
+			}
+		}
+
+		.content-block {
+			@include bordered-box;
+			clear: both;
+
+			p {
+				font-size: 1.4em;
+				margin: $onecol 0;
+			}
+
+			.topic-list {
+				&:after {
+					@include clear-fix;
+				}
+				margin: 0 0 12px;
+				.select-topic {
+					display: none;
+				}
+				ul {
+					border-top: 1px solid #bfbdbd;
+					li {
+						width: 50%;
+						float: left;
+						font-size: 1.4em;
+						a {
+							display: block;
+							padding: 12px 0;
+							border-top: 1px solid #bfbdbd;
+						}
+						&:nth-child(1) a,
+						&:nth-child(2) a {
+							border-top: none;
+						}
+					}
+				}
+			}
+
+			$topic-icon-size: 33px;
+
+			.topic-content {
+				clear: both;
+				border-top: 1px solid #bfbdbd;
+				&:first-child {
+					border-top: none;
+				}
+				h2 {
+					margin: $onecol 0;
+					font-size: 2.2em;
+					font-style: italic;
+					font-weight: bold;
+					line-height: $topic-icon-size;
+					&.icon-quote,
+					&.icon-info {
+						position: relative;
+						padding-left: 46px;
+						&:before {
+							@include border-radius(100%);
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: $topic-icon-size;
+							height: $topic-icon-size;
+							line-height: $topic-icon-size;
+							font-family: 'Tesco Icons';
+							font-size: 16px;
+							font-style: normal;
+							color: #fff;
+							text-align: center;
+							// background-color: defined using mixin 'category-theme'
+						}
+					}
+					&.icon-quote:before {
+						content: '9';
+						font-weight: normal;
+						line-height: $topic-icon-size + 2px;
+					}
+					&.icon-info:before {
+						content: 'i';
+						letter-spacing: -2px;
+					}
+				}
+				h3 {
+					margin: $onecol 0 12px;
+					font-size: 1.4em;
+				}
+				.topic-image {
+					margin: $onecol 0;
+					border: 1px solid $primaryBorderColor;
+					img {
+						display: block;
+						height: auto !important;
+						margin: 0;
+						max-width: 100%;
+						padding: 0;
+						width: 100%;
+						border: none;
+					}
+				}
+				blockquote {
+					position: relative;
+					color: #fff;
+					margin: $onecol 0;
+					padding: 0 $onecol;
+					border-width: 1px;
+					border-style: solid;
+					// border-color: defined using mixin 'category-theme'
+					// background-color: defined using mixin 'category-theme'
+
+					// corner triangles
+					&:after,
+					&:before {
+						position: absolute;
+						width: 0px;
+						height: 0px;
+						content: '';
+						border-style: solid;
+					}
+					// white corner triangle
+					&:after {
+						top: -1px;
+						right: -1px;
+						border-width: 0 24px 24px 0;
+						border-color: transparent #fff transparent transparent;
+					}
+					// dark corner triangle
+					&:before {
+						top: 0;
+						right: 0;
+						border-width: 24px 0 0 24px;
+						// border-color: defined using mixin 'category-theme'
+					}
+					h4.speaker {
+						position: relative;
+						margin: $onecol 0;
+						padding: 0 0 0 56px;
+						line-height: 41px;
+						font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+						font-size: 1.8em;
+						img {
+							position: absolute;
+							top: 0;
+							left: 0;
+							border-width: 1px;
+							border-style: solid;
+							// border-color: defined using mixin 'category-theme'
+						}
+					}
+					p {
+						color: #fff;
+						font-style: italic;
+					}
+				}
+
+				.video-container {
+					max-width: 360px; // large desktop has a larger max width
+					margin: $onecol 0;
+					// border: 1px solid #848282;
+					.video-embed {
+						position: relative;
+						padding-bottom: 56.25%;
+						padding-top: 25px;
+						height: 0;
+						iframe {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+						}
+					}
+				}
+			}
+
+			.annotation-image {
+				border: 1px solid #d3d3d3;
+				img {
+					display: block;
+				    height: auto !important;
+				    margin: 0;
+				    max-width: 100%;
+				    padding: 0;
+				    width: 100%;
+				    border: none;
+				}
+			}
+
+			.annotation-list {
+				&:after {
+					@include clear-fix;
+				}
+				margin-top: 24px;
+				counter-reset: annotation-counter;
+				li {
+					&:before {
+						content: counter(annotation-counter);
+						counter-increment: annotation-counter;
+						font-weight: bold;
+						float: left;
+						width: 24px;
+					}
+					font-size: 1.4em;
+				}
+			}
+
+			.download-pdf {
+				border-top: 1px solid #d9d7d7;
+				margin: $onecol 0;
+				padding: $onecol ($onecol / 2) 0;
+				a {
+					background: url('/assets/img/icon-pdf.png') left center no-repeat;
+					padding-left: 24px;
+				}
+			}
+		}
+
+		.view-related,
+		.back-to-top {
+			float: right;
+			font-size: 1.8em;
+			&:after {
+				@include clear-fix;
+			}
+			a {
+				@include underlineLink;
+			}
+		}
+	}
+
+	#secondary-content {
+		@include bordered-box;
+		h3,
+		p,
+		ul li {
+			font-size: 1.4em;
+		}
+		h3 {
+			margin: 0 0 16px;
+			padding: 16px 0 0;
+			border-top: 1px solid #bfbdbd;
+			&:first-child {
+				border-top: none;
+			}
+		}
+		ul {
+			margin: 16px 0;
+			li {
+				margin: 16px 0;
+			}
+		}
+		.back-to-buying-guides {
+			border-top: 1px solid #d9d7d7;
+			margin: $onecol 0;
+			padding: $onecol ($onecol / 2) 0;
+			a {
+				line-height: 1.4em; // keeps the icon aligned with the text
+				&:before {
+					content: 'g';
+					font-family: 'Tesco Icons';
+					margin-right: $onecol / 2;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,15 @@
+//promo-stamps module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "promo-stamps-mixins";
+
+
+.promo-stamps {
+	li.stacked {
+		padding-bottom: 0;
+
+		a {
+			margin-bottom: 8px;
+		}
+	}
+}

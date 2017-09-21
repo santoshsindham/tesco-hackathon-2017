@@ -1,0 +1,15 @@
+@import "../../../core/components/breakpoints";
+@include breakpoint(desktop);
+@import "../mixins/google-ads-mixins";
+
+.google-ads-block {
+    clear: both;
+    margin: 1%;
+    width: 98%;
+
+    &.gpt-ad-direct-S,
+    &.gpt-ad-direct-M,
+    &.gpt-ad-direct-LL {
+    	display: none;
+    }
+}

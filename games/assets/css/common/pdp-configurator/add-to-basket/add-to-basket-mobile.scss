@@ -1,0 +1,64 @@
+@import "../../variables";
+@import "../pdp-configurator-mixins";
+
+.pdp-configurator {
+
+    .has-case .add-to-basket-container {
+        width: 100%;
+    }
+
+    .add-to-basket-container {
+        width: 100%;   
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+
+        &.closed {
+            @include translate3d(-100%, 0, 0);
+
+            width: 100%;
+        }
+
+        header {
+            padding: 15px 3.333333333333%;
+
+            h2 {
+
+                .combination {
+                    display: none;
+                }
+            }
+        }
+
+        .product-description {
+            padding: 15px 3.333333333333%;
+
+            span {
+
+                &.points {
+                    clear: both;
+                    margin: 0px;
+                    line-height: 14px;
+                }
+
+                &.highlight {
+                    font-size: 13px;
+                }
+            }
+
+            .add-to-basket {
+                width: 50%;
+                top: 0px;
+            }
+        }
+
+        .update-tablet {
+            display: inline-block;
+        }
+
+        .add-a-case {
+            display: inline-block;
+        }
+    }
+}

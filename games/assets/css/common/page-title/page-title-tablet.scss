@@ -1,0 +1,50 @@
+/*******************************************
+* Tablet page title module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(allTablet);
+@import "page-title-mixins";
+
+h1 {
+	margin-left: $onecol;
+	margin-right: $onecol;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 16px;
+}
+#page-container div:first-child h1 {
+	margin-top: -14px;
+	margin-bottom: 16px;
+}
+
+// Vertical Tablet
+@include breakpoint(vTablet){
+	h1 {
+		font-size: 2.4em;
+		line-height: 32px;
+		margin-top: 0;
+		width: auto;
+		max-height: 96px;
+	}
+}
+
+// Horizontal Tablet
+@include breakpoint(hTablet){
+	h1 {
+		width: auto;
+	}
+}
+#page-container .product-description h1.page-title, .listing h1.page-title {
+    width: auto;
+    margin: 0 0 8px 8px;
+    line-height:1.5em;                
+}
+
+// START remove strong inheritance
+#page-container div:first-child h1 {
+    &.page-title--v2 {
+        margin: 0;
+    }
+}
+// END remove strong inheritance

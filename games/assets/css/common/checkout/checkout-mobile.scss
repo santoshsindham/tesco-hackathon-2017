@@ -1,0 +1,161 @@
+//checkout module - mobile
+@import "../breakpoints";
+@include breakpoint(mobile);
+@import "checkout-mixins";
+
+.checkout {
+  #main-content {
+    width: auto;
+  }
+
+  .checkout-info {
+    margin-left: 0;
+    }
+
+  .delivery-group-block  h2 {
+    font-size: 2em;
+    font-weight: normal;
+    padding-left: 0;
+  }
+
+    #progress-bar {
+    margin: 0 0 16px;
+     }
+
+  #totalCost {
+    position: absolute !important;
+  }
+
+  .delivery-block {
+    .delivery-cost-module {
+      p {
+        padding-left: 0;
+
+        &.value,
+        &.label {
+          font-family: "Tesco", Helvetica, Arial, sans-serif;
+          font-size: 20px;
+          margin-top: 30px;
+          }
+        }
+
+      .label {
+        font-weight: normal;
+        }
+      }
+
+    .datepicker-tooltip-module {
+      font-size: 1em;
+     }
+  }
+  //e-gaming terms and conditions block css start
+  #egaming-tc-container {
+    padding: 22px 8px;
+
+    .egaming-tc-content {
+      width: 100%;
+    }
+
+    .checkbox-wrapper {
+      float: left;
+
+      .egaming-tc-check-label {
+        float: left;
+        width: 85%;
+      }
+    }
+  }
+  //e-gaming terms and conditions block css end
+}
+
+.pcaAutoCompleteSmall {
+  z-index: 1000;
+  }
+
+.pcaCapturePlusTable .bottom {
+  display: none;
+}
+
+#virtual-page {
+  .pcaAutoComplete .pnlResults .pcaContent, .pcaAutoCompleteSmall .pnlResultsSmall .pcaContent,
+  .pcaCapturePlusTable .pcaAutoComplete .pcaContent, .pcaCapturePlusTable .pcaAutoCompleteSmall .pcaContent {
+    max-height: 112px !important;
+    overflow-y: scroll !important;
+    }
+  }
+
+.checkout.irSPC {
+  #totalCost {
+    position: relative !important;
+  }
+
+  .payment-details {
+    display: none;
+  }
+}
+
+.payment-group-block #payment {
+  .payment-details {
+    padding: 0 8px;
+
+    h2 {
+      padding: 30px 0 0;
+      }
+  }
+}
+
+.payment-group-block #payment .total p.total-to-pay {
+  font-size: 2em;
+  }
+
+#virtual-page {
+    > .uiGiftMessage {
+    display: block;
+    margin: 5px 5px;
+    width: auto;
+
+    textarea {
+      font-size: 14px;
+      padding: 5px;
+      width: 308px;
+    }
+
+    &.adjust {
+      padding: 0 10px;
+    }
+
+    .label {
+      display: none;
+    }
+
+    .count,
+    .lineCount {
+      padding: 5px;
+    }
+
+    .buttons {
+      display: block;
+
+      .button {
+        font-size: 14px;
+      }
+     }
+  }
+}
+
+.checkout-block-container {
+  .personalised-message-indicative {
+    display: block;
+  }
+
+  .personal-gift-message-wrapper {
+    .uiGiftMessage {
+      display: block;
+      width: 100%;
+     }
+
+    .gift-message-mask {
+      display: block;
+     }
+  }
+}

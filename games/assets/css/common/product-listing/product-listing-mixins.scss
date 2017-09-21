@@ -1,0 +1,412 @@
+@mixin box {
+    border: 1px solid $primaryBorderColor;
+    border-top: none;
+    text-align: center;
+    background-color: #FFF;
+    font-size: 12px;
+}
+
+@mixin boxAndShadow {
+    padding: 14px 4px 8px 4px;
+}
+
+@mixin fixed {
+    position: fixed;
+    top: 0;
+}
+
+@mixin loadingBar {
+    margin-top:-1px;
+  width: 100%;
+  padding:30px 30px 20px 40px;
+  text-align: center;
+  font-size:14px;
+  float:left;
+  background: url($ajaxLoaderSrc) no-repeat 38% 22px #ffffff;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    border-color: $primaryBorderColor;
+}
+@mixin list-view-ll-l {
+    .colour-swatch-container {
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+}
+@mixin list-view-ll-l-m($detailsBuyBoxContainerWidth) {
+    .colour-swatch-container {
+        text-align: center;
+        height: auto;
+        padding: 0;
+        max-width: 170px;
+    }
+    .product {
+        padding: 16px;
+
+        .oosImageHolder {
+            .oosText {
+                width: 170px;
+                margin-left: 0px;
+            }
+        }
+    }
+    .product-ping {
+        top: 16px;
+        left: 16px;
+    }
+    .products {
+        .product {
+            .rating-container {
+                margin-top: 0px;
+            }
+            .price {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    .details-buy-box-container {
+        width: $detailsBuyBoxContainerWidth;
+    }
+    .buy-block {
+        margin-bottom: 8px;
+    }
+    .buy-block,
+    .former-prices,
+    .saving {
+        margin-left: 0px;
+    }
+    .former-prices {
+      min-height: 0px;
+
+      &,
+      & li {
+        display: inline;
+          margin-right: 0px;
+      }
+    }
+    .former-reason {
+        @include screen-reader;
+    }
+    .saving {
+        display: inline;
+    }
+    .unavailable-special-offer {
+        margin: 16px 0px;
+
+        .unavailable {
+            display: none;
+        }
+    }
+}
+
+@mixin list-view-ll-l-hTablet($priceFontSize, $detailsContainerWidth, $buyBoxContainerWidth, $buyBoxContainerMaxWidth) {
+    .details-container {
+        width: $detailsContainerWidth;
+        float: left;
+    }
+    .buy-box-container {
+        max-width: $buyBoxContainerMaxWidth;
+        width: $buyBoxContainerWidth;
+        float: right;
+    }
+    .products {
+        .product {
+            .price {
+                font-size: $priceFontSize;
+                height: auto;
+                line-height: normal;
+            }
+        }
+    }
+    .preorder,
+    .stock-alert,
+    .add-to-basket {
+        height: 36px;
+        margin: 0;
+    }
+    .stock-alert,
+    .add-to-basket {
+        width: 100%;
+    }
+    .stock-alert {
+        padding: 8px 0;
+    }
+}
+
+@mixin list-view-ll-l-m-s {
+    .products {
+        .product-tile {
+            width: 100%;
+        }
+
+        .product {
+            .title-author-format {
+                min-height: 0px;
+                padding-left: 0px;
+            }
+            .rating-container {
+                margin-left: 0px;
+            }
+            .price {
+                margin-top: 0px;
+                margin-left: 0px;
+            }
+        }
+    }
+    .image-container {
+        float: left;
+        margin-right: 16px;
+    }
+    .thumbnail {
+        margin-bottom: 0px;
+    }
+    .details-buy-box-container {
+        float: left;
+    }
+}
+
+@mixin light-box-offer-centered-view-ll-l-m {
+    #lightbox.light-box-offer.centered-view {
+        @include horizontally-centered(376px);
+        height: 485px;
+    }
+}
+
+
+@mixin grid-configuration($numberOfColumns) {
+    .product-tile {
+        width: percentage(1 / $numberOfColumns);
+    }
+}
+
+/* the class grid-33321 is for the grid where LLVP, LVP, hTablet has 3 columns, vTablet has 2 columns and SVP has 1 column */
+@mixin grid-33321-ll-l-hTablet {
+    @include grid-configuration(3);
+
+  // 3 column grid add-on-item code for L and LL
+  .add-on-item {
+    #add-on-text {
+      &:after,
+      &:before {
+        left: 33%;
+      }
+    }
+  }
+ }
+
+@mixin grid-33321-vTablet {
+    @include grid-configuration(2);
+}
+
+@mixin grid-33321-s {
+    @include grid-configuration(2);
+}
+
+@mixin grid-33321-ll-l {
+    .thumbnail {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@mixin grid-33321-ll-l-m-s {
+    .former-reason {
+        @include screen-reader;
+    }
+
+    .products {
+        .product {
+            font-family: $tescoFont;
+
+            .title-author-format {
+                font-family: $tescoFont;
+
+                h3 {
+                    font-family: $tescoFont;
+                    font-size: 15px;
+                }
+            }
+              .rating-container {
+                .total-reviewers {
+                    font-family: $tescoFont;
+                    font-size: 15px;
+                }
+            }
+
+            .oosImageHolder {
+                .oosText{
+                    margin: 0;
+                    width: 100%;
+                }
+            }
+
+            .from {
+                font-family: $tescoFont;
+                font-size: 15px;
+            }
+
+            .price {
+                font-weight: bold;
+                font-size: 36px;
+                margin-top: 24px;
+                margin-bottom: 12px;
+            }
+
+        }
+
+        .buy-block {
+            font-size: 15px;
+        }
+
+        .former-prices {
+            li {
+                opacity: 0.7;
+                font-size: 15px;
+            }
+        }
+
+        .saving {
+            font-size: 15px;
+            font-weight: normal;
+            text-transform: none;
+        }
+
+        .unavailable-special-offer {
+            .special-offer {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .unavailable{
+        display: none;
+    }
+    .swatches{
+       display: block;
+    }
+
+    .details-container {
+        width: 250px;
+    }
+}
+
+@mixin light-box-offer-grid-33321-s {
+    #lightbox.light-box-offer.grid-33321 {
+        margin-left: 0px;
+    }
+}
+
+@mixin plp-swatches-base-styles {
+  .details-container {
+    width: auto;
+    .colour-swatch-container {
+      color: $xDarkPutty;
+      padding-left: 10px;
+      position: relative;
+      text-align: center;
+      .colour-swatch {
+        background-color: rgba(255,255,255,.7);
+        height: 29px;
+        padding: 0;
+        p.mobile-only, p.mobile {
+          display: none;
+        }
+        .swatches {
+          display: block;
+          height: 29px;
+          overflow: hidden;
+          padding-left: 0;
+          &.more {
+            float: left;
+          }
+          li {
+            border: 1px solid $white;
+            display: inline-block;
+            float: left;
+            margin: 0 3px 0 0;
+            overflow: hidden;
+            padding: 1px;
+            img {
+              border-radius: 4px;
+              height: 25px;
+              width: 25px;
+            }
+            &.selected {
+              border-color: #008DC8;
+              border-radius: 4px;
+            }
+          }
+        }
+        .moreLink {
+          float: left;
+          font-size: 12px;
+          line-height: 26px;
+          overflow: hidden;
+          text-align: left;
+          width: 130px;
+        }
+        p {
+          display: block;
+          &.mobile-only {
+            font-size: 14px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin plp-swatches-large-styles {
+  .details-container {
+    .colour-swatch-container {
+      .colour-swatch {
+        height: 34px;
+        .swatches {
+          height: 34px;
+          width: 100%;
+          &.more {
+            width: 156px;
+          }
+          li {
+            padding: 1px;
+            img {
+              width: 30px;
+              height: 30px;
+            }
+          }
+        }
+        .moreLink {
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}
+
+@mixin plp-swatches-hover-styles {
+  .no-touch #listing .colour-swatch-container .swatches li a:hover img {
+    border: 2px solid #008DC8;
+  }
+}
+
+@mixin addOnItemStyles {
+  & {
+    position: relative;
+
+    .add-on-image-container {
+      bottom: 7px;
+      left: 8px;
+      position: absolute;
+
+      img {
+        height: 21px;
+        width: 112px;
+      }
+    }
+
+     #add-on-text {
+      @include topPositionedTooltip;
+     }
+  }
+}

@@ -1,0 +1,12 @@
+@mixin side-by-side-buttons-reversed {
+	@include side-by-side-buttons;
+	.buttons .secondary-button:first-child {
+		float: right;
+		margin-right: 0;
+		margin-top: 0;
+		width: 49%;
+	}
+	.buttons {
+		width: 462px;
+	}	
+}

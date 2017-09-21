@@ -1,0 +1,332 @@
+
+
+/* 6.		Supplemental	*/
+
+#supplemental {
+    float: left;
+	position: relative;
+	display: inline;
+	margin: 0;
+}
+#supplemental .product-grid{
+	float: left;
+}
+#supplemental .recently-viewed h2{
+	display: inline;
+	margin:0 0 0 6px;
+}
+#supplemental .recently-viewed .rvProductTitleHolder {
+	height: 52px;
+	max-height: 52px;
+}
+
+#supplemental .recently-viewed h3{
+	margin:10px 10px 5px 10px;
+	overflow:hidden;
+}
+
+#supplemental .recently-viewed{
+	padding: 15px 0 10px 10px;
+	width: 950px;
+	overflow: hidden;
+	background-color: #D9D9D9;
+	margin: 0 4px;
+	display: inline;
+}
+#supplemental .recently-viewed .ui-carousel-navigation{
+	margin:5px 0 0 0;
+	float: right;
+}
+#supplemental .recently-viewed ul{
+	float: left;
+}
+#supplemental .recently-viewed ul.hide{
+	display: none;
+}
+#supplemental .recently-viewed .ui-carousel-navigation li{
+	min-height:19px; *height:19px;
+}
+.recently-viewed .actions {
+	margin: 4px 15px 10px 15px;
+	float: right;
+}
+.recently-viewed .ui-carousel-slide .ui-carousel-item{
+	float: left;
+}
+.recently-viewed .actions .button {
+	margin: 0 0 0 10px;
+	padding: 2px 18px 2px 18px;
+	display: inline;
+	float: left;
+}
+.recently-viewed .ui-carousel-tracker {
+	display: none;
+}
+.recently-viewed li{
+    border: 1px solid #DDD7D7;
+    background: #EFEFEF;
+	position: relative;
+}
+.recently-viewed li a img{
+    margin: 0 0 10px 0;
+}
+.remove-button {
+	background: url("../images/icon_sprite.png") no-repeat scroll 0 0 transparent;
+	text-indent: -9999em;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	display: block;
+	top: 6px;
+	right: 6px;
+/*	outline: none;*/
+}
+.remove-button:hover{
+	background-position: -25px 0;
+}
+
+/* 7.   Footer */
+
+/*
+	Styles for full footer
+*/
+
+#footer,
+#footer-mini {
+	position: relative;
+	margin: 0 0 10px;
+}
+#footer {
+    color: #848282;
+    float: left;
+    background-color: #4F5050;
+}
+#footer h2 {
+    margin-bottom:5px;
+    font-size:1.4em;
+	float: left;
+	color:#d4d4d4;
+}
+#footer a {
+    color: #cfcfcf;
+}
+#footer .external{
+	background: url("../images/external_link_footer.png") no-repeat right;
+	padding: 0 20px 0 0;
+}
+#footer-branding {
+    float: left;
+	display: block;
+    width: 170px;
+    margin: 17px 10px 0 10px;
+}
+#footer-branding img {
+    float: left;
+	display: block;
+	height: 29px;
+	width: 100px;
+    margin: 0 0 0 10px;
+}
+#footer-secondarynav {
+	float:left;
+    margin: 17px 0 15px 0;
+    /*overflow: hidden;*/
+}
+#footer-secondarynav li ul{
+	width: 168px;
+	float: left;
+	clear: both;
+}
+#footer-secondarynav li {
+    float: left;
+    margin: 0 0 0 10px;
+    padding: 0 0 0 12px;
+}
+#footer-secondarynav li li {
+    margin: 0;
+    padding: 0;
+	float: none;
+	font-size:1.1em;
+	text-indent:1px;
+}
+#footer-secondarynav li li a{
+	line-height: 1.4;
+}
+#footer-secondarynav li li a:hover{
+	color: #DDD7D7;
+}
+#footer-secondarynav .extension {
+    width: 180px;
+    margin: 32px 0 0 10px;
+    padding: 0;
+}
+#footer-colophon {
+    float: left;
+    width: 960px;
+    height: 52px;
+    margin: 0;
+    background: url("../images/footer_separator.png") top no-repeat;
+}
+#footer-payment {
+    float: left;
+    height: 35px;
+    margin: 8px 0 0 10px;
+    background: #fff;
+}
+#footer-payment li {
+    float: left;
+    margin: 6px 0 0 3px;
+}
+#footer-payment li a{
+	background: url("../images/footer/footer_credit_card.png") no-repeat;
+	display:block;
+	text-indent:-9999em;
+	height:24px;
+	cursor:default;
+}
+#footer-payment li a.card_visa{
+	background-position:0 0;
+	width:49px;	
+}
+#footer-payment li a.card_master{
+	background-position:0 -30px;
+	width:44px;	
+}
+#footer-payment li a.card_amex{
+	background-position:0 -60px;
+	width:39px;	
+}
+#footer-payment li a.card_maestro{
+	background-position:0 -90px;
+	width:44px;	
+}
+#footer-payment li a.card_tesco{
+	background-position:0 -120px;
+	width:49px;	
+}
+#footer-payment li a.card_verisign{
+	background-position:0 -150px;
+	width:58px;	
+	height:29px;
+	cursor:pointer;
+}
+#footer-payment .first {
+    margin: 6px 0 0 7px;
+}
+#footer-payment .verisign {
+    margin: 2px 8px 0 11px;
+}
+#footer-payment .last{
+	margin: 6px 8px 0 3px;
+}
+#siteinfo-legal {
+    float: left;
+    margin: 29px 0 0 19px;
+}
+#footer-colophon p#siteinfo-legal {
+	color: #cfcfcf;
+    font-family: arial;
+    font-size: 11px;
+}
+#footer-branding-tagline {
+    float: right;
+    width: 165px;
+    height: 30px;
+    margin: 14px 14px 0 0;
+}
+
+/* 7.1 Footer Mini */
+
+/*
+	Smaller footer - only colophon
+*/
+#footer-mini {
+	float: left;
+	display: inline;
+}
+#footer-mini #footer-colophon{
+    margin: 0 4px 0;
+    background-image: none;
+    background-color: #4F5050;
+    float: left;
+    color: #848282;
+	display: inline;
+}
+#footer-mini .footer-wrapper #footer-colophon {
+	margin: 0;
+}
+.footer-wrapper {
+	background: #4F5050;
+	float: left;
+	margin: 0 4px;
+	display: inline;
+}
+/* 7.2 Security footer */
+
+#secure-footer{
+	padding: 0 10px 0 0px;
+	clear: both;
+}
+#secure-footer .hr{
+	margin-bottom: 10px;
+}
+.related-search-text{
+	font-size: 1.2em; 
+	font-weight: bold ; 
+	padding: 10px 0;
+}
+.account #secure-footer{
+	padding: 0;
+}
+#secure-footer hr{
+	margin: 0;
+}
+#secure-footer .checkout-secure {
+	margin: 10px 0;
+	padding: 0 0 0 24px;
+	font-size: 1.2em;
+    color: #4F5050;
+    background: transparent url("../images/padlock.png") no-repeat scroll 5px top;
+}
+.link-save-container .html-block {
+	float:none;
+}
+.link-save-container .html-block p {
+	padding-top:0;
+	margin-bottom:20px;
+}
+.link-save-container .tabs-nav {
+	margin-right:10px;
+}
+.link-save-container .generic-standard {
+	top:0;
+}
+.link-save-back-to-special-offers {
+	margin-bottom:27px;
+}
+.link-save-back-to-special-offers a {
+	margin-bottom:0;
+	font-size:1em;
+}
+.basket .primary-content .link-save-container hr {
+	background-position:0 -40px;
+}
+/*pending rajesh */
+#header .dart-banner{
+	position:absolute;
+	left:250px;
+	height:60px;
+	overflow:hidden;
+}
+#product-navigation .dart-banner {
+	float:left;
+	text-align:center;
+	width:168px;
+	background:url("../images/advertisement_header.png") top left no-repeat;
+	border: 1px solid #D9D9D9;
+	border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    padding: 30px 0px 5px 0px;
+}
+.widthAuto{width:auto !important; }

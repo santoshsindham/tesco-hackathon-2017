@@ -1,0 +1,112 @@
+/*******************************************
+*	Desktop Product Filters module
+*******************************************/
+@import "../breakpoints";
+@import "../variables";
+@include breakpoint(desktop);
+@import "product-filters-mixins";
+
+@include overlay-filter-m-l;
+@include filter-action-s-m;
+@include overlay-filter-s-m-l-xl;
+
+#product-filter-actions {
+  margin: 0 8px;
+  width: auto;
+
+  .sort span {
+    display: none;
+  }
+  .control {
+    text-align: center !important;
+  }
+
+}
+.filter-overlay_active{
+	.filter-filterOption{
+		color: $xDarkPutty;
+	  	text-decoration: none;
+	}
+	&:hover{
+		color: $white !important;
+	}
+	.filter-filterOption_active:hover{
+		color: $white !important;
+	}
+}
+
+
+.filter-filterGroup{
+	.filter-filterOption:hover{
+		&:not(.filter-filterOption_disabled){
+			color: $white !important;
+			background-color: $tescoBrightBlue !important;
+			text-decoration: none !important;
+			.filter-filterOptionCount {
+	          color: #fff;
+	        }
+		}
+	}
+}
+
+/* New PLP designs */
+
+.no-touch #product-filters-wrapper.lhnV2 a.filter-filterOption:hover{
+	color: #666;
+}
+.no-touch .filter-side.lhnV2 .filter-filterGroupLabel:hover{
+	background-color: #fff !important;
+	color: #008DC8;
+}
+
+/*******************************************
+*	New PLP
+*******************************************/
+
+.filter-side.lhnV2 {
+	@include refineBy-m-l;
+	margin: 0px;
+
+	.filter-categoryItem{
+		width: calc(50% - 20px);
+	}
+
+	.filter-controls {
+		font-size: 22px;
+	    line-height: 26px;
+	    color: #333;
+	}
+}
+
+.plp_sortbyV2#frmTest {
+	@include frmTest-m-l;
+	#product-filter-actions {
+    	padding-top: 0px;
+		.refine {
+			a {
+				top: 35px;
+			}
+		}
+
+		.sort {
+			.control {
+			    background-color: #FFF !important;
+			    color: $darkPutty !important;
+			    border: 1px solid $lightPutty !important;
+			    &:active, &:focus, &:hover {
+			      color: $tescoBrightBlue !important;
+			      border: 1px solid $tescoBrightBlue !important;
+			    }
+			}
+		}
+	}
+}
+
+
+.collapsible-categories {
+  .filter-categoryLabel {
+    &:after {
+      top: 13px;
+    }
+  }
+}

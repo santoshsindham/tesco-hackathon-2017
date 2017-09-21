@@ -1,0 +1,174 @@
+@import 'theme_default.scss';
+
+@media screen and (max-width: 760px) {
+    #personalise {
+        height: 500px !important;
+    }
+
+    ##{$prefix}Personalisation {
+        padding: 30px;
+        font-size: 0.8em;
+    }
+
+    .#{$prefix}Next {
+        right: 3px !important;
+
+        .fa {
+            font-size: 3em;
+        }
+    }
+
+    .#{$prefix}Previous {
+        left: 3px !important;
+
+        .fa {
+            font-size: 3em;
+        }
+    }
+
+    ##{$prefix}Controls {
+        font-size: 0.8em;
+        padding: 15px;
+    }
+
+    ##{$prefix}ButtonPanel {
+        .#{$prefix}Button {
+            padding: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #personalise {
+        height: 500px !important;
+    }
+
+    ##{$prefix}ButtonPanel {
+        .#{$prefix}Button {
+            .label {
+                display: none;
+            }
+        }
+    }
+
+    ##{$prefix}TextContent {
+        font-size: 0.9em;
+    }
+
+    .#{$prefix}Next {
+        right: 5px !important;
+
+        .fa {
+            font-size: 3em;
+        }
+    }
+
+    .#{$prefix}Previous {
+        left: 5px !important;
+
+        .fa {
+            font-size: 3em;
+        }
+    }
+
+    ##{$prefix}Personalisation {
+        /*position: fixed!important;*/
+        height: 180px !important;
+        width: 100%;
+        padding: 8px 0;
+        left: 0;
+    }
+
+    ##{$prefix}ButtonPanel {
+        width: auto !important;
+        height: auto !important;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        z-index: 999;
+        border-radius: 5px;
+        font-size: 1.3em!important;
+        /*background: rgba(245, 245, 245 0.8) !important;*/
+
+        .#{$prefix}Button {
+            width: auto;
+            padding: 6px 10px !important;
+            line-height: 1em;
+
+            &:first-child {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+
+            &:last-child {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+
+            /*clear: both;*/
+        }
+    }
+
+    ##{$prefix}Controls {
+        width: 100%;
+        font-size: inherit;
+        border-top: 0;
+        border-left: solid 1px #ccc;
+        border-bottom: solid 1px #ccc;
+    }
+}
+
+.#{$prefix}TextLayer,
+.#{$prefix}ImageLayer {
+    @media screen and (max-width: 600px) {
+        border-width: 1px;
+    }
+
+    .#{$prefix}Inner {
+        @media screen and (max-width: 600px) {
+            border-width: 1px;
+        }
+    }
+}
+
+.#{$prefix}LibraryImage {
+    @media screen and (max-width: 820px) {
+        width: calc(50% - 7px);
+        margin-right: 3px;
+        margin-bottom: 3px;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: calc(33.3% - 8px);
+        margin-right: 4px;
+        margin-bottom: 4px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: calc(33.3% - 10px);
+    }
+}
+
+.#{$prefix}ToolTip {
+    @media screen and (max-width: 600px) {
+        padding: 4px;
+        padding-right: 18px;
+        border-width: 1px;
+    }
+
+    .#{$prefix}CloseToolTip {
+        @media screen and (max-width: 600px) {
+            top: 5px;
+        }
+    }
+
+    &:after {
+        @media screen and (max-width: 600px) {
+            left: 15%;
+            width: 6px;
+            height: 6px;
+            bottom: -4px;
+            border-width: 1px;
+        }
+    }
+}

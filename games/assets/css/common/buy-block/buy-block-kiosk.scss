@@ -1,0 +1,8 @@
+/*******************************************
+* Kiosk page title module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "buy-block-mixins";
+

@@ -1,0 +1,84 @@
+/*******************************************
+* Global Link Save module
+*******************************************/
+
+@import "../variables";
+
+ul.tabs-link-save{
+	width: 100%;
+	
+	li {
+		font-weight: bold;
+		font-size: 1.313em;
+		float: left;
+		width: 33.3%;
+		
+		&.tab1 a {
+			background:linear-gradient(to bottom, white 0%, #cccccc 100%) repeat scroll 0 0 transparent;
+		}		
+		
+		&.tab2 a {
+			background:linear-gradient(to bottom, white 0%, #e5e5e5 100%) repeat scroll 0 0 transparent;
+		}	
+		
+		&.tab3 a {
+			background:linear-gradient(to bottom, white 0%, #b4b4b4 100%) repeat scroll 0 0 transparent;
+		}
+		
+		a {
+			color: #343434;
+			display: block;
+			padding: 1em;
+			border-top: 1px solid #bfbdbd;
+			border-bottom: 1px solid #ffa626;
+			border-right: 1px solid #bfbdbd;
+			
+			&.active {
+				background:linear-gradient(to bottom, #ffffff 0%, #ffffff 100%) repeat scroll 0 0;
+				border-bottom: 1px solid #FFF;
+				border-right: 1px solid #bfbdbd;
+			}	
+			&:hover {
+				background: linear-gradient(to bottom, #01539d 0%, #01539d 100%) repeat scroll 0 0;
+				color: #FFF;
+				text-decoration: none;
+			}
+		}
+	}
+}
+
+.tab-content {	
+	background: white;
+	display: block;
+	width: 100%;
+	clear: both;
+	padding: 15px 15px 5px 15px;
+
+	.title h2 {
+		font-size: 14px;
+		font-weight: bold;
+		font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+		margin: 0;
+	}
+	
+	p {
+		color: #767676;
+		font-size: 12px;
+		font-weight: bold;
+		font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+		margin-top: 5px;		
+	}
+}
+
+.link-save {	
+
+	h1.page-title {
+		&:after {
+			@include clear-fix;
+		}
+	}
+	
+	.error-title {
+		display: block;
+	}
+}

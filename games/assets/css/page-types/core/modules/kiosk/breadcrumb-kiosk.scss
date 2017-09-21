@@ -1,0 +1,11 @@
+/*******************************************
+*	Kiosk Desktop Breadcrumb module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(kiosk);
+@import "../mixins/breadcrumb-mixins";
+
+#breadcrumb {
+	display: none;
+}

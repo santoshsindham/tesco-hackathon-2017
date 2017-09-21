@@ -1,0 +1,241 @@
+//buying-guides module - mixins
+
+$onecol: 16px;
+
+@mixin bordered-box {
+	@include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+	border: 1px solid $primaryBorderColor;
+	background-color: #fff;
+}
+
+@mixin buying-guides-touch {
+	.buying-guides {
+		#main-content {
+			.content-block {
+				.content-block-inner {
+					padding: 0 ($onecol / 2);
+				}
+				.topic-list {
+					ul {
+						li {
+							&:nth-child(odd) a {
+								margin-right: $onecol / 4;
+							}
+							&:nth-child(even) a {
+								margin-left: $onecol / 4;
+							}
+						}
+					}
+				}
+				.topic-content {
+					@include table-condensed;
+					margin-right: $onecol / 2;
+					margin-left: $onecol / 2;
+					.topic-image {
+						max-width: 360px;
+						&.topic-image-small {
+							max-width: 360px;
+						}
+					}
+				}
+			}
+		}
+		#secondary-content {
+			margin-bottom: $onecol;
+			padding-bottom: 0;
+			h3,
+			ul {
+				margin-right: $onecol / 2;
+				margin-left: $onecol / 2;
+			}
+		}
+	}
+}
+
+@mixin buying-guides-desktop {
+	.buying-guides {
+		#main-content {
+			margin-left: ($onecol / 2);
+			float: left;
+			.content-block {
+				.content-block-inner {
+					padding: 0 $onecol;
+				}
+				.topic-list {
+					ul {
+						li {
+							&:nth-child(odd) a {
+								margin-right: $onecol / 2;
+							}
+							&:nth-child(even) a {
+								margin-left: $onecol / 2;
+							}
+						}
+					}
+				}
+				.topic-content {
+					@include table-full;
+					margin-right: $onecol;
+					margin-left: $onecol;
+
+					// set via javascript
+					&.topic-content-with-video,
+					&.topic-content-with-small-image {
+						position: relative;
+						.topic-content-inner {
+							width: 294px; // large desktop differs
+						}
+						.video-container,
+						.topic-image-small {
+							position: absolute;
+							right: 0;
+							width: 360px; // large desktop differs
+							margin-top: 0;
+						}
+					}
+				}
+				.download-pdf {
+					padding-right: $onecol;
+					padding-left: $onecol;
+				}
+			}
+		}
+		#secondary-content {
+			float: right;
+			h3,
+			ul {
+				margin-right: $onecol;
+				margin-left: $onecol;
+			}
+			.back-to-buying-guides {
+				display: none;
+			}
+		}
+	}
+}
+
+@mixin annotation-list-columns($length: '') {
+	.annotation-list {
+		li {
+			@if $length > 1 {
+				@if $length == 3 {
+					width: 33.3%;
+				} @else {
+					width: 50%;
+				}
+				float: left;
+				margin: 0 0 24px;
+				padding: 0 $onecol 0 0;
+			} @else {
+				margin: 0 0 $onecol;
+			}
+		}
+	}
+}
+
+@mixin table-condensed {
+	table {
+		width: 100%;
+		margin: 16px 0 0;
+		border: none;
+		th,
+		td {
+			padding: 12px ($onecol / 2);
+			font-size: 1.4em;
+			text-align: left;
+
+		}
+		thead {
+			display: none;
+		}
+		tbody {
+			tr {
+				display: block;
+				margin-bottom: 16px;
+				padding: 0 ($onecol / 2);
+				border: 1px solid $primaryBorderColor;
+			}
+			td {
+				position: relative;
+				display: block;
+				padding-right: 0;
+				padding-left: 50%;
+				border-bottom: 1px solid $primaryBorderColor;
+				&:last-child {
+					border-bottom: none;
+				}
+				&:before {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 47%;
+					padding: 12px 0;
+					color: #848282;
+					content: attr(data-heading);
+				}
+			}
+		}
+	}
+}
+
+@mixin table-full {
+	table {
+		width: 100%;
+		margin: 16px 0;
+		border-collapse: separate;
+		border-spacing: 0;
+		border: 1px solid #BFBDBD;
+		th,
+		td {
+			padding: 12px ($onecol / 2);
+			font-size: 1.4em;
+			text-align: left;
+
+		}
+		thead {
+			th {
+				border-bottom: 1px solid #BFBDBD;
+			}
+		}
+		tbody {
+			td {
+				border-bottom: 1px solid $primaryBorderColor;
+			}
+			tr:last-child {
+				td {
+					border-bottom: none;
+				}
+			}
+		}
+	}
+}
+
+@mixin category-theme($light-color, $dark-color) {
+	#main-content {
+		.content-block {
+			.topic-content {
+				h2 {
+					&.icon-quote:before {
+						background-color: $light-color;
+					}
+					&.icon-info:before {
+						background-color: $dark-color;
+					}
+				}
+				blockquote {
+					border-color: $dark-color;
+					background-color: $light-color;
+					// dark corner triangle
+					&:before {
+						border-color: transparent transparent transparent $dark-color;
+					}
+					h4.speaker {
+						img {
+							border-color: $dark-color;
+						}
+					}
+				}
+			}
+		}
+	}
+}

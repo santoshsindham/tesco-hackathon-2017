@@ -1,0 +1,39 @@
+@import "../../../core/components/variables";
+
+.no-results {
+  margin: 8px;
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .no-results-wrapper {
+    clear: both;
+    background: #fff;
+    border: 1px solid $primaryBorderColor;
+    @include box-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    padding: 8px;
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .results-found {
+    display: block;
+    border-bottom: 1px solid $primaryBorderColor;
+    padding-bottom: 16px;
+    margin-top: 8px;
+    font-size: 16px;
+  }
+
+  .suggestions {
+    font-size: 14px;
+    list-style: disc;
+    padding-left: 16px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+}

@@ -1,0 +1,381 @@
+/*
+    Author: SquareTrade
+*/
+
+.st_resale_product_widget_container {
+    width: 100%;
+    overflow:hidden;
+    padding: 5px 12px;
+    font-family: sans-serif;
+}
+
+.st_resale_product_widget_container .heading {
+    font-size: 13px;
+    font-family: sans-serif;
+    width: auto;
+    margin-bottom:5px;
+    overflow:hidden;
+}
+
+.st_resale_product_widget_container .heading span {
+    position: relative;
+    bottom: -2px;
+    float: left;
+    left: 2px;
+}
+
+.st_resale_product_widget_container .heading img {
+    position: relative;
+    float: right;
+    bottom: 0;
+    height: 20px;
+}
+
+.st_resale_product_widget_container .body {
+    font-size: 12px;
+    width: 100%;
+    position: relative;
+    float: left;
+    margin: -2px 0 0 -3px;
+    line-height: 18px;
+}
+
+.st_resale_product_widget_container .st_icon {
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    margin: 3px 0 -3px 0;
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+}
+
+.st_resale_product_widget_container label {
+    float: left;
+    margin: 0 7px;
+    padding: 0;
+    font-size: 11px;
+    width:auto;
+    margin-left:0;
+}
+
+.st_resale_product_widget_container .price {
+    font-size: 11px;
+    float: right;
+    display: inline;
+    position: relative;
+    text-indent: 2px;
+    margin-right: 10px;
+}
+
+.st_resale_product_widget_container input[type=checkbox] {
+    font-size: 17px;
+    margin: 0 7px;
+    float: left;
+    padding: 0 !important;
+    height: auto !important;
+}
+
+.st_resale_product_widget_container .pricing_selector {
+    float: left;
+    width: inherit;
+}
+
+/* ====== Tesco-specific overrides of default Overlay component styles ====== */
+
+.st_overlay .st_outlet_dimming_layer {
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.17);
+}
+
+.st_overlay .st_outlet_overlay_panel {
+    margin-top: 120px;
+}
+
+/* ======= Tesco Warranty Purchase Interstitial Overlay-related Styles ====== */
+
+.st_warranty_interstitial {
+    width: 640px;
+    height: 331px;
+    padding: 20px;
+    text-align: left;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 35px -12px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.st_warranty_interstitial .body {
+    position: absolute;
+    text-align: left;
+    top: 210px;
+    left: 200px;
+    bottom: 25px;
+    right: 15px;
+}
+
+.st_warranty_interstitial .body .subhead {
+    color: #043451;
+    font-weight: bold;
+    font-size: 150%;
+    margin-bottom: 10px;
+}
+
+.st_warranty_interstitial .body fieldset {
+    position: absolute;
+    left: 100px;
+    right: 30px;
+    top: 38px;
+}
+
+.st_warranty_interstitial .body fieldset label {
+    display: block;
+    max-width: 18em;
+    margin: 2px;
+    font-weight: bold;
+}
+
+.st_warranty_interstitial .body fieldset label input {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.st_warranty_interstitial .price {
+    float: right;
+    display: inline-block;
+    margin-top: 3px;
+}
+
+.st_warranty_interstitial .actions {
+    position: absolute;
+    bottom: 0px;
+    text-align: right;
+    width: 100%;
+    /*width: inherit;*/
+}
+
+.st_warranty_interstitial .actions a {
+    padding: 4px 15px;
+    font-size: 180%;
+    font-weight: bold;
+    border-radius: 3px;
+    margin: 0 30px 0 10px;
+}
+
+.st_warranty_interstitial .actions .add-warranty-to-basket {
+    border: 1px solid #fea100;
+    /*
+        TODO need to grab this image and reference the st_images version within template
+    */
+    /*background: #ff8402 url(../images/btn_orange_large_repeat.jpg) 0 0 repeat-x;*/
+    background: #ff8402;
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0%,#fe8300),color-stop(48%,#fe8f00),color-stop(83%,#fea100));
+    background: -moz-linear-gradient(center bottom,#fe8300 0,#fe8f00 48%,#fea100 83%) repeat scroll 0 0 transparent;
+    text-decoration: none;
+    color: white;
+}
+
+.st_warranty_interstitial .actions .add-warranty-to-basket:hover {
+    background: #ff7800;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.st_warranty_interstitial .actions .no-thanks {
+    border: 1px solid #ccc;
+    background: #efefef;
+    background: -webkit-gradient(linear,left bottom,left top,color-stop(0%,#eeeeee),color-stop(48%,#ffffff),color-stop(83%,#ffffff));
+    background: -moz-linear-gradient(center bottom,#eeeeee 0,#ffffff 48%,#ffffff 83%) repeat scroll 0 0 transparent;
+    color: #999;
+    padding: 6px 30px;
+    font-size: 160%;
+}
+
+.st_warranty_interstitial .actions .no-thanks:hover {
+    text-decoration: none;
+}
+
+/* ================ Tesco "More Info" Overlay-related Styles ================ */
+
+.st_more_info_popup {
+    position: relative;
+    width: 575px;
+    height: 330px;
+}
+
+.st_more_info_popup > * {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.corner.st_overlay_close {
+    width: 24px;
+    right: 13px;
+    left: auto;
+    top: 8px;
+    cursor:pointer;
+}
+
+.st-learn-more {
+    top: 235px;
+    left: 282px;
+    font-size: 12px;
+    font-family: sans-serif;
+    color: #ccc;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-select-plan {
+    cursor: pointer;
+    top: auto;
+    left: 250px;
+    bottom: 27px;
+    width: 130px;
+    height: 39px;
+    display:none;
+}
+
+.st-terms-conditions {
+    top: auto;
+    left: auto;
+    bottom: 40px;
+    right: 60px;
+    font-size: 10px;
+    font-family: sans-serif;
+    color: rgb(184, 184, 184);
+}
+
+/* Begin include of default $st.components.Overlay styles */
+
+/**
+ *  $st.components.Overlay
+ */
+
+/*
+    Ensure the common `is-hidden` classname is available to this component
+*/
+.is-hidden {
+    display: none !important;
+}
+
+/*
+    Applied to `document.body` while the Overlay is presented. Locks the
+    document height to the window height so the component can manage scrolling.
+*/
+.st_fixed_viewport {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+.st_overlay .st_outlet_dimming_layer {
+    pointer-events: auto;
+    position: fixed;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 400px;
+
+    top: 0px;
+    left: 0px;
+
+    text-align: center;
+
+    /* IE Transparent Background */
+    background: none;
+    -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000,endColorstr=#b2000000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000,endColorstr=#b2000000);
+    zoom: 1;
+    /* Standard Transparent Background */
+    background-color: rgba(0, 0, 0, 0.7);
+
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.st_overlay .st_outlet_overlay_panel {
+    display: inline-block;
+
+    margin-top: 100px;
+    margin-right: auto;
+    margin-bottom: 100px;
+    margin-left: auto;
+
+    max-width: 80%;
+    max-height: 70%;
+
+    min-height: 100px;
+
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.st_overlay .st_outlet_host_container {
+    min-width: 320px;
+    min-height: 100px;
+
+    max-height: 100%;
+    text-align: left;
+}
+
+/*
+    CSS-based mechanism to control visibility of the "default close link"
+
+    When the hosted Overlay content does not contain its own means of dismissing
+    the Overlay, the component sets a `needs-default-close-link` classname on
+    its root element. When the "close link" is missing in content, the component
+    also assumes that the content lacks styling and will attempt to apply a
+    default background color. Content that does not have a "close link" is still
+    able to leverage the component's default link, and override the styling.
+*/
+
+.st_overlay .st_outlet_panel_footer {
+    display: none;
+    padding: 10px;
+    text-align: right;
+}
+
+.st_overlay.needs_default_close_link .st_outlet_overlay_panel {
+    background: white;
+}
+
+.st_overlay.needs_default_close_link .st_outlet_panel_footer {
+    display: block;
+    background: white;
+}
+
+.st_overlay .st_outlet_default_close_link {
+    display: inline-block;
+}
+
+.st_overlay .st_default_close_link_text:after {
+    cursor: default;
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    color: #222222;
+    content: "Close Overlay";
+}
+
+/* End include of default $st.components.Overlay styles */
+
+.st_resale_product_widget_container {
+    padding:5px 0 !important;
+    margin-bottom:10px;
+}

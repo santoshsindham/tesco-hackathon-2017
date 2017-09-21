@@ -1,0 +1,29 @@
+/*******************************************
+*	Tablet Example module
+*******************************************/
+
+@import "../../../core/components/breakpoints";
+@include breakpoint(allTablet);
+@import "../mixins/popular-searches-mixins";
+
+#popular-searches {
+	max-height: 60px;
+	overflow: hidden;
+
+	.social-media {
+		display: none;
+	}
+
+	.popular-search-list {
+		width: 100%;
+	}
+
+	ul{
+		li {
+			@include tag;
+			a{
+				font-size: 0.9em;
+			}
+		}
+	}
+}

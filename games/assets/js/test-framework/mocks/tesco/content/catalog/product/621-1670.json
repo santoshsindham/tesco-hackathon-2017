@@ -1,0 +1,81 @@
+{
+  "id" : "621-1670",
+  "userActionable" : true,
+  "siteProductPageTemplates" : {
+    "site18630002" : {
+      "id" : "292000069",
+      "type" : "page",
+      "href" : "/direct/rest/content/SecureSiteBuilderRepository/page/292000069"
+    }
+  },
+  "prices" : {
+    "id" : "621-1670",
+    "fromPrice" : "11.00",
+    "toPrice" : "19.99",
+    "clubcardPoints" : 11
+  },
+  "displayName" : "Really Stunning Magic Gold Edition",
+  "publicLink" : "/direct/really-stunning-magic-gold-edition/621-1670.prd",
+  "avgRating" : 4.72,
+  "longDescription" : "<p>Become a master magician and perform amazing tricks that will astound your friends and family members. Using props as well as some everyday objects you will be able to perform 135 incredible magic tricks and illusions. Really Stunning Magic Gold Edition contains clear step-by-step instructions so even the youngest of magicians can develop their skills and become a master performer.</p>",
+  "giftMessagingEnabled" : false,
+  "ancestorCategories" : [ {
+    "id" : "cat3375590",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3375590"
+  }, {
+    "id" : "cat3376550",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376550"
+  }, {
+    "id" : "cat3376694",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376694"
+  }, {
+    "id" : "cat38910003",
+    "type" : "buylist",
+    "href" : "/direct/rest/content/catalog/buylist/cat38910003"
+  }, {
+    "id" : "cat38960003",
+    "type" : "buylist",
+    "href" : "/direct/rest/content/catalog/buylist/cat38960003"
+  } ],
+  "brand" : "Magic",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/621-1670_PI_TPS2646788?$[preset]$",
+        "secureSrc" : "//tesco.scene7.com/is/image/tesco/621-1670_PI_TPS2646788?$[preset]$",
+        "renderSource" : "Scene 7",
+        "alt" : "String",
+        "defaultImage" : true
+      }
+    }
+  },
+  "noofRatingsProduced" : 197,
+  "links" : [ {
+    "id" : "621-1670",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/621-1670"
+  }, {
+    "id" : "621-1670",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/621-1670"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

@@ -1,0 +1,125 @@
+/*******************************************
+* Kiosk	visual nav module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "visual-nav-mixins";
+
+$nav-item-width: 17 * $onecol;
+$nav-item-height: 136px;
+$nav-item-height-small: 80px;
+
+@mixin round-icon-kiosk {
+	@include box-shadow(none);
+	@include border-radius(100%);
+	width: 42px;
+	height: 42px;
+	display: inline-block;
+	line-height: 42px;
+	color: #fff;
+	font-family: 'Tesco Icons';
+	font-size: 22px;
+	text-align: center;
+	border: 3px solid #fff;
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); // move to ie css
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+#visual-nav, .visual-nav {
+	width: 1746px;
+	float: left;
+	padding: $onecol $onecol 0;
+	margin-left: 2 * $onecol;
+	margin-bottom: $onecol;
+	border: 1px solid $primaryBorderColor;
+	background-color: #fff;
+	h2 {
+		width: $nav-item-width;
+		min-height: $nav-item-height;
+		display: inline-block;
+		float: left;
+		padding: 0;
+		margin: 0 $onecol $onecol 0;
+		font-family: 'Helvetica Neue', Arial, sans-serif;
+		font-weight: normal;
+		font-size: 2.2em;
+		line-height: $nav-item-height;
+		.kiosk-colon {
+			display: inline;                    
+		}
+	}
+	ul {
+		width: auto;
+		display: block;
+		float: left;
+		&:after {
+			display: none;
+		}
+		li {
+			float: left;
+			margin: 0 $onecol $onecol 0;
+			&:nth-child(5n) {
+				clear: left;
+			}
+			&:nth-child(n+5){	// QC Defect ID 48553
+                display: none;
+			}
+			a {
+				border: 1px solid $lightPutty;
+				display: block;
+				width: $nav-item-width;
+				height: auto;
+				min-height: $nav-item-height;
+				&:after {
+					display: none;
+				}
+				span {
+					height: 46px;
+					display: block;
+					font-size: 1.7em;
+					line-height: 46px;
+					padding-left: $onecol;
+					overflow: hidden;
+				}
+			}
+			.wrapper-img {
+				width: 100%;
+				height: 88px;
+				border-bottom: 1px solid $lightPutty;
+				img {
+					margin-top: -51px;
+				}
+			}
+		}
+	}
+	.placeholder {
+		display: none;
+	}
+	.anchor {
+		display: none;
+	}
+	#view-all-categories {
+		@include tescoFont;
+		@include secondaryButtonColoring;
+		display: none;
+		//Below code is to hide view-all-categories button when there are no popular cat navigation items from backend
+		//display: inline-block;
+		width: $nav-item-width;
+		min-height: $nav-item-height;
+		margin: 0 0 $onecol;
+		padding: 0 0 0 26px;
+		font-size: 2.4em;
+		line-height: $nav-item-height - 2px; // compensate for border
+		float: right;
+		text-align: left;
+		&:before {
+			@include round-icon-kiosk;
+			content: 'r';
+			margin-right: 11px;
+		}
+	}
+}

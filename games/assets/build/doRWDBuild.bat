@@ -1,0 +1,1 @@
+ant -buildfile RWD_MinifyAndBundling.xml

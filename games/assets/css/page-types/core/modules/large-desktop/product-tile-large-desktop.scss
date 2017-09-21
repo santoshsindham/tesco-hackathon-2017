@@ -1,0 +1,80 @@
+/*******************************************
+*   Large Desktop Product Tile module
+*******************************************/
+
+@import "../../components/breakpoints";
+@include breakpoint(largeDesktop);
+@import "../mixins/product-tile-mixins";
+
+@include desktop-product-tiles;
+
+$onecol: 1;
+
+.product-description .main-details {
+    .products > li .product {
+        border: none;
+
+        &:hover {
+            border: none;
+        }
+    }
+}
+
+.product-grid.shop-by,
+.product-carousel.streamline-basket-carousel {
+    overflow: visible;
+    h2 {
+       line-height: 42px;
+       margin-bottom: 14px;
+    }
+
+    .products {
+      li {
+        width: 20%;
+      }
+    }
+}
+.product-carousel {
+
+  .products-wrapper {
+    background: #ffffff;
+  }
+
+  .products {
+    &>li {
+      width: 20%;
+
+      &:nth-child(5n+5) {
+        .product {
+          border: 1px solid rgba(0, 0, 0, 0);
+        }
+      }
+    }
+  }
+}
+
+.category {
+    #main-content {
+        .product-carousel {
+            .products {
+                > li {
+                    width: 25%;
+                    &:nth-child(5n+5) {
+                        .product {
+                            border-width: 1px 1px 1px 0px;
+                            border-style: solid;
+                            border-color: #ffffff $pagePutty #ffffff #ffffff;
+                        }
+                    }
+                    &:nth-child(4n+4) {
+                        .product {
+                            border-color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include llvp-lvp-product-carousel-heroic;

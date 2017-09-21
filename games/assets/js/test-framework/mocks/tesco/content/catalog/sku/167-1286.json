@@ -1,0 +1,146 @@
+{
+  "id" : "167-1286",
+  "prices" : {
+    "id" : "167-1286",
+    "price" : "9.99",
+    "was" : "32.99",
+    "savings" : "23.00",
+    "clubcardPoints" : 9
+  },
+  "displayName" : "Mountain Warehouse Trek Mens Short Sleeved Shirt ( Size: S )",
+  "publicLink" : "/direct/mountain-warehouse-trek-mens-short-sleeved-shirt/148-7656.prd?skuId=167-1286",
+  "specification" : {
+    "Material" : [ {
+      "title" : "Material",
+      "description" : "Combination",
+      "attr" : "material"
+    } ],
+    "Key Information" : [ {
+      "title" : "Style",
+      "description" : "Shirt",
+      "attr" : "style"
+    }, {
+      "title" : "Type",
+      "description" : "Shirts",
+      "attr" : "type"
+    }, {
+      "title" : "Gender",
+      "description" : "Mens",
+      "attr" : "gender"
+    }, {
+      "title" : "Age Suitability",
+      "description" : "Adult",
+      "attr" : "age_suitability"
+    }, {
+      "title" : "Colour",
+      "description" : "Brown",
+      "attr" : "colour"
+    }, {
+      "title" : "Size",
+      "description" : "S",
+      "attr" : "size"
+    }, {
+      "title" : "Use",
+      "description" : "Casual",
+      "attr" : "use"
+    } ],
+    "Variant" : [ {
+      "title" : "Colour",
+      "description" : "Brown",
+      "attr" : "colour"
+    }, {
+      "title" : "Size",
+      "description" : "S",
+      "attr" : "size"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Brown",
+    "size" : "S"
+  },
+  "longDescription" : "Perfect for hotter climes, the Mountain Warehouse Trek Mens Short Sleeved Shirt is lightweight and fast drying, ideal for the tropics. With a soft mesh lining, the shirt also features air vents at the armholes for enhanced ventilation. The design has a pleated back and two chest pockets to keep your personals close to hand, ensuring the Trek shirt proves its worth in the hottest of climates keeping you well ventilated and dry. Fast Drying - Dries quickly thanks to its absorbent nature Lightweight - Makes it great for travelling, walking and more. No added bulk Shrink & Fade Resistant - Looks great even after multiple wears and washes Mesh Lined - Improves breathability by allowing moisture to be drawn away from the skin, keeping you dry and comfortable Pockets - Two Velcro closure chest pockets Air Vents - There are two air vents at the armholes to promote ventilation (Ref: 021319) Mesh Lined",
+  "ancestorCategories" : [ {
+    "id" : "cat3376549",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376549"
+  }, {
+    "id" : "cat3376685",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376685"
+  }, {
+    "id" : "cat38470010",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38470010"
+  }, {
+    "id" : "cat38670012",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat38670012"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/167-1286_PI_1000223MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/167-1286_PI_1000223MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/167-1286_PI_1000223AL01?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/167-1286_PI_1000223AL02?$[preset]$",
+      "renderSource" : "Scene 7"
+    }, {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/167-1286_PI_1000223AL03?$[preset]$",
+      "renderSource" : "Scene 7"
+    } ]
+  },
+  "miniDescription" : {
+    "Bullet 1" : "Fast Drying",
+    "Bullet 2" : "Lightweight",
+    "Bullet 3" : "Shrink & Fade Resistant"
+  },
+  "links" : [ {
+    "id" : "167-1286",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/167-1286",
+    "options" : {
+      "primary" : "Brown",
+      "secondary" : "S"
+    }
+  }, {
+    "id" : "148-7656",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/148-7656"
+  }, {
+    "id" : "O00012e2c7",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/O00012e2c7"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

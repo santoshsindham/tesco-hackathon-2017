@@ -1,0 +1,301 @@
+/*******************************************
+*	VAT invoice module - All
+*******************************************/
+
+@import "../variables";
+
+#vat-invoice-details {
+
+    h2 {
+        padding-bottom: 0 !important; // override #order-summary
+    }
+
+    .form-group {
+        clear: both;
+        border-bottom: 1px solid $primaryBorderColor;
+
+        fieldset {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        label.error {
+            display: block;
+            font-size: 1.4em;
+            color: $error;
+        }
+    }
+
+    .vat-name-section {
+        padding: 16px 0;
+
+        .vat-name {
+            font-size: 1.4em;
+
+            .edit {
+                float: right;
+            }
+        }
+
+        .edit-vat-name {
+            display: none; // hide on page init
+            width: 454px;
+            margin-left: 208px;
+
+            label {
+                display: none;
+            }
+
+            .field-wrapper {
+                margin-bottom: 16px;
+            }
+
+            .form-actions {
+                overflow: hidden; // contain floated buttons
+
+                input {
+                    float: left;
+                    width: 48%;
+                    &[type=submit] {
+                        float: right;
+                    }
+                }
+            }
+        }
+    }
+
+    .vat-address-section {
+        padding: 16px 0;
+        &:after {
+            @include clear-fix; // contain floated elements
+        }
+
+        label {
+            font-size: 1.4em;
+            line-height: 2.5; // large-desktop - align text with dropdown
+            float: left;
+            width: 208px; // large-desktop
+            padding-right: 8px;
+        }
+        label + .vat-address-field {
+            #vat-address-output {
+                color: #848282;
+            }
+        }
+
+        .vat-address-field {
+            float: left;
+            width: 454px;
+
+            .customDropdown {
+                margin-bottom: 8px;
+            }
+
+            .control {
+                width: 100%; // customDropdown full width
+
+                .icon {
+                    position: absolute; // push icon to far right of dropdown
+                    right: 12px;
+                }
+            }
+
+            #vat-address-output {
+                font-size: 1.4em;
+            }
+
+            .change-adr {
+                display: block;
+                margin-top: 8px;
+                font-size: 1.2em;
+
+                .toggle-content {
+                    display: none;
+                    padding-top: 8px;
+                }
+            }
+        }
+    }
+
+    .vat-email-section {
+        padding: 16px 0;
+        &:after {
+            @include clear-fix; // contain floated elements
+        }
+
+        label {
+            font-size: 1.4em;
+            float: left;
+            width: 208px; // large-desktop
+            padding-right: 8px;
+            &.error {
+                float: none;
+                width: auto;
+                padding-right: 0;
+            }
+        }
+
+        .vat-email-field {
+            float: left;
+            width: 454px;
+
+            input[type="email"] {
+                width: 100%;
+            }
+        }
+    }
+
+    .vat-submission-footer {
+        padding: 16px 0 16px 208px;
+        border-bottom: none;
+        &:after {
+            @include clear-fix; // contain floated elements
+        }
+
+        .label {
+            font-size: 1.2em;
+            float: right;
+            width: 40%; // large-desktop
+            padding-right: 60px; // large-desktop
+            padding-left: 8px;
+        }
+
+        .form-group-buttons {
+            float: left;
+            width: 60%;
+            margin: 0;
+            input {
+                width: auto;
+                &[type=submit] {
+                    width: 45%;
+                    display: inline-block;
+                }
+            }
+            a.secondary-button {
+                float: right;
+                width: 45%;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .vat-footer-buttons {
+    	padding-bottom: 10px;
+    }
+}
+
+.vat-invoice-message {
+    padding: 0 8px;
+
+    p:first-child {
+        font-weight: bold;
+        font-size: 1.8em !important; // override #order-details;
+
+    }
+}
+
+.vat-invoice-items {
+    .seller-invoice-strapline {
+        clear: both;
+        font-size: 1.2em !important; // override #order-details
+    }
+
+    .seller-contact {
+        display: none;
+        font-size: 1.4em;
+        line-height: 1.4;
+        padding-bottom: 16px;
+
+        span {
+            display: block;
+        }
+    }
+
+    .supplied-by {
+        clear: both; // because heading is floated
+        margin: 0 !important; // override #order-details
+        border-top: 1px solid $primaryBorderColor;
+        padding: 16px 0;
+        &:hover {
+            cursor: pointer;
+        }
+
+        .icon {
+            float: right;
+            font-size: 1em;
+            color: $putty;
+            margin-right: -16px;
+            padding-right: 16px;
+        }
+    }
+
+    .dg-items-ps {
+        font-weight: bold;
+    }
+
+    .delivery-item-holder {
+        display: none;
+
+        .description {
+            width: 80%;
+
+            h3 {
+                font-weight: normal;
+                margin: 0 0 8px;
+                font-size: 1.4em;
+                line-height: 1.4;
+            }
+        }
+
+        .price {
+            .section-heading {
+                display: none;
+            }
+        }
+    }
+
+    .vat-items-footer-buttons {
+        border-top: 1px solid $primaryBorderColor;
+        padding: 16px 0 10px;
+    }
+}
+
+.no-touch {
+    .vat-invoice-items {
+        .tel {
+            a {
+                color: #4F5050;
+                cursor: default;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+#order-header-actions{
+	.actions-list{
+		input[type="submit"]{
+			height: auto;
+		}
+		input[type="submit"]:focus{
+			height: auto;
+			border: 1px solid transparent;
+		}
+	}
+}
+
+#order-summary{
+	.items-dispatched{
+		.product-block{
+			p{
+				input[type="button"]{
+					height: auto;
+					clear: both;
+				}
+			}
+		}
+	}
+
+}

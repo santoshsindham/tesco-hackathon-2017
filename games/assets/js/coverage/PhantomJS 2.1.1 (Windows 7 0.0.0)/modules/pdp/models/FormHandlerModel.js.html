@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\pdp\models\FormHandlerModel.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">modules/pdp/models/</a> FormHandlerModel.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.31% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>65/83</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">70.37% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>19/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">84.21% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>16/19</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">78.31% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>65/83</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">432×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">162×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">162×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">108×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">define('modules/pdp/models/FormHandlerModel', [
+  'domlib',
+  'modules/mvc/fn',
+  'modules/pdp/data-stores/FormHandler',
+  'modules/pdp/models/BaseModel'
+], function ($, fn, FormHandler, BaseModel) {
+  'use strict';
+&nbsp;
+  /**
+   *
+   * @param {Object} config
+   * @return {void}
+   */
+  function FormHandlerModel(config) {
+    this.parent.constructor.call(this, config);
+    this.DataStoreClass = FormHandler;
+    this.sNamespace = 'formHandler';
+    this.sParentNamespace = '';
+    this._inputRegex = function (prop) {
+      return new RegExp('^(?!_D:).*(' + prop + ')$');
+    };
+    this._setFormTemplates();
+  }
+&nbsp;
+  fn.inherit(FormHandlerModel, BaseModel);
+&nbsp;
+  FormHandlerModel.prototype._updateRegexHook = function (oParam) {
+    var property = '';
+&nbsp;
+    fn.loopObject.call(this, oParam.oData, function loopData(prop) {
+      if (prop.match(this._inputRegex(oParam.sProp))) {
+        property = prop;
+      }
+    });
+&nbsp;
+    return property;
+  };
+&nbsp;
+  FormHandlerModel.prototype.add = function (mData) {
+    var _mData = mData;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof _mData === 'string') {
+<span class="cstat-no" title="statement not covered" >      _mData = this._serialize(_mData);</span>
+    }
+&nbsp;
+    return this.parent.add.call(this, _mData);
+  };
+&nbsp;
+  FormHandlerModel.prototype._serialize = <span class="fstat-no" title="function not covered" >function (sData) {</span>
+<span class="cstat-no" title="statement not covered" >    var oFormHandler = null,</span>
+      elForm = $(sData)[0],
+      $FormInputs = $(sData).find('input');
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    oFormHandler = this._getAttrKeyValues(elForm);</span>
+<span class="cstat-no" title="statement not covered" >    oFormHandler.oData = {};</span>
+<span class="cstat-no" title="statement not covered" >    $.extend(oFormHandler.oData, this._getInputKeyValues($FormInputs));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return oFormHandler;</span>
+  };
+&nbsp;
+  FormHandlerModel.prototype._getAttrKeyValues = <span class="fstat-no" title="function not covered" >function (elForm) {</span>
+<span class="cstat-no" title="statement not covered" >    var i = 0,</span>
+      iCount = elForm.attributes.length,
+      attr = null,
+      oData = {};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (; i &lt; iCount; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >      attr = elForm.attributes[i];</span>
+<span class="cstat-no" title="statement not covered" >      oData[attr.name] = attr.value;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return oData;</span>
+  };
+&nbsp;
+  FormHandlerModel.prototype._getInputKeyValues = <span class="fstat-no" title="function not covered" >function ($FormInputs) {</span>
+<span class="cstat-no" title="statement not covered" >    var i = 0,</span>
+      iCount = $FormInputs.length,
+      elFormInput = null,
+      oData = {};
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    for (; i &lt; iCount; i += 1) {</span>
+<span class="cstat-no" title="statement not covered" >      elFormInput = $FormInputs[i];</span>
+<span class="cstat-no" title="statement not covered" >      oData[elFormInput.name] = elFormInput.value;</span>
+    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return oData;</span>
+  };
+&nbsp;
+  FormHandlerModel.prototype.clone = function (args) {
+    var _args = args || <span class="branch-1 cbranch-no" title="branch not covered" >{},</span>
+      clone = null,
+      component = _args.component,
+      config = _args.config,
+      inputs = {},
+      name = _args.name,
+      publicLink = _args.publicLink;
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof name !== 'string' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >typeof component !== 'string'</span>
+        &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >typeof publicLink !== 'string')</span> {
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+    clone = this._getFormTemplate(name, publicLink);
+&nbsp;
+    <span class="missing-if-branch" title="if path not taken" >I</span>if (!fn.isObject(clone, { notEmpty: true })) {
+<span class="cstat-no" title="statement not covered" >      return null;</span>
+    }
+&nbsp;
+    inputs = clone.oData;
+&nbsp;
+    fn.loopArray.call(this, config, function loopData(i) {
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (fn.isObject(config[i]) &amp;&amp; typeof config[i].key === 'string'
+          &amp;&amp; (config[i].value === undefined || typeof config[i].value === 'string')) {
+        inputs = this._setInputValue(inputs, config[i].key, config[i].value, config[i].action);
+      }
+    }, { check: true });
+&nbsp;
+    // Below swaps id and name values because they are returned the wrong way round in the
+    // formhandler and swapped back when the form is added to the model. This is because of the
+    // way ATG uses id for forms (generic per form type) and the way the frontend uses id (unique).
+    // -- Dylan Aubrey (so24) 06/09/2016
+    clone.name = component + '-' + this.createUniqueId();
+    clone.oData = inputs;
+    return this.add(clone);
+  };
+&nbsp;
+  FormHandlerModel.prototype._getFormTemplate = function (name, publicLink) {
+    var clone = this.formTemplates[name],
+      inputs = clone.oData,
+      urlData = {
+        error: { urlSuffix: 'addItemToOrderErrorURL', url: '' },
+        success: { urlSuffix: 'addItemToOrderSuccessURL', url: '' }
+      };
+&nbsp;
+    fn.loopObject.call(this, urlData, function loopURLData(type) {
+      urlData[type].url = this._getInputValue(inputs, urlData[type].urlSuffix);
+      urlData[type].url = this._replacePlaceholder(urlData[type].url, 'baseURL', this.baseURL);
+      inputs = this._setInputValue(inputs, urlData[type].urlSuffix, urlData[type].url);
+    });
+&nbsp;
+    clone.action = this._replacePlaceholder(clone.action, 'publicLink', publicLink);
+    clone.oData = inputs;
+    return clone;
+  };
+&nbsp;
+  FormHandlerModel.prototype._setInputValue = function (inputs, suffix, value, action) {
+    var _inputs = inputs;
+&nbsp;
+    fn.loopObject.call(this, _inputs, function loopInputs(name) {
+      if (name.match(this._inputRegex(suffix))) {
+        if (action === 'append') {
+          _inputs[name] += value;
+        } else {
+          _inputs[name] = value || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        }
+      }
+    });
+    return _inputs;
+  };
+&nbsp;
+  FormHandlerModel.prototype._getInputValue = function (inputs, suffix) {
+    var inputValue = '';
+&nbsp;
+    fn.loopObject.call(this, inputs, function loopInputs(name) {
+      if (name.match(this._inputRegex(suffix))) {
+        inputValue = inputs[name];
+      }
+    });
+    return inputValue;
+  };
+&nbsp;
+  FormHandlerModel.prototype._replacePlaceholder = function (target, placeholder, value) {
+    var regex = new RegExp('{' + placeholder + '}');
+&nbsp;
+    return target.replace(regex, value);
+  };
+&nbsp;
+  FormHandlerModel.prototype._setFormTemplates = function () {
+    this.formTemplates = {};
+    this.formTemplates.addToBasket = {
+      id: 'addToBasket',
+      name: '',
+      method: 'post',
+      action: '{publicLink}?_DARGS=/blocks/catalog/productdetailv2/multipleAddToBasketForms.jsp',
+      oData: {
+        _dyncharset: 'UTF-8',
+        '': '-421045239635327304',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.catalogRefIds': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.catalogRefIds': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.productId': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.productId': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.skuId': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.skuId': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.personalisedGUID': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.personalisedGUID': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.personalisedImageURL': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.personalisedImageURL': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderSuccessURL': '{baseURL}blocks/catalog/productdetailv2/addToBasketResponse.jsp',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderSuccessURL': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderErrorURL': '{baseURL}blocks/catalog/productdetailv2/addToBasketResponse.jsp',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.addItemToOrderErrorURL': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.quantity': '1',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.quantity': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.schoolId': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.schoolId': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.schoolName': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.schoolName': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.schoolLogoRef': '',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.schoolLogoRef': ' ',
+        '/atg/commerce/order/purchase/CartModifierFormHandler.addProductAndServices': 'submit',
+        '_D:/atg/commerce/order/purchase/CartModifierFormHandler.addProductAndServices': ' ',
+        _DARGS: '/blocks/catalog/productdetailv2/multipleAddToBasketForms.jsp'
+      }
+    };
+  };
+&nbsp;
+  return FormHandlerModel;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

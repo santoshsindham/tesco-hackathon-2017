@@ -1,0 +1,7 @@
+@import "../breakpoints";
+@include breakpoint(kiosk);
+@import "save-for-later-mixins";
+
+#recently-viewed {
+	display: none;
+}

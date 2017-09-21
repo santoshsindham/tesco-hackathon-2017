@@ -1,0 +1,18 @@
+//help module - desktop
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "help-mixins";
+
+
+@include help-desktop;
+
+.help {
+	#main-content {
+		width: 715px;
+	}
+
+	#secondary-content {
+		width: 224px;
+	}
+}
+

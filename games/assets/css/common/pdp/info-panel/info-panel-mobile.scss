@@ -1,0 +1,73 @@
+@import 'info-panel-mixins';
+@import 'info-panel-overrides';
+@include infoPanelDevices;
+
+.info-panel-group {
+  &.slideIn-left-mobile {
+    @include slideInDevices(right);
+  }
+
+  &.lightbox-mobile {
+    @include lightbox;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .info-panel {
+      margin-top: 20px;
+    }
+
+    &.small-lightbox {
+      .info-panel {
+        height: 80%;
+        margin-top: 7%;
+      }
+    }
+  }
+
+  &.notification-mobile {
+    @include notification;
+  }
+
+  &.fullBleed-mobile {
+    @include fullBleed;
+  }
+}
+
+.info-panel {
+  h3.info-panel-content-title {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .info-panel-content {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+
+  &.tooltip-bottom-mobile {
+    .tooltip-pointer {
+      @include tooltipPointerPosition(top);
+    }
+  }
+
+  &.tooltip-left-mobile {
+    .tooltip-pointer {
+      @include tooltipPointerPosition(right);
+    }
+  }
+
+  &.tooltip-top-mobile {
+    .tooltip-pointer {
+      @include tooltipPointerPosition(bottom);
+    }
+  }
+
+  &.tooltip-right-mobile {
+    .tooltip-pointer {
+      @include tooltipPointerPosition(left);
+    }
+  }
+}
+
+@include infoPanelOverridesDevices;

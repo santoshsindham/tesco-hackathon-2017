@@ -1,0 +1,35 @@
+//checkout module - large desktop
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "checkout-mixins";
+
+.checkout {
+	#main-content {
+		width: auto;
+		float: none;	
+		overflow: visible;
+		> div > h1{
+			margin:0!important;
+		}
+	}
+	h1{
+	  	max-height: 126px;
+	}
+	h2 {
+		margin-bottom: 10px;
+	}
+	.pcaAutoCompleteSmall{
+		z-index: 1000;
+	}
+	.bottom{
+		display:none;
+	}
+	.pcaCapturePlusTable .pcaAutoComplete .pcaContent, .pcaCapturePlusTable .pcaAutoCompleteSmall .pcaContent {
+		overflow-y: scroll !important;
+		max-height: 132px !important;
+	}
+	.gift-card-description{
+		font-size: 1em;
+		padding-left: 0px
+	}
+}

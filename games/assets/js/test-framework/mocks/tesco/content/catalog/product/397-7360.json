@@ -1,0 +1,106 @@
+{
+  "id" : "397-7360",
+  "optionsInfo" : [ {
+    "type" : "primary",
+    "name" : "Colour",
+    "internalName" : "colour"
+  }, {
+    "type" : "secondary",
+    "name" : "Size",
+    "internalName" : "p_size"
+  } ],
+  "userActionable" : false,
+  "prices" : {
+    "id" : "397-7360",
+    "price" : "54.99",
+    "clubcardPoints" : 54
+  },
+  "displayName" : "Vans Old Skool (Suede/Canvas) Pool Green Shoe VOKC5N",
+  "publicLink" : "/direct/vans-old-skool-suedecanvas-pool-green-shoe-vokc5n/397-7360.prd",
+  "giftMessagingEnabled" : false,
+  "brand" : "Vans",
+  "mediaAssets" : {
+    "defaultSku" : {
+      "defaultImage" : {
+        "mediaType" : "Large",
+        "src" : "//tesco.scene7.com/is/image/tesco/725-7977_PI_1000398MN?$[preset]$",
+        "renderSource" : "Scene 7",
+        "defaultImage" : true
+      }
+    }
+  },
+  "dynamicAttributes" : {
+    "gender" : "Mens"
+  },
+  "links" : [ {
+    "id" : "545-5310",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/545-5310",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "11 Child"
+    }
+  }, {
+    "id" : "268-9656",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/268-9656",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 09"
+    }
+  }, {
+    "id" : "725-7977",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/725-7977",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 10"
+    }
+  }, {
+    "id" : "147-3689",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/147-3689",
+    "options" : {
+      "primary" : "Green"
+    }
+  }, {
+    "id" : "567-5486",
+    "type" : "sku",
+    "rel" : "childSku",
+    "href" : "/direct/rest/content/catalog/sku/567-5486",
+    "options" : {
+      "primary" : "Green"
+    }
+  }, {
+    "id" : "397-7360",
+    "type" : "product",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/product/397-7360"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  }, {
+    "id" : "725-7977",
+    "type" : "sku",
+    "rel" : "defaultSku",
+    "href" : "/direct/rest/content/catalog/sku/725-7977",
+    "options" : {
+      "primary" : "Green",
+      "secondary" : "Adult 10"
+    }
+  } ]
+}

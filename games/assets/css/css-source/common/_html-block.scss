@@ -1,0 +1,97 @@
+
+
+/* 5.7	HTML Blocks */
+
+/*
+	Related to the promotional blocks
+	Basic styling for all promotional block
+*/
+.link-save-container .html-block a img{
+	margin:15px 0 15px 0;
+}
+
+.html-block{
+	float: left;
+	margin: 0 10px 10px 0;
+}
+.html-block.secondary-promotion{
+	margin:4px 0px;
+}
+.html-block a{
+	/*float: left;*//*replacing this with overflow:hidden as the float does not allow the paragraph underneath to have space above it*/
+	overflow:hidden;
+	line-height: 1; /* this stops the anchor adding height to the html block element */
+}
+.html-block p{
+	padding:10px 10px 0 0;
+	font-size:1.2em;
+	color: #4F5050;
+}
+.grid-1 .html-block{
+	margin: 0 0 10px 10px;	
+}
+#product-navigation .html-block{
+	float: left;
+}
+.grid-2 .html-block h2{
+	font-size: 2.4em;
+	color: #848282;
+}
+.anonymous{
+	padding: 36px 0 0 0;
+}
+.grid-1-5 .html-block{
+	margin: 0 0 10px 0;
+}
+.secondary-content .grid-1-5{
+	margin-bottom:10px;
+}
+
+/* 5.8 Product Details Page */
+
+/*
+	Related to the product details page
+	This section deals with general layout and styling
+*/
+
+div#main-prod-details{
+    width: 650px;
+    float: left;
+    margin: 0;
+    position: relative;
+}
+#main-prod-details .image {
+	position: relative;
+}
+#main-prod-details .discount-ping{
+	width: 61px;
+	height: 61px;  
+	position: absolute;
+	top: 18px;
+	left: 184px;
+	z-index:100000;
+}
+#main-prod-details .new-slash{
+    width: 85px;
+    height: 46px;
+    position: absolute;
+	z-index: 8000;
+	top: 0;
+	left: 0;
+}
+#main-prod-details span.hr{
+    margin-bottom:6px;
+	margin-top:10px;
+}
+#main-prod-details .back-top{
+    float: right;
+    font-size: 1.1em;
+	margin: 0 0 14px 0;
+}
+div#prod-details-aside{
+    width: 275px;
+    float: left;
+}
+.product-details .product-grid .product{
+	min-height: 310px;
+}

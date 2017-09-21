@@ -1,0 +1,142 @@
+/*******************************************
+* Buy From - Desktop
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "buy-from-mixins";
+@include headerWithLogo;
+
+.buy-from  {	
+	.touch & .buttons .tooltip {
+		margin-top: -34px;
+	}
+}
+
+.storeDetailsOverlay{
+	width:97% !important;
+	background-color: #fff;
+	padding: 20px;
+	
+	.nearStore, .storeInfo, .viewMapAndMoreInfo{
+   		display:none;
+   	}
+   	#stockForm{
+		width: 58%!important;
+		
+		#stockCheckFormOverlay{
+			padding-bottom: 5px;
+		}		
+		.fieldWrapper { 
+			span.error{
+				width: 72.3% !important;
+			}
+			
+			#store-check-postcode1 {
+				width: 72.3% !important;
+			}
+			
+			#overlayStockSubmit{
+				border-radius: 0 !important;
+				-webkit-border-radius: 0 !important;
+			}
+			
+		}
+	}
+	
+	#stockMapDetails, .stockStoreInfo {
+		width:37% !important;
+		right:20px !important;
+	}
+    
+    .moreStoreLinkHolder {
+		width:58%;
+	}
+	#storesArray{
+		width: 58%!important;
+		height: 322px;
+    	overflow-y: auto;
+    	.stockInfoMsg2 {
+			display: none;
+		}
+    }	
+    .no-stock {
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+    	width: 568px;
+    	overflow: hidden;
+    	.closeMsg {
+   		   display:none;
+    	}
+    }
+}
+
+
+.page-title{
+	 margin-bottom: 16px !important;
+}
+#stock-reservation-section {
+		
+	
+	.viewStoreMap{
+		padding-top: 0px !important;
+    	padding-bottom: 19px !important;
+	}
+	
+    p.reservingHeader{
+    	width:46% !important;
+    }
+	
+	.reservedProduct {
+		width:46% !important;
+		
+		.collectionItemDetail {
+			padding-right: 0px;
+		}
+	}
+	
+	.reservedTick{
+		padding-right: 70px;
+		
+	}
+	#reserve-now{
+		  -webkit-appearance:none !important; 
+	}
+	
+	.informationMsg,.viewMapAndMoreInfo, .viewMapAndMoreInfoSecond{
+		display:none;
+	}
+	.addressCont
+	{
+	 h4, .viewMapAndMoreInfo{
+			display:none;
+		}
+	}
+	.storeDetailsHolder{
+		top: 452px !important;
+		left: 594px !important;
+	}
+	
+	.confirmationParent{
+		width:100% !important;
+	}
+}
+
+.stockAvailability {
+
+	#pcFieldWrapper {
+	
+		#store-check-postcode{
+			width: 165px !important;
+  		}
+  		
+  		span.error{
+  			width:165px !important;
+  		}
+  		#stockSubmit{
+  			border-radius: 0 !important;
+  			-webkit-border-radius: 0 !important;
+  		}
+	}
+	
+}

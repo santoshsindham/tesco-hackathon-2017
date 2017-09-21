@@ -1,0 +1,3 @@
+@import "../../../core/components/breakpoints";
+@include breakpoint(AllTablet);
+@import "../mixins/product-sort-by-mixins";

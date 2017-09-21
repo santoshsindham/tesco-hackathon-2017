@@ -1,0 +1,32 @@
+@import "../variables";
+@import "google-ads-mixins";
+
+.google-ads-block {
+	@include boxAndShadow;
+	text-align: center;
+    margin: 16px 8px auto 8px;
+    padding-top: 3px;
+    padding-bottom: 28px;
+    width: 224px;
+    overflow: hidden;
+    clear: left;
+    float: left;
+	z-index: 0;
+	.adslot{
+		z-index: 0;
+	}
+	.header {
+		border-bottom: 1px solid $primaryBorderColor;
+		float: left;
+		width: 100%;
+		margin-bottom: 32px;
+	}
+	h2 {
+		font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+		font-size: 1.8em;
+		text-align: left;
+		margin: 0;
+		padding: 8px 0 12px 8px;
+		font-weight: normal;
+	}
+}

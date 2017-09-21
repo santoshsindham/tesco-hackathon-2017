@@ -1,0 +1,52 @@
+/*******************************************
+*	Desktop Footer module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "footer-mixins";
+
+@include common-desktop-footer;
+
+#footer {
+	.accordion {
+		position: relative;
+		padding-left: 5 * $onecol;
+	}
+	.accordion-element {
+		padding: 0;
+		margin-right:-10px;
+		&.last {
+			width: 55 * $onecol;
+			padding-left:10px;
+			.content {
+				padding-right: 0;
+			}
+			li {
+				padding-right: 5 * $onecol!important;
+			}
+		}
+		.title-box {
+			padding: 0;			
+		}
+		.content{
+			height: auto;
+			ul {
+				padding-top: 30px;
+				li {
+					padding: 6px 0 6px 10px;
+					margin-left:-10px;
+					margin-right:10px;
+				}
+			}
+		}
+	}
+}
+
+.plain-full-bleed {
+    > .page {
+        .panel-logo-all {
+            width: 960px;
+        }
+    }
+}

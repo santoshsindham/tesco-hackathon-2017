@@ -1,0 +1,14 @@
+{
+  "skus" : [ {
+    "id" : "119-3321",
+    "available" : true,
+    "availability" : "InStock",
+    "subscribable" : true,
+    "listings" : [ {
+      "id" : "T00007726f",
+      "available" : true,
+      "availability" : "InStock",
+      "subscribable" : true
+    } ]
+  } ]
+}

@@ -1,0 +1,115 @@
+{
+  "id" : "101-6583",
+  "prices" : {
+    "id" : "101-6583",
+    "price" : "17.99",
+    "clubcardPoints" : 17
+  },
+  "displayName" : "Dimensions Napping Kitten",
+  "publicLink" : "/direct/dimensions-napping-kitten/101-6583.prd?skuId=101-6583",
+  "specification" : {
+    "Suitability" : [ {
+      "title" : "Suitable For",
+      "description" : "Embroidery",
+      "attr" : "suitable_for"
+    } ],
+    "Material" : [ {
+      "title" : "Material",
+      "description" : "Acrylic",
+      "attr" : "material"
+    } ],
+    "Key Information" : [ {
+      "title" : "Colour",
+      "description" : "Multicolour",
+      "attr" : "colour"
+    }, {
+      "title" : "Type",
+      "description" : "Textile craft",
+      "attr" : "type"
+    } ],
+    "Features" : [ {
+      "title" : "Pack Size",
+      "description" : "1",
+      "attr" : "pack_size"
+    } ]
+  },
+  "attributes" : {
+    "colour" : "Multicolour"
+  },
+  "longDescription" : "Dimensions Napping Kitten. Kit contains cotton thread, 18 count white Aida, needle and easy instructions. Finished size: 5x7in or 13x18 cm.",
+  "ancestorCategories" : [ {
+    "id" : "cat13120042",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat13120042"
+  }, {
+    "id" : "cat15730011",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat15730011"
+  }, {
+    "id" : "cat22050003",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat22050003"
+  }, {
+    "id" : "cat30140019",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat30140019"
+  }, {
+    "id" : "cat3376603",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376603"
+  }, {
+    "id" : "cat3376692",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376692"
+  }, {
+    "id" : "cat3376694",
+    "type" : "category",
+    "href" : "/direct/rest/content/catalog/category/cat3376694"
+  } ],
+  "mediaAssets" : {
+    "defaultImage" : {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/101-6583_PI_1000456MN?$[preset]$",
+      "renderSource" : "Scene 7",
+      "defaultImage" : true
+    },
+    "skuMedia" : [ {
+      "mediaType" : "Large",
+      "src" : "//tesco.scene7.com/is/image/tesco/101-6583_PI_1000456MN?$[preset]$",
+      "renderSource" : "Scene 7"
+    } ]
+  },
+  "links" : [ {
+    "id" : "101-6583",
+    "type" : "sku",
+    "rel" : "self",
+    "href" : "/direct/rest/content/catalog/sku/101-6583"
+  }, {
+    "id" : "101-6583",
+    "type" : "product",
+    "rel" : "parent",
+    "href" : "/direct/rest/content/catalog/product/101-6583"
+  }, {
+    "id" : "O0001c39a4",
+    "type" : "listing",
+    "rel" : "listed",
+    "href" : "/direct/rest/content/listings/listing/O0001c39a4"
+  }, {
+    "type" : "inventory",
+    "href" : "/direct/rest/inventory/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "price",
+    "href" : "/direct/rest/price/{type}/{id,+}?format={brief|standard}",
+    "templated" : true
+  }, {
+    "type" : "relationships",
+    "href" : "/direct/rest/content/relationships/{relationship}/{id}?sortBy={name|toprated|dailyrevenue|dailyunits|monthlyrevenue|monthlyunits|weeklyrevenue|weeklyunits}",
+    "templated" : true
+  }, {
+    "type" : "competitor:price",
+    "rel" : "competitorPrice",
+    "href" : "/direct/rest/competitor/price/{type}/{id,+}",
+    "templated" : true
+  } ]
+}

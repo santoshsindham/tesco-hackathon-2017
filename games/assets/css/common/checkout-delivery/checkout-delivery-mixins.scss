@@ -1,0 +1,322 @@
+//checkout-delivery module - mixins
+
+@mixin delivery-tabs {
+  .tabs {
+    margin-bottom: 10px;
+    width: 600px;
+
+    &:after {
+      @include clear-fix;
+    }
+
+    li {
+      border-radius: 2px 2px 0 0;
+      display: block;
+      float: left;
+      font-size: 1.4em;
+      line-height: 1;
+      min-height: 100%;
+      padding: 10px 0px 10px 8px;
+      position: relative;
+      width: 50%;
+
+      &.disabled {
+        max-height: 51px;
+        padding: 7px 8px 10px 8px;
+
+        .custom-radio {
+          margin-bottom: 0;
+        }
+
+        label {
+          color: #848282;
+          display: inline-block;
+
+          span {
+            display: block;
+            font-size: 0.8em;
+          }
+        }
+      }
+
+      &:first-child {
+        border-right: none;
+      }
+
+      &.selected {
+        background: #fff;
+      }
+
+      //digital-download-delivery
+      &.digital-download-delivery {
+    	font-family: $tescoFont;
+        width: auto;
+      }
+    }
+  }
+
+  .panels {
+    border-radius: 0 2px 2px 2px;
+    border-top: 1px solid $pagePutty;
+    margin-bottom: 20px;
+    min-height: 100px; //for dev!
+    position: relative;
+  }
+}
+
+@mixin storeDetailsTooltip {
+  .store-details-container {
+    border: 1px solid #848282;
+    padding: 16px 16px 8px 16px;
+    position: absolute;
+    right: -366px;
+    top: -224px;
+    width: 350px;
+    @include box-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+
+    &:after {
+      background: url(../img/checkout-tooltip-arrow.png) no-repeat center center;
+      content: '';
+      height: 29px;
+      left: -15px;
+      position: absolute;
+      top: 228px;
+      width: 15px;
+    }
+
+    .close {
+      background-color: #a69f88;
+      border-radius: 15px;
+      color: #fff;
+      cursor: pointer;
+      display: block;
+      font-size: 1.2em;
+      height: 30px;
+      overflow: hidden;
+      position: absolute;
+      right: -15px;
+      text-decoration: none;
+      top: -15px;
+      width: 30px;
+
+      &:before {
+        display: block;
+        height: 100%;
+        line-height: 30px;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin store-details {
+  .inner {
+    font-size: 0.8em;
+    width: 100%;
+
+    .tabs {
+      width: 100%;
+
+      li {
+        background: #fff;
+        border-radius: 0;
+        font-size: 1.3em;
+        width: 50%;
+
+        &.selected {
+          a {
+            color: #222;
+            font-weight: bold;
+          }
+        }
+
+        a {
+          display: inline-block;
+          padding: 0 16px;
+          text-align: center;
+          width: 100%;
+        }
+      }
+
+      &:after {
+        @include clear-fix;
+      }
+    }
+
+    .panel {
+      border-top: 1px solid $pagePutty;
+      display: none; //dev
+      padding: 16px 8px 8px 8px;
+      position: relative;
+
+      &.selected {
+        display: block;
+      }
+    }
+
+    .store-address {
+      font-size: 1em;
+
+      span {
+        display: block;
+        padding-bottom: 2px;
+
+      }
+    }
+
+    .driving-distance {
+      margin: 8px 0;
+    }
+
+    .store-opening-times {
+      margin-top: 16px;
+
+      .title {
+        border-bottom: 1px solid $pagePutty;
+        font-weight: bold;
+        padding: 0 0 16px 0;
+      }
+
+      li {
+        border: none;
+        font-size: 1.2em;
+        padding: 0 0 8px 0;
+
+        .storefinder-openingtimes-times {
+          float: right;
+        }
+      }
+    }
+
+    .geo {
+      display: none;
+    }
+
+    .map-container {
+      height: 300px;
+      padding: 8px;
+      position: relative;
+
+      .map-div {
+        border: 1px solid $pagePutty;
+        height: 100%;
+        position: relative;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin deliveryForm {
+  border-bottom: 1px solid #3E3E3F;
+  display: none;
+  font-size: 10px;
+  @include inputStyles;
+
+  .control-group:after, &:after {
+    @include clear-fix;
+  }
+
+  h4 {
+    font-size: 14px;
+  }
+
+  .custom-checkbox {
+    display: none;
+  }
+
+  .custom-checkbox ~ .checkbox {
+    display: inline-block;
+    float: none;
+    margin-left: 0;
+  }
+
+  .field-wrapper {
+    margin: 16px 0;
+  }
+
+  .checkbox-wrapper {
+    display: table;
+    font-size: 14px;
+
+    label {
+      display: table-cell;
+      padding-left: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  .customDropdown, input {
+    margin-bottom: 16px;
+  }
+
+  .tel-alt-block {
+    font-size: 14px;
+
+    p:first-child {
+      margin-top: 0;
+    }
+
+    input {
+      font-size: 14px;
+    }
+
+    span.error {
+      font-size: 14px;
+      top: 69px;
+    }
+  }
+
+  .form-actions {
+
+    input {
+      font-size: 14px;
+    }
+
+    input[type="submit"], input[type="button"] {
+      @include box-shadow(none);
+      float: left;
+      width: 48%;
+    }
+
+    input[type="submit"] {
+      margin-left: 4%;
+    }
+  }
+}
+
+@mixin tooltipLarge {
+  font-size: 14px;
+  position: relative;
+
+  p {
+    font-size: 1em;
+  }
+
+  .info {
+    bottom: 28px;
+    display: none;
+    left: 20px;
+    padding: 0px 16px;
+    position: absolute;
+    width: 400px;
+    z-index: 200;
+
+    .back {
+      display: none;
+    }
+
+    &:after {
+      background: url(../images/map-infobox-arrow.png) no-repeat center center;
+      bottom: -18px;
+      content: '';
+      height: 18px;
+      left: 20px;
+      margin-left: -18px;
+      position: absolute;
+      width: 36px;
+    }
+  }
+}

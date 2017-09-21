@@ -1,0 +1,857 @@
+//chip-and-pin module - lightbox
+@import "../variables";
+
+#overlay.hidden {
+    display: none;
+}
+
+#lightbox {
+    overflow: hidden;
+
+
+
+    .close {
+        line-height: 30px;
+        right: 20px;
+        top: 40px;
+        background-color: #fff !important;
+        color: $darkPutty !important;
+
+        .icon {
+            color: $iconColor !important;
+        }
+    }
+
+    .fnSubmitStoreFinderForm, .fnSubmitStoreSelection, .fnFindAnotherStore {
+        font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+    }
+
+    .deliveryList.tescoBrightBlue.inline-scrolling {
+        height: 811px;
+        background: #fff;
+        position: relative;
+        margin: 0;
+
+        #pagination-nav,
+        .pagination-nav-container {
+            position: absolute;
+            top: -10px;
+            right: -18px;
+            width: 48px;
+            height: 820px;
+
+            .pagination-bar {
+                height: 732px;
+                overflow: hidden;
+            }
+        }
+        .addressList {
+            margin: 20px 0 0;
+            font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+            border-top: 1px solid $lightPutty;
+
+            &:after {
+                @include clear-fix;
+            }
+
+            li{
+               border-bottom: 1px solid $lightPutty;
+                padding: 12px 0;
+                line-height: 5.2em;
+                clear: both;
+                vertical-align: middle;
+            }
+            .nickname,
+            .address{
+                font-size: 30px;
+                font-weight: bold;
+                width: 830px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .blockedMessage{
+                font-size: 2em;
+                font-weight: bold;
+                text-align: right;
+                display: inline-block;
+                width: 313px;
+            }
+
+            .secondary-button{
+                margin: 0 0 0 13px;
+                padding: 12px 40px;
+                display:inline-block;
+                font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                font-size: 25px;
+                font-weight: bold;
+                width: 300px;
+                height: 54px;
+                line-height: 1;
+            }
+
+        }
+
+
+
+        #content-mask,
+        .content-mask {
+            height: 780px;
+
+            .overlay-wrapper {
+                padding-right: 70px;
+            }
+        }
+    }
+
+    .courierInstrList.tescoBrightBlue.inline-scrolling {
+        height: 811px;
+        background: #fff;
+        position: relative;
+        margin: 0;
+
+        #pagination-nav,
+        .pagination-nav-container {
+            position: absolute;
+            top: -10px;
+            right: -18px;
+            width: 48px;
+            height: 820px;
+
+            .pagination-bar {
+                height: 732px;
+                overflow: hidden;
+            }
+        }
+        .courierInstrListCollections{
+        	margin: 20px 0 0;
+            font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+            border-top: 1px solid $lightPutty;
+
+            &:after {
+                @include clear-fix;
+            }
+        	li{
+        		position: relative;
+        		border-bottom: 1px solid $lightPutty;
+                padding: 12px 0;
+                line-height: 5.2em;
+                clear: both;
+                vertical-align: middle;
+        	}
+        	.ciList{
+                font-size: 30px;
+                font-weight: bold;
+                width: 830px;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        	.selectcourierInstructionsBtn{
+        		float: right;
+        		margin: 0 0 0 13px;
+                padding: 12px 40px;
+                display:inline-block;
+                font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                font-size: 25px;
+                font-weight: bold;
+                width: 300px;
+                height: 54px;
+                line-height: 1;
+        	}
+
+        	.leaveWithNeigh{
+				padding-left: 20px;
+				cursor: pointer;
+
+				&:after {
+	                font-family: "Tesco Icons";
+					content: "D";
+					color: #7c765f;
+					font-size: 15px;
+					position: absolute;
+					top: 10px;
+					left: 0px;
+	            }
+			}
+
+			.lwnError{
+				position: absolute;
+				top: 127px;
+				display: none;
+				left: 21px;
+			}
+
+			.leaveWithNeighContent{
+				display: none;
+				padding-left: 21px;
+				height: 100px;
+
+				textarea{
+					width:800px;
+					height: 75px;
+					resize: none;
+					overflow: hidden;
+					font-family: "Helvetica",Arial,sans-serif;
+					border: 1px solid darkgrey;
+					margin-left: 1px;
+				}
+			}
+        }
+
+        #content-mask,
+        .content-mask {
+            height: 780px;
+
+            .overlay-wrapper {
+                padding-right: 70px;
+            }
+        }
+    }
+}
+
+#lightbox {
+	&.no-keyboard {
+		.kiosk-lightbox {
+			height: 1060px;
+		}
+    }
+}
+
+.kiosk-lightbox {
+    min-height: 10px;
+    height: 590px;
+    padding: 40px;
+
+    .dialog-header {
+        padding-bottom: 20px;
+
+        h2 {
+            font-size: 40px;
+        }
+    }
+
+    .dialog-content {
+    	#kiosk-checkout-whatsThisChargeOverlayContent #cc-whats-this{
+    		font-size: 16px;
+	    	>i{
+	    		display: block;
+	    		padding-top: 5px;
+	    		margin-top: 5px;
+	    	}
+		}
+        &.underline {
+            border-top: 1px solid $lightPutty;
+        }
+
+        .findStoreFormWrapper {
+            margin-top: 80px;
+        }
+        //TODO: Refactor this into a scss file for status messages
+        .message {
+            color: #333;
+            margin: 0;
+            min-height: 57px;
+
+            span {
+                display: block;
+                padding: 0 20px 0 80px;
+                line-height: 55px;
+                border: solid 1px transparent;
+                font-size: 20px;
+                background: transparent url('../images/messages_icons.png') no-repeat 18px 8px;
+            }
+
+            .error {
+                color: #000;
+                background-color: #ffd5d9;
+                border-color: #fc9fa7;
+            }
+        }
+
+        .clubcardImage {
+            width: 362px;
+            height: 225px;
+            margin-right: 37px;
+            float: left;
+            background: url(../images/kiosk_checkout/clubcard-stage.jpg) no-repeat 0 0;
+        }
+
+        .clubcard-verification .clubcardImage {
+            background-position: 0 bottom;
+        }
+
+        .inputPromptMessage {
+            color: $messagePromptColor;
+            font-size: 23px;
+        }
+        .giftcard-image-wrapper {
+            width:35%;
+            float:left;
+            .giftcard-instruction-text {
+                margin:0;
+                font-size:25px;
+            }
+        }
+        
+        .giftcard-image {
+            height:255px;
+            width:100%;
+            background: transparent url(../images/giftcard-image.png) center center no-repeat;
+            background-size:contain;
+        }
+        #frmFindAddress,
+        #ir-login-postcode,
+        #frmECouponEntry,
+        #frmGiftCardsEntry,
+        .storeFinderFormWrapper form {
+            @include inputStyles;
+            position: relative;
+
+            #txtPostcode,
+            #txt-verify-postcode,
+            #store-finder-postalcode,
+            #txt-giftCardCode,
+            #txt-giftCardPin,
+            #txt-eCoupon {
+                padding-left: 28px;
+                padding-right: 28px;
+                margin: 0;
+                border-right: none;
+                font-size: 25px;
+                height: 84px;
+            }
+
+            #txtPostcode,
+            #txt-verify-postcode,
+            #store-finder-postalcode,
+            #txt-eCoupon {
+                width: 644px;
+            }
+
+            .giftcard-input-wrapper {
+                position:relative;
+                padding-bottom: 2.5em;
+                span.error {
+                    top:115px;
+                    font-size:24px;
+                }
+                &.giftcard-input-wrapper--pin {
+                    span.error {
+                        width:25%;
+                    }
+                }
+                label.giftcard-label {
+                    display:block;
+                    font-size:25px;
+                    sup {
+                        color:$tescoRed;
+                    }
+                }
+
+                #txt-giftCardCode, #txt-giftCardPin {
+                    border:1px solid $putty;
+                    background-color: #fff;
+                }
+                #txt-giftCardCode {
+                    width: 100%;
+                }
+    
+                #txt-giftCardPin {
+                    width: 25%;
+                }
+            }
+            
+
+
+            #txt-eCoupon {
+                width: 1045px;
+            }
+
+            #txtPostcode,
+            #store-finder-postalcode {
+                width: 1045px;
+                font-family: 'Tesco', Helvetica Neue, Arial, sans-serif;
+            }
+
+            #store-finder-postalcode {
+                margin-top: 3px;
+            }
+
+            #btnSubmitPostcode,
+            #btn-verify-postcode,
+            .fnSubmitStoreFinderForm,
+            #btn-add-ecoupon,
+            #btn-add-giftCards {
+                font-family: 'Tesco', Helvetica Neue, Arial, sans-serif;
+                display: inline-block;
+                height: 84px; 
+                font-size: 30px;
+                font-weight: normal;
+                margin: 0;
+                position: relative;
+                left: -3px;
+                top: 2px;
+            }
+            
+            #btnSubmitPostcode,
+            #btn-verify-postcode,
+            .fnSubmitStoreFinderForm,
+            #btn-add-ecoupon {
+                width: 168px;
+            }
+
+            #btn-add-giftCards {
+                top: 1px;
+                width: 70%;
+                float:right;
+            }
+
+            span.error {
+                position: absolute;
+                top: 89px;
+                left: 398px;
+                font-size: 25px;
+                font-family: 'Tesco', Helvetica Neue, Arial, sans-serif;
+            }
+        }
+
+        .storeFinderFormWrapper form {
+            span.error {
+                top: 117px;
+            }
+        }
+
+        .storeFinderFormWrapper {
+            margin-top: 50px;
+        }
+
+        .storeFinderFormWrapper form,
+        #frmECouponEntry {
+            #txt-eCoupon,
+            #btn-add-ecoupon {
+                position: relative;
+            }
+
+            #txt-eCoupon {
+                top: 12px;
+            }
+
+            #btn-add-ecoupon {
+                top: 13px;
+            }
+
+            span.error {
+                left: auto;
+                margin-top: 15px;
+            }
+        }
+
+        #frmGiftCardsEntry {
+            width:59%;
+            float:right;
+        	#txt-giftCardCode,
+        	#txt-giftCardPin,
+            #btn-add-giftCard {
+                position: relative;
+            }
+
+            span.error {
+                padding:0;
+                left: auto;
+            }
+        }
+
+        #frmFindAddress {
+            span.error {
+                left: auto;
+                margin-top: 50px;
+            }
+        }
+
+        #frmECouponEntry {
+            padding-bottom: 50px;
+        }
+    }
+
+    .dialog-footer {
+        text-align: right;
+        padding-top: 32px;
+
+        button {
+            text-align: center;
+            display: inline-block;
+            width: auto;
+            font-size: 25px;
+        }
+
+        button.tertiary-button-white {
+            @include tertiaryButtonWhite;
+            font-size: 25px;
+            width: 280px;
+            height: 60px;
+        }
+    }
+
+    .align-left {
+        text-align: left;
+    }
+
+
+        .cantFindAddress {
+            text-align: right;
+            display: inline-block;
+            font-size: 2.3em;
+            padding-right: 20px;
+            padding-top: 35px;
+        }
+
+        #findAdifferentDelviery,
+        .manuallyAddAddressBtn,
+        .findAddressBtn {
+                    @include tertiaryButtonColoringWhite;
+                    width: 305px;
+                    height: 54px;
+                    line-height: 1;
+                    margin:20px 0 20px10px;
+                    display: inline-block;
+                    font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+                    font-size: 25px;
+
+                }
+
+        .findDifferentAddress{
+            @include tertiaryButtonColoringWhite;
+            float: right;
+            margin-right: 17px;
+        }
+        #findAdifferentDelviery,
+        .manuallyAddAddressBtn{
+            width: 350px;
+        }
+
+        #findAdifferentDelviery{
+            float: right;
+            margin-top: 80px;
+            font-weight: normal;
+        }
+}
+
+#lightbox {
+    #btn-show-giftCards {
+        font-size: 20px;
+        padding: 12px 16px;
+        width: 25%;
+    }
+    &.storeFinderOverlay,
+    &.matchingStoresOverlay {
+        .kiosk-lightbox {
+            .dialog-footer {
+                display: none;
+            }
+        }
+    }
+
+    &.storeFinderOverlay, #frmFindAddress {
+        label {
+            display: block;
+            font-size: 25px;
+            font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+            margin-bottom: 8px;
+        }
+    }
+
+    &.matchingStoresOverlay {
+        .kiosk-lightbox {
+            height: 1060px;
+        }
+
+        .dialog-header {
+            h2 {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    .delivery-navigation,
+    .matchingStoresOverlayFooter {
+        overflow: hidden;
+        position: absolute;
+        right: 40px;
+        bottom: 20px;
+        padding-top: 10px;
+
+        .fnFindAnotherStore {
+            @include tertiaryButtonColoringWhite;
+            float: right;
+            width: 300px;
+            height: 54px;
+            font-size: 25px;
+            line-height: 1;
+            font-weight: normal;
+        }
+    }
+
+    .delivery-navigation {
+        padding-right: 50px;
+        bottom: 50px;
+    }
+
+    .storeDetailsList {
+
+        > div:last-child {
+            border-bottom: 1px solid $lightPutty;
+        }
+
+        .storeContainer {
+            position: relative;
+            font-family: 'Tesco', Helvetica Neue, Arial, sans-serif;
+
+            &.disabled {
+            	opacity: 0.4;
+
+            	.kiosk-restrict-store-error {
+            		display: block;
+					padding-left: 52px;
+					font-size: 18px;
+					margin-top: -24px;
+					margin-bottom: 20px;
+					width: 700px;
+					color: #000;
+            	}
+            }
+
+            .toggleIcon {
+                &:after {
+                    content: 'D';
+                }
+            }
+
+            .changeToggleIcon {
+                .toggleIcon {
+                    &:after {
+                        content: 'U';
+                    }
+                }
+            }
+
+            .storeNameContainer {
+                overflow: hidden;
+                padding-top: 16px;
+                padding-bottom: 16px;
+                border-top: 1px solid $lightPutty;
+
+                .icon {
+                    float: left;
+                    padding-right: 20px;
+                    font-size: 30px;
+                    line-height: 1.6;
+                }
+
+                .name {
+                    float: left;
+                    width: 720px;
+                    margin-bottom: 0;
+                    padding-right: 20px;
+                    font-weight: bold;
+                    font-size: 30px;
+                    line-height: 1.7;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+
+                .distance {
+                    float: left;
+                    margin: 0;
+                    padding-right: 20px;
+                    margin-top: 3px;
+                    font-size: 25px;
+                    line-height: 2;
+                }
+            }
+
+            .fnSubmitStoreSelection {
+                position: absolute;
+                top: 16px;
+                right: 0;
+                width: 300px;
+                height: 54px;
+                margin-bottom: 0;
+                font-weight: normal;
+                font-size: 25px;
+                line-height: 1;
+				&.disabled {
+					cursor: default;
+				}
+                &:hover {
+                    border-color: $putty;
+                    background: $putty;
+                    text-decoration: none;
+                }
+            }
+
+            .storeAdditionalInfoContainer {
+                display: none;
+                overflow: hidden;
+                border-top: 1px solid $lightPutty;
+                padding-bottom: 10px;
+                padding-left: 8px;
+
+                .openingTimes {
+                    float: left;
+                    width: 300px;
+                    padding-right: 40px;
+                    padding-left: 40px;
+
+                    .openingTimesHeader {
+                        margin: .5em 0;
+                        font-size: 30px;
+                        font-weight: bold;
+                        color: $darkPutty;
+                    }
+
+                    .openingTimesDetails {
+                        font-weight: normal;
+                        font-size: 20px;
+                        color: $darkPutty;
+
+                        li {
+                            overflow: hidden;
+                            padding-bottom: 8px;
+                        }
+
+                        .storefinder-openingtimes-day {
+                            width: 50%;
+                            padding-right: 16px;
+                            float: left;
+                        }
+
+                        .storefinder-openingtimes-times {
+                            float: left;
+                        }
+                    }
+                }
+
+                .storeAddress {
+                    float: left;
+                    padding-left: 20px;
+                    font-size: 20px;
+
+                    .storeAddressHeader {
+                        margin: .5em 0;
+                        font-weight: bold;
+                        font-size: 30px;
+                        color: $darkPutty;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#lightbox {
+    &.termsAndConditionsLightbox {
+        .kiosk-lightbox {
+
+            #kiosk-checkout-termsAndConditionsOverlayContent {
+                    padding-right: 50px;
+                    font-family: "Tesco", Helvetica Neue, Arial, sans-serif;
+
+                > .content-mask {
+                        height: 810px;
+                        border-top: solid 1px $putty;
+                        border-bottom: solid 1px $putty;
+                }
+
+                h1 {
+                    display: none;
+                }
+                h2,
+                h3 {
+                    font-size: 20px;
+                }
+                p,
+                li {
+                    font-size: 16px;
+                }
+                ul {
+                    list-style-type: disc;
+                }
+                ol {
+                    list-style-type: decimal;
+                }
+                ul,
+                ol {
+                    margin-bottom: 16px;
+                    padding-left: 40px;
+                    li {
+                        margin-bottom: 4px;
+                    }
+                }
+                table {
+                    width: 80%;
+                    td {
+                        vertical-align: top;
+                    }
+                }
+
+                    .pagination-nav-container {
+                        position: absolute;
+                        margin: auto;
+                        top: 0;
+                        right: -5px;
+                        .pagination-bar {
+                            height: 810px;
+                            width: 10px;
+                            margin: 44px 19px;
+                            span {
+                                width: 10px;
+                                background-color: $tescoBrightBlue;
+                            }
+                        }
+                        a {
+                            &.pagination-up,
+                            &.pagination-down {
+                                width: 48px;
+                                color: #fff;
+                                display: block;
+                                margin: 0;
+                                background-color: $putty;
+                                border-color: $putty;
+                            }
+                            &.pagination-down {
+                                position: absolute;
+                                top: 810px;
+                            }
+                            &.disabled {
+                                background-color: $inactivePutty;
+                                border-color: $inactivePutty;
+                        }
+                    }
+                }
+            }
+
+            .dialog-footer {
+                padding-right: 50px;
+
+                .fnChangeOverlay,
+                .fnCloseOverlay {
+                    height: 54px;
+                    width: auto;
+                    min-width: 300px;
+                    margin: 0 auto;
+                    font-weight: normal;
+                    font-size: 25px;
+                    line-height: 25px;
+                }
+                .fnChangeOverlay {
+                    float: left;
+                }
+                .fnCloseOverlay {
+                    float: right;
+                    @include tertiaryButtonColoringWhite;
+                }
+            }
+        }
+    }
+}

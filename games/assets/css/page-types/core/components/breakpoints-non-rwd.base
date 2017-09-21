@@ -1,0 +1,67 @@
+@import "variables";
+
+@mixin breakpoint($point) {
+
+	@if $point == mobile {
+  	/** Mobile **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+		
+	}
+
+	@else if $point == allTablet {
+    /** All Tablets **/
+
+	}
+
+	@else if $point == vTablet {
+  	/** Vertical Tablet **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+		
+	}
+
+	@else if $point == hTablet {
+  	/** Horizontal Tablet **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+	
+	}
+
+	@else if $point == allDesktop {
+    /** All Desktops **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+		@content;
+	}
+
+	@else if $point == desktop {
+    /** Desktop **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+		@content; 
+  
+	}
+
+	@else if $point == largeDesktop {
+    /** Large Desktop **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+	 
+	}
+
+	@else if $point == kiosk {
+  	/** Kiosk **/
+		$viewPortWidth: 960px;
+		$colCount: 120;
+		$onecol: $viewPortWidth / $colCount;
+	  
+	}
+
+}

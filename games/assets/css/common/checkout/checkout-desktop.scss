@@ -1,0 +1,24 @@
+//checkout module - desktop
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "checkout-mixins";
+
+.checkout {
+  h1 {
+    max-height: 126px;
+  }
+
+  #main-content {
+    overflow: visible;
+    width: auto;
+  }
+
+  .pcaAutoCompleteSmall {
+    z-index: 1000;
+  }
+
+  .gift-card-description {
+    font-size: 1em;
+    padding-left: 0;
+  }
+}

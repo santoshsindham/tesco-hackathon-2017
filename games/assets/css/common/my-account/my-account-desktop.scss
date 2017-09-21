@@ -1,0 +1,159 @@
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "../forms/forms-mixins";
+
+.my-account-full-page {
+
+	#order-summary {
+		margin-right: 0;
+		.delivery-group-block{
+			.product-details{
+				h3{
+					float: left;
+				}
+			}
+			.supplied-container{
+				margin: 0;
+				> img{
+					float: right;
+				}
+			}
+		}
+	}
+
+	#main-content {
+        float:none;
+        #microsite-nav {
+            width:100%;
+            .menu {
+               /* width:50%; */
+            }
+        }
+    }
+}
+
+.my-account {
+
+	.page-error {
+	   margin: 0 0 16px;
+	}
+
+	.form-group-buttons {
+		width:466px;
+	}
+
+	.example {
+		padding-left:143px
+	}
+	#order-summary {
+		.delivery-group-block {
+			.product-block {
+				border-top: none;
+			}
+		}
+	}
+	.delivery-details {
+
+		@include inline-form-fields;
+
+		.pca-container {
+			width: 100%;
+		}
+
+		.post-code {
+			.postal-code-pca {
+				width: 192px !important;
+			}
+			table.pcaCapturePlusTable {
+				left: 142px;
+				width: 67% !important;
+			}
+		}
+
+		span.error {
+			margin-left:0;
+			position: relative;
+			left: 143px;
+			margin-top: -20px;
+			display: inline-block;
+			max-width: 68%;
+			padding: 4px 0 !important;
+		}
+
+		#orders-list-header,
+		#orders-list-details {
+			margin: 0 $onecol;
+		}
+
+		#orders-list-details {
+			#order-summary {
+				.delivery-group-block {
+					padding: 0;
+				}
+			}
+		}
+
+		.supplied-container {
+			position: absolute;
+			right: 0;
+			top: 8px;
+			text-align: right;
+			width: 115px;
+			img {
+				max-width: 112px;
+				margin-bottom: 8px;
+			}
+		}
+		.order-cancel-info{
+			select#priReason, select#secReason{
+				left: 200px;
+			}
+		}
+
+	}
+}
+.cancel-orders-details {
+	margin-top: 13px;
+	.cancel-order-form {
+		.field-wrapper {
+			span.error {
+				margin-left: 200px;
+			}
+		}
+	}
+	.order-details-block {
+		#secReason {
+			left: 200px;
+		}
+	}
+}
+
+.my-account {
+    .notification-block {
+        margin: 0 0 16px 0;
+    }
+}
+
+#my-account-landing-nav {
+    #microsite-nav {
+        .menu {
+            border-right: 1px solid $primaryBorderColor;
+        }
+    }
+}
+#orders-list-details {
+    .supplied-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        img {
+            float: right;
+            margin-bottom: 8px;
+        }
+
+        .contact {
+            clear: right;
+        }
+    }
+}

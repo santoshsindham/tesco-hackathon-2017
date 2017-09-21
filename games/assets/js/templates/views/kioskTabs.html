@@ -1,0 +1,45 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  <ul class="kiosk-tabs-nav">
+    <li class="disabled"><a class="previous icon" data-icon="g"></a></li>
+    <li><a class="next icon" data-icon="r"></a></li>
+  </ul>
+  <div class="kiosk-tabs-items-wrapper">
+    <ul class="kiosk-tabs-items">
+        <li><a id="tab-overview" class="js-tab-overview tab-home is-active">Product overview</a></li>
+        {{#state.hasPromos}}
+            <li><a id="tab-PromotionsView" class="js-tab-PromotionsView kiosk-tab special-highlight">{{props.promoLabel}}</a></li>
+        {{/state.hasPromos}}
+        {{#state.hasDetails}}
+            <li><a id="tab-ProductDetailsView" class="js-tab-ProductDetailsView kiosk-tab">Product details</a></li>
+        {{/state.hasDetails}}
+        {{#state.hasSynopsis}}
+            <li><a id="tab-ProductSynopsisView" class="js-tab-ProductSynopsisView kiosk-tab">Synopsis</a></li>
+        {{/state.hasSynopsis}}
+        {{#state.hasBiography}}
+          <li><a id="tab-AuthorBiographyView" class="js-tab-AuthorBiographyView kiosk-tab">Author's biography</a></li>
+        {{/state.hasBiography}}
+        {{#state.hasSpecs}}
+          <li><a id="tab-KioskProductSpecView" class="js-tab-KioskProductSpecView kiosk-tab">Product specifications</a></li>
+        {{/state.hasSpecs}}
+        {{#state.hasReviews}}
+          <li><a id="tab-KioskProductReviewsView" class="js-tab-KioskProductReviewsView kiosk-tab">Reviews</a></li>
+        {{/state.hasReviews}}
+        {{#state.hasAccessories}}
+          <li><a id="tab-Accessories" class="js-tab-Accessories kiosk-tab">Accessories</a></li>
+        {{/state.hasAccessories}}
+        {{#state.hasBundle}}
+          <li><a id="tab-Bundle" class="js-tab-Bundle kiosk-tab">Often bought togther</a></li>
+        {{/state.hasBundle}}
+        {{#state.hasShopTheRange}}
+          <li><a id="tab-ShopTheRange" class="js-tab-ShopTheRange kiosk-tab">Shop the range</a></li>
+        {{/state.hasShopTheRange}}
+        {{#state.hasCompleteTheLook}}
+          <li><a id="tab-CompleteTheLook" class="js-tab-CompleteTheLook kiosk-tab">Complete the look</a></li>
+        {{/state.hasCompleteTheLook}}
+        {{#state.hasOutfitBuilder}}
+          <li><a id="tab-OutfitBuilder" class="js-tab-OutfitBuilder kiosk-tab">Matching items</a></li>
+        {{/state.hasOutfitBuilder}}
+    </ul>
+  </div>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

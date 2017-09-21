@@ -1,0 +1,49 @@
+#page {
+  height: auto;
+  width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  background: #ffffff;
+  #header {
+    width: 920px;
+    padding: $g2 $g1 $g1;
+    background: #ffffff;
+    #branding { margin: 0; }
+    #support {
+      margin-right: -5px;
+      ul {
+        min-height: 0;
+        margin: 0 0 $g3 0;
+      }
+      //.spc-header-tel {
+        //clear: right;
+        //float: right;
+        //margin: 0;
+        //@include f2;
+      //}
+    }
+  }
+  #content {
+    width: 920px;
+    padding: 0 $g1;
+    background: #ffffff;
+    .primary-content {
+      width: 920px;
+      .application-content { margin-left: 0; }
+    }
+  }
+  #footer-mini {
+    width: 960px;
+    margin: 0;
+    background: #ffffff;
+    .footer-wrapper { margin: 0;
+      #footer-colophon { background: #3e3e3e;
+        #footer-payment {
+          padding-left: 0;
+          background: none;
+        }
+        #siteinfo-legal { margin-top: 15px; }
+      }
+    }
+  }
+}

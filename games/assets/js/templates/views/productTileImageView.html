@@ -1,0 +1,15 @@
+<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
+  <a href="{{{props.link}}}" class="thumbnail" data-productid="{{props.id}}" title="{{props.displayName}}">
+    <div class="thumbnail-alts" data-picture="" data-alt="{{props.displayName}}">
+      <div data-src="{{{props.imageSrcLarge}}}" data-media="(min-width: 600px)"></div>
+      <div data-src="{{{props.imageSrcDetail}}}" data-media="(max-width: 599px)"></div>
+      <!--[if (lt IE 9) & (!IEMobile)]>
+          <div data-src="{{{props.imageSrcDetail}}}"></div>
+      <![endif]-->
+      <noscript>
+        <img src="{{{props.imageSrcLarge}}}" alt="{{props.displayName}}" />
+      </noscript>
+    </div>
+  </a>
+  {{{oEvent}}}{{{addViewDataAttr}}}
+</div>

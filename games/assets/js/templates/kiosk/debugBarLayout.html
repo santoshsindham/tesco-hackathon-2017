@@ -1,0 +1,104 @@
+<div class='chip-and-pin-debug-bar' data-section='<%= kioskCheckoutSection %>'>
+	<a class='expand-collapse' id='btn-debug-expand-collapse' href='#'><i></i><span>Expand/Collapse</span></a>
+	<header>
+		<h2>Debug bar</h2>
+	</header>
+	<div class='debug-content'>
+		<ul>
+			<li>
+				<button class='secondary-button' id='btnForceLogout' style='display:inline-block; width:32%; padding:0;'>Force<br>logout</button>
+				<button class='secondary-button' id='btnForceHalfLogin' style='display:inline-block; width:32%; padding:0;'>Force<br>&frac12; login</button>
+				<button class='secondary-button' id='btnForceFullLogin' style='display:inline-block; width:32%; padding:0;'>Force<br>full login</button>
+			</li>
+ 		</ul>
+		<div class='actions login-actions'>
+			<ul>
+				<li><button class='enter-card-fail secondary-button' id='btn-enter-clubcard-invalid'>Enter Clubcard [invalid]</button></li>
+				<li><button class='enter-card-fail secondary-button' id='btn-enter-clubcard-fail'>Enter Clubcard [unknown]</button></li>
+				<li><button class='enter-card-success primary-button' id='btn-enter-clubcard-success'>Enter Clubcard [success]</button></li>
+				<li><a class='primary-button' id='btn-dbt86' href="http://Ukdbt86-app-kiosk-gmo.dotcom.tesco.org/direct/">Launch DBT86 (FTE)</a></li>
+			</ul>
+		</div>
+		<div class='actions loginPostcodeActions'>
+			<h3>Postcode modal</h3>
+			<ul>
+				<li><button class='secondary-button' id='btnEnterInvalidPostcode'>Invalid postcode</button></li>
+				<li><button class='secondary-button' id='btnEnterIncorrectPostcode'>Incorrect postcode</button></li>
+				<li><button class='primary-button' id='btnEnterCorrectPostcode'>Correct postcode</button></li>
+				<li><a class='primary-button' id='btn-dbt86' href="http://Ukdbt86-app-kiosk-gmo.dotcom.tesco.org/">Launch DBT86 (FTE)</a></li>
+			</ul>
+		</div>
+        <div class='actions sessionActions'>
+            <h3>Session Data</h3>
+            <ul>
+                <li><button class='secondary-button' id='btnSessionAgeRestriction'>Set Age Restriction to 18</button></li>
+				<li><a class='primary-button' id='btn-dbt86' href="http://Ukdbt86-app-kiosk-gmo.dotcom.tesco.org/">Launch DBT86 (FTE)</a></li>
+            </ul>
+        </div>
+		<div class='actions loginUserDetailsActions'>
+			<h3>User details modal</h3>
+			<ul>
+				<li><button class='secondary-button' id='btnEnterInvalidUserDetails'>Enter invalid details</button></li>
+				<li><button class='primary-button' id='btnEnterValidUserDetails'>Enter valid details</button></li>
+				<li><a class='primary-button' id='btn-dbt86' href="http://Ukdbt86-app-kiosk-gmo.dotcom.tesco.org/">Launch DBT86 (FTE)</a></li>
+			</ul>
+		</div>
+		<div class='actions delivery-actions'>
+			<ul>
+				<li><button class='secondary-button' id='btnEnterInvalidSelectAStore'>Invalid postcode</button></li>
+				<li><button class='secondary-button' id='btnEnterIncorrectSelectAStore'>Incorrect postcode</button></li>
+				<li><button class='primary-button' id='btnEnterCorrectSelectAStore'>Correct postcode</button></li>
+				<li><a class='primary-button' id='btn-dbt86' href="http://Ukdbt86-app-kiosk-gmo.dotcom.tesco.org/">Launch DBT86 (FTE)</a></li>
+			</ul>
+            			<ul>
+				<!-- <li><button class='scan-card-fail secondary-button changeUserType' data-action="mixed" id='btnEnterClubcardUser'>Clubcard+ Online</button></li>
+				<li><button class='scan-card-fail secondary-button changeUserType' data-action="mixed" id='btnEnterClubcardAnonymousUser'>Clubcard Anonymous</button></li> -->
+			</ul>
+		</div>
+		<div class='actions reviewActions'>
+ 			<br>
+			<ul>
+				<li><button class='secondary-button btnRemoveClubcardVouchers' id='btnRemoveClubcardVouchers'>Disable Clubcard Vouchers</button></li>
+				<li><button class='primary-button btnAddClubcardVouchers' id='btnAddClubcardVouchers'>Enable Clubcard Vouchers</button></li>
+ 			</ul>
+ 			<h3>Set voucher quantity</h3>
+ 			<ul>
+				<li><button class='secondary-button' id='btnSetClubcardVouchers3'>3 Clubcard Vouchers</button></li>
+				<li><button class='secondary-button' id='btnSetClubcardVouchers10'>10 Clubcard Vouchers</button></li>
+				<li><button class='secondary-button' id='btnSetClubcardVouchers20'>20 Clubcard Vouchers</button></li>
+ 			</ul>	
+		</div>
+		<div class='actions deliveryVouchersActions'>
+			<h4>View vouchers dialog</h4>
+			<p>To do</p>
+			<h4>Enter a voucher dialog</h4>
+			<ul>
+				<li><button class='secondary-button' id='btnEnterInvalidVoucher'>Enter invalid code</button></li>
+				<li><button class='secondary-button' id='btnEnterUnavailableVoucher'>Enter unavailable code</button></li>
+				<li><button class='primary-button' id='btnEnterValidVoucher'>Enter valid code</button></li>
+ 			</ul>
+ 			<h4>Enable/disable vouchers</h4>	
+			<ul>
+				<li><button class='secondary-button btnRemoveClubcardVouchers' id='btnRemoveClubcardVouchers'>Disable Clubcard Vouchers</button></li>
+				<li><button class='primary-button btnAddClubcardVouchers' id='btnAddClubcardVouchers'>Enable Clubcard Vouchers</button></li>
+ 			</ul>
+		</div>
+		<div class='actions payment-actions'>
+			<ul>
+				<li><button class='payment-success primary-button' id='btn-payment-success'>Pay with card [success]</button></li>
+				<li><button class='payment-fail secondary-button' id='btn-payment-fail'>Pay with card [fail]</button></li>
+				<li><a class='primary-button' id='btn-dbt86' href="http://Ukdbt86-app-kiosk-gmo.dotcom.tesco.org/">Launch DBT86 (FTE)</a></li>
+			</ul>
+		</div>
+        <div class='actions eCouponEntryActions'>
+            <ul>
+                <li><button class="secondary-button" id="btnExpiredCoupon">Expired coupon code</button></li>
+                <li><button class="secondary-button" id="btnInvalidCoupon">Invalid coupon code</button></li>
+                <li><button class="secondary-button" id="btnUsedCoupon">Coupon already used</button></li>
+                <li><button class="secondary-button" id="btnCouponLinkedToAnotherAccount">Coupon linked to another account</button></li>
+                <li><button class="secondary-button" id="btnAddedToAnotherAccount">Coupon added to another account</button></li>
+                <li><button class="secondary-button" id="btnNotFirstTimeShopper">Not a first time shopper</button></li>
+            </ul>
+        </div>
+	</div>
+</div>

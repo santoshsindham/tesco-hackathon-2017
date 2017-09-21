@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for modules\media-player\common.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">modules/media-player/</a> common.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.46% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>3/122</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/80</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">9.09% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">2.46% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>3/122</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*jslint nomen: true*/
+define([
+    'domlib',
+    'mustache',
+    'modules/common',
+    'modules/basic-video-player/common',
+    'modules/carousel-position-indicator/common',
+    'modules/tesco.analytics',
+    'modules/device-specifications/common'
+], function ($, mustache, common, BasicVideoPlayer, carouselPositionIndicator, analytics, deviceSpecifications) {
+    'use strict';
+&nbsp;
+    var mediaPlayer = {
+&nbsp;
+        videoViewContId: "prodVideoView",
+        videoThumbnails: "",
+        fadeInSpeed: 500,
+        mediaIndex: 0,
+        $componentContainer: '#s7container',
+        $videoViewContainer: null,
+        videoPlayers: [],
+        currentIndex: 0,
+        oBasicVideoPlayerOpts: {
+            createPauseIcon: '&lt;span class="icon icon-pause fnPauseBtn"&gt;&lt;/span&gt;', // big button
+            createPlayIcon: '&lt;span class="icon icon-play fnPlayBtn"&gt;&lt;/span&gt;', // big button
+            pauseIcon: 'span.fnPauseBtn', // big button
+            playIcon: 'span.fnPlayBtn', // big button
+            pauseClass: 'icon-pause',
+            fadeControls: true,
+            bBackToStartOnEnd: true,
+            bVideoPlayerV2: true
+        },
+        sErrorTemplate: '&lt;div id="prodVideoView" class="videoView error"&gt;&lt;div class="videoContainer"&gt;&lt;div class="videoPosition" data-index="{{iIndex}}"&gt;&lt;div class="errorVideo"&gt;&lt;div class="errorWrap"&gt;&lt;span&gt;{{sDescription}}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;',
+        bMediaViewer: false,
+&nbsp;
+        errorHandler: <span class="fstat-no" title="function not covered" >function (errorType, index) {</span>
+<span class="cstat-no" title="statement not covered" >            var _oWebAnalytics = new analytics.WebMetrics(),</span>
+                v = {},
+                breadCrumbText = [],
+                oErrorData = {
+                    sDescription: errorType,
+                    iIndex: index
+                },
+                sRenderedErrorTemplate = '';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                mediaPlayer.sErrorTemplate = $('#media-viewer-video-error-template')[0].innerHTML;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            sRenderedErrorTemplate = mustache.render(mediaPlayer.sErrorTemplate, oErrorData);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (errorType !== '00DUP') {</span>
+<span class="cstat-no" title="statement not covered" >                if ($('span.ajax-loader').length) {</span>
+<span class="cstat-no" title="statement not covered" >                    $('span.ajax-loader').remove();</span>
+                }
+<span class="cstat-no" title="statement not covered" >                $('#s7container').append(sRenderedErrorTemplate);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (!mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                    $('.videoPosition').animate({</span>
+                        opacity: 1
+                    }, mediaPlayer.fadeInSpeed);
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            $('li a', $('#breadcrumb')).each(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                var text = $.trim($(this).text());</span>
+<span class="cstat-no" title="statement not covered" >                breadCrumbText.push(text);</span>
+            });
+<span class="cstat-no" title="statement not covered" >            if (breadCrumbText[1]) {</span>
+<span class="cstat-no" title="statement not covered" >                v.prop1 = breadCrumbText[1];</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (breadCrumbText[2]) {</span>
+<span class="cstat-no" title="statement not covered" >                v.prop2 = breadCrumbText[2];</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (breadCrumbText[3]) {</span>
+<span class="cstat-no" title="statement not covered" >                v.prop3 = breadCrumbText[3];</span>
+            }
+<span class="cstat-no" title="statement not covered" >            breadCrumbText.length = 0; </span>// empty array.
+<span class="cstat-no" title="statement not covered" >            v.eVar56 = deviceSpecifications.os;</span>
+<span class="cstat-no" title="statement not covered" >            v.prop23 = deviceSpecifications.os;</span>
+<span class="cstat-no" title="statement not covered" >            if (window.refEvar22 !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                v.eVar22 = window.refEvar22;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (window.refEvar24 !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                v.eVar24 = window.refEvar24;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            v.prop19 = 'Video Tab';</span>
+<span class="cstat-no" title="statement not covered" >            v.events = 'event41';</span>
+<span class="cstat-no" title="statement not covered" >            v.eVar48 = errorType;</span>
+<span class="cstat-no" title="statement not covered" >            _oWebAnalytics.submit([v]);</span>
+        },
+&nbsp;
+        videoRender: <span class="fstat-no" title="function not covered" >function (playerType, updatedMediaSrc, itemIndex) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var templateType = playerType,</span>
+                templateId,
+                mediaIndex = itemIndex,
+                loadingIcon = $('span.ajax-loader'),
+                vidOb = {
+                    url: updatedMediaSrc,
+                    index: mediaIndex,
+                    width: 100,
+                    flashLocation: window.globalStaticAssetsPath
+                },
+                htmlTemplate,
+                videoPlayerCont,
+                fnAppendVideoPlayer = <span class="fstat-no" title="function not covered" >function fnAppendVideoPlayer() {</span>
+<span class="cstat-no" title="statement not covered" >                    $('#s7container').append(mediaPlayer.$videoViewContainer);</span>
+<span class="cstat-no" title="statement not covered" >                    if (templateType === 'html5') {</span>
+<span class="cstat-no" title="statement not covered" >                        if (mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                            mediaPlayer.videoPlayers.push(new BasicVideoPlayer(mediaPlayer.$videoContainer, mediaPlayer.oBasicVideoPlayerOpts));</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            mediaPlayer.videoPlayers.push(new BasicVideoPlayer(mediaPlayer.$videoContainer));</span>
+                        }
+<span class="cstat-no" title="statement not covered" >                        $('.videoPosition').addClass('html5-player');</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (!mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                        $('.videoPosition').addClass('fade-in-video');</span>
+                    }
+                };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.currentIndex = mediaIndex;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                if (templateType === 'flash') {</span>
+<span class="cstat-no" title="statement not covered" >                    templateId = '#flash-video-viewer-template';</span>
+                } else <span class="cstat-no" title="statement not covered" >if (templateType === 'html5') {</span>
+<span class="cstat-no" title="statement not covered" >                    templateId = '#html5-video-viewer-template';</span>
+                }
+            } else {
+<span class="cstat-no" title="statement not covered" >                if (templateType === 'flash') {</span>
+<span class="cstat-no" title="statement not covered" >                    templateId = '#flash-video-template';</span>
+                } else <span class="cstat-no" title="statement not covered" >if (templateType === 'html5') {</span>
+<span class="cstat-no" title="statement not covered" >                    templateId = '#html5-video-template';</span>
+                }
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            htmlTemplate = $(templateId).html();</span>
+<span class="cstat-no" title="statement not covered" >            videoPlayerCont = mustache.render(htmlTemplate, vidOb);</span>
+<span class="cstat-no" title="statement not covered" >            mediaPlayer.$videoContainer.html(videoPlayerCont);</span>
+<span class="cstat-no" title="statement not covered" >            mediaPlayer.$videoViewContainer.append(mediaPlayer.$videoContainer);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (loadingIcon.length) {</span>
+<span class="cstat-no" title="statement not covered" >                loadingIcon.fadeOut('normal', <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    loadingIcon.remove();</span>
+<span class="cstat-no" title="statement not covered" >                    fnAppendVideoPlayer();</span>
+                });
+            } else {
+<span class="cstat-no" title="statement not covered" >                fnAppendVideoPlayer();</span>
+            }
+        },
+&nbsp;
+        videoUpdate: <span class="fstat-no" title="function not covered" >function (index, oVideos) {</span>
+<span class="cstat-no" title="statement not covered" >            var mediaIndex = index,</span>
+                mediaSrc = $('#prodVideoView .videoPosition').attr('data-url'),
+                updatedMediaSrc,
+                fileType,
+                playerType,
+                loadingIcon = '&lt;span class="ajax-loader" /&gt;';
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (oVideos) {</span>
+<span class="cstat-no" title="statement not covered" >                updatedMediaSrc = oVideos.mediaSrc;</span>
+<span class="cstat-no" title="statement not covered" >                fileType = oVideos.fileType;</span>
+<span class="cstat-no" title="statement not covered" >                playerType = oVideos.playerType;</span>
+            } else {
+<span class="cstat-no" title="statement not covered" >                updatedMediaSrc = window._mediaCollectionUpdated[mediaIndex].url;</span>
+<span class="cstat-no" title="statement not covered" >                fileType = window._mediaCollectionUpdated[mediaIndex].fileType;</span>
+<span class="cstat-no" title="statement not covered" >                playerType = window._mediaCollectionUpdated[mediaIndex].playerType;</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                if (updatedMediaSrc !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >                    if (updatedMediaSrc !== mediaSrc) {</span>
+<span class="cstat-no" title="statement not covered" >                        this.currentIndex = index;</span>
+<span class="cstat-no" title="statement not covered" >                        $('#prodVideoView').remove();</span>
+<span class="cstat-no" title="statement not covered" >                        $('#s7container').append(loadingIcon);</span>
+<span class="cstat-no" title="statement not covered" >                        carouselPositionIndicator.setIndicatorUpdate('video', mediaIndex, 'jump');</span>
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.$videoViewContainer = $('&lt;div/&gt;').attr('id', mediaPlayer.videoViewContId).addClass('videoView');</span>
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.$videoContainer = $('&lt;div/&gt;').addClass('videoContainer').attr('data-fullscreen', 'false');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        if (playerType === 'flash') {</span>
+<span class="cstat-no" title="statement not covered" >                            if (common.isIOS()) {</span>
+<span class="cstat-no" title="statement not covered" >                                mediaPlayer.errorHandler('Sorry this video format cannot be played on your device', mediaIndex); </span>// video does not support iOS
+                            } else {
+<span class="cstat-no" title="statement not covered" >                                mediaPlayer.videoRender('flash', updatedMediaSrc, mediaIndex);</span>
+                            }
+                        } else <span class="cstat-no" title="statement not covered" >if (playerType === 'html5') {</span>
+<span class="cstat-no" title="statement not covered" >                            if (common.isLegacyIe() &amp;&amp; !mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                                mediaPlayer.videoRender('flash', updatedMediaSrc, mediaIndex); </span>// old pdpscene7 player pushes flash player in ie8 and ie9
+                            } else <span class="cstat-no" title="statement not covered" >if (common.isLegacyIe(8) &amp;&amp; mediaPlayer.bMediaViewer) {</span>
+<span class="cstat-no" title="statement not covered" >                                mediaPlayer.videoRender('flash', updatedMediaSrc, mediaIndex); </span>// new pdpscene7 player pushes flash player in ie8
+                            } else {
+<span class="cstat-no" title="statement not covered" >                                if (fileType === 'mp4' &amp;&amp; common.isOpera()) {</span>
+<span class="cstat-no" title="statement not covered" >                                    mediaPlayer.errorHandler('Sorry this video format cannot be played on your device', mediaIndex); </span>// video does not support opera
+                                } else {
+<span class="cstat-no" title="statement not covered" >                                    mediaPlayer.videoRender('html5', updatedMediaSrc, mediaIndex);</span>
+                                }
+                            }
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            mediaPlayer.errorHandler('Sorry this video format cannot be played on your device', mediaIndex); </span>// logic failed to decode player type
+                        }
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.errorHandler("00DUP", mediaIndex); </span>// duplicate video
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" >                    mediaPlayer.errorHandler("Sorry this video format cannot be played on your device", mediaIndex); </span>// no video url
+                }
+            } catch (err) {
+<span class="cstat-no" title="statement not covered" >                mediaPlayer.errorHandler("Sorry this video cannot be played", mediaIndex); </span>// general error
+            }
+        },
+&nbsp;
+        init: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            var fileType = window._mediaCollectionUpdated[mediaPlayer.mediaIndex].fileType,</span>
+                playerType = window._mediaCollectionUpdated[mediaPlayer.mediaIndex].playerType,
+                url = window._mediaCollectionUpdated[mediaPlayer.mediaIndex].url,
+                index = 0;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.$componentContainer = $(this.$componentContainer);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (mediaPlayer.$videoViewContainer === null) {</span>
+<span class="cstat-no" title="statement not covered" >                carouselPositionIndicator.setIndicatorInit('video');</span>
+<span class="cstat-no" title="statement not covered" >                carouselPositionIndicator.setIndicatorReset('video');</span>
+<span class="cstat-no" title="statement not covered" >                mediaPlayer.$videoViewContainer = $('&lt;div/&gt;').attr('id', mediaPlayer.videoViewContId).addClass('videoView');</span>
+<span class="cstat-no" title="statement not covered" >                mediaPlayer.$videoContainer = $('&lt;div/&gt;').addClass('videoContainer');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (playerType === 'flash') {</span>
+<span class="cstat-no" title="statement not covered" >                    if (common.isIOS()) {</span>
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.errorHandler('Sorry this video format cannot be played on your device', index);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.videoRender('flash', url, 0);</span>
+                    }
+                } else <span class="cstat-no" title="statement not covered" >if (playerType === 'html5') {</span>
+<span class="cstat-no" title="statement not covered" >                    if (common.isLegacyIe()) {</span>
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.videoRender('flash', url, 0);</span>
+                    } else {
+<span class="cstat-no" title="statement not covered" >                        if (fileType === 'mp4' &amp;&amp; common.isOpera()) {</span>
+<span class="cstat-no" title="statement not covered" >                            mediaPlayer.errorHandler('Sorry this video format cannot be played on your device', index);</span>
+                        } else {
+<span class="cstat-no" title="statement not covered" >                            mediaPlayer.videoRender('html5', url, 0);</span>
+                        }
+                    }
+                } else {
+<span class="cstat-no" title="statement not covered" >                    mediaPlayer.errorHandler('Sorry this video format cannot be played on your device', index);</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                $(window).resize(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >                    $('.videoContainer').css('opacity', '0');</span>
+                });
+            }
+        },
+&nbsp;
+        getCurrentVideo: <span class="fstat-no" title="function not covered" >function () {</span>
+<span class="cstat-no" title="statement not covered" >            return this.videoPlayers[this.currentIndex];</span>
+        },
+&nbsp;
+        pauseCurrentVideo: <span class="fstat-no" title="function not covered" >function pauseCurrentVideo(bCreateIcon) {</span>
+<span class="cstat-no" title="statement not covered" >            var $currentVideo = $('.videoContainer video');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if ($currentVideo.length) {</span>
+<span class="cstat-no" title="statement not covered" >                $('button.play').removeClass(mediaPlayer.oBasicVideoPlayerOpts.pauseClass);</span>
+<span class="cstat-no" title="statement not covered" >                if (!$currentVideo[0].paused) {</span>
+<span class="cstat-no" title="statement not covered" >                    $currentVideo[0].pause();</span>
+<span class="cstat-no" title="statement not covered" >                    if (bCreateIcon) {</span>
+<span class="cstat-no" title="statement not covered" >                        mediaPlayer.videoPlayers[0].iconHandler('pause', 'create');</span>
+                    }
+                }
+            }
+        }
+    };
+&nbsp;
+    return mediaPlayer;
+});
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Apr 10 2017 10:25:45 GMT+0100 (GMT Daylight Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

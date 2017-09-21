@@ -1,0 +1,371 @@
+// Scaffolding
+// Basic and global styles for generating a grid system, structural layout, and page templates
+// -------------------------------------------------------------------------------------------
+
+// Updates for SASS:
+//  - replace @ with $
+
+// Body reset
+// ----------
+
+body {
+  margin: 0;
+  font-family: $baseFontFamily;
+  font-size: 75%;
+  line-height: $baseLineHeight;
+  color: $textColor;
+  background-color: $bodyBackground;
+}
+
+
+// Links
+// -----
+
+a {
+  color: $linkColor;
+  text-decoration: none;
+}
+a:hover {
+  color: $linkColorHover;
+  text-decoration: underline;
+}
+
+
+// Page
+// -----
+
+#page {
+  width: 950px;
+  margin: 0 auto;
+  padding: 10px 0 0 10px;
+  background: #ffffff;
+}
+
+
+// Header
+// -----
+
+#header {
+  @include clearfix();
+  padding-bottom: 20px;
+  
+  #branding {
+    float: left;
+  }
+  
+  .nav-micro {
+    float: right;
+    margin-right: 10px;
+    
+    // Website Feedback link wraps in IE8
+    // because of max-width being set on img
+    img {
+      vertical-align: baseline;
+      max-width: none;
+    }
+  }
+}
+
+
+// Content
+// -----
+
+#content {
+  @include clearfix();
+  padding-bottom: 20px;
+}
+
+
+/*
+  Guttering should NOT occur on the content
+  All guttering and alignment should take place on the main div or
+  elements inside the main
+*/
+
+.primary-content,
+.seconday-content,
+.tertiary-content {
+  float:left;
+}
+
+/* One column */
+.layout-a .primary-content {
+  width:950px;
+}
+.layout-a .application-content {
+  width: 920px;
+  margin-left:10px;
+}
+.layout-a .application-content.content-expanded {
+  width: 940px;
+  margin-left:0;
+}
+.layout-a .application-content.content-expanded-right {
+  width: 930px;
+}
+
+/* Two column with product nav on left */
+.layout-b .primary-content {
+  width: 760px;
+}
+.layout-b .secondary-content {
+  width:170px;
+  margin-right: 20px;
+}
+.layout-b .application-content {
+  width: 750px;
+}
+
+/* Two column with summary payment/basket on right */
+.layout-c .primary-content {
+  width:645px;
+  margin-right:20px;
+}
+.layout-c .secondary-content {
+  width:275px;
+  margin-right: 10px;
+}
+.layout-c .application-content {
+  margin-left:10px;
+}
+.layout-c .application-content.basket-attachment {
+  margin-left:0px;
+}
+
+/* Three column - 1 col / 2.5 col / 1.5 col */
+#page .layout-d .kb-header {
+  width:auto;
+  margin:0
+}
+.layout-d .primary-content {
+  width:455px;
+  margin-right:20px;
+}
+.layout-d .secondary-content {
+  width:275px;
+  margin-right: 10px;
+}
+.layout-d .tertiary-content {
+  width:170px;
+  margin-right: 20px;
+}
+.layout-d .tertiary-content-header {
+  width:750px;
+  margin: 0px;
+}
+
+.two-column .primary-content {
+  margin: 0 10px 0 0;
+}
+.two-column-summary .primary-content {
+  width: 645px;
+  float: left;
+  position: relative;
+  display: block;
+  margin: 0 20px 0 0;
+}
+.secondary-content {
+  float:left;
+  width:275px;
+}
+
+
+// Footer
+// -----
+
+#footer,
+#footer-mini {
+  @include clearfix();
+  position: relative;
+  margin-left: -10px;
+}
+
+#footer {
+  color: #848282;
+  background-color: $greyDark;
+}
+
+#footer h2 {
+  margin-bottom:5px;
+  font-size:1.4em;
+  float: left;
+  color:#d4d4d4;
+}
+
+#footer a {
+  color: #cfcfcf;
+}
+
+#footer .external {
+  background: url(../images/external_link_footer.png) no-repeat right;
+  padding: 0 20px 0 0;
+}
+
+#footer-branding {
+  float: left;
+  display: block;
+  width: 170px;
+  margin: 17px 10px 0 10px;
+}
+
+#footer-branding img {
+  float: left;
+  display: block;
+  height: 29px;
+  width: 100px;
+  margin: 0 0 0 10px;
+}
+
+#footer-secondarynav {
+  float:left;
+  margin: 17px 0 15px 0;
+}
+
+#footer-secondarynav li ul {
+  width: 168px;
+  float: left;
+  clear: both;
+}
+
+#footer-secondarynav li {
+  float: left;
+  margin: 0 0 0 10px;
+  padding: 0 0 0 12px;
+}
+
+#footer-secondarynav li li {
+  margin: 0;
+  padding: 0;
+  float: none;
+  font-size:1.1em;
+  text-indent:1px;
+}
+
+#footer-secondarynav li li a {
+  line-height: 1.4;
+}
+
+#footer-secondarynav li li a:hover {
+  color: #DDD7D7;
+}
+
+#footer-secondarynav .extension {
+  width: 180px;
+  margin: 32px 0 0 10px;
+  padding: 0;
+}
+
+#footer-colophon {
+  float: left;
+  width: 960px;
+  height: 52px;
+  margin: 0;
+  background: url(../images/footer_separator.png) top no-repeat;
+}
+
+#footer-payment {
+  float: left;
+  height: 35px;
+  margin: 8px 0 0 10px;
+  padding-left: 0;
+  list-style: none;
+}
+
+#footer-payment li {
+  float: left;
+  margin: 6px 0 0 3px;
+}
+
+#footer-payment .first {
+  margin: 6px 0 0 0;
+}
+
+#footer-payment .verisign {
+  margin: 2px 0 0 3px;
+}
+
+#footer-payment .last{
+  margin: 6px 0 0 3px;
+}
+#footer-payment li a{
+  background: url(../images/footer/footer_credit_card.png) no-repeat;
+  display:block;
+  text-indent:-9999em;
+  height:24px;
+  cursor:default;
+}
+#footer-payment li a.card_visa{
+  background-position:0 0;
+  width:49px; 
+}
+#footer-payment li a.card_master{
+  background-position:0 -30px;
+  width:44px; 
+}
+#footer-payment li a.card_amex{
+  background-position:0 -60px;
+  width:39px; 
+}
+#footer-payment li a.card_maestro{
+  background-position:0 -90px;
+  width:44px; 
+}
+#footer-payment li a.card_tesco{
+  background-position:0 -120px;
+  width:49px; 
+}
+#footer-payment li a.card_verisign{
+  background-position:0 -150px;
+  width:58px; 
+  height:29px;
+  cursor:pointer;
+}
+#footer-payment li a.card_verified{
+  background-position:0 -185px;
+  width:55px;
+  height: 24px; 
+}
+#footer-payment li a.card_securecode{
+  background-position:0 -215px;
+  width:69px;
+  height: 24px; 
+}
+#siteinfo-legal {
+  float: left;
+  margin: 20px 0 0 20px;
+}
+
+#footer-colophon p#siteinfo-legal {
+  color: $greyLight;
+  font-family: arial;
+  font-size: 11px;
+}
+
+#footer-branding-tagline {
+  float: right;
+  width: 165px;
+  height: 30px;
+  margin: 14px 14px 0 0;
+}
+
+#footer-mini #footer-colophon {
+  background-image: none;
+  background-color: $greyDark;
+  color: #848282; 
+}
+
+.footer-wrapper {
+  background: $greyDark;
+}
+
+
+//secure checkout message
+#secure-footer {
+	clear: both;
+	padding: 20px 10px 0 0;
+	.checkout-secure {
+		margin: 0;
+		padding-left: 24px;
+		background: url(../images/padlock.png) no-repeat 5px 0;
+	}
+}

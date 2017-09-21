@@ -1,0 +1,162 @@
+/*******************************************
+*	Manage Stock Alerts : All
+*******************************************/
+
+@import "../variables";
+@import "manage-stock-alerts-mixins";
+
+.manage-stock-alerts {
+	margin: 0 8px;
+
+	p {
+		color: #3E3E3F;
+		font-size: 1.4em;
+		margin:0;
+	}
+
+	>h2 {
+		margin-bottom: 30px;
+		margin-top: 16px;
+	}
+
+	.stock-alert-block {
+		&:after {
+			@include clear-fix;
+		}
+		@include boxAndShadow;
+		border-top: 4px solid #3E3E40;
+		margin-bottom: 20px;
+		padding: 2.1186% 3.1779% 1.5889%;
+
+		.thumbnail {
+			display: block;
+			float: left;
+			text-align: center;
+			width: 165px;
+
+			img {
+				height: auto;
+				max-width: 100%;
+			}
+
+		}
+
+		.product-details {
+			width: 40%;
+			float: left;
+			margin-left: 8px;
+
+			h3 {
+				font-size: 1.6em;
+				font-weight: normal;
+			}
+
+			span.review {
+				font-size: 1.2em;
+			}
+
+			ul.features {
+				font-size: 1.4em;
+				list-style-type: disc;
+				margin: 15px 0 0 15px;
+
+				li {
+					padding-bottom: 5px;
+				}
+			}
+		}
+
+		.price-details {
+			float: right;
+			margin-left: 8px;
+			width: 30%;
+
+			h3 {
+				@include tescoRegular;
+				font-size: 1.8em;
+				font-weight: normal;
+			}
+
+			p {
+				margin: 0 0 5px 0;
+			}
+
+			.current-price {
+				@include tescoBold;
+				font-weight: bold;
+				font-size: 2.4em;
+				line-height: 1em;
+			}
+
+			.old-price {
+				font-size: 1.4em;
+				del, span {
+					display: inline;
+					color: #848282;
+				}
+				.saving {
+					text-decoration: none;
+					color: #ee1c2e;
+					display: block;
+				}
+			}
+
+
+			.stock-tag {
+				padding: 2px 12px;
+				font-size: 1.2em;
+				border: 1px solid #05ae20;
+				background: #fff;
+				color: #05ae20;
+				display: inline-block;
+				margin-bottom: 8px;
+
+				@include border-radius(5px);
+
+				&.low-stock {
+					border: 1px solid #f26322;
+					color: #f26322;
+				}
+
+				&.no-stock {
+					border: 1px solid #ee1c2e;
+					color: #ee1c2e;
+				}
+			}
+		}
+
+		.buttons {
+			float: left;
+			margin-top: 10px;
+			width: 100%;
+
+			.tertiary-button {
+				@include border-radius(3px);
+			}
+
+			p {
+				float: left;
+				margin: 18px 0;
+				max-width: 70%;
+			}
+
+			.unsubscribe,
+			.add-to-basket {
+				float: right;
+				width: 30%;
+			}
+
+			.remove {
+				float: left;
+				width: 165px;
+				background: none;
+				border: none;
+				color: $tescoBlue;
+				font-weight: bold;
+			}
+		}
+
+	}
+	/* end : stock-alert-block */
+
+}

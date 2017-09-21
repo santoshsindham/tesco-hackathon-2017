@@ -1,0 +1,24 @@
+/*******************************************
+*	Desktop Customer Review module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(desktop);
+@import "customer-review-mixins";
+
+.customer-review {
+
+    .write-review {
+
+          .button {
+              float: right;
+          }
+    }
+
+    .review-footer {
+
+        .reply {
+            float: right;
+        }
+    }
+}

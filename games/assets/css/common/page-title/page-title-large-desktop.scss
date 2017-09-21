@@ -1,0 +1,42 @@
+/*******************************************
+* Large desktop	page title module
+*******************************************/
+
+@import "../breakpoints";
+@include breakpoint(largeDesktop);
+@import "page-title-mixins";
+
+@include h2-desktop;
+
+h1 {
+	padding-right: 2 * $onecol;
+	margin: 0 0 24px 8px;
+	max-height: 126px;
+	font-size:28px;
+	line-height:36px;
+}
+h2{
+ 	font-size:2.4em;
+ 	line-height:1.25em;
+ 	margin-bottom:6px;
+}
+
+/* For page with no breadcrumb, page-title block is first child*/
+#page-container div:first-child h1 {
+	margin-top: 36px;
+}
+
+#page-container .product-description h1.page-title, .listing h1.page-title {
+    width: auto;
+    margin: 0 0 8px 8px;
+    line-height:1.5em;
+	clear:left;                
+}
+
+// START remove strong inheritance
+#page-container div:first-child h1 {
+    &.page-title--v2 {
+        margin: 0;
+    }
+}
+// END remove strong inheritance
