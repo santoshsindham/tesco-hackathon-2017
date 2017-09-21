@@ -1,4 +1,5 @@
 com/tescoplay/service/Game.class
+com/tescoplay/service/TescoPlayGetGameResponse.class
 com/tescoplay/service/CustomerPoints.class
 com/tescoplay/service/ConnectionBuilder.class
 com/tescoplay/service/Application$1.class

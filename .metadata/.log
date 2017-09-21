@@ -426,3 +426,18 @@ org.eclipse.equinox.p2.core.ProvisionException: No repository found at http://do
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2017-09-20 22:47:20.903
 !MESSAGE No repository found at http://download.eclipse.org/m2e-wtp/milestones/neon/.
+
+!ENTRY org.eclipse.jdt.launching 4 113 2017-09-21 12:59:12.144
+!MESSAGE Failed to connect to remote VM. Connection timed out.
+!STACK 0
+org.eclipse.jdi.TimeoutException
+	at org.eclipse.jdi.internal.connect.SocketTransportService.attach(SocketTransportService.java:163)
+	at org.eclipse.jdi.internal.connect.SocketTransportImpl.attach(SocketTransportImpl.java:46)
+	at org.eclipse.jdi.internal.connect.SocketAttachingConnectorImpl.attach(SocketAttachingConnectorImpl.java:136)
+	at org.eclipse.jdt.internal.launching.SocketAttachConnector.connect(SocketAttachConnector.java:144)
+	at org.eclipse.jdt.internal.launching.JavaRemoteApplicationLaunchConfigurationDelegate.launch(JavaRemoteApplicationLaunchConfigurationDelegate.java:85)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:885)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:739)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1039)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1256)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)

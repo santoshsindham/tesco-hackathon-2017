@@ -1,0 +1,36 @@
+package com.tescoplay.service;
+
+public class TescoPlayGetGameResponse {
+	
+	private String url;
+	
+	private String promotionId;
+	
+	private String gameId;
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getPromotionId() {
+		return promotionId;
+	}
+
+	public void setPromotionId(String promotionId) {
+		this.promotionId = promotionId;
+	}
+
+	public String getGameId() {
+		return gameId;
+	}
+
+	public void setGameId(String gameId) {
+		this.gameId = gameId;
+	}
+	
+
+}

@@ -11,7 +11,7 @@ public class Promotion {
 	
 	private String calType;
 	
-	private String factor;
+	private long factor;
 
 	public String getPromotionId() {
 		return promotionId;
@@ -45,14 +45,14 @@ public class Promotion {
 		this.calType = calType;
 	}
 
-	public String getFactor() {
+	public long getFactor() {
 		return factor;
 	}
 
-	public void setFactor(String factor) {
+	public void setFactor(long factor) {
 		this.factor = factor;
 	}
-	
+
 	
 
 }

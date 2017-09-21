@@ -5,6 +5,7 @@
 /Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/TescoPlayRequest.java
 /Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/TescoPlayService.java
 /Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/TescoPlayGameRequest.java
+/Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/TescoPlayGetGameResponse.java
 /Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/CustomerPoints.java
 /Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/TescoPlayGameResponse.java
 /Users/no97/Documents/tescoplay/tescoplay-service/src/main/java/com/tescoplay/service/ConnectionBuilder.java

@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.couchbase.client.java.Bucket;
@@ -162,6 +163,33 @@ public class TescoPlayController {
 			String jsonStr = mapper.writeValueAsString(tescoPlayGameReq);
 			
 		  playResponse = TescoPlayService.createGame(jsonStr, bucket);
+			
+			
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if(playResponse.isSuccess()){
+			
+			return new ResponseEntity(playResponse, HttpStatus.OK);
+			
+		}else{
+			return new ResponseEntity(playResponse, HttpStatus.OK);
+		}
+	}
+	
+	@RequestMapping("/getGame")
+	public ResponseEntity handleGetGame(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		TescoPlayGetGameResponse playResponse = null;
+		
+		try {
+			
+		  playResponse = TescoPlayService.getGame(bucket);
 			
 			
 		} catch (JsonProcessingException e) {

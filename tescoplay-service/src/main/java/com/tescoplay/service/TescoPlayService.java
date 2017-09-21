@@ -1,7 +1,13 @@
 package com.tescoplay.service;
 
+import java.util.List;
+
 import com.couchbase.client.java.Bucket;
 import com.couchbase.client.java.document.RawJsonDocument;
+import com.couchbase.client.java.document.json.JsonObject;
+import com.couchbase.client.java.query.N1qlQuery;
+import com.couchbase.client.java.query.N1qlQueryResult;
+import com.couchbase.client.java.query.N1qlQueryRow;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -58,6 +64,26 @@ public class TescoPlayService {
 		
 	}
 	
+	public static Promotion getPromotionDetails(String promoId, Bucket bucket) throws Exception {
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		ObjectReader objectReader = mapper.readerFor(Promotion.class);
+		
+		RawJsonDocument jsonDocument = bucket.get(promoId, RawJsonDocument.class);
+		
+		
+		if(jsonDocument == null){
+			return null;
+		}
+		
+		Promotion promotion = objectReader.readValue(jsonDocument.content().toString());
+	
+		return promotion;
+		
+		
+	}
+	
 	public static TescoPlayResponse applyScore(String jsonString, Bucket bucket) throws Exception {
 		
 		TescoPlayResponse playResponse = new TescoPlayResponse();
@@ -81,8 +107,21 @@ public class TescoPlayService {
 			return playResponse;
 		}
 		
-		long finalPoints = customerPoints.getPoints() +  tescoPlayRequest.getScore();
-
+		Promotion promotionDetails = getPromotionDetails(tescoPlayRequest.getPromoId(), bucket);
+		
+		if(promotionDetails == null){
+			
+			playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
+			playResponse.setSuccess(false);
+			playResponse.setErrorDesc("promotion not applied");
+			
+			return playResponse;
+		}
+		
+		if(promotionDetails.getPromotionType().equals("points")){
+			
+			long finalPoints = customerPoints.getPoints() +  tescoPlayRequest.getScore() * promotionDetails.getFactor();
+			
 			customerPoints.setPoints(finalPoints);
 
 			String updatedJsonString = objectWriter.writeValueAsString(customerPoints);
@@ -95,15 +134,22 @@ public class TescoPlayService {
 				playResponse.setSuccess(false);
 				playResponse.setErrorDesc("unable to apply score");
 				
-				return playResponse;
+				
 			}
 			
 			playResponse.setCustomerId(tescoPlayRequest.getCustomerId());
 			playResponse.setSuccess(true);
 			playResponse.setErrorDesc("successfully applied score to customer");
-			playResponse.setAddedPoints(tescoPlayRequest.getScore());
+			playResponse.setAddedPoints(tescoPlayRequest.getScore() * promotionDetails.getFactor() );
 			playResponse.setPoints(finalPoints);
 			return playResponse;
+			
+		}else if(promotionDetails.getPromotionType().equals("voucher")){
+			
+		}
+		
+		
+		return playResponse;
 			
 
 	}
@@ -232,18 +278,64 @@ public static TescoPlayGameResponse createGame(String jsonString, Bucket bucket)
 	RawJsonDocument jsonDocumentCreated = bucket.upsert(jsonDocument);
 	
 	if(jsonDocumentCreated == null){
-		playGameResponse.setGameId(tescoPlayGameReq.getPromotionId());
+		playGameResponse.setGameId(tescoPlayGameReq.getGameId());
 		playGameResponse.setSuccess(false);
 		playGameResponse.setDesc("unable to create game");
 		
 		return playGameResponse;
 	}
 	
-	playGameResponse.setGameId(tescoPlayGameReq.getPromotionId());
+	playGameResponse.setGameId(tescoPlayGameReq.getGameId());
 	playGameResponse.setSuccess(true);
-	playGameResponse.setDesc("promotion created successfully");
+	playGameResponse.setDesc("game created successfully");
 	
 	return playGameResponse;
+		
+
+}
+
+public static TescoPlayGetGameResponse getGame(Bucket bucket) throws Exception {
+	
+	TescoPlayGetGameResponse playGetGameResponse = new TescoPlayGetGameResponse();
+	
+	N1qlQueryResult result = bucket.query(N1qlQuery.simple("select * from tescoplay where type = 'game' and enabled = true"));
+
+	if (result == null || !result.finalSuccess()) {
+		System.out.println("null result");
+		return null;
+	}
+
+	List<N1qlQueryRow> allGames =  result.allRows();
+	
+	JsonObject resultJson = null;
+	
+	JsonObject finalJson = null;
+	
+	for(N1qlQueryRow row : allGames){
+		
+		resultJson = row.value().getObject("tescoplay");
+		
+		if(resultJson.getBoolean("enabled")){
+			
+			finalJson = resultJson;
+			break;
+		}
+		
+	}
+	if(finalJson!=null){
+		
+		playGetGameResponse.setGameId(finalJson.getString("gameId"));
+		playGetGameResponse.setPromotionId(finalJson.getString("promoId"));
+		playGetGameResponse.setUrl(finalJson.getString("url"));
+		playGetGameResponse.setSuccess(true);
+		playGetGameResponse.setDesc("enabled game found");
+		
+	}else{
+		
+		playGetGameResponse.setSuccess(false);
+		playGetGameResponse.setDesc("enabled game not found or no games found");
+	}
+	return playGetGameResponse;
 		
 
 }

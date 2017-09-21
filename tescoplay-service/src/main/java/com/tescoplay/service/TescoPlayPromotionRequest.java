@@ -8,7 +8,7 @@ public class TescoPlayPromotionRequest {
 	
 	private String calType;
 	
-	private String factor;
+	private long factor;
 
 	public String getPromotionId() {
 		return promotionId;
@@ -34,13 +34,15 @@ public class TescoPlayPromotionRequest {
 		this.calType = calType;
 	}
 
-	public String getFactor() {
+	public long getFactor() {
 		return factor;
 	}
 
-	public void setFactor(String factor) {
+	public void setFactor(long factor) {
 		this.factor = factor;
 	}
+
+	
 
 	
 
