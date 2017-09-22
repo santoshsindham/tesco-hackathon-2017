@@ -21,9 +21,15 @@ public class GamesController {
     }
 
     @RequestMapping("/gaastictactoe")
-    public String hostedgame(@RequestParam(value="name", required=false, defaultValue="game1") String name, Model model) {
+    public String gaastictactoe(@RequestParam(value="name", required=false, defaultValue="game1") String name, Model model) {
         model.addAttribute("name", name);
         return "gaastictactoe";
+    }
+
+    @RequestMapping("/gaassnake")
+    public String gaassnake(@RequestParam(value="name", required=false, defaultValue="game1") String name, Model model) {
+        model.addAttribute("name", name);
+        return "gaassnake";
     }
 
 }
