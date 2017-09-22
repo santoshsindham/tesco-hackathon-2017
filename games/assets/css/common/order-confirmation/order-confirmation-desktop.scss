@@ -1,6 +1,0 @@
-//order-confirmation module - desktop
-@import "../breakpoints";
-@include breakpoint(desktop);
-@import "order-confirmation-mixins";
-
-@include order-confirmation-desktop;

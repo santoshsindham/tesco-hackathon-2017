@@ -1,9 +1,0 @@
-<% if (leaveWithNeighbour) { %> 
-<span class="ciList leaveWithNeigh" data-ciText="<%= courierInstructions %>"><%= courierInstructions %></span>
-    <div class="leaveWithNeighContent"><textarea class="ciTextArea" rows="5" placeholder="Please tell us your neighbour house number and any further instructions" maxlength="150" placeholder="Enter your personal message here"><%= leaveWithNeighbourText %></textarea> 
-	<span class="lwnError error">Enter instructions for leaving with neighbour</span>
-    <a class="secondary-button selectcourierInstructionsBtn" href="#" <%= status %>>Select</a> </div>
-<% } else { %>
-<span class="ciList" data-ciText="<%= courierInstructions %>"><%= courierInstructions %></span>
-  <a class="secondary-button selectcourierInstructionsBtn" href="#" <%= status %>>Select</a>
-<% } %>

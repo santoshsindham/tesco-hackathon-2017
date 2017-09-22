@@ -1,7 +1,0 @@
-/*******************************************
-*	Large Desktop virtual page module
-*******************************************/
-
-@import "../../components/breakpoints";
-@include breakpoint(largeDesktop);
-@import "../mixins/virtual-page-mixins";

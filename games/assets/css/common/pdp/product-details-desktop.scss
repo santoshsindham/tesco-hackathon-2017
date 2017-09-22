@@ -1,8 +1,0 @@
-@import "product-details-mixins";
-@import "product-details-overrides";
-@include productDetailsStylesDesktop;
-@include viewportGridGenerator(desktop);
-@include viewportGridOffsetGenerator(desktop);
-@include viewportFloatGenerator(desktop);
-@include viewportHideGenerator(desktop);
-@include productDetailsOverridesDesktop;

@@ -1,7 +1,0 @@
-/*******************************************
-*	Kiosk virtual page module
-*******************************************/
-
-@import "../breakpoints";
-@include breakpoint(kiosk);
-@import "virtual-page-mixins";

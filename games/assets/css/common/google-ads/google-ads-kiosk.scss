@@ -1,7 +1,0 @@
-@import "../breakpoints";
-@include breakpoint(kiosk);
-@import "google-ads-mixins";
-
-.google-ads-block {
-	display: none;
-}

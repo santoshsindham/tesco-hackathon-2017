@@ -1,8 +1,0 @@
-//top-banner module - mobile
-@import "../breakpoints";
-@include breakpoint(mobile);
-@import "top-banner-mixins";
-
-.top-banner {
-	display: none;
-}

@@ -1,8 +1,0 @@
-/*******************************************
-*	Kiosk Integrated Registration module
-*******************************************/
-
-@import "../breakpoints";
-@include breakpoint(kiosk);
-@import "integrated-registration-mixins";
-

@@ -1,7 +1,0 @@
-/*******************************************
-*	Desktop virtual page module
-*******************************************/
-
-@import "../../components/breakpoints";
-@include breakpoint(desktop);
-@import "../mixins/virtual-page-mixins";

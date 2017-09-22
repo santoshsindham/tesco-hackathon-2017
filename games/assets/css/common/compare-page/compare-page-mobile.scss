@@ -1,6 +1,0 @@
-//compare-page module - mobile
-@import "../breakpoints";
-@include breakpoint(mobile);
-@import "compare-page-mixins";
-
-@include smallScreen;

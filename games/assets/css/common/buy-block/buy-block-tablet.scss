@@ -1,8 +1,0 @@
-/*******************************************
-* Tablet page title module
-*******************************************/
-
-@import "../breakpoints";
-@include breakpoint(allTablet);
-@import "buy-block-mixins";
-

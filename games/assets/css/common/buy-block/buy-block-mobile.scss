@@ -1,8 +1,0 @@
-/*******************************************
-* Mobile	page title module
-*******************************************/
-
-@import "../breakpoints";
-@include breakpoint(mobile);
-@import "buy-block-mixins";
-

@@ -1,8 +1,0 @@
-@import "../mixins/product-details-mixins";
-@import "../product-details-overrides";
-@include productDetailsStylesMobile;
-@include viewportGridGenerator(mobile);
-@include viewportGridOffsetGenerator(mobile);
-@include viewportFloatGenerator(mobile);
-@include viewportHideGenerator(mobile);
-@include productDetailsOverridesMobile;

@@ -1,7 +1,0 @@
-/*******************************************
-*	Tablet Example module
-*******************************************/
-
-@import "../breakpoints";
-@include breakpoint(kiosk);
-@import "recently-added-mixins";

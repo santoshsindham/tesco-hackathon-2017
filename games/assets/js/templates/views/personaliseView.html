@@ -1,9 +1,0 @@
-<div id="{{sViewId}}" class="{{sViewClass}} {{sClassNames}}">
-  {{^state.isPersonalised}}
-    <button type="button" class="button primary personalise-button"><span>Personalise me</span></button>
-  {{/state.isPersonalised}}
-  {{#state.isPersonalised}}
-    <a class="edit-personalise-link"><small>Edit personalisation</small></a>
-  {{/state.isPersonalised}}
-  {{{oEvent}}}{{{addViewDataAttr}}}
-</div>

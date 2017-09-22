@@ -1,7 +1,0 @@
-/*******************************************
-*	Tablet Example module
-*******************************************/
-
-@import "../breakpoints";
-@include breakpoint(allTablet);
-@import "example-mixins";
