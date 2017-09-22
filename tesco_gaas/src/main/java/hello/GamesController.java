@@ -14,4 +14,10 @@ public class GamesController {
         return "game";
     }
 
+    @RequestMapping("/tictactoe")
+    public String hostedgame(@RequestParam(value="name", required=false, defaultValue="game1") String name, Model model) {
+        model.addAttribute("name", name);
+        return "tictactoe";
+    }
+
 }
